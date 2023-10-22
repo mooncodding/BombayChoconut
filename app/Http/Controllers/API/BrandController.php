@@ -13,6 +13,7 @@ class BrandController extends Controller
     public function __construct(){
         $this->middleware(['auth', 'permission:brands']);
     }
+    
     /**
      * Display a listing of the resource.
      *

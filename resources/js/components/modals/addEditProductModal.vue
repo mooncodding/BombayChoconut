@@ -1,0 +1,473 @@
+<template>
+  <div>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="addEditProductModal"
+      product="dialog"
+      aria-labelledby="addEditProductModalLabel"
+      aria-hidden="true" data-keyboard="false" data-backdrop="static"
+    >
+      <div class="modal-dialog modal-dialog-centered modalLarge" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5
+              class="modal-title"
+              id="addEditProductModalLabel"
+              v-if="editMode === false"
+            >
+              {{ $t("message.CREATE_PRODUCT") }}
+            </h5>
+            <h5 class="modal-title" id="addEditProductModalLabel" v-else>
+              {{ $t("message.EDIT_PRODUCT") }}
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form @submit.prevent="editMode ? editProduct() : addProduct()">
+            <input type="hidden" name="_token" :value="csrf" />
+            <div class="modal-body">
+
+              <!-- Code -->
+              <div class="form-group">
+                <label
+                  >{{ $t("message.CODE")
+                  }}<span class="required-star">*</span></label
+                >
+                <input
+                  v-model="form.code"
+                  v-bind:placeholder="$t('message.CODE')"
+                  type="text"
+                  name="code"
+                  class="form-control"
+                  :class="{ 'is-invalid': form.errors.has('code') }"
+                />
+                <div
+                  class="error-message"
+                  v-if="form.errors.has('code')"
+                  v-html="form.errors.get('code')"
+                />
+              </div>
+
+              <!-- Name -->
+              <div class="form-group">
+                <label
+                  >{{ $t("message.NAME")
+                  }}<span class="required-star">*</span></label
+                >
+                <input
+                  v-model="form.title"
+                  v-bind:placeholder="$t('message.NAME')"
+                  type="text"
+                  name="title"
+                  class="form-control"
+                  :class="{ 'is-invalid': form.errors.has('title') }"
+                />
+                <div
+                  class="error-message"
+                  v-if="form.errors.has('title')"
+                  v-html="form.errors.get('title')"
+                />
+              </div>
+              <!-- Description -->
+              <div class="form-group">
+                  <label>{{ $t("message.DESCRIPTION") }}<span class="required-star">*</span></label>
+                  <textarea
+                    v-model="form.description"
+                    v-bind:placeholder="$t('message.DESCRIPTION')"
+                    type="text"
+                    name="description"
+                    class="form-control"
+                    :class="{ 'is-invalid': form.errors.has('description') }"
+                  ></textarea>
+                  <div
+                    class="error-message"
+                    v-if="form.errors.has('description')"
+                    v-html="form.errors.get('description')"
+                  />
+                </div>
+              <!-- End -->
+
+              <!-- Retail Price -->
+              <div class="form-group">
+                <label
+                  >{{ $t("message.PRICE")
+                  }}<span class="required-star">*</span></label
+                >
+                <input
+                  v-model="form.price_1"
+                  v-bind:placeholder="$t('message.PRICE')"
+                  type="text"
+                  name="price_1"
+                  class="form-control"
+                  :class="{ 'is-invalid': form.errors.has('price_1') }"
+                />
+                <div
+                  class="error-message"
+                  v-if="form.errors.has('price_1')"
+                  v-html="form.errors.get('price_1')"
+                />
+              </div>
+
+              <!-- Product Flavour Dropdown -->
+              <div class="form-group" >
+                <label>{{$t('message.PRODUCT_FLAVOUR')}}</label>
+                <v-select v-model="form.product_flavour_id" :options="productFlavours"  label="name" :reduce="productFlavour => productFlavour.id" :selectOnTab="true" 
+                  :key="form.product_flavour_id"
+                  :class="{ 'is-invalid': form.errors.has('product_flavour_id') }"
+                  />
+                <div
+                  class="error-message"
+                  v-if="form.errors.has('product_flavour_id')"
+                  v-html="form.errors.get('product_flavour_id')"
+                />
+              </div>
+
+              <!-- Parent Category Dropdown -->
+              <div class="form-group">
+                <label>{{$t('message.PRODUCT_CATEGORY')}}<span class="required-star">*</span></label>
+                <v-select v-model="form.product_category_id" :options="categories"  label="name" :reduce="category => category.id"                :selectOnTab="true" 
+                  :key="form.product_category_id"
+                  :class="{ 'is-invalid': form.errors.has('product_category_id') }"
+                  />
+                <div
+                  class="error-message"
+                  v-if="form.errors.has('product_category_id')"
+                  v-html="form.errors.get('product_category_id')"
+                />
+              </div>
+              
+               <!-- Disable Checkbox -->
+              <div class="form-group">
+                <label>{{ $t("message.IS_DISABLED") }}</label>
+                <input
+                  type="checkbox"
+                  true-value="1"
+                  false-value="0"
+                  v-model="form.is_disabled"
+                  name="is_disabled"
+                  class="form-control"
+                />
+              </div>
+              <!-- End -->
+              <!-- Featured Image -->
+              <div class="form-group">
+                <label>{{ $t("message.FEATURED_IMAGE") }}*</label>
+                <span v-if="editMode && form.photo!=null"
+                  ><img
+                    v-bind:src="'images/product-images/' + form.photo"
+                    width="15%"
+                    alt="Banner not found"
+                /></span>
+
+                <input
+                  @change="addPhoto"
+                  type="file"
+                  id="photo"
+                  name="photo"
+                  class="form-control"
+                  :class="{ 'is-invalid': form.errors.has('photo') }"
+                />
+                <div
+                  class="error-message"
+                  v-if="form.errors.has('photo')"
+                  v-html="form.errors.get('photo')"
+                />
+              </div>
+              <!-- End -->
+              <!-- Product Images-->
+              <div class="form-group">
+                <label>{{ $t("message.PRODUCT_IMAGES") }}&nbsp;
+                  <i v-b-tooltip.hover.right title="Les dimensions conseillés sont 1080x1080 - Maximum 05 
+                  images)" class="fa fa-info-circle"></i>
+                </label>
+                <span v-if="editMode"><span v-for="(data, i) in image" :key="i"><img  v-bind:src="'images/product-images/'+data.image" width="10%" alt="">
+                <a  class="btn-cross-icon btn-danger-2 mr-10 mb-40" href='#' v-on:click.stop="deleteProductImages(i, data.id);">
+                <i class="fas fa-times-circle"></i>
+                </a>
+                </span>
+                </span>
+                <div v-if="!editMode">
+                <vue-upload-multiple-image 
+                  v-model="form.image"
+                  @upload-success="uploadImageSuccess"
+                  @before-remove="beforeRemove"
+                  @edit-image="editImage"
+                  idUpload="myIdUpload"
+                  editUpload="myIdEdit"
+                  ></vue-upload-multiple-image>
+                <div
+                  class="error-message"
+                  v-if="form.errors.has('image')"
+                  v-html="form.errors.get('image')"
+                />
+                </div>
+                <div v-else>
+                <vue-upload-multiple-image 
+                  v-model="form.image_copy"
+                  @upload-success="uploadImageSuccess"
+                  @before-remove="beforeRemove"
+                  @edit-image="editImage"
+                  idUpload="myIdUpload"
+                  editUpload="myIdEdit"
+                  ></vue-upload-multiple-image>
+                <div
+                  class="error-message"
+                  v-if="form.errors.has('image_copy')"
+                  v-html="form.errors.get('image_copy')"
+                />
+                </div>
+              </div>
+              <!-- End -->
+            </div>
+            <div class="modal-footer">
+              <button
+                @click.prevent="addProduct"
+                v-if="editMode === false"
+                type="submit"
+                class="btn btn-primary"
+              >
+                {{ $t("message.CREATE_PRODUCT") }}
+              </button>
+              <button
+                @click.prevent="editProduct"
+                v-else
+                type="submit"
+                class="btn btn-primary"
+              >
+                {{ $t("message.EDIT_PRODUCT") }}
+              </button>
+
+              <button type="button" class="btn btn-danger" data-dismiss="modal">
+                {{ $t("message.CLOSE") }}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+import Vue from 'vue';
+import VueUploadMultipleImage from 'vue-upload-multiple-image'
+export default {
+  name: "addEditProductModal",
+  props: ["productData"],
+  data() {
+    return {
+      csrf: document
+        .querySelector('meta[name="csrf-token"]')
+        .getAttribute("content"),
+      products: [],
+      categories: [],
+      productFlavours:[],
+      units: [],
+      brands: [],
+      taxes: [],
+      image:[],
+      editMode: "",
+      // Create a new form instance
+      form: new form({
+        id: "",
+        code: "",
+        product_category_id: "",
+        product_flavour_id: "",
+        title: "",
+        description:"",
+        price_1: "",
+        image: [],
+        image_copy: [],
+        is_disabled: 0,
+      }),
+    };
+  },
+  components: {
+    Vue,
+    VueUploadMultipleImage,
+  },
+  methods: {
+    addProduct() {
+      if (this.is("Super Admin") || this.can("create_product")) {
+        this.$Progress.start();
+        this.form
+          .post("api/products")
+          .then(() => {
+            Fire.$emit("reloadProducts");
+            $("#addEditProductModal").modal("hide");
+            toast.fire({
+              icon: "success",
+              title: this.$t("message.CREATED_MESSAGE_SUCCESS"),
+            });
+            this.$Progress.finish();
+          })
+          .catch((error) => {
+            this.$Progress.fail();
+            toast.fire({
+              icon: "warning",
+              title: this.$t("message.CREATED_MESSAGE_ERROR"),
+            });
+          });
+      } else {
+        swal.fire({
+          text: this.$t("message.UNAUTHORIZED"),
+          icon: "warning",
+        });
+      }
+    },
+    editProduct() {
+      if (this.is("Super Admin") || this.can("edit_product")) {
+        this.$Progress.start();
+        this.form.image = this.image;
+        this.form
+          .put("api/products/" + this.form.id)
+          .then(() => {
+            this.form.image_copy = [];
+            Fire.$emit("reloadProducts");
+            $("#addEditProductModal").modal("hide");
+            toast.fire({
+              icon: "success",
+              title: this.$t("message.EDIT_MESSAGE_SUCCESS"),
+            });
+            this.$Progress.finish();
+          })
+          .catch((error) => {
+            this.$Progress.fail();
+            toast.fire({
+              icon: "warning",
+              title: this.$t("message.EDIT_MESSAGE_ERROR"),
+            });
+          });
+      } else {
+        swal.fire({
+          text: this.$t("message.UNAUTHORIZED"),
+          icon: "warning",
+        });
+      }
+    },
+    // Upload Product images work
+    uploadImageSuccess(formData, index, fileList) {
+      fileList.map((f)=>{
+      })
+      if (this.editMode) {
+        this.form.image_copy = fileList;
+      }else{
+      this.form.image = fileList;
+      }
+    },
+    beforeRemove (index, done, fileList) {
+      var r = confirm("remove image")
+      if (r == true) {
+        done()
+      } else {
+      }
+    },
+    editImage (formData, index, fileList) {
+    },
+    addPhoto(e) {
+      let file = e.target.files[0];
+      let reader = new FileReader();
+      reader.onloadend = () => {
+        this.form.photo = reader.result;
+      };
+      reader.readAsDataURL(file);
+    },
+    //Delete Product Images
+    deleteProductImages(i, id=null) {
+    if (this.is("Super Admin") || this.can("edit_product")){
+      if(this.editMode){
+          swal.fire({
+          text: this.$t("message.DELETE_MESSAGE_REVERT"),
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085D6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: this.$t("message.DELETE_BUTTON_TEXT")
+        }).then(result => {
+          if (result.value) {
+            // Send request to the server
+            if(id!=""){
+              this.form
+              .delete("api/removeProductImages/" + id)
+              .then(() => {
+                this.image.splice(i, 1);
+                swal.fire(
+                  "Deleted!",
+                  this.$t("message.DELETE_MESSAGE_SUCCESS"),
+                  "success"
+                );
+              })
+              .catch(() => {
+                swal(
+                  "Failed!",
+                  this.$t("message.DELETE_MESSAGE_ERROR"),
+                  "warning"
+                );
+              });
+            }else{
+              this.image.splice(i, 1);
+                swal.fire(
+                  "Deleted!",
+                  this.$t("message.DELETE_MESSAGE_SUCCESS"),
+                  "success"
+                );
+            }
+          }
+        });
+      }else{
+        this.image.splice(i, 1);
+      }
+      }else{
+        swal.fire({
+          text: this.$t("message.unAuthorizedText"),
+          type: "warning",
+        })
+      }
+    },
+  },
+  mounted() {
+    var form = this.form;
+    var that = this;
+    $("#addEditProductModal").on("show.bs.modal", function (e) {
+      document.getElementById("photo").value = "";
+      if (e.relatedTarget) {
+        that.editMode = true;
+        form.fill(e.relatedTarget);
+        form.photo = e.relatedTarget.photo;
+        // Manually Fill Images
+        form.image_copy = [];
+        const image = [];
+         Array.from(e.relatedTarget.product_images).forEach(item => {
+            image.push(item);
+        })
+        that.image = image
+      } else {
+        form.reset();
+        that.editMode = false;
+      }
+      //get all Categories
+      axios.get('/api/getCategories')
+        .then((response)=>{
+            that.categories = response.data;
+            //get all Units
+            axios.get('/api/getProductFlavours')
+              .then((response)=>{
+                  that.productFlavours = response.data;
+              })
+        }).catch(() => {
+          that.$Progress.fail();
+          toast.fire({
+          icon: "error",
+          title: that.$t("message.SOMETHING_WENT_WRONG"),
+        });
+      });
+    });
+  },
+};
+</script>

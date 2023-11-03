@@ -144,7 +144,7 @@
                 <!-- Section for headers -->
                 <div class="row" v-if="form.customer_id != ''">
                   <!-- Search products to add  -->
-                  <div class="col-12">
+                  <!-- <div class="col-12">
                     <customAutoComplete
                       ref="autocomplete"
                       :source="products"
@@ -155,7 +155,7 @@
                       @input="addSearchedProducts()"
                     >
                     </customAutoComplete>
-                  </div>
+                  </div> -->
                 </div>
                 <div class="row form-group" v-if="form.customer_id != ''">
                   <div class="col-md-12 col-xs-12 col-xl-3 col-lg-3" align="left">
@@ -534,7 +534,6 @@
 // vuejs auto complete
 import Vue from "vue";
 import autocomplete from "vuejs-auto-complete";
-import customAutoComplete from ".././customAutoComplete.vue";
 export default {
   name: "addEditOrderModal",
   props: ["orderData"],
@@ -640,7 +639,6 @@ export default {
   },
   components: {
     autocomplete,
-    customAutoComplete
   },
   methods: {
     //Product Base Calculation

@@ -166,9 +166,6 @@
           </div>
         </div>
         <!-- /.content -->
-        <viewOrderStatusHistoryModal
-          :orderStatusHistoryData="orderStatusHistoryInfo"
-        ></viewOrderStatusHistoryModal>
         <addEditOrderModal></addEditOrderModal>
         <viewOrderModal :orderData="orderInfo"></viewOrderModal>
       </div>
@@ -191,7 +188,6 @@
 </template>
 
 <script>
-import viewOrderStatusHistoryModal from "./modals/viewOrderStatusHistoryModal.vue";
 import addEditOrderModal from "./modals/addEditOrderModal.vue";
 import viewOrderModal from "./modals/viewOrderModal.vue";
 export default {
@@ -227,7 +223,6 @@ export default {
   },
   components: {
     addEditOrderModal,
-    viewOrderStatusHistoryModal,
     viewOrderModal
   },
   watch: {
@@ -366,11 +361,6 @@ export default {
     viewOrder(order) {
       this.orderInfo = order;
       $("#viewOrderModal").modal("show", order);
-    },
-    //View Order Status History
-    viewOrderStatusHistory(orderStatusHistory) {
-      this.orderStatusHistoryInfo = orderStatusHistory;
-      $("#viewOrderStatusHistoryModal").modal("show", orderStatusHistory);
     },
   },
   created() {

@@ -6,13 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Imports\ImportProduct;
 use App\Models\Product;
 use App\Models\ProductImage;
-use App\Models\ProductView;
-use App\Models\Tax;
-use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Traits\HandleProductDiscountTrait;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
@@ -23,7 +19,6 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    use HandleProductDiscountTrait;
     public function __construct(){
         $this->middleware(['auth', 'permission:products']);
     }
@@ -264,58 +259,6 @@ class ProductController extends Controller
         return response()->json("Record deleted successfully", 200);
     }
     // Product views
-    public function productViews(Request $request)
-    {
-        if(auth()->user()->can('products')){
-            $product = Product::where('id',$request->product_id)->first();
-            if ($product) {
-                $productView = new ProductView();
-                $productView->product_id = $request->product_id;
-                $productView->customer_id = Auth::user()->id;
-                $productView->view_date_time = Carbon::now();
-                $productView->save();
-
-                return response([
-                    'message'=>'Views Has been updated successfully'
-                ]);
-            }else{
-                return response([
-                    'message'=>'Something Went Wrong'
-                ]);
-            }
-        }else{
-            return response()->json("Unauthorized", 401);
-          }
-    }
-    // Search Api For Mobile app
-    public function productSearch(Request $request)
-    {
-        if($request->search !=""){
-            // Declare a global variable with relation orders!
-            $product=Product::with(['createdBy', 'updatedBy', 'productCategory.parentCategory', 'unit','brand', 'tax','productImages']);
-            // Check if there is any search value
-            $product->where(function($query) use($request) {
-                $query->where('name', 'LIKE', '%' . $request->search . '%' )
-                ->orWhere('name_mg', 'LIKE', '%' . $request->search . '%' )
-                ->orWhereHas('productCategory', function($query) use ($request){
-                    $query->where('name', 'LIKE', '%' . $request->search . '%'  )
-                    ->orWhere('name_mg', 'LIKE', '%' . $request->search . '%'  );
-                })
-                ->orWhereHas('brand', function($query) use ($request){
-                    $query->where('name', 'LIKE', '%' . $request->search . '%'  );
-                });
-            });
-            // Get the products
-            $products = $product->get();
-
-            foreach($products as $product)
-            {
-                $product->discount_detail = $this->calculateDiscount($product->id);
-            }
-
-            return $products;
-        }
-    }
     public function import(Request $request)
     {
         $this->validate($request,[

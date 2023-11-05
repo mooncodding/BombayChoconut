@@ -50,7 +50,7 @@
                         v-bind:src="
                           'images/brands/' + brandData.image
                         "
-                        width="15%"
+                        width="50"
                         alt="Photo not found"
                       />
                     </td>

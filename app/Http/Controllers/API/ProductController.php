@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Imports\ImportProduct;
 use App\Models\Product;
 use App\Models\ProductImage;
+use App\Models\ProductVariant;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,14 +31,14 @@ class ProductController extends Controller
             if($request->sortBy=="product_categories.name"){
               $query->orderBy('name', ($request->sortDesc=="true")?"desc":"asc");
             }
-          }, 'productCategory', 'productFlavour','productImages']);
+          }, 'brands','productFlavour','productImages','productVariants']);
         
         //Check if there is any search value
         if($request->search!=""){
-            if ($request->search == "No" || $request->search == "Non") {
+            if ($request->search == "No") {
                 $product->where('is_disabled',0);
             }
-            else if ($request->search == "Yes" || $request->search == "Oui") {
+            else if ($request->search == "Yes") {
                 $product->where('is_disabled',1);
             }
             else
@@ -45,7 +46,6 @@ class ProductController extends Controller
                 $product->where(function($query) use($request) {
                     $query->where( 'title', 'LIKE', '%' . $request->search . '%' )
                     ->orWhere('code', 'LIKE', '%' . $request->search . '%' )
-                    ->orWhere('price_1', 'LIKE', '%' . $request->search . '%' )
                     ->orWhereHas('productCategory', function($query) use ($request){
                         $query->where('name', 'LIKE', '%' . $request->search . '%'  );
                     });
@@ -91,14 +91,15 @@ class ProductController extends Controller
     {
         if(auth()->user()->can('create_product')){
             $this->validate($request, [
-                'title' => 'required|string|max:64',
-                'description' => 'required|string',
-                'price_1'=>'required|regex:/^\d+(\.\d{1,2})?$/|max:64',
+                'code' => 'required',
+                'title' => 'required',
+                'brand_id' => 'required',
                 'product_category_id' => 'required',
                 'product_flavour_id' => 'required',
-                'code' => 'required',
                 'photo'=>'required',
-                'image'=>'nullable'
+                'image'=>'nullable',
+                'is_disabled'=>'nullable',
+                'description' => 'nullable',
             ]);
             // Featured Image Work
             if($request['photo']){
@@ -108,19 +109,18 @@ class ProductController extends Controller
                 $name= null;
             } 
             $product = new Product;
+            $product->code = $request->code;
             $product->title = $request->title;
-            $product->description = $request->description;
-            $product->price_1 = $request->price_1;
-            $product->price_2 = $request->price_1;
-            $product->price_3 = $request->price_1;
-            $product->is_disabled = $request->is_disabled;
+            $product->brand_id = $request->brand_id;
             $product->product_category_id = $request->product_category_id;
             $product->product_flavour_id = $request->product_flavour_id;
-            $product->code = $request->code;
             $product->photo = $name;
+            $product->is_disabled = $request->is_disabled;
+            $product->description = $request->description;
             $product->created_by = Auth::user()->id;
             $product->created_at = Carbon::now();
             $product->save();
+            // Save Product Images
             if (isset($request->image) && $request->image !="") {
                 $images = $request->image;
                 foreach($images as $index => $image) {
@@ -130,6 +130,17 @@ class ProductController extends Controller
                     $productImage->product_id = $product->id;
                     $productImage->image = $name;
                     $productImage->save();
+                }
+            }
+            // Save Product Variants
+            if($product){
+                foreach ($request->product_variants as $item) {
+                    $productVariants = new ProductVariant();
+                    $productVariants->bar_code =  $item['bar_code'];
+                    $productVariants->weight =  $item['weight'];
+                    $productVariants->quantity =  $item['quantity'];
+                    $productVariants->sale_price =  $item['sale_price'];
+                    $productVariants->save();
                 }
             }
             return response()->json("Record created successfully", 200);

@@ -75,43 +75,18 @@
                   v-html="form.errors.get('title')"
                 />
               </div>
-              <!-- Description -->
-              <div class="form-group">
-                  <label>{{ $t("message.DESCRIPTION") }}<span class="required-star">*</span></label>
-                  <textarea
-                    v-model="form.description"
-                    v-bind:placeholder="$t('message.DESCRIPTION')"
-                    type="text"
-                    name="description"
-                    class="form-control"
-                    :class="{ 'is-invalid': form.errors.has('description') }"
-                  ></textarea>
-                  <div
-                    class="error-message"
-                    v-if="form.errors.has('description')"
-                    v-html="form.errors.get('description')"
-                  />
-                </div>
-              <!-- End -->
 
-              <!-- Retail Price -->
-              <div class="form-group">
-                <label
-                  >{{ $t("message.PRICE")
-                  }}<span class="required-star">*</span></label
-                >
-                <input
-                  v-model="form.price_1"
-                  v-bind:placeholder="$t('message.PRICE')"
-                  type="text"
-                  name="price_1"
-                  class="form-control"
-                  :class="{ 'is-invalid': form.errors.has('price_1') }"
-                />
+              <!-- Brands -->
+              <div class="form-group" >
+                <label>{{$t('message.BRANDS')}}</label>
+                <v-select v-model="form.brand_id" :options="brands"  label="name" :reduce="brand => brand.id" :selectOnTab="true" 
+                  :key="form.brand_id"
+                  :class="{ 'is-invalid': form.errors.has('brand_id') }"
+                  />
                 <div
                   class="error-message"
-                  v-if="form.errors.has('price_1')"
-                  v-html="form.errors.get('price_1')"
+                  v-if="form.errors.has('brand_id')"
+                  v-html="form.errors.get('brand_id')"
                 />
               </div>
 
@@ -142,20 +117,126 @@
                   v-html="form.errors.get('product_category_id')"
                 />
               </div>
-              
-               <!-- Disable Checkbox -->
-              <div class="form-group">
-                <label>{{ $t("message.IS_DISABLED") }}</label>
-                <input
-                  type="checkbox"
-                  true-value="1"
-                  false-value="0"
-                  v-model="form.is_disabled"
-                  name="is_disabled"
-                  class="form-control"
-                />
-              </div>
-              <!-- End -->
+                <div class="row">
+                  <div class="col-md-3 col-xs-12 col-xl-3 col-lg-3" align="left">
+                    <label>{{ $t("message.BAR_CODE") }}</label>
+                  </div>
+                  <div class="col-md-3 col-xs-12 col-xl-3" align="left">
+                    <label>{{ $t("message.QUANTITY") }}</label>
+                  </div>
+                  <div class="col-md-3 col-xs-12 col-xl-3" align="left">
+                    <label>{{ $t("message.SALE_PRICE") }}</label>
+                  </div>
+                  <div class="col-md-2 col-xs-12 col-xl-2" align="left">
+                    <label>{{ $t("message.WEIGHT") }}</label>
+                  </div>
+                </div>
+                <!-- Order Details row -->
+                <div
+                  class="row"
+                  v-for="(product_variant, i) in form.product_variants"
+                  :key="i"
+                >
+                  <div class="col-md-3 col-xs-12 col-xl-3 col-lg-3">
+                    <input
+                      v-model="product_variant.bar_code"
+                      v-bind:placeholder="$t('message.BAR_CODE')"
+                      type="text"
+                      name="bar_code"
+                      class="form-control"
+                      :class="{
+                        'is-invalid': form.errors.has(
+                          'product_variants.' + i + '.bar_code'
+                        ),
+                      }"
+                    />
+                    <div
+                      class="error-message"
+                      v-if="
+                        form.errors.has('product_variants.' + i + '.bar_code')
+                      "
+                      v-html="
+                        form.errors.get('product_variants.' + i + '.bar_code')
+                      "
+                    />
+                  </div>
+                  <div class="col-md-3 col-xs-12 col-xl-3">
+                    <input
+                      v-model="product_variant.quantity"
+                      v-bind:placeholder="$t('message.QUANTITY')"
+                      type="text"
+                      name="quantity"
+                      class="form-control"
+                      :class="{
+                        'is-invalid': form.errors.has(
+                          'product_variants.' + i + '.quantity'
+                        ),
+                      }"
+                    />
+                    <div
+                      class="error-message"
+                      v-if="form.errors.has('product_variants.' + i + '.quantity')"
+                      v-html="
+                        form.errors.get('product_variants.' + i + '.quantity')
+                      "
+                    />
+                  </div>
+                  <div class="col-md-3 col-xs-12 col-xl-3">
+                    <input
+                      v-model="product_variant.sale_price"
+                      v-bind:placeholder="$t('message.SALE_PRICE')"
+                      type="text"
+                      name="sale_price"
+                      class="form-control"
+                      :class="{
+                        'is-invalid': form.errors.has(
+                          'product_variants.' + i + '.sale_price'
+                        ),
+                      }"
+                    />
+                    <div
+                      class="error-message"
+                      v-if="form.errors.has('product_variants.' + i + '.sale_price')"
+                      v-html="
+                        form.errors.get('product_variants.' + i + '.sale_price')
+                      "
+                    />
+                  </div>
+                  <div class="col-md-2 col-xs-12 col-xl-2" >
+                    <input
+                      v-model="product_variant.weight"
+                      v-bind:placeholder="$t('message.WEIGHT')"
+                      type="text"
+                      name="weight"
+                      class="form-control"
+                      :class="{
+                        'is-invalid': form.errors.has(
+                          'product_variants.' + i + '.weight'
+                        ),
+                      }"
+                    />
+                    <div
+                      class="error-message"
+                      v-if="form.errors.has('product_variants.' + i + '.weight')"
+                      v-html="
+                        form.errors.get('product_variants.' + i + '.weight')
+                      "
+                    />
+                  </div>
+                  <div
+                    v-if='form.product_variants > 1'
+                    class="col-md-1 col-xs-12 col-xl-1 col-lg-1"
+                  >
+                    <a
+                      class="btn btn-danger text-white"
+                      v-on:click.stop="deleteProductVariant(i, product_variant.id)"
+                      ><i class="fas fa-trash-alt"></i
+                    ></a>
+                  </div>
+                </div>
+                <!-- Order Details row -->
+                <!-- Order Details table -->   
+
               <!-- Featured Image -->
               <div class="form-group">
                 <label>{{ $t("message.FEATURED_IMAGE") }}*</label>
@@ -179,6 +260,37 @@
                   v-if="form.errors.has('photo')"
                   v-html="form.errors.get('photo')"
                 />
+              </div>
+              <!-- End -->
+              <!-- Disable Checkbox -->
+              <div class="form-group">
+                <label>{{ $t("message.IS_DISABLED") }}</label>
+                <input
+                  type="checkbox"
+                  true-value="1"
+                  false-value="0"
+                  v-model="form.is_disabled"
+                  name="is_disabled"
+                  class="form-control"
+                />
+              </div>
+              <!-- End -->
+              <!-- Description -->
+              <div class="form-group">
+                  <label>{{ $t("message.DESCRIPTION") }}<span class="required-star">*</span></label>
+                  <textarea
+                    v-model="form.description"
+                    v-bind:placeholder="$t('message.DESCRIPTION')"
+                    type="text"
+                    name="description"
+                    class="form-control"
+                    :class="{ 'is-invalid': form.errors.has('description') }"
+                  ></textarea>
+                  <div
+                    class="error-message"
+                    v-if="form.errors.has('description')"
+                    v-html="form.errors.get('description')"
+                  />
               </div>
               <!-- End -->
               <!-- Product Images-->
@@ -268,23 +380,22 @@ export default {
       products: [],
       categories: [],
       productFlavours:[],
-      units: [],
       brands: [],
-      taxes: [],
       image:[],
       editMode: "",
       // Create a new form instance
       form: new form({
         id: "",
         code: "",
+        title: "",
+        brand_id:"",
         product_category_id: "",
         product_flavour_id: "",
-        title: "",
-        description:"",
-        price_1: "",
         image: [],
         image_copy: [],
         is_disabled: 0,
+        description:"",
+        product_variants:[{id:"",bar_code:"",quantity:"",sale_price:"",weight:""}],
       }),
     };
   },
@@ -430,6 +541,64 @@ export default {
         })
       }
     },
+    // Delete Product Variants
+    deleteProductVariant(i, id = null) {
+      if (this.is('Super Admin') || this.can("delete_product")) {
+        if (this.editMode) {
+          swal
+            .fire({
+              title: this.$t("message.CONFIRM"),
+              text: this.$t("message.DELETE_MESSAGE_REVERT"),
+              type: "warning",
+              showCancelButton: true,
+              cancelButtonText: this.$t('message.CANCEL'),
+              confirmButtonColor: "#3085D6",
+              cancelButtonColor: "#d33",
+              confirmButtonText: this.$t("message.DELETE_BUTTON_TEXT"),
+            })
+            .then((result) => {
+              if (result.value) {
+                // Send request to the server
+                if (id != "") {
+                  axios
+                    .delete("api/removeProductVariant/" + id)
+                    .then(() => {
+                      this.form.product_variants.splice(i, 1);
+                      swal.fire(
+                        this.$t("message.DELETED"),
+                        this.$t("message.DELETE_MESSAGE_SUCCESS"),
+                        "success"
+                      );
+                    })
+                    .catch(() => {
+                      swal(
+                        "Failed!",
+                        this.$t("message.FAILED"),
+                        this.$t("message.DELETE_MESSAGE_ERROR"),
+                        "warning"
+                      );
+                    });
+                } else {
+                  this.form.product_variants.splice(i, 1);
+                  swal.fire(
+                    "Deleted!",
+                    this.$t("message.DELETE_MESSAGE_SUCCESS"),
+                    "success"
+                  );
+                }
+              }
+            });
+        } else {
+          this.form.product_variants.splice(i, 1);
+        }
+      } else {
+        swal.fire({
+          icon: "error",
+          title: this.$t("message.UNAUTHORIZED"),
+          type: "warning",
+        });
+      }
+    },
   },
   mounted() {
     var form = this.form;
@@ -451,14 +620,19 @@ export default {
         form.reset();
         that.editMode = false;
       }
-      //get all Categories
+      //get all product categories
       axios.get('/api/getCategories')
         .then((response)=>{
             that.categories = response.data;
-            //get all Units
+            //get all product flavours
             axios.get('/api/getProductFlavours')
               .then((response)=>{
                   that.productFlavours = response.data;
+                  // get all brands
+                   axios.get('/api/getBrands')
+                  .then((response)=>{
+                      that.brands = response.data;
+                  })
               })
         }).catch(() => {
           that.$Progress.fail();

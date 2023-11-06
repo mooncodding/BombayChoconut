@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -83,6 +84,12 @@ class GeneralController extends Controller
     {
         //
         return ProductFlavour::all();
+    }
+    //    Get Brands Data
+    public function getBrands(Request $request)
+    {
+        //
+        return Brand::all();
     }
 
 

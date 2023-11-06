@@ -130,6 +130,8 @@ export default {
         STOCK_QUANTITY:"Stock Quantity",
         IMPORT_EXCEL_SHEET:"Import Excel Sheet",
         FILE:"File",
+        BAR_CODE:"Bar Code",
+        WEIGHT:"Weight",
         // Payment Methods
         PAYMENT_METHODS:"Payment Methods",
         PAYMENT_METHOD:"Payment Method",

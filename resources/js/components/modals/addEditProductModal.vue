@@ -224,16 +224,28 @@
                     />
                   </div>
                   <div
-                    v-if='form.product_variants > 1'
+                    v-if='form.product_variants.length > 1'
                     class="col-md-1 col-xs-12 col-xl-1 col-lg-1"
                   >
                     <a
-                      class="btn btn-danger text-white"
+                      class="btn btn-danger "
                       v-on:click.stop="deleteProductVariant(i, product_variant.id)"
                       ><i class="fas fa-trash-alt"></i
                     ></a>
                   </div>
+                  <div class="col-md-1 pt-11" align="center" v-if="form.promotionTarrifs.length>1 && i>=1">
+                    <a class="btn btn-danger text-white" href='#' v-on:click.stop="deleteProductVariant(i, product_variant.id);"><i class="fas fa-trash-alt"></i>
+                    </a>
+                  </div>
                 </div>
+                 <table class="table mt-3">
+                    <tbody>
+                        <tr> 
+                          <td align="center" colspan="5" class="text-center mb-3"><button type="button" href='#' v-on:click.stop="form.product_variants.push({id: '', bar_code:'',quantity: '',sale_price: '', weight:''})" class="btn btn-success">{{$t('message.ADD_ROW')}}</button> 
+                            </td>
+                        </tr>
+                    </tbody>
+                  </table>
                 <!-- Order Details row -->
                 <!-- Order Details table -->   
 

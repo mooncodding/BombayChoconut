@@ -196,7 +196,7 @@ export default {
         { text: this.$t("message.CODE"), value: "code" },
         { text: this.$t("message.NAME"), value: "title" },
         { text: this.$t("message.PRODUCT_CATEGORY"), value: "product_category.name" },
-        { text: this.$t("message.PRICE"), value: "price_1" },
+        { text: this.$t("message.BRAND"), value: "brand.name" },
         { text: this.$t("message.IS_DISABLED"), value: "is_disabled" },
         {
           text: this.$t("message.ACTIONS"),

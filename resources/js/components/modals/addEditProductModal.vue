@@ -34,27 +34,6 @@
             <input type="hidden" name="_token" :value="csrf" />
             <div class="modal-body">
 
-              <!-- Code -->
-              <div class="form-group">
-                <label
-                  >{{ $t("message.CODE")
-                  }}<span class="required-star">*</span></label
-                >
-                <input
-                  v-model="form.code"
-                  v-bind:placeholder="$t('message.CODE')"
-                  type="text"
-                  name="code"
-                  class="form-control"
-                  :class="{ 'is-invalid': form.errors.has('code') }"
-                />
-                <div
-                  class="error-message"
-                  v-if="form.errors.has('code')"
-                  v-html="form.errors.get('code')"
-                />
-              </div>
-
               <!-- Name -->
               <div class="form-group">
                 <label
@@ -78,7 +57,7 @@
 
               <!-- Brands -->
               <div class="form-group" >
-                <label>{{$t('message.BRANDS')}}</label>
+                <label>{{$t('message.BRANDS')}}<span class="required-star">*</span></label>
                 <v-select v-model="form.brand_id" :options="brands"  label="name" :reduce="brand => brand.id" :selectOnTab="true" 
                   :key="form.brand_id"
                   :class="{ 'is-invalid': form.errors.has('brand_id') }"
@@ -119,16 +98,16 @@
               </div>
                 <div class="row">
                   <div class="col-md-3 col-xs-12 col-xl-3 col-lg-3" align="left">
-                    <label>{{ $t("message.BAR_CODE") }}</label>
+                    <label>{{ $t("message.BAR_CODE") }}<span class="required-star">*</span></label>
                   </div>
                   <div class="col-md-3 col-xs-12 col-xl-3" align="left">
-                    <label>{{ $t("message.QUANTITY") }}</label>
+                    <label>{{ $t("message.QUANTITY") }}<span class="required-star">*</span></label>
                   </div>
                   <div class="col-md-3 col-xs-12 col-xl-3" align="left">
-                    <label>{{ $t("message.SALE_PRICE") }}</label>
+                    <label>{{ $t("message.SALE_PRICE") }}<span class="required-star">*</span></label>
                   </div>
                   <div class="col-md-2 col-xs-12 col-xl-2" align="left">
-                    <label>{{ $t("message.WEIGHT") }}</label>
+                    <label>{{ $t("message.WEIGHT") }}<span class="required-star">*</span></label>
                   </div>
                 </div>
                 <!-- Order Details row -->
@@ -223,22 +202,12 @@
                       "
                     />
                   </div>
-                  <div
-                    v-if='form.product_variants.length > 1'
-                    class="col-md-1 col-xs-12 col-xl-1 col-lg-1"
-                  >
-                    <a
-                      class="btn btn-danger "
-                      v-on:click.stop="deleteProductVariant(i, product_variant.id)"
-                      ><i class="fas fa-trash-alt"></i
-                    ></a>
-                  </div>
-                  <div class="col-md-1 pt-11" align="center" v-if="form.promotionTarrifs.length>1 && i>=1">
+                  <div class="col-md-1" align="center" v-if="form.product_variants.length>1 && i>=1">
                     <a class="btn btn-danger text-white" href='#' v-on:click.stop="deleteProductVariant(i, product_variant.id);"><i class="fas fa-trash-alt"></i>
                     </a>
                   </div>
                 </div>
-                 <table class="table mt-3">
+                 <table class="table mt-4">
                     <tbody>
                         <tr> 
                           <td align="center" colspan="5" class="text-center mb-3"><button type="button" href='#' v-on:click.stop="form.product_variants.push({id: '', bar_code:'',quantity: '',sale_price: '', weight:''})" class="btn btn-success">{{$t('message.ADD_ROW')}}</button> 
@@ -251,11 +220,11 @@
 
               <!-- Featured Image -->
               <div class="form-group">
-                <label>{{ $t("message.FEATURED_IMAGE") }}*</label>
+                <label>{{ $t("message.FEATURED_IMAGE") }}<span class="required-star">*</span></label>
                 <span v-if="editMode && form.photo!=null"
                   ><img
                     v-bind:src="'images/product-images/' + form.photo"
-                    width="15%"
+                    width="50"
                     alt="Banner not found"
                 /></span>
 
@@ -398,7 +367,6 @@ export default {
       // Create a new form instance
       form: new form({
         id: "",
-        code: "",
         title: "",
         brand_id:"",
         product_category_id: "",
@@ -573,7 +541,7 @@ export default {
                 // Send request to the server
                 if (id != "") {
                   axios
-                    .delete("api/removeProductVariant/" + id)
+                    .delete("api/removeProductVariants/" + id)
                     .then(() => {
                       this.form.product_variants.splice(i, 1);
                       swal.fire(
@@ -621,6 +589,11 @@ export default {
         that.editMode = true;
         form.fill(e.relatedTarget);
         form.photo = e.relatedTarget.photo;
+        const productVariants = [];
+        Array.from(e.relatedTarget.product_variants).forEach(item => {
+          productVariants.push(item);
+        })
+        form.product_variants = productVariants; 
         // Manually Fill Images
         form.image_copy = [];
         const image = [];

@@ -76,6 +76,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::apiResources(['homeSliders' => HomeSliderController::class]);
     //Delete Product Images
     Route::delete('/removeProductImages/{id}', [ProductController::class, 'removeProductImages']);
+    //Delete Product Variants
+    Route::delete('/removeProductVariants/{id}', [ProductController::class, 'removeProductVariants']);
     
     //Delete Order Detail
     Route::delete('/removeOrderDetail/{id}', [OrderController::class, 'removeOrderDetail']);

@@ -31,7 +31,11 @@ class ProductController extends Controller
             if($request->sortBy=="product_categories.name"){
               $query->orderBy('name', ($request->sortDesc=="true")?"desc":"asc");
             }
-          }, 'brands','productFlavour','productImages','productVariants']);
+          }, 'brand'=>function($query) use ($request) {
+            if($request->sortBy=="brands.name"){
+              $query->orderBy('name', ($request->sortDesc=="true")?"desc":"asc");
+            }
+          },'productFlavour','productImages','productVariants']);
         
         //Check if there is any search value
         if($request->search!=""){
@@ -48,6 +52,9 @@ class ProductController extends Controller
                     ->orWhere('code', 'LIKE', '%' . $request->search . '%' )
                     ->orWhereHas('productCategory', function($query) use ($request){
                         $query->where('name', 'LIKE', '%' . $request->search . '%'  );
+                    })
+                    ->orWhereHas('brand', function($query) use ($request){
+                        $query->where('name', 'LIKE', '%' . $request->search . '%'  );
                     });
                 });
             }
@@ -56,7 +63,7 @@ class ProductController extends Controller
         //Check in any type of sorting
         if($request->sortBy!=""){
             //If the sorting is not related to Relations
-            if ($request->sortBy != "product_category.name") {
+            if ($request->sortBy != "product_category.name" && $request->sortBy != "brand.name") {
                 $product=$product->orderBy($request->sortBy, ($request->sortDesc=="true")?"desc":"asc");
             }
         }else{
@@ -91,15 +98,18 @@ class ProductController extends Controller
     {
         if(auth()->user()->can('create_product')){
             $this->validate($request, [
-                'code' => 'required',
                 'title' => 'required',
                 'brand_id' => 'required',
                 'product_category_id' => 'required',
-                'product_flavour_id' => 'required',
+                'product_flavour_id' => 'nullable',
                 'photo'=>'required',
+                'description' => 'required',
+                'product_variants.*.bar_code'=>'required',    
+                'product_variants.*.quantity'=>'required',    
+                'product_variants.*.sale_price'=>'required',    
+                'product_variants.*.weight'=>'required',    
                 'image'=>'nullable',
                 'is_disabled'=>'nullable',
-                'description' => 'nullable',
             ]);
             // Featured Image Work
             if($request['photo']){
@@ -109,7 +119,7 @@ class ProductController extends Controller
                 $name= null;
             } 
             $product = new Product;
-            $product->code = $request->code;
+            $product->code = 'C/PRODUCT/'.(Product::max('id')+001).'/'.date('y');
             $product->title = $request->title;
             $product->brand_id = $request->brand_id;
             $product->product_category_id = $request->product_category_id;
@@ -136,6 +146,7 @@ class ProductController extends Controller
             if($product){
                 foreach ($request->product_variants as $item) {
                     $productVariants = new ProductVariant();
+                    $productVariants->product_id = $product->id;
                     $productVariants->bar_code =  $item['bar_code'];
                     $productVariants->weight =  $item['weight'];
                     $productVariants->quantity =  $item['quantity'];
@@ -183,14 +194,18 @@ class ProductController extends Controller
         if(auth()->user()->can('edit_product')){
             $product = Product::findOrfail($id);
                 $this->validate($request, [
-                    'title' => 'required|string|max:64',
-                    'description' => 'required|string',
-                    'price_1'=>'required|regex:/^\d+(\.\d{1,2})?$/|max:64',
+                    'title' => 'required',
+                    'brand_id' => 'required',
                     'product_category_id' => 'required',
-                    'product_flavour_id' => 'required',
-                    'code' => 'required',
+                    'product_flavour_id' => 'nullable',
                     'photo'=>'required',
-                    'image'=>'nullable'
+                    'description' => 'required',
+                    'product_variants.*.bar_code'=>'required',    
+                    'product_variants.*.quantity'=>'required',    
+                    'product_variants.*.sale_price'=>'required',    
+                    'product_variants.*.weight'=>'required',    
+                    'image'=>'nullable',
+                    'is_disabled'=>'nullable',
                 ]);
             // Update the featured image
             if($request['photo']!=$product->photo){
@@ -208,14 +223,14 @@ class ProductController extends Controller
 
             $product->update([
                 "title" => $request->title,
-                "description" => $request->description,
-                "photo" => $name,
-                "price_1" => $request->price_1,
-                "is_disabled" => $request->is_disabled,
+                "brand_id" => $request->brand_id,
                 "product_category_id" => $request->product_category_id,
                 "product_flavour_id" => $request->product_flavour_id,
-                "code" => $request->code,
+                "photo" => $name,
+                "is_disabled" => $request->is_disabled,
+                "description" => $request->description,
                 'updated_by' => Auth::user()->id,
+                'updated_at' => Carbon::now(),
             ]);
 
             // Product Image update work
@@ -228,6 +243,30 @@ class ProductController extends Controller
                     $productImage->product_id = $product->id;
                     $productImage->image = $name;
                     $productImage->save();
+                }
+            }
+            //Update Product Variants 
+            if ($product) {
+                foreach ($request->product_variants as $row) {
+                    $productVariant=ProductVariant::where('id', $row['id']);
+                    // When Product is already exists
+                    if($productVariant->get()->count()>0){
+                            $productVariant->update([
+                                "bar_code"=>$row['bar_code'],
+                                "quantity"=> $row['quantity'],
+                                "sale_price"=>$row['sale_price'],
+                                "weight"=>$row['weight']
+                            ]); 
+                    }else{
+                    // Save new Products
+                    $productVariant = new ProductVariant();
+                    $productVariant->product_id = $product->id;
+                    $productVariant->bar_code   = $row['bar_code'];
+                    $productVariant->quantity  = $row['quantity'];
+                    $productVariant->sale_price   = $row['sale_price'];
+                    $productVariant->weight   = $row['weight'];
+                    $product->productVariants()->save($productVariant);
+                    }
                 }
             }
 
@@ -255,6 +294,7 @@ class ProductController extends Controller
                 }
             }
             $product->productImages()->delete();
+            $product->productVariants()->delete();
             $product->delete();
             return response()->json("Record deleted successfully", 200);
         }else{
@@ -267,6 +307,14 @@ class ProductController extends Controller
         // delete the Product Images 
         $file = ProductImage::findOrfail($id);
         $file->delete();
+        return response()->json("Record deleted successfully", 200);
+    }
+    //Remove Product Variants 
+    public function removeProductVariants($id)
+    {
+        // delete the Product Variants 
+        $data = ProductVariant::findOrfail($id);
+        $data->delete();
         return response()->json("Record deleted successfully", 200);
     }
     // Product views

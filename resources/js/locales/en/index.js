@@ -303,6 +303,7 @@ export default {
         SEARCH_PRODUCTS_TO_ADD: "Search Products to Add",
         NO_PRODUCTS_MSG: "No products available",
         SALE_PRICE: "Sale Price",
+        PRODUCT_VARIANTS:"Product Variants",
         // Order Payments
         ORDER_PAYMENTS:"Order Payments",
         ORDER_AMOUNT:"Order Amount",

@@ -47,19 +47,6 @@
                     <th>{{ $t("message.NAME") }}</th>
                     <td>{{ productData.title }}</td>
                   </tr>
-                  <!-- Retail Price -->
-                  <tr>
-                    <th>{{ $t("message.PRICE") }}</th>
-                    <td v-if="productData.price_1">
-                      {{ productData.price_1 | currency("Rs", 2, {
-                        thousandsSeparator: ".",
-                        decimalSeparator: ",",
-                        symbolOnLeft: false,
-                        spaceBetweenAmountAndSymbol: true,
-                      })}}
-                    </td>
-                    <td v-else>-</td>
-                  </tr>
                   <tr>
                     <th>{{ $t("message.IS_DISABLED") }}</th>
                     <td v-if="productData.is_disabled == 1">{{$t('message.YES')}}</td>
@@ -105,7 +92,7 @@
                   </tr>
                   <tr>
                     <th>{{ $t("message.PRODUCT_IMAGES") }}</th>
-                    <td v-if="productData.product_images !=null">
+                    <td v-if="productData.product_images !=''">
                       <span
                         v-for="data in productData.product_images"
                         :key="data.image"
@@ -163,6 +150,49 @@
                   </tr>
                 </tbody>
               </table>
+            <!-- Product Variants Table -->
+            <h2> {{ $t("message.PRODUCT_VARIANTS") }} </h2>
+            <table class="table table-hover table-bordered dark-border">
+              <tr>
+                <th>
+                  <label>{{ $t("message.BAR_CODE") }}</label>
+                </th>
+                <th>
+                  <label>{{ $t("message.QUANTITY") }}</label>
+                </th>
+                <th>
+                  <label>{{ $t("message.SALE_PRICE") }}</label>
+                </th>
+                <th>
+                  <label>{{ $t("message.WEIGHT") }}</label>
+                </th>
+              </tr>
+              <tbody>
+                <tr
+                  v-for="(data,
+                  index) in productData.product_variants"
+                  :key="index"
+                >
+                  <td v-if="data.bar_code">
+                    {{ data.bar_code }}
+                  </td>
+                  <td v-else>-</td>
+
+                  <td v-if="data.quantity">
+                    {{ data.quantity }}
+                  </td>
+                  <td v-else>-</td>
+                  <td v-if="data.sale_price">
+                    {{ data.sale_price }}
+                  </td>
+                  <td v-else>-</td>
+                  <td v-if="data.weight">
+                    {{ data.weight }}
+                  </td>
+                  <td v-else>-</td>
+                </tr>
+              </tbody>
+            </table>
             </div>
             <div class="modal-footer">
               <button @click.prevent="printSale" class="btn btn-primary">

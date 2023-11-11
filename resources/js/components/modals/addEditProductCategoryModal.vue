@@ -61,6 +61,25 @@
                 />
               </div>
               <div class="form-group">
+                <label>{{ $t("message.PARENT_CATEGORY") }}</label>
+                <v-select
+                  v-model="form.parent_id"
+                  :options="parentCategories"
+                  label="name"
+                  :reduce="(parentCategory) => parentCategory.id"
+                  :selectOnTab="true"
+                  :key="form.parent_id"
+                  :class="{
+                    'is-invalid': form.errors.has('parent_id'),
+                  }"
+                />
+                <div
+                  class="error-message"
+                  v-if="form.errors.has('parent_id')"
+                  v-html="form.errors.get('parent_id')"
+                />
+              </div>
+              <div class="form-group">
                 <label>{{ $t("message.IMAGE") }}*</label>
                 <span v-if="editMode && form.image!=null"
                   ><img
@@ -129,6 +148,7 @@ export default {
       form: new form({
         id: "",
         name: "",
+        parent_id:"",
         image: "",
       }),
     };
@@ -213,6 +233,17 @@ export default {
           form.reset();
           that.editMode = false;
         }
+        axios
+          .get("api/getAllParentCategories")
+          .then((response) => {
+          that.parentCategories = response.data;
+          }).catch(() => {
+            that.$Progress.fail();
+            toast.fire({
+              icon: "error",
+              title: that.$t("message.SOMETHING_WENT_WRONG"),
+            });
+          });
       });
     });
   },

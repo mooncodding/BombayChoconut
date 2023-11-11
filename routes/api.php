@@ -56,6 +56,10 @@ Route::get('/getCategories', [GeneralController::class, 'getCategories']);
 Route::get('/getProductFlavours', [GeneralController::class, 'getProductFlavours']);
 // Get Brands
 Route::get('/getBrands', [GeneralController::class, 'getBrands']);
+// Get All ParentCategories
+Route::get('/getAllParentCategories', [GeneralController::class, 'getAllParentCategories']);
+// Get Child Categories
+Route::get('/getChildCategories', [GeneralController::class, 'getChildCategories']);
 
 // All Sanctum Routes
 Route::group(['middleware' => ['auth:sanctum']], function () {

@@ -44,6 +44,11 @@
                     <td>{{ productCategoryData.name }}</td>
                   </tr>
                   <tr>
+                    <th>{{ $t("message.PARENT_CATEGORY") }}</th>
+                    <td v-if="productCategoryData.parent_category && productCategoryData.parent_category.name">{{productCategoryData.parent_category.name }}</td>
+                    <td v-else>-</td>
+                  </tr>
+                  <tr>
                     <th>{{ $t("message.PHOTO") }}</th>
                     <td>
                       <img

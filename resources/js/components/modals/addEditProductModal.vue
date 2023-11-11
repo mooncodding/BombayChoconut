@@ -83,11 +83,12 @@
                 />
               </div>
 
-              <!-- Parent Category Dropdown -->
-              <div class="form-group">
-                <label>{{$t('message.PRODUCT_CATEGORY')}}<span class="required-star">*</span></label>
-                <v-select v-model="form.product_category_id" :options="categories"  label="name" :reduce="category => category.id"                :selectOnTab="true" 
+                <!-- Parent Category Dropdown -->
+                <div class="form-group">
+                <label>{{$t('message.PARENT_CATEGORY')}}<span class="required-star">*</span></label>
+                <v-select v-model="form.product_category_id" :options="parentCategories"  label="name" :reduce="parentCategory => parentCategory.id" :selectOnTab="true" 
                   :key="form.product_category_id"
+                  @input="getChildCategories($event)"
                   :class="{ 'is-invalid': form.errors.has('product_category_id') }"
                   />
                 <div
@@ -96,6 +97,22 @@
                   v-html="form.errors.get('product_category_id')"
                 />
               </div>
+
+              <!-- Child Category Dropdown -->
+              <div class="form-group" v-if="form.product_category_id != '' && Object.keys(childCategories).length > 0">
+                <label>{{$t('message.CHILD_CATEGORY')}}<span class="required-star">*</span></label>
+                <v-select v-model="form.child_category_id" :options="childCategories"  label="name" :reduce="childCategory => childCategory.id" :selectOnTab="true" 
+                  :key="form.child_category_id"
+                  @input="emptyChildCategory($event)"
+                  :class="{ 'is-invalid': form.errors.has('child_category_id') }"
+                  />
+                <div
+                  class="error-message"
+                  v-if="form.errors.has('child_category_id')"
+                  v-html="form.errors.get('child_category_id')"
+                />
+              </div>
+
                 <div class="row">
                   <div class="col-md-3 col-xs-12 col-xl-3 col-lg-3" align="left">
                     <label>{{ $t("message.BAR_CODE") }}<span class="required-star">*</span></label>
@@ -359,7 +376,8 @@ export default {
         .querySelector('meta[name="csrf-token"]')
         .getAttribute("content"),
       products: [],
-      categories: [],
+      parentCategories: [],
+      childCategories:[],
       productFlavours:[],
       brands: [],
       image:[],
@@ -369,6 +387,7 @@ export default {
         id: "",
         title: "",
         brand_id:"",
+        child_category_id:"",
         product_category_id: "",
         product_flavour_id: "",
         image: [],
@@ -387,6 +406,11 @@ export default {
     addProduct() {
       if (this.is("Super Admin") || this.can("create_product")) {
         this.$Progress.start();
+        //swap the parent category to child category
+        if(this.form.child_category_id != '')
+        {
+          this.form.product_category_id = this.form.child_category_id;
+        }
         this.form
           .post("api/products")
           .then(() => {
@@ -416,6 +440,11 @@ export default {
       if (this.is("Super Admin") || this.can("edit_product")) {
         this.$Progress.start();
         this.form.image = this.image;
+        //swap the parent category to child category
+        if(this.form.child_category_id != '')
+        {
+          this.form.product_category_id = this.form.child_category_id;
+        }
         this.form
           .put("api/products/" + this.form.id)
           .then(() => {
@@ -579,6 +608,30 @@ export default {
         });
       }
     },
+    // Get Child Categories Via Parent Category Id
+    getChildCategories(parentCategoryId){
+      if(parentCategoryId)
+        {
+          axios.get("/api/getChildCategories?parent_id=" + parentCategoryId)
+            .then((response) => {
+                this.childCategories = response.data;
+            }); 
+            this.form.child_category_id = '';
+        }
+        else
+        {
+          this.childCategories = [];  
+          this.form.child_category_id = '';
+        }
+    },
+    // Empty child category
+    emptyChildCategory(id)
+    {
+      if(!id)
+      {
+        this.form.child_category_id = '';
+      }
+    },
   },
   mounted() {
     var form = this.form;
@@ -605,10 +658,10 @@ export default {
         form.reset();
         that.editMode = false;
       }
-      //get all product categories
-      axios.get('/api/getCategories')
+      //get all parent categories
+      axios.get('/api/getAllParentCategories')
         .then((response)=>{
-            that.categories = response.data;
+            that.parentCategories = response.data;
             //get all product flavours
             axios.get('/api/getProductFlavours')
               .then((response)=>{

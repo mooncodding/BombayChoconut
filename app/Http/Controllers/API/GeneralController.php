@@ -92,5 +92,45 @@ class GeneralController extends Controller
         return Brand::all();
     }
 
+    // Get All Parent Categories
+    public function getAllParentCategories()
+    {
+        $parentCategories = ProductCategory::parentCategories()->get();
 
+        return response()->json($parentCategories, 200);
+    }
+    // Get All Child Categories for mobile app
+    public function getAllChildCategories()
+    {
+        $childCategories = ProductCategory::whereNotNull('parent_id')
+            ->with(['categoryProducts.productImages'])->get();
+
+        foreach($childCategories as $category){
+            foreach($category->categoryProducts as $product){
+                $discount_detail = $this->calculateDiscount($product->id);
+                $product->discount_detail = $discount_detail;
+            };
+        }
+
+        return response()->json($childCategories, 200);
+    }
+
+    // Get All Product Categories
+    public function getAllProductCategories()
+    {
+        $productCategories = ProductCategory::with(['childCategories'])->parentCategories()->get();
+
+        return response()->json($productCategories, 200);
+    }
+    // Get Chid Categories via Parent For portal
+    public function getChildCategories(Request $request)
+    {
+        if ($request->parent_id) {
+            $parentCategories = ProductCategory::where('parent_id', $request->parent_id)->get();
+
+            return response()->json($parentCategories, 200);
+        } else {
+            return response()->json('Something Went Wrong', 401);
+        }
+    }
 }

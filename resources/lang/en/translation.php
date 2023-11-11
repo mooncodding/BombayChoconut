@@ -37,6 +37,6 @@ return [
     "Campaign" => "Campaign",
     "Campaigns" => "Campaigns",
     "GeneralPushNotifications" => "General Push Notifications",
-    "ProductFlavours" => "ProductFlavours"
+    "ProductFlavours" => "Product Flavours"
 ];
 ?>

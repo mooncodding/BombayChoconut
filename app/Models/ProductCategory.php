@@ -15,30 +15,35 @@ class ProductCategory extends Model
     protected $fillable =[
         'name',
         'image',
+        'parent_id',
         'created_by',
         'created_at',
         'updated_by',
         'updated_at'
     ];
 
-    // public function categoryProducts(){
-    //     return $this->hasMany(Product::class,'category_id','id');
-    // }
+    public function categoryProducts(){
+        return $this->hasMany(Product::class,'category_id','id');
+    }
 
-    // public function parentCategory(){
-    //     return $this->belongsTo('App\Models\ProductCategory','parent_id');
-    // }
+    public function parentCategory(){
+        return $this->belongsTo('App\Models\ProductCategory','parent_id');
+    }
     
-    // public function childCategories(){
-    //     return $this->hasMany('App\Models\ProductCategory','parent_id');
-    // }
+    public function childCategories(){
+        return $this->hasMany('App\Models\ProductCategory','parent_id');
+    }
     
-    // public function children(){
-    //     return $this->childCategories()->with(['children' => function($query){
-    //         $query->select(DB::raw("product_categories.* , name as label"));
-    //     }]);
-    // }
+    public function children(){
+        return $this->childCategories()->with(['children' => function($query){
+            $query->select(DB::raw("product_categories.* , name as label"));
+        }]);
+    }
 
+    public function scopeParentCategories($query)
+    {
+        return $query->whereNull('parent_id');
+    }
     public function createdBy(){
         return $this->belongsTo('App\Models\User','created_by');
     }
@@ -46,8 +51,4 @@ class ProductCategory extends Model
     public function updatedBy(){
         return $this->belongsTo('App\Models\User','updated_by');
     }
-    // public function scopeParentCategories($query)
-    // {
-    //     return $query->whereNull('parent_id');
-    // }
 }

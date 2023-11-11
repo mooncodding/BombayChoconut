@@ -22,7 +22,7 @@ class ProductCategoryController extends Controller
     {
         //
         //Declare a global variable with relation orders!
-        $category= ProductCategory::with(['createdBy','updatedBy']);
+        $category= ProductCategory::with(['parentCategory','createdBy','updatedBy']);
         //Check if there is any search value
         if($request->search!=""){
             $category->where( 'name', 'LIKE', '%' . $request->search . '%' );
@@ -64,6 +64,7 @@ class ProductCategoryController extends Controller
         if(auth()->user()->can('create_product_category')){
             $this->validate($request, [
                 'name'=>'required|string|max:64',
+                'parent_id'=>'nullable',
                 'image'=>'required',
             ]);
             if($request['image']){
@@ -75,6 +76,7 @@ class ProductCategoryController extends Controller
             $category=ProductCategory::create([
                 'name'=>$request->name,
                 'image'=>$name,
+                'parent_id'=>$request->parent_id,
                 'created_at'=> Carbon::now(),
                 'created_by'=>Auth::user()->id
             ]);
@@ -120,6 +122,7 @@ class ProductCategoryController extends Controller
             $categories = ProductCategory::findOrfail($id);
             $this->validate($request, [
                 'name'=>'required|string|max:64',
+                'parent_id'=>'nullable',
                 'image'=>'required',
             ]);
             if($request['image']!=$categories->image){
@@ -137,6 +140,7 @@ class ProductCategoryController extends Controller
             $categories->update([
                 'name'=>$request->name,
                 'image'=>$name,
+                'parent_id'=>$request->parent_id,
                 'updated_at'=> Carbon::now(),
                 'updated_by'=>Auth::user()->id
             ]);

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\OrderController;
+use App\Http\Controllers\Web\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,15 +14,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('web.home');
-});
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-Route::get('/', function () {
-    return view('web.home');
-});
+// Home Page
+Route::get('/', [HomeController::class, 'index']);
 Route::get('/404', function () {
     return view('web.404');
 });

@@ -42,47 +42,47 @@
         <!-- WRAPPER -->
         <main class="wrapper home-wrap"> 
             <!-- CONTENT AREA -->
-<div class="top-header">
-  
-        <div class="row">
-        <div class="col-lg-3">
-<p style="
-border-right: 1px solid  white;
-">Order On Phone:123456789</p>
-        </div>
-        <div class="col-lg-2">
-<p><i class="fa fa-envelope" aria-hidden="true"></i>
-    &nbsp;</i>
-    bombaychoc@gmail.com</p>
-        </div>
-        <div class="col-lg-2">
+            <div class="top-header">
+            
+                    <div class="row">
+                    <div class="col-lg-3">
+            <p style="
+            border-right: 1px solid  white;
+            ">Order On Phone:123456789</p>
+                    </div>
+                    <div class="col-lg-2">
+            <p><i class="fa fa-envelope" aria-hidden="true"></i>
+                &nbsp;</i>
+                bombaychoc@gmail.com</p>
+                    </div>
+                    <div class="col-lg-2">
 
-        </div>
-        <div class="col-lg-1">
-            <a href="/giftbundle"> <p>  <i class="fa fa-user-plus" aria-hidden="true"></i>
-                Account</p> </a>
-              
-        </div>
-        <div class="col-lg-2">
-           <p style="
-           border-right: 1px solid white;
-           border-left: 1px solid white;
-       "><i class="fa fa-heart" aria-hidden="true">&nbsp;
-        </i>Wishlist</p> 
-        </div>
-        <div class="col-lg-2">
-          <p style="
-          text-align: start;
-      "><i class="fa fa-circle" aria-hidden="true">&nbsp;</i>
+                    </div>
+                    <div class="col-lg-1">
+                        <a href="/giftbundle"> <p>  <i class="fa fa-user-plus" aria-hidden="true"></i>
+                            Account</p> </a>
+                        
+                    </div>
+                    <div class="col-lg-2">
+                    <p style="
+                    border-right: 1px solid white;
+                    border-left: 1px solid white;
+                "><i class="fa fa-heart" aria-hidden="true">&nbsp;
+                    </i>Wishlist</p> 
+                    </div>
+                    <div class="col-lg-2">
+                    <p style="
+                    text-align: start;
+                "><i class="fa fa-circle" aria-hidden="true">&nbsp;</i>
 
 
-            Coins</p>
-        </div>
-       
-       
-    </div>
-    
-</div>
+                        Coins</p>
+                    </div>
+                
+                
+                </div>
+                
+            </div>
             <!-- Main Header Start -->
             <header class="main-header">                  
                 <div class="container-fluid rel-div">

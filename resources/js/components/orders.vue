@@ -11,10 +11,10 @@
               </div>
               <!-- /.col -->
               <div class="col-6">
-                <button class="btn btn-success float-right" @click="addOrder" v-if="(is('Super Admin') || can('create_order'))">
+                <!-- <button class="btn btn-success float-right" @click="addOrder" v-if="(is('Super Admin') || can('create_order'))">
                   {{ $t("message.CREATE_ORDER") }}
                   <i class="fas fa-plus fa-fw"></i>
-                </button>
+                </button> -->
 
            
               </div>
@@ -80,14 +80,6 @@
                       </h6>
                     </template>
                      <!-- Grand Total with tax -->
-                      <template v-slot:item.grand_total="{ item }">
-                        <span>{{item.grand_total | currency("Ar", 2, {
-                                thousandsSeparator: ".",
-                                decimalSeparator: ",",
-                                symbolOnLeft: false,
-                                spaceBetweenAmountAndSymbol: true,
-                              })}}</span>
-                      </template>
                       <!-- Order Date -->
                       <template v-slot:item.order_date="{ item }">
                         <span>{{item.order_date|formatDate}}</span>
@@ -127,7 +119,7 @@
                           mdi-eye
                         </v-icon>
 
-                        <v-icon
+                        <!-- <v-icon
                           color="blue"
                           class="edit-icon mr-2"
                           small
@@ -135,9 +127,9 @@
                           v-if="(is('Super Admin') || can('edit_order')) && item.order_status_id != 4"
                         >
                           mdi-pencil
-                        </v-icon>
+                        </v-icon> -->
 
-                        <v-icon
+                        <!-- <v-icon
                           color="red"
                           class="delete-icon mr-2"
                           small
@@ -145,16 +137,16 @@
                           v-if="(is('Super Admin') || can('delete_order'))"
                         >
                           mdi-delete
-                        </v-icon>
+                        </v-icon> -->
 
-                        <v-icon
+                        <!-- <v-icon
                           color="orange"
                           class="edit-icon"
                           small
                           @click="viewOrderStatusHistory(item)"
                         >
                           mdi-history
-                        </v-icon>
+                        </v-icon> -->
                       </template>
                     </v-data-table>
                   </div>
@@ -166,7 +158,7 @@
           </div>
         </div>
         <!-- /.content -->
-        <addEditOrderModal></addEditOrderModal>
+        <!-- <addEditOrderModal></addEditOrderModal> -->
         <viewOrderModal :orderData="orderInfo"></viewOrderModal>
       </div>
       <div class="unathorized-text" v-else>
@@ -188,7 +180,7 @@
 </template>
 
 <script>
-import addEditOrderModal from "./modals/addEditOrderModal.vue";
+// import addEditOrderModal from "./modals/addEditOrderModal.vue";
 import viewOrderModal from "./modals/viewOrderModal.vue";
 export default {
   data() {
@@ -208,9 +200,9 @@ export default {
       orderStatusHistoryInfo: {},
       headers: [
         { text: this.$t("message.DATE"), value: "order_date" },
-        { text: this.$t("message.ORDER_NUMBER"), value: "order_number" },
+        { text: this.$t("message.ORDER_NUMBER"), value: "reference" },
         { text: this.$t("message.CUSTOMER"), value: "customer.name" },
-        { text: this.$t("message.GRAND_TOTAL"), value: "grand_total" },
+        { text: this.$t("message.SUB_TOTAL"), value: "sub_total" },
         { text: this.$t("message.ORDER_STATUS"), value: "order_status.name" },
         { text: this.$t("message.PAYMENT_STATUS"), value: "payment_status" },
         {
@@ -222,7 +214,7 @@ export default {
     };
   },
   components: {
-    addEditOrderModal,
+    // addEditOrderModal,
     viewOrderModal
   },
   watch: {
@@ -291,73 +283,73 @@ export default {
         this.loading = false;
       }
     },
-    deleteOrder(id) {
-      if (this.is('Super Admin') || this.can('delete_order')) {
-        swal
-          .fire({
-            title: this.$t("message.CONFIRM"),
-            text: this.$t("message.DELETE_MESSAGE_REVERT"),
-            type: "warning",
-            showCancelButton: true,
-          cancelButtonText: this.$t('message.CANCEL'),
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: this.$t("message.DELETE_BUTTON_TEXT"),
-          })
-          .then((result) => {
-            this.$Progress.start();
-            if (result.value) {
-              // Send request to the server
-              this.form
-                .delete("api/orders/" + id)
-                .then(() => {
-                  this.orders.total -= 1;
-                  Fire.$emit("reloadOrders");
-                  this.$Progress.finish();
-                  swal.fire(
-                    this.$t("message.DELETED"),
-                    this.$t("message.DELETE_MESSAGE_SUCCESS"),
-                    "success"
-                  );
-                })
-                .catch(() => {
-                  this.$Progress.fail();
-                  swal.fire(
-                    this.$t("message.FAILED"),
-                    this.$t("message.DELETE_MESSAGE_ERROR"),
-                    "warning"
-                  );
-                });
-            }
-          });
-      }else{
-        toast.fire({
-          icon: "error",
-          title: this.$t("message.UNAUTHORIZED")
-        });
-      }
-    },
-    addOrder() {
-      if (this.is('Super Admin') || this.can('create_order')) {
-        $("#addEditOrderModal").modal("show");
-      }else{
-        toast.fire({
-          icon: "error",
-          title: this.$t("message.UNAUTHORIZED")
-        });
-      }
-    },
-    editOrder(order) {
-      if (this.is('Super Admin') || this.can('edit_order')) {
-        this.orderInfo = order;
-        $("#addEditOrderModal").modal("show", order);
-      }else{
-        toast.fire({
-          icon: "error",
-          title: this.$t("message.UNAUTHORIZED")
-        });
-      }
-    },
+    // deleteOrder(id) {
+    //   if (this.is('Super Admin') || this.can('delete_order')) {
+    //     swal
+    //       .fire({
+    //         title: this.$t("message.CONFIRM"),
+    //         text: this.$t("message.DELETE_MESSAGE_REVERT"),
+    //         type: "warning",
+    //         showCancelButton: true,
+    //       cancelButtonText: this.$t('message.CANCEL'),
+    //         confirmButtonColor: "#3085d6",
+    //         cancelButtonColor: "#d33",
+    //         confirmButtonText: this.$t("message.DELETE_BUTTON_TEXT"),
+    //       })
+    //       .then((result) => {
+    //         this.$Progress.start();
+    //         if (result.value) {
+    //           // Send request to the server
+    //           this.form
+    //             .delete("api/orders/" + id)
+    //             .then(() => {
+    //               this.orders.total -= 1;
+    //               Fire.$emit("reloadOrders");
+    //               this.$Progress.finish();
+    //               swal.fire(
+    //                 this.$t("message.DELETED"),
+    //                 this.$t("message.DELETE_MESSAGE_SUCCESS"),
+    //                 "success"
+    //               );
+    //             })
+    //             .catch(() => {
+    //               this.$Progress.fail();
+    //               swal.fire(
+    //                 this.$t("message.FAILED"),
+    //                 this.$t("message.DELETE_MESSAGE_ERROR"),
+    //                 "warning"
+    //               );
+    //             });
+    //         }
+    //       });
+    //   }else{
+    //     toast.fire({
+    //       icon: "error",
+    //       title: this.$t("message.UNAUTHORIZED")
+    //     });
+    //   }
+    // },
+    // addOrder() {
+    //   if (this.is('Super Admin') || this.can('create_order')) {
+    //     $("#addEditOrderModal").modal("show");
+    //   }else{
+    //     toast.fire({
+    //       icon: "error",
+    //       title: this.$t("message.UNAUTHORIZED")
+    //     });
+    //   }
+    // },
+    // editOrder(order) {
+    //   if (this.is('Super Admin') || this.can('edit_order')) {
+    //     this.orderInfo = order;
+    //     $("#addEditOrderModal").modal("show", order);
+    //   }else{
+    //     toast.fire({
+    //       icon: "error",
+    //       title: this.$t("message.UNAUTHORIZED")
+    //     });
+    //   }
+    // },
     viewOrder(order) {
       this.orderInfo = order;
       $("#viewOrderModal").modal("show", order);

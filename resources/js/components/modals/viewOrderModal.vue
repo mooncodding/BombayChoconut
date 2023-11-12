@@ -50,7 +50,7 @@
                     <th>{{ $t("message.ORDER_NUMBER") }}</th>
                     <td>
                       {{
-                        orderData.order_number ? orderData.order_number : "-"
+                        orderData.reference ? orderData.reference : "-"
                       }}
                     </td>
                   </tr>
@@ -171,65 +171,13 @@
                     <label>{{ $t("message.QUANTITY") }}</label>
                   </th>
                   <th>
-                    <label>{{ $t("message.UNIT_PRICE") }}</label>
-                  </th>
-                  <th>
-                    <label>{{ $t("message.SUB_TOTAL") }}</label>
-                  </th>
-                  <th
-                    v-if="
-                      orderData.order_details &&
-                        orderData.order_details.length > 0 &&
-                        orderData.order_details.filter(
-                          (i) =>
-                            i.discount_percentage &&
-                            i.campaign &&
-                            i.campaign.name
-                        ).length > 0
-                    "
-                  >
-                    <label>{{
-                      $t("message.CAMPAIGN") +
-                        " - " +
-                        $t("message.DISCOUNT") +
-                        " %"
-                    }}</label>
-                  </th>
-                  <th
-                    v-if="
-                      orderData.order_details &&
-                        orderData.order_details.length > 0 &&
-                        orderData.order_details.filter(
-                          (i) =>
-                            i.discount_percentage &&
-                            i.campaign &&
-                            i.campaign.name &&
-                            i.discount
-                        ).length > 0
-                    "
-                  >
-                    <label>{{ $t("message.DISCOUNT") }}</label>
-                  </th>
-                  <th
-                    v-if="
-                      orderData.order_details &&
-                        orderData.order_details.length > 0 &&
-                        orderData.order_details.filter(
-                          (i) =>
-                            i.discount_percentage &&
-                            i.campaign &&
-                            i.campaign.name &&
-                            i.price_after_discount
-                        ).length > 0
-                    "
-                  >
                     <label>{{ $t("message.SALE_PRICE") }}</label>
                   </th>
                   <th>
-                    <label>{{ $t("message.PRODUCT_TAX") }}</label>
+                    <label>{{ $t("message.WEIGHT") }}</label>
                   </th>
                   <th>
-                    <label>{{ $t("message.GRAND_TOTAL") }}</label>
+                    <label>{{ $t("message.SUB_TOTAL") }}</label>
                   </th>
                 </tr>
                 <tbody>
@@ -238,203 +186,35 @@
                     :key="index"
                   >
                     <td v-if="data && data.product">
-                      {{ data.product.name }}
+                      {{ data.product.title }}
                     </td>
                     <td v-else>-</td>
                     <td v-if="data.quantity">
                       {{ data.quantity }}
                     </td>
-                    <td v-if="data.price">
+                    <td v-if="data.sale_price">
                       {{
-                        data.price
-                          | currency("Ar", 2, {
-                            thousandsSeparator: ".",
-                            decimalSeparator: ",",
-                            symbolOnLeft: false,
-                            spaceBetweenAmountAndSymbol: true,
-                          })
+                        data.sale_price
+                          
                       }}
                     </td>
                     <td v-else>0</td>
+                    <td v-if="data.weight">
+                      {{
+                        data.weight
+                          
+                      }}
+                    </td>
+                    <td v-else>-</td>
                     <td v-if="data.sub_total">
                       {{
                         data.sub_total
-                          | currency("Ar", 2, {
-                            thousandsSeparator: ".",
-                            decimalSeparator: ",",
-                            symbolOnLeft: false,
-                            spaceBetweenAmountAndSymbol: true,
-                          })
-                      }}
-                    </td>
-                    <td v-else>-</td>
-
-                    <!-- Campaign / % -->
-                    <td
-                      v-if="
-                        orderData.order_details &&
-                          orderData.order_details.length > 0 &&
-                          orderData.order_details.filter(
-                            (i) =>
-                              i.discount_percentage &&
-                              i.campaign &&
-                              i.campaign.name
-                          ).length > 0
-                      "
-                    >
-                      <span
-                        v-if="
-                          data.campaign &&
-                            data.campaign.name &&
-                            data.discount_percentage > 0
-                        "
-                      >
-                        <span>
-                          {{ data.campaign.name }}
-                        </span>
-                        <span class="badge badge-success">
-                          {{
-                            formatCurrency(data.discount_percentage) +
-                              "%"
-                          }}
-                        </span>
-                      </span>
-                      <span v-else>-</span>
-                    </td>
-                    <td
-                      v-if="
-                        orderData.order_details &&
-                          orderData.order_details.length > 0 &&
-                          orderData.order_details.filter(
-                            (i) =>
-                              i.discount_percentage &&
-                              i.campaign &&
-                              i.campaign.name &&
-                              i.discount
-                          ).length > 0
-                      "
-                    >
-                      {{
-                        data.discount
-                          | currency("Ar", 2, {
-                            thousandsSeparator: ".",
-                            decimalSeparator: ",",
-                            symbolOnLeft: false,
-                            spaceBetweenAmountAndSymbol: true,
-                          })
-                      }}
-                    </td>
-                    <td
-                      v-if="
-                        orderData.order_details &&
-                          orderData.order_details.length > 0 &&
-                          orderData.order_details.filter(
-                            (i) =>
-                              i.discount_percentage &&
-                              i.campaign &&
-                              i.campaign.name &&
-                              i.price_after_discount
-                          ).length > 0
-                      "
-                    >
-                      <span v-if="data.price_after_discount">
-                        {{
-                          data.price_after_discount
-                            | currency("Ar", 2, {
-                              thousandsSeparator: ".",
-                              decimalSeparator: ",",
-                              symbolOnLeft: false,
-                              spaceBetweenAmountAndSymbol: true,
-                            })
-                        }}
-                      </span>
-                      <span v-else>-</span>
-                    </td>
-                    <td v-if="data.tax_amount">
-                      {{
-                        data.tax_amount
-                          | currency("Ar", 2, {
-                            thousandsSeparator: ".",
-                            decimalSeparator: ",",
-                            symbolOnLeft: false,
-                            spaceBetweenAmountAndSymbol: true,
-                          })
-                      }}
-                    </td>
-                    <td v-else>-</td>
-                    <td v-if="data.grand_total">
-                      {{
-                        data.grand_total
-                          | currency("Ar", 2, {
-                            thousandsSeparator: ".",
-                            decimalSeparator: ",",
-                            symbolOnLeft: false,
-                            spaceBetweenAmountAndSymbol: true,
-                          })
                       }}
                     </td>
                     <td v-else>-</td>
                   </tr>
                 </tbody>
               </table>
-              <!-- Change Approval Status Work -->
-              <div
-                class="row notForPrint"
-                v-if="
-                  orderData &&
-                    orderData.order_status &&
-                    orderData.order_status.status_type == 1
-                "
-              >
-                <div class="col-md-12">
-                  <button
-                    @click.prevent="changeStatus"
-                    class="btn btn-success btn-sm mb-2"
-                    v-if="is('Super Admin') || can('orders')"
-                  >
-                    {{ $t("message.CHANGE_STATUS") }}
-                  </button>
-                  <div v-if="isChange" class="my-3">
-                    <form @submit.prevent="updateStatus()">
-                      <input type="hidden" name="_token" :value="csrf" />
-                      <!-- Order Status -->
-                      <div class="form-group">
-                        <label
-                          >{{ $t("message.ORDER_STATUS")
-                          }}<span class="required-star"> *</span></label
-                        >
-                        <v-select
-                          v-model="form.order_status_id"
-                          :options="orderStatuses"
-                          label="name"
-                          :reduce="(orderStatus) => orderStatus.id"
-                          :selectOnTab="true"
-                          :class="{
-                            'is-invalid': form.errors.has('order_status_id'),
-                          }"
-                        />
-                        <div
-                          class="error-message"
-                          v-if="form.errors.has('order_status_id')"
-                          v-html="form.errors.get('order_status_id')"
-                        />
-                      </div>
-                      <!-- End -->
-                      <div class="text-center">
-                        <button
-                          @click.prevent="updateStatus"
-                          type="submit"
-                          :disabled="form.order_status_id == ''"
-                          class="btn btn-primary "
-                        >
-                          {{ $t("message.UPDATE") }}
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-              <!-- End of Change Approval Status Work -->
               <!-- Amount Summary -->
               <span v-if="orderData.sub_total != 0"
                 ><h5 class="text-center mt-3">
@@ -452,71 +232,11 @@
                   >
                 </h5></span
               >
-              <span v-if="orderData.discount != 0"
-                ><h5 class="text-center mt-3">
-                  <b
-                    >{{ $t("message.DISCOUNT") }}:
-                    <span class="adminOrderTotal">{{
-                      orderData.discount
-                        | currency("Ar", 2, {
-                          thousandsSeparator: ".",
-                          decimalSeparator: ",",
-                          symbolOnLeft: false,
-                          spaceBetweenAmountAndSymbol: true,
-                        })
-                    }}</span></b
-                  >
-                </h5></span
-              >
-              <span v-if="orderData.total_product_tax != 0"
-                ><h5 class="text-center mt-3">
-                  <b
-                    >{{ $t("message.TOTAL_PRODUCT_TAX") }}:
-                    <span class="adminOrderTotal">{{
-                      orderData.total_product_tax
-                        | currency("Ar", 2, {
-                          thousandsSeparator: ".",
-                          decimalSeparator: ",",
-                          symbolOnLeft: false,
-                          spaceBetweenAmountAndSymbol: true,
-                        })
-                    }}</span></b
-                  >
-                </h5></span
-              >
-              <span v-if="orderData.grand_total != 0"
-                ><h3 class="text-center mt-3">
-                  <b
-                    >{{ $t("message.GRAND_TOTAL") }}:
-                    <span class="adminOrderTotal">{{
-                      orderData.grand_total
-                        | currency("Ar", 2, {
-                          thousandsSeparator: ".",
-                          decimalSeparator: ",",
-                          symbolOnLeft: false,
-                          spaceBetweenAmountAndSymbol: true,
-                        })
-                    }}</span></b
-                  >
-                </h3></span
-              >
               <!-- Amount Summary End -->
             </div>
             <div class="modal-footer">
               <button @click.prevent="printSale" class="btn btn-primary">
                 {{ $t("message.PRINT") }}
-              </button>
-              <button
-                @click.prevent="pdfOrderReceipt"
-                class="btn btn-success"
-              >
-                {{ $t("message.DOWNLOAD_INVOICE") }}
-              </button>
-              <button
-                @click.prevent="printOrderReceipt"
-                class="btn btn-info"
-              >
-                {{ $t("message.PRINT_INVOICE") }}
               </button>
               <button
                 type="button"
@@ -529,30 +249,18 @@
           </div>
         </div>
       </div>
-      <span style="display:none">
-        <printOrderReceipt
-          :printOrderReceiptData="orderInfo"
-          :pdfFlag="pdfFlag"
-          :printFlag="printFlag"
-        ></printOrderReceipt>
-      </span>
     </div>
   </div>
 </template>
 <script>
 import Vue from "vue";
 import printHeader from "../includes/printHeader.vue";
-import PrintOrderReceipt from "../receipts/printOrderReceipt.vue";
 export default {
   name: "viewOrderModal",
   props: ["orderData"],
   data() {
     return {
-      isChange: false,
-      pdfFlag: new Vue(),
-      printFlag: new Vue(),
       orderInfo: {},
-      orderStatuses: [],
       csrf: document
         .querySelector('meta[name="csrf-token"]')
         .getAttribute("content"),
@@ -563,103 +271,16 @@ export default {
   },
   components: {
     printHeader,
-    PrintOrderReceipt,
   },
   methods: {
     printSale() {
       this.$htmlToPaper("printData");
-    },
-    pdfOrderReceipt(order) {
-      this.orderInfo = this.orderData;
-      this.pdfFlag.$emit("pdfFlag");
-      $("#printOrderReceipt").modal("show",this.orderInfo);
-    },
-    printOrderReceipt(order) {
-      this.orderInfo = this.orderData;
-      this.printFlag.$emit("printFlag");
-      $("#printOrderReceipt").modal("show",this.orderInfo);
-    },
-    // change status toggle function
-    changeStatus() {
-      this.isChange = !this.isChange;
-    },
-    formatCurrency(value) {
-      if (parseFloat(value) > 0) {
-        var isDecimal = value - Math.floor(value) !== 0;
-        if (isDecimal) {
-          return parseFloat(value).toFixed(2);
-        } else {
-          return Math.trunc(parseFloat(value));
-        }
-      }
-      return 0;
-    },
-    // update the order status
-    updateStatus() {
-      if (this.is("Super Admin") || this.can("orders")) {
-        this.$Progress.start();
-        swal
-          .fire({
-            text: this.$t(
-              "message.ARE_YOU_SURE_YOU_WANT_TO_UPDATE_THIS_ORDER_STATUS"
-            ),
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: this.$t("message.UPDATED"),
-          })
-          .then((result) => {
-            if (result.value) {
-              // Send request to the server
-              this.form
-                .post("api/updateOrderStatus/" + this.orderData.id)
-                .then(() => {
-                  Fire.$emit("reloadOrders");
-                  $("#viewOrderModal").modal("hide");
-                  swal.fire(
-                    this.$t("message.UPDATED"),
-                    this.$t("message.ORDER_STATUS_UPDATED_SUCCESSFULLY"),
-                    "success"
-                  );
-                  this.form.reset();
-                  this.isChange = !this.isChange;
-                  this.$Progress.finish();
-                })
-                .catch(() => {
-                  swal.fire(
-                    this.$t("Failed!"),
-                    this.$t("message.deletedMessageError"),
-                    "warning"
-                  );
-                  $("#viewOrderModal").modal("hide");
-                });
-            }
-          });
-      } else {
-        swal.fire({
-          text: this.$t("message.unAuthorizedText"),
-          type: "warning",
-        });
-      }
     },
   },
   mounted() {
     var form = this.form;
     var that = this;
     $("#viewOrderModal").on("show.bs.modal", function(e) {
-      that.form.reset();
-      that.isChange = false;
-      Vue.nextTick().then(function() {
-        axios
-          .get(
-            "api/getAllOrderStatuses?order_status_id=" +
-              that.orderData.order_status_id
-          )
-          .then((response) => {
-            that.orderStatuses = response.data;
-          });
-      });
     });
   },
 };

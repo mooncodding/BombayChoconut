@@ -72,6 +72,14 @@
               </router-link>
             </li>
             {{-- MENU --}}
+            @can('orders')
+            <li class="nav-item">
+              <router-link to="/orders" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>{{ __('translation.Orders') }}</p>
+              </router-link>
+            </li>
+            @endcan
             @can('products')
             <li class="nav-item">
               <router-link to="/products" class="nav-link">
@@ -114,6 +122,22 @@
                     <router-link to="/productFlavours" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>{{ __('translation.ProductFlavours') }}</p>
+                    </router-link>
+                  </li>
+                @endcan
+                @can('payment_methods')
+                  <li class="nav-item">
+                    <router-link to="/paymentMethods" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>{{ __('translation.PaymentMethods') }}</p>
+                    </router-link>
+                  </li>
+                @endcan
+                @can('order_status')
+                  <li class="nav-item">
+                    <router-link to="/orderStatus" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>{{ __('translation.OrderStatus') }}</p>
                     </router-link>
                   </li>
                 @endcan

@@ -16,7 +16,7 @@ trait HandleReferenceNumberTrait
                 $code = (Order::select('id')->max('id') + 1);
                 $code = sprintf('%08d', $code);
                 if ($field == 'bill_no') {
-                    $code = 'FACT-'.$code;
+                    $code = 'BOMBAY-'.$code;
                 }
             } while (Order::where($field, "=", $code)->first());
         }

@@ -68,7 +68,7 @@
                   >
                   <v-select
                     v-model="form.order_status_id"
-                    :options="orderStatuses"
+                    :options="orderStatus"
                     label="name"
                     :disabled="editMode"
                     :reduce="(orderStatus) => orderStatus.id"
@@ -144,33 +144,30 @@
                 <!-- Section for headers -->
                 <div class="row" v-if="form.customer_id != ''">
                   <!-- Search products to add  -->
-                  <!-- <div class="col-12">
+                  <div class="col-12">
                     <customAutoComplete
                       ref="autocomplete"
                       :source="products"
                       v-model="productName"
                       placeholder="Search Products to Add"
                       :results-display="formattedDisplay"
-                      resultsValue="name"
+                      resultsValue="title"
                       @input="addSearchedProducts()"
                     >
                     </customAutoComplete>
-                  </div> -->
+                  </div>
                 </div>
                 <div class="row form-group" v-if="form.customer_id != ''">
                   <div class="col-md-12 col-xs-12 col-xl-3 col-lg-3" align="left">
                     <label>{{ $t("message.PRODUCT") }}</label>
                   </div>
-                  <div class="col-md-12 col-xs-12 col-xl-1" align="left">
+                  <div class="col-md-12 col-xs-12 col-xl-3" align="left">
                     <label>{{ $t("message.QUANTITY") }}</label>
                   </div>
-                  <div class="col-md-12 col-xs-12 col-xl-2" align="left">
-                    <label>{{ $t("message.UNIT_PRICE") }}</label>
-                  </div>
-                  <div class="col-md-12 col-xs-12 col-xl-2" align="left">
+                  <div class="col-md-12 col-xs-12 col-xl-3" align="left">
                     <label>{{ $t("message.SALE_PRICE") }}</label>
                   </div>
-                  <div class="col-md-12 col-xs-12 col-xl-3" align="left">
+                  <div class="col-md-12 col-xs-12 col-xl-2" align="left">
                     <label>{{ $t("message.SUMMARY") }}</label>
                   </div>
                 </div>
@@ -198,7 +195,7 @@
                       v-model="order_detail.product_id"
                       :options="products"
                       :disabled="order_detail.id != ''"
-                      label="name"
+                      label="title"
                       :reduce="(product) => product.id"
                       :selectOnTab="true"
                       :class="{
@@ -217,7 +214,7 @@
                       "
                     />
                   </div>
-                  <div class="col-md-12 col-xs-12 col-xl-1">
+                  <div class="col-md-12 col-xs-12 col-xl-3">
                     <input
                       v-model="order_detail.quantity"
                       v-bind:placeholder="$t('message.QUANTITY')"
@@ -239,43 +236,15 @@
                       "
                     />
                   </div>
-                  <div class="col-md-12 col-xs-12 col-xl-2">
+                  <div class="col-md-12 col-xs-12 col-xl-3">
                     <h5>
                       <b>{{
-                        (order_detail.price)
-                              | currency("Ar", 2, {
-                            thousandsSeparator: ".",
-                            decimalSeparator: ",",
-                            symbolOnLeft: false,
-                            spaceBetweenAmountAndSymbol: true,
-                          })
+                        (order_detail.sale_price)
+                              
                       }}</b>
                     </h5>
                   </div>
-                  <div class="col-md-12 col-xs-12 col-xl-2">
-                    <h5 v-if="order_detail.product && order_detail.product.discount_detail">
-                      <b>{{
-                        (order_detail.product.discount_detail.sale_price ? order_detail.product.discount_detail.sale_price : 0)
-                              | currency("Ar", 2, {
-                            thousandsSeparator: ".",
-                            decimalSeparator: ",",
-                            symbolOnLeft: false,
-                            spaceBetweenAmountAndSymbol: true,
-                          })
-                      }}</b>
-                    </h5>
-                    <h5 v-else>
-                      <b>
-                        {{ 0 | currency("Ar", 2, {
-                            thousandsSeparator: ".",
-                            decimalSeparator: ",",
-                            symbolOnLeft: false,
-                            spaceBetweenAmountAndSymbol: true,
-                          }) }}
-                      </b>
-                    </h5>
-                  </div>
-                  <div class="col-md-12 col-xs-12 col-xl-3" >
+                  <div class="col-md-12 col-xs-12 col-xl-2" >
                     <small>
                      <label>{{$t("message.SUB_TOTAL") }}</label>:
                       <b>{{
@@ -288,57 +257,6 @@
                             symbolOnLeft: false,
                             spaceBetweenAmountAndSymbol: true,
                           })}}</b><br>
-                     <label>{{$t("message.PRODUCT_TAX") }}</label>: <b>
-                        {{
-                          isNaN(order_detail.tax_amount * order_detail.quantity)
-                            ? 0
-                            : (order_detail.tax_amount * order_detail.quantity)
-                                  | currency("Ar", 2, {
-                            thousandsSeparator: ".",
-                            decimalSeparator: ",",
-                            symbolOnLeft: false,
-                            spaceBetweenAmountAndSymbol: true,
-                          })
-                        }}</b
-                      ><br>
-                     <label >{{$t("message.DISCOUNT") }}</label>: <b  v-if="order_detail.product && order_detail.product.discount_detail && order_detail.product.discount_detail.discount_price">
-                        {{
-                          isNaN(parseFloat(order_detail.product.discount_detail.discount_price) * order_detail.quantity)
-                            ? 0
-                            : (parseFloat(order_detail.product.discount_detail.discount_price) * order_detail.quantity)
-                                  | currency("Ar", 2, {
-                            thousandsSeparator: ".",
-                            decimalSeparator: ",",
-                            symbolOnLeft: false,
-                            spaceBetweenAmountAndSymbol: true,
-                          })
-                        }}</b
-                      >
-                      <b v-else>
-                        {{
-                          0 | currency("Ar", 2, {
-                            thousandsSeparator: ".",
-                            decimalSeparator: ",",
-                            symbolOnLeft: false,
-                            spaceBetweenAmountAndSymbol: true,
-                          })
-                        }}</b
-                      ><br>
-                      <span v-if="order_detail.product && order_detail.product.discount_detail && order_detail.product.discount_detail.discount_percentage && order_detail.product.discount_detail.campaign">
-                        <label>{{ $t("message.CAMPAIGN") +' - '+$t('message.DISCOUNT')+' %' }}</label>
-                        <label>{{ order_detail.product.discount_detail.campaign.name +' - '+ parseFloat(order_detail.product.discount_detail.discount_percentage).toFixed(2)+'%' }}</label>
-                      </span>
-                     <label>{{$t("message.GRAND_TOTAL") }}</label>:
-                      <b>{{
-                        isNaN(order_detail.grand_total)
-                            ? 0
-                            : (order_detail.grand_total)
-                                  | currency("Ar", 2, {
-                            thousandsSeparator: ".",
-                            decimalSeparator: ",",
-                            symbolOnLeft: false,
-                            spaceBetweenAmountAndSymbol: true,
-                          })}}</b>
                     </small>
                   </div>
                   <div
@@ -367,9 +285,7 @@
                               product_id: '',
                               product: {},
                               quantity: '',
-                              price: 0,
-                              tax_amount: 0,
-                              discount: 0,
+                              sale_price: 0,
                               grand_total: 0,
                               sub_total: 0,
                             })
@@ -395,34 +311,6 @@
                     </tr>
                     <tr>
                       <td align="center" colspan="5" class="adminTotal">
-                        <b>{{ $t("message.TOTAL_PRODUCT_TAX") }}: </b
-                        >{{
-                          totalProductTax
-                                | currency("Ar", 2, {
-                            thousandsSeparator: ".",
-                            decimalSeparator: ",",
-                            symbolOnLeft: false,
-                            spaceBetweenAmountAndSymbol: true,
-                          })
-                        }}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td align="center" colspan="5" class="adminTotal">
-                        <b>{{ $t("message.DISCOUNT") }}: </b
-                        >{{
-                          totalDiscount 
-                                | currency("Ar", 2, {
-                            thousandsSeparator: ".",
-                            decimalSeparator: ",",
-                            symbolOnLeft: false,
-                            spaceBetweenAmountAndSymbol: true,
-                          })
-                        }}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td align="center" colspan="5" class="adminTotal">
                         <b>{{ $t("message.GRAND_TOTAL") }}: </b
                         >{{
                           (grandTotal)
@@ -437,64 +325,6 @@
                     </tr>
                   </tbody>
                 </table>
-                <div class="form-group" v-if="!editMode">
-                  <v-radio-group
-                    v-model="form.payment_type"
-                    class="radio radio-label"
-                    row
-                  >
-                    <v-radio
-                      :label="$t('message.PAY_LATER')"
-                      value="Pay Later"
-                    ></v-radio>
-                    <v-radio
-                      :label="$t('message.PAY_NOW')"
-                      value="Pay Now"
-                    ></v-radio>
-                  </v-radio-group>
-                </div>
-                <div v-if="form.payment_type == 'Pay Now'">
-                  <!-- Paid Amount -->
-                  <div class="form-group">
-                    <label>{{ $t("message.AMOUNT_TO_PAY") }}</label>
-                    <span class="required-star">*</span>
-                    <input
-                      v-model="form.paid_amount"
-                      v-bind:placeholder="$t('message.AMOUNT_TO_PAY')"
-                      type="number"
-                      min="0"
-                      name="paid_amount"
-                      @keyup="validateAmount()"
-                      class="form-control"
-                      :class="{ 'is-invalid': form.errors.has('paid_amount') }"
-                    />
-                    <div
-                      class="error-message"
-                      v-if="form.errors.has('paid_amount')"
-                      v-html="form.errors.get('paid_amount')"
-                    />
-                    <div class="error-message">{{ amountValidationText }}</div>
-                  </div>
-                  <!-- Notes -->
-                  <div class="form-group">
-                    <label>{{ $t("message.PAYMENT_NOTES") }}</label>
-                    <textarea
-                      v-model="form.order_payment_notes"
-                      v-bind:placeholder="$t('message.PAYMENT_NOTES')"
-                      type="text"
-                      name="order_payment_notes"
-                      class="form-control"
-                      :class="{
-                        'is-invalid': form.errors.has('order_payment_notes'),
-                      }"
-                    ></textarea>
-                    <div
-                      class="error-message"
-                      v-if="form.errors.has('order_payment_notes')"
-                      v-html="form.errors.get('order_payment_notes')"
-                    />
-                  </div>
-                </div>
                 <div class="modal-footer">
                   <button
                     @click.prevent="addOrder"
@@ -534,6 +364,7 @@
 // vuejs auto complete
 import Vue from "vue";
 import autocomplete from "vuejs-auto-complete";
+import customAutoComplete from ".././customAutoComplete.vue";
 export default {
   name: "addEditOrderModal",
   props: ["orderData"],
@@ -547,7 +378,7 @@ export default {
       customers: [],
       i: 0,
       products: [],
-      orderStatuses:[],
+      orderStatus:[],
       paymentMethods:[],
       editMode: "",
       isButtonDisabled: false,
@@ -581,19 +412,9 @@ export default {
       var totalTaxAmount = 0;
       for (var i = 0; i < this.form.order_details.length; i++) {
         subTotal +=
-         parseFloat((this.form.order_details[i].quantity * this.form.order_details[i].price));
-
-
-          if (this.form.order_details[i].product && this.form.order_details[i].product.discount_detail && this.form.order_details[i].product.discount_detail.discount_price) {
-              discount += (this.form.order_details[i].product.discount_detail.discount_price) * (this.form.order_details[i].quantity);
-          }
-          if(this.form.order_details[i].tax_amount){
-            
-              totalTaxAmount += this.form.order_details[i].tax_amount * (this.form.order_details[i].quantity);
-          }
+         parseFloat((this.form.order_details[i].quantity * this.form.order_details[i].sale_price));
         }
-      parseFloat(subTotal+=totalTaxAmount);
-      sum = parseFloat(subTotal -= discount);
+      sum = parseFloat(subTotal);
       sum = parseFloat(sum).toFixed(2);
       return sum;
     },
@@ -602,97 +423,27 @@ export default {
       var sum = 0;
       for (var i = 0; i < this.form.order_details.length; i++) {
         sum +=
-          this.form.order_details[i].quantity * this.form.order_details[i].price;
+          this.form.order_details[i].quantity * this.form.order_details[i].sale_price;
       }
       sum = parseFloat(sum).toFixed(2);
       return sum;
     },
-    //sub total
-    totalDiscount() {
-      let sum = 0;
-      if(this.form.order_details && this.form.order_details.length > 0)
-      {
-        this.form.order_details.map((data) => {
-          if (data.product && data.product.discount_detail && data.product.discount_detail.discount_price) {
-             sum += (parseFloat(data.product.discount_detail.discount_price) * data.quantity);
-          }else{
-            sum +=0;
-          }
-           
-        });
-      }
-      return sum;
-    },
-
-    // Total Product Tax
-    totalProductTax()
-    {
-      let sum = 0;
-      if(this.form.order_details && this.form.order_details.length > 0)
-      {
-        this.form.order_details.map((data) => {
-            sum += (parseFloat(data.tax_amount ? data.tax_amount : 0) * parseFloat(data.quantity ? data.quantity : 0));
-        });
-      }
-      return sum;
-    }
   },
   components: {
     autocomplete,
+    customAutoComplete
   },
   methods: {
     //Product Base Calculation
     productAmountCalculation() {
       var sum = 0;
       var subTotal = 0;
-      var totalTaxAmount = 0;
       for (var i = 0; i < this.form.order_details.length; i++) {
         subTotal =
-          parseFloat((this.form.order_details[i].quantity * this.form.order_details[i].price));
-          if(this.form.order_details[i].tax_amount){
-              totalTaxAmount = this.form.order_details[i].tax_amount * this.form.order_details[i].quantity;
-          }
+          parseFloat((this.form.order_details[i].quantity * this.form.order_details[i].sale_price));
           this.form.order_details[i].sub_total = parseFloat(subTotal);
-        subTotal += totalTaxAmount;
-          // if discount exists
-          if (this.form.order_details[i].product && this.form.order_details[i].product.discount_detail && this.form.order_details[i].product.discount_detail.discount_price && this.form.order_details[i].id == '') {
-             sum = parseFloat(subTotal -= (this.form.order_details[i].product.discount_detail.discount_price*this.form.order_details[i].quantity));
-          }
-          else {
-            sum = subTotal;
-          }
-          // for edit
-          if(this.form.order_details[i].id != '' && (this.form.order_details[i].campaign_id == null || this.form.order_details[i].campaign_id == '') && this.editMode)
-          {
-            let discount_detail = {
-              is_eligible_for_discount: 0,
-              sale_price: this.form.order_details[i].price,
-              discount_percentage: this.form.order_details[i].discount_percentage,
-              discount_type: this.form.order_details[i].discount_type,
-              discount_price: 0,
-            }
-            this.form.order_details[i].product.discount_detail = discount_detail;
-            sum = subTotal;
-          }
-          if(this.form.order_details[i].id != '' && this.form.order_details[i].campaign_id != null && this.editMode)
-          {
-            let campaign_id = this.form.order_details[i].campaign_id
-            let discount_detail = {
-              is_eligible_for_discount: 1,
-              campaign_id: this.form.order_details[i].campaign_id,
-              sale_price: this.form.order_details[i].price_after_discount,
-              discount_percentage: this.form.order_details[i].discount_percentage,
-              discount_type: this.form.order_details[i].discount_type,
-              discount_price: this.form.order_details[i].price_after_discount && this.form.order_details[i].price_after_discount > 0 ? this.form.order_details[i].price - this.form.order_details[i].price_after_discount : 0,
-              campaign: this.campaigns.find(i => i.id == campaign_id),
-            }
-            this.form.order_details[i].product.discount_detail = discount_detail;
-            sum = parseFloat(subTotal -= (this.form.order_details[i].product.discount_detail.discount_price*this.form.order_details[i].quantity));
-          }
-          else {
-            sum = subTotal;
-          }
-          parseFloat(this.form.order_details[i].grand_total = sum).toFixed(2);
+          sum = subTotal;
+          parseFloat(this.form.order_details[i].sub_total = sum).toFixed(2);
       }
     },
     // Amount Validation
@@ -831,6 +582,7 @@ export default {
       this.allowClientChange = 0;
       // if a value is selected logic start
       if (event) {
+        console.log(this.products);
         // let productId=event.target.value;
         let productId = this.form.order_details[i].product_id;
         let getProduct = this.products.filter(
@@ -838,18 +590,14 @@ export default {
         )[0];
         // add the product object to the order detail
         this.form.order_details[i].product = getProduct;
-        this.form.order_details[i].price = getProduct.wholesale_price;
-        this.form.order_details[i].tax_amount = getProduct.wholesale_tax_amount;
-        this.form.order_details[i].discount = 0;
+        this.form.order_details[i].sale_price = getProduct.sale_price;
         this.form.order_details[i].grand_total = 0;
         this.form.order_details[i].sub_total = 0;
       }
       if (!event) {
         this.form.order_details[i].product = {};
-        this.form.order_details[i].price = 0;
+        this.form.order_details[i].sale_price = 0;
         this.form.order_details[i].quantity = "";
-        this.form.order_details[i].tax_amount = 0;
-        this.form.order_details[i].discount = 0;
         this.form.order_details[i].grand_total = 0;
         this.form.order_details[i].sub_total = 0;
       }
@@ -861,7 +609,7 @@ export default {
       this.products.filter((product) => {
         if (this.productName) {
           if (
-            product.name == this.productName ||
+            product.title == this.productName ||
             product.code == this.productName
           ) {
             this.form.order_details.push({
@@ -869,10 +617,8 @@ export default {
               order_id: "",
               product_id: product.id,
               quantity: "",
-              price: product.wholesale_price,
+              sale_price: product.sale_price,
               product:product,
-              tax_amount: product.wholesale_tax_amount,
-              discount: 0,
               grand_total: 0,
               sub_total: 0,
             });
@@ -887,7 +633,7 @@ export default {
 
     // custom labels for autocomplete
     formattedDisplay(result) {
-      return result.name + " (" + result.code + ")";
+      return result.title + " (" + result.code + ")";
     },
 
     // get data from auto complete component
@@ -897,7 +643,7 @@ export default {
       this.products.filter((product) => {
         if (value) {
           if (
-            (product.name).toLowerCase().trim() == (value).toLowerCase().trim() || product.code == value
+            (product.title).toLowerCase().trim() == (value).toLowerCase().trim() || product.code == value
           ) {
             this.form.order_details.push({
               id: "",
@@ -905,10 +651,7 @@ export default {
               product_id: product.id,
               product,
               quantity: "",
-              price: product.wholesale_price,
-              tax_amount: product.wholesale_tax_amount,
-              discount: 0,
-              grand_total: 0,
+              sale_price: product.sale_price,
               sub_total: 0,
             });
 
@@ -953,13 +696,10 @@ export default {
       this.customers = response.data;
       axios.get("api/getAllProducts").then((response) => {
         this.products = response.data;
-          axios.get("api/getAllOrderStatuses").then((response) => {
-          this.orderStatuses = response.data;
+          axios.get("api/getAllOrderStatus").then((response) => {
+          this.orderStatus = response.data;
            axios.get("api/getAllPaymentMethods").then((response) => {
             this.paymentMethods = response.data;
-           axios.get("api/getAllCampaigns").then((response) => {
-            this.campaigns = response.data;
-          });
           });
         });
       });

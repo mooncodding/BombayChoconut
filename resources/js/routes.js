@@ -38,5 +38,8 @@ const routes = [
     {
         name: 'productFlavours', path: '/productFlavours', component: require('./components/productFlavours.vue').default
     },
+    {
+        name: 'orderStatus', path: '/orderStatus', component: require('./components/orderStatus.vue').default
+    },
 ];
 export default routes;

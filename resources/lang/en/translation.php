@@ -17,7 +17,7 @@ return [
     "Products"=>"Products",
     "PaymentMethods"=>"Payment Methods",
     "Expenses"=>"Expenses",
-    "OrderStatuses"=>"Order Statuses",
+    "OrderStatus"=>"Order Status",
     "Cities"=>"Cities",
     "Orders"=>"Orders",
     "Brands"=>"Brands",
@@ -37,6 +37,7 @@ return [
     "Campaign" => "Campaign",
     "Campaigns" => "Campaigns",
     "GeneralPushNotifications" => "General Push Notifications",
-    "ProductFlavours" => "Product Flavours"
+    "ProductFlavours" => "Product Flavours",
+    "Orders" => "Orders"
 ];
 ?>

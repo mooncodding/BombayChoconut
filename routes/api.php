@@ -16,7 +16,9 @@ use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\API\ProfileController;
 use App\Http\Controllers\API\HomeSliderController;
 use App\Http\Controllers\API\OrderController;
+use App\Http\Controllers\API\OrderStatusController;
 use App\Http\Controllers\API\ProductFlavourController;
+use App\Models\OrderStatus;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +62,16 @@ Route::get('/getBrands', [GeneralController::class, 'getBrands']);
 Route::get('/getAllParentCategories', [GeneralController::class, 'getAllParentCategories']);
 // Get Child Categories
 Route::get('/getChildCategories', [GeneralController::class, 'getChildCategories']);
+// Get All Products
+Route::get('/getAllProducts', [GeneralController::class, 'getAllProducts']);
+// Get All Payment Methods
+Route::get('/getAllPaymentMethods', [GeneralController::class, 'getAllPaymentMethods']);
+// Get All Child Categories
+Route::get('/getAllChildCategories', [GeneralController::class, 'getAllChildCategories']);
+// Get All Customers
+Route::get('/getAllCustomers', [GeneralController::class, 'getAllCustomers']);
+// Get All Statuses
+Route::get('/getAllOrderStatus', [GeneralController::class, 'getAllOrderStatus']);
 
 // All Sanctum Routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
@@ -78,6 +90,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::apiResources(['orders' => OrderController::class]);
     Route::apiResources(['brands' => BrandController::class]);
     Route::apiResources(['homeSliders' => HomeSliderController::class]);
+    Route::apiResources(['orderStatus' => OrderStatusController::class]);
     //Delete Product Images
     Route::delete('/removeProductImages/{id}', [ProductController::class, 'removeProductImages']);
     //Delete Product Variants

@@ -16,16 +16,12 @@ use App\Models\UserToken;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Traits\HandleReferenceNumberTrait; // Trait
-use App\Traits\HandleProductDiscountTrait; // Trait
-use App\Traits\PushNotification; // Trait
 use Illuminate\Support\Facades\Mail;
+use App\Traits\HandleReferenceNumberTrait; // Trait
 
 class OrderController extends Controller
 {
     use HandleReferenceNumberTrait; // Trait
-    use HandleProductDiscountTrait; // Trait
-    use PushNotification; // Trait
     public function __construct()
     {
         $this->middleware(['auth', 'permission:orders']);
@@ -37,7 +33,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return Order::with(['orderDetails.product', 'orderDetails.campaign', 'customer', 'orderStatus', 'paymentMethod', 'createdBy', 'updatedBy'])->orderBy('id', 'desc')->get();
+        return Order::with(['orderDetails.product','paymentMethod', 'customer', 'orderStatus', 'createdBy', 'updatedBy'])->orderBy('id', 'desc')->get();
     }
 
     /**
@@ -60,170 +56,52 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-        
         if (auth()->user()->can('create_order')) {
             $this->validate($request, [
-                'order_date' => 'required',
-                'customer_id' => 'required',
-                'order_status_id' => 'required',
-                'payment_method_id' => 'required',
-                'paid_amount' => 'required_if:payment_type,Pay Now',
+                'order_date' => 'nullable',
+                'customer_id' => 'nullable',
+                'order_status_id' => 'nullable',
+                'payment_method_id' => 'nullable',
                 'notes' => 'nullable',
-                'order_details.*.product_id' => 'required',
-                'order_details.*.quantity' => 'required',
+                'order_details.*.product_id' => 'nullable',
+                'order_details.*.quantity' => 'nullable',
             ]);
             $orderSubtotal = 0;
-            $orderDiscount = 0;
-            $orderGrandtotal = 0;
-            $totalTaxAmount = 0;
-            $totalDiscount = 0;
 
             $order =  new Order();
-            $order->order_number = $this->generateUniqueReference('order', 'order_number', 100000000, 999999999);
+            $order->order_number =  'C/ORDER/'.(Order::max('id')+001).'/'.date('y');
             // check the user login role?
             if (auth()->user()->hasRole('User')) {
                 $order->customer_id = Auth::user()->id;
             } else {
-                $order->customer_id = $request->customer_id;
+                $order->customer_id = 6;
             }
-            $order->bill_no = $this->generateUniqueReference('order', 'bill_no', 100000000, 999999999);
-            $order->order_status_id = $request->order_status_id;
-            $order->payment_method_id = $request->payment_method_id;
-            $order->order_date = Carbon::parse($request->order_date)->toDateString();
-            $order->payment_status = 'unpaid';
-            $order->notes = $request->notes;
+            $order->bill_no = 'C/BILL/NUMBER/'.(Order::max('id')+001).'/'.date('y');
+            $order->order_status_id = 1;
+            $order->payment_method_id = 1;
+            $order->payment_status = "paid";
+            $order->order_date = Carbon::now();
+            $order->notes = "testing";
             $order->sub_total = 0;
-            $order->grand_total = 0;
-            $order->created_by = Auth::user()->id;
+            $order->created_by = 1;
             $order->created_at = Carbon::now();
             $order->save();
             // Orders details
             if ($order) {
                 foreach ($request->order_details as  $data) {
-                    // Get product detail
-                    $product = Product::where('id', $data['product_id'])->first();
-                    // Get tax tax
-                    if ($product->is_apply_tax != 0) {
-                        $tax = Tax::where('id', $product->tax_id)->first();
-                    }
                     // Save Order Detail 
                     $orderDetail = new OrderDetail();
                     $orderDetail->order_id = $order->id;
-                    $orderDetail->product_id = $data['product_id'];
-                    $orderDetail->quantity = $data['quantity'];
-                    $orderDetail->price = $data['price'];
-                    if ($product->is_apply_tax != 0) {
-                        $orderDetail->tax_id = $product->tax_id;
-                        $orderDetail->tax_rate = $tax->rate;
-                    }
-                    // Product base calculation
-                    $orderDetail->tax_amount = $product->wholesale_tax_amount;
-                    $orderDetail->sub_total = ($data['quantity'] * $data['price']);
-                    $orderDetail->grand_total = ($orderDetail->sub_total + ($product->wholesale_tax_amount * $data['quantity']));
-                    // Order base Calculation
+                    $orderDetail->product_id = 1;
+                    $orderDetail->quantity = 2;
+                    $orderDetail->sale_price = 200;
+                    $orderDetail->weight = 250+'gram';
+                    $orderDetail->sub_total = (1 * 200);
                     $orderSubtotal += $orderDetail->sub_total;
-                    $totalTaxAmount += $orderDetail->tax_amount * $data['quantity'];
-                    if ($data['product']['discount_detail'] && $data['product']['discount_detail']['is_eligible_for_discount'] == 1) {
-                        $orderDetail->price_after_discount = $data['product']['discount_detail']['sale_price'] ?? 0;
-                        $orderDetail->discount_percentage = $data['product']['discount_detail']['discount_percentage'] ?? 0;
-                        $orderDetail->discount_type = $data['product']['discount_detail']['discount_type'] ?? '';
-                        $totalDiscount += ($data['price'] - $data['product']['discount_detail']['sale_price']);
-                        $orderDetail->discount = ($data['price'] - $data['product']['discount_detail']['sale_price']);
-                        $orderDetail->grand_total = $orderDetail->grand_total - (($orderDetail->discount * $data['quantity']) ?? 0);
-                        $orderDetail->campaign_id = $data['product']['discount_detail']['campaign_id'] ?? '';
-                        $orderDiscount += ($orderDetail->discount * $data['quantity']);
-                    } else {
-                        $orderDetail->discount = 0;
-                    }
-                    $orderGrandtotal += $orderDetail->grand_total;
-                    // End Calculation
                     $orderDetail->save();
                 }
-                $order->discount = $orderDiscount;
-                $order->grand_total = $orderGrandtotal;
                 $order->sub_total = $orderSubtotal;
-                $order->total_product_tax = $totalTaxAmount;
                 $order->save();
-
-                // Send Email when order is placed
-                // $data = array(
-                // 'order_number' => $order->order_number,
-                // 'email' => $order->email,
-                // 'subject' => $order->subject,
-                // 'message_detail' => $order->message,
-                // );
-
-                
-                // ----------------------------------------------------
-                // ------------------Order histories-------------------
-                // ----------------------------------------------------
-                $orderHistories = new OrderHistory();
-                $orderHistories->order_id = $order->id;
-                // Check the login User
-                if (auth()->user()->hasRole('User')) {
-                    $orderHistories->customer =  Auth::user()->id;
-                } else {
-                    $orderHistories->customer = $request->customer_id;
-                }
-                $orderHistories->order_status_id = $request->order_status_id;
-                $orderHistories->order_status_updated_at = Carbon::now();
-                $orderHistories->order_status_updated_by = Auth::user()->id;
-                $orderHistories->created_at = Carbon::now();
-                $orderHistories->save();
-
-                // Order Payment
-                 if ($request->payment_type == 'Pay Now') {
-                    $orderPayments = OrderPayment::create([
-                        'reference' => 'PAYMENT/'.(OrderPayment::max('id')+001).'/'.date('y'),
-                        'order_id'=>$order->id,
-                        'customer_id'=>$order->customer_id,
-                        'payment_method_id'=>$order->payment_method_id,
-                        'payment_date'=> Carbon::parse($order->order_date)->toDateString(),
-                        'amount'=> $request->paid_amount,
-                        'notes'=> $request->order_payment_notes,
-                        'created_by'=> Auth::user()->id,
-                        'created_at'=> Carbon::now(),
-                    ]);
-                    // Get all Order Payment for this order
-                    $orderPayments = OrderPayment::where('order_id',$order->id)->sum('amount');
-                        if ($order->grand_total == $orderPayments) {
-                        // update order payment status
-                            $order->update([
-                                'payment_status'=>'paid',
-                            ]);
-                        } else {
-                        // update order payment status
-                            $order->update([
-                                'payment_status'=>'Partial Paid',
-                            ]);
-                        }
-                     } 
-                if ($request->order_status_id == 1) {
-                    // Get Settings Emails
-                    $settings = Setting::first();
-                    if ($settings->email != null) {
-                        $allEmails = explode(', ', $settings->email);
-                        // Send Email For Admin's
-                        foreach ($allEmails as $data) {
-                            Mail::send('email.orderPlaced', ['order' => $order, 'order_details' => $order->orderDetails,'customer' => $order->customer->name,'user'=>$order->customer,'order_status_id'=>$request->order_status_id,'order_status',$order->order_status,'role'=>'Admin'],  function ($message) use ($order,$data) {
-                                $message->to($data,'')
-                                ->subject('You have received an Order no.'. $order->order_number);
-                                $message->from('greenline@thewebsquare.com', 'K2');
-                            }); 
-                        }
-                    }
-                    // Email For User
-                    if ($order->customer_id != null) {
-                        if ($order->customer->email != null) {
-                            Mail::send('email.orderPlaced', ['order' => $order, 'order_details' => $order->orderDetails,'customer' => $order->customer->name,'user'=>$order->customer,'order_status_id'=>$request->order_status_id,'order_status',$order->order_status,'role'=>'user'],  function ($message) use ($order) {
-                                $message->to($order->customer->email,'')
-                                ->subject('Order no. ' . $order->order_number.' confirmation');
-                                $message->from('greenline@thewebsquare.com', 'K2');
-                            });
-                        }
-                    }
-                    
-                }
             }
 
             return response()->json([

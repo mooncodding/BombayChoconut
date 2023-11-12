@@ -4,12 +4,16 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
+use App\Models\OrderStatus;
+use App\Models\PaymentMethod;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\Setting;
 use App\Models\ProductCategory;
 use App\Models\ProductFlavour;
+use App\Models\User;
 
 class GeneralController extends Controller
 {
@@ -132,5 +136,38 @@ class GeneralController extends Controller
         } else {
             return response()->json('Something Went Wrong', 401);
         }
+    }
+    // Get All Products
+    public function getAllProducts(Request $request)
+    {
+        $products = Product::where('is_disabled', 0)->get();
+        return response()->json($products);
+    }
+    // Get All Payment Methods
+    public function getAllPaymentMethods(Request $request)
+    {
+        $paymentMethods = PaymentMethod::all();
+
+        return response()->json($paymentMethods);
+    }
+    // Get All Customer
+    public function getAllCustomers(Request $request)
+    {
+        $customers = User::whereHas('roles', function ($q) {
+            $q->where('roles.id', 4);
+        })->get();
+
+        return response()->json($customers);
+    }
+    // Get All Order Statuses for portal
+    public function getAllOrderStatus(Request $request)
+    {
+        // change order status condition 
+        if ($request->order_status_id) {
+            $orderStatuses = OrderStatus::where('id', '>', $request->order_status_id)->get();
+        } else {
+            $orderStatuses = OrderStatus::all();
+        }
+        return $orderStatuses;
     }
 }

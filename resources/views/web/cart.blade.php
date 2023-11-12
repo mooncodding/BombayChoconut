@@ -195,7 +195,7 @@
 
                             <div class="shp-btn col-sm-12 text-center">
                                 <button class="theme-btn-2 btn"> <b> CONTINUE SHOPPING </b> </button>
-                                <a href="/checkout"> <button class="theme-btn-3 btn"> <b>     CHECKOUT NOW </b> </button></a>
+                                <a href="/checkout" class="theme-btn-3 btn"> <b>     CHECKOUT NOW </b> </a>
                             </div>                                   
 
 

@@ -219,7 +219,7 @@ img {
 }
 
 .light-bg {
-    background-color: #659f9f;
+    background-color: #1e9848;
 }
 
 .white-bg {
@@ -640,9 +640,9 @@ strong {
 }
 
 .theme-tabs a {
-    border: 2px solid #659f9f;
+    border: 2px solid #87d0f4;
     border-radius: 25px;
-    color: #9f9e9c;
+    color: black;
     display: inline-block;
     height: 45px;
     line-height: 30px;
@@ -773,7 +773,7 @@ strong {
 }
 
 .slide-btn {
-    background: rgba(0, 0, 0, 0) linear-gradient(to top, #5dc6cf 0%, #a7d39f 100%) repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) linear-gradient(to top, #f8bc15 0%, #f8bc15 100%) repeat scroll 0 0;
     border: medium none;
     border-radius: 30px;
     display: inline-block;
@@ -1009,7 +1009,7 @@ a:focus, .clr-txt, .mega-dropdown-menu .sub-list > li a:hover:before, .footer-wi
 .crl-bg, .theme-btn, .primary-navbar > li > a:after, .theme-tabs .active a, .theme-tabs a:hover, .theme-tabs a:focus, .product-box::after,
 .mega-dropdown-menu .menu-title::after, .deal-count:before, .page-footer .divider-2, .tags-widget a:hover, .tags-widget a:focus, .prod-tabs .tabs > li > a::after,
 .blog-tabs li a::after, .blog-tabs .active a::after {
-    background-color: #659f9f;
+    background-color: #eb5251;
 }
 
 .theme-tabs .active a, .theme-tabs a:hover, .theme-tabs a:focus, .organic-prod:hover:before, .tags-widget a:hover,
@@ -1176,7 +1176,7 @@ blockquote {
 }
 
 .product-media {
-    background-color: #659f9f;
+    background-color: #243f85;
     height: 330px;
     position: relative;
 }
@@ -1567,8 +1567,8 @@ span.nav-trigger {
 }
 
 .mega-submenu {
-    background-color: #659f9f;
-    color: white;
+    background-color: #f8bc15;
+    color: black;
     padding: 10px;
     margin-top: -17px;
 }
@@ -1637,7 +1637,7 @@ header.main-header .pattern {
     
 }
 .down-header {
-    background-color: #659f9f;
+    background-color: #f8bc15;
     padding-top: 10px;
     padding-bottom: 13px;
 }
@@ -1657,12 +1657,12 @@ header.main-header .pattern {
 
 
 .main-slide .section-title {
-    color: white;
+    color: #eb5251;
     text-shadow: 0 0 20px black;
 }
 
 .main-slide h4.sub-title {
-    color: white;
+    color: #eb5251;
     text-shadow: 0 4px 10px BLACK;
 }
 .is-sticky p.sign-inn {
@@ -1677,7 +1677,7 @@ header.main-header .pattern {
     margin-top: 10px;
 }
 ul.primary-navbar li a {
-    color: white;
+    color: black;
     font-size: 18px;
     font-weight: 300;
     padding-left: 40px;
@@ -2589,7 +2589,7 @@ section.organic-product.sec-space {
     color: black !important;
 }
 .organic-prod img {
-    background-color: #6f9b9b;
+    background-color: #243f85;
     border-radius: 10px;
     padding-top: 40px;
 }

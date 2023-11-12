@@ -45,43 +45,43 @@
             <div class="top-header">
             
                     <div class="row">
-                    <div class="col-lg-3">
-            <p style="
-            border-right: 1px solid  white;
-            ">Order On Phone:123456789</p>
-                    </div>
-                    <div class="col-lg-2">
-            <p><i class="fa fa-envelope" aria-hidden="true"></i>
-                &nbsp;</i>
-                bombaychoc@gmail.com</p>
-                    </div>
-                    <div class="col-lg-2">
+                        <div class="col-lg-3">
+                <p style="
+                border-right: 1px solid  white;
+                ">Order On Phone:123456789</p>
+                        </div>
+                        <div class="col-lg-2">
+                <p><i class="fa fa-envelope" aria-hidden="true"></i>
+                    &nbsp;</i>
+                    bombaychoc@gmail.com</p>
+                        </div>
+                        <div class="col-lg-2">
 
-                    </div>
-                    <div class="col-lg-1">
-                        <a href="/giftbundle"> <p>  <i class="fa fa-user-plus" aria-hidden="true"></i>
-                            Account</p> </a>
-                        
-                    </div>
-                    <div class="col-lg-2">
-                    <p style="
-                    border-right: 1px solid white;
-                    border-left: 1px solid white;
-                "><i class="fa fa-heart" aria-hidden="true">&nbsp;
-                    </i>Wishlist</p> 
-                    </div>
-                    <div class="col-lg-2">
-                    <p style="
-                    text-align: start;
-                "><i class="fa fa-circle" aria-hidden="true">&nbsp;</i>
+                        </div>
+                        <div class="col-lg-1">
+                            <a href="/giftbundle"> <p>  <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                Account</p> </a>
+                            
+                        </div>
+                        <div class="col-lg-2">
+                        <p style="
+                        border-right: 1px solid white;
+                        border-left: 1px solid white;
+                    "><i class="fa fa-heart" aria-hidden="true">&nbsp;
+                        </i>Wishlist</p> 
+                        </div>
+                        <div class="col-lg-2">
+                        <p style="
+                        text-align: start;
+                    "><i class="fa fa-circle" aria-hidden="true">&nbsp;</i>
 
 
-                        Coins</p>
+                            Coins Comming Soon</p>
+                        </div>
+                    
+                    
                     </div>
-                
-                
-                </div>
-                
+                    
             </div>
             <!-- Main Header Start -->
             <header class="main-header">                  
@@ -553,7 +553,7 @@
                                             <input title="Qty" placeholder="03" class="form-control qty" type="text">
                                             <button class="btn plus"><i class="fa fa-plus-circle"></i></button>
                                         </div>
-                                        <div class="sort-dropdown">
+                                        {{-- <div class="sort-dropdown">
                                             <div class="search-selectpicker selectpicker-wrapper">
                                                 <select class="selectpicker input-price"  data-width="100%"
                                                         data-toggle="tooltip">
@@ -564,17 +564,16 @@
                                                     <option>5 Kilo</option>
                                                 </select>
                                             </div>
-                                        </div>
-                                        <div class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Ready in stock</span></label> </div>
+                                        </div> --}}
+                                        {{-- <div class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Ready in stock</span></label> </div> --}}
                                     </div>
                                     <ul class="meta">
-                                        <li> <strong> SKU </strong> <span>:  AB2922-B</span> </li>
+                                        <li class="tags-widget"> <strong> Variants </strong> <span>:  <a href="/#">100 gram</a> <a href="/#">250 gram</a> <a href="/#">500 gram</a></span> </li>
                                         <li> <strong> CATEGORY </strong> <span>:  chocolates</span> </li>
-                                        <li class="tags-widget"> <strong> TAGS </strong> <span>:  <a href="/#">Gift Boxes</a> <a href="/#">Dates</a> <a href="/#">Chocolates</a></span> </li>
                                     </ul>
                                     <div class="divider-full-1"></div>
                                     <div class="add-cart pt-15">
-                                        <a href="/#" class="theme-btn btn"> <strong> ADD TO CART </strong> </a>
+                                        <a href="/cart" class="theme-btn btn"> <strong> ADD TO CART </strong> </a>
                                     </div>
                                 </div>
                             </div>

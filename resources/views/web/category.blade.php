@@ -1,92 +1,38 @@
 @extends('web.master')
 @section('content')
+<section class="home-banner" style=" background-image: url({{asset('web-assets/images/banner/BACKGROUND.jpg')}}) ;">
+    <div class="container flex-iin">
+    <div class="home-banner-content">
+<h1>The Perfect <br>Dry Fruits Store</h1>
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci dolorum natus eaque pariatur maiores quas illum ex temporibus est perspiciatis. Quos nobis doloremque harum voluptate dignissimos quaerat excepturi accusamus ducimus!</p>
 
+<a href="/#" class="slide-btn"> Shop Now</a>  
+</div>
+    <div class="home-banner-image">
+    <img  src="{{asset('web-assets/images/product/3-removebg-preview.png')}}" />
+    </div>
+</div>
+</section>
 
-            <!--Breadcrumb Section Start-->
-            <section class="breadcrumb-bg" style="background-image:url({{asset('web-assets/images/banner/shop.jpg')}})">                
-                <div class="theme-container container ">                       
-                    <div class="site-breadcumb white-clr">                        
-                        <h2 class="section-title"> <strong class="clr-txt">Bombay </strong> <span class="light-font">Shop </span> </h2>
-                      
-                    </div>  
-                </div>
-            </section>
-            <!--Breadcrumb Section End-->
+<section class="bombay-categories sec-space-bottom">
+    <div class="container"> 
+        <div class="title-wrap">
+            <h4 class="sub-title"> FILTER </h4>
+            <h2 class="section-title">  <span class="light-font cate">CATEGORIES </span> </h2>
+        </div>
 
+        <div class="tabs-box text-center">
+            <ul class="theme-tabs small">
+                <li class=""><a href="/#naturix-tab-1" data-toggle="tab"> <span class="light-font">all </span> <strong>gift </strong> </a></li>                                
+                <li class="active"><a href="/#naturix-tab-2" data-toggle="tab"> <span class="light-font">organic </span> <strong>chocolates</strong> </a></li>                               
+                <li class=""><a href="/#naturix-tab-3" data-toggle="tab"> <span class="light-font">organic </span> <strong>dates </strong> </a></li>
+                <li class=""><a href="/#naturix-tab-4" data-toggle="tab"> <span class="light-font">organic </span> <strong>tea </strong> </a></li>
+                <li class=""><a href="/#naturix-tab-5" data-toggle="tab"> <span class="light-font">all </span> <strong>bread </strong> </a></li>
+                <li class=""><a href="/#naturix-tab-6" data-toggle="tab"> <span class="light-font">organic </span> <strong>juices </strong> </a></li>
+            </ul>
+        </div>
 
-            <!-- Shop Starts-->
-            <section class="shop-wrap sec-space-bottom">
-                <div class="pattern"> 
-                    <img alt="" src="assets/img/icons/white-pattern.png">
-                </div>
-
-                <div class="container rel-div">
-                    <div class="row sort-bar">
-                        <div class="icon"> <img alt="" src="assets/img/logo/logo-2.png" /> </div>
-                        <div class="col-lg-6">
-                            <div class="sort-dropdown left">
-                                <span>CATEGORY</span>
-                                <div class="search-selectpicker selectpicker-wrapper">
-                                    <select class="selectpicker input-price"  data-width="100%"
-                                            data-toggle="tooltip">
-                                        <option>All product</option>
-                                        <option>A - Z</option>
-                                        <option>Z - A</option>
-                                        <option> Low - High </option>
-                                        <option> High - Low </option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="sort-dropdown">
-                                <span>SORT BY</span>
-                                <div class="search-selectpicker selectpicker-wrapper">
-                                    <select class="selectpicker input-price"  data-width="100%"
-                                            data-toggle="tooltip">
-                                        <option>Popular item</option>
-                                        <option>A - Z</option>
-                                        <option>Z - A</option>
-                                        <option> Low - High </option>
-                                        <option> High - Low </option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 right">
-                            <div class="sort-dropdown">
-                                <span>BY PRICE</span>
-                                <div class="search-selectpicker selectpicker-wrapper">
-                                    <select class="selectpicker input-price"  data-width="100%"
-                                            data-toggle="tooltip">                                   
-                                        <option> Low to High </option>
-                                        <option> High to Low </option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="sort-range">
-                                <span>PRICE</span> <div id="price-range"></div>
-                            </div>
-                        </div>
-                    </div> 
-
-                    <div class="divider-full-1"></div>
-
-                    <div class="result-bar block-inline">
-                        <h4 class="result-txt">search result <b> 125 </b> </h4>
-                        <ul class="view-tabs">
-                            <li class="active">
-                                <a href="/#grid-view" data-toggle="tab">                                                    
-                                    <i class="fa fa-th"></i>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="/#list-view" data-toggle="tab">
-                                    <i class="fa fa-th-list"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="tab-content shop-content">
+        <div class="tab-content shop-content">
                         <div id="grid-view" class="tab-pane fade active in" role="tabpanel">
                             <div class="row"> 
                                 <div class="col-lg-3 col-md-4 col-sm-6"> 
@@ -535,14 +481,31 @@
                             </div>
                         </div>
                     </div>
-                </div>
+
+    </div>
+</section>
+
+<section class="subscribe-wrap sec-space light-bg"> 
+    <!-- <img src="{{asset('web-assets/images/product/chocolate.png')}}"  class="leftphp-bg-img" alt=""> -->
+    <h4 class="sub-title"> JOIN OUR NEWSLETTER </h4>
+                <h2 class="fsz-35"> <span class="light-font">subscribe </span> <strong> newsletter</strong> </h2>
+    <div class="container"> 
+        <div class="row"> 
+            <div class="col-md-2"> 
                 
-            </section>
-        
-            <!-- / Shop Ends -->   
+            </div>
+            <div class="col-md-8"> 
+                <form class="newsletter-form row">
+                    <div class="form-group col-sm-8">
+                        <input class="form-control" placeholder="enter your email address" required=""  type="text">                                                                                     
+                    </div>
+                    <div class="form-group col-sm-4">                                               
+                        <button class="theme-btn btn-block" type="submit"> subscribe <i class="fa fa-long-arrow-right"></i> </button>                                            
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 
 @endsection
-           
-
-
-

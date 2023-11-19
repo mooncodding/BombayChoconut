@@ -2,32 +2,33 @@
 @section('content')
 
             <!--Breadcrumb Section Start-->
-            <section class="breadcrumb-bg" style="background-image:url({{asset('web-assets/images/banner/about1.jpg')}})">                
-                <div class="theme-container container ">                       
-                    <div class="site-breadcumb white-clr">                        
-                        <h2 class="section-title"> <span class="light-font">About </span> <strong class="clr-txt">Bombay  </strong> <span class="light-font">Choco N Nuts</span> </h2>
-                        {{-- <ol class="breadcrumb breadcrumb-menubar">
-                            <li> <a href="/#"> Home </a> About  </li>                             
-                        </ol> --}}
-                    </div>  
-                </div>
-            </section>
+            <section class="home-banner" style=" background-image: url({{asset('web-assets/images/banner/BACKGROUND.jpg')}}) ;">
+    <div class="container flex-iin">
+    <div class="home-banner-content">
+<h1>The Perfect <br>Dry Fruits Store</h1>
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci dolorum natus eaque pariatur maiores quas illum ex temporibus est perspiciatis. Quos nobis doloremque harum voluptate dignissimos quaerat excepturi accusamus ducimus!</p>
+
+<a href="/#" class="slide-btn"> Shop Now</a>  
+</div>
+    <div class="home-banner-image">
+    <img  src="{{asset('web-assets/images/product/3-removebg-preview.png')}}" />
+    </div>
+</div>
+</section>
             <!--Breadcrumb Section End-->
 
             <!-- Organic Farmfood Starts-->
-            <section class="organic-farm-2 sec-space-bottom">
+            <section class="organic-farm-2 sec-space-bottom" style=" background-image: url({{asset('web-assets/images/product/2-removebg-preview.png')}}) ;">
 
-                <img alt="" src="assets/img/extra/sec-img-7.png" class="left-bottom-img" />  
-                <img alt="" src="assets/img/extra/sec-img-8.png" class="right-top-img" />  
+              
 
-                <div class="pattern"> 
-                    <img alt="" src="assets/img/icons/white-pattern.png">
-                </div>
+               
                 <div class="section-icon"> 
-                    <img src="{{asset('web-assets/images/product/2.png')}}" alt=""/>
+                    <img src="{{asset('web-assets/images/product/1-removebg-preview.png')}}" alt style="
+        width: 250px;"/>
                     <div class="ptb-15 icon"> 
                         <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>  
-                        <span class="light-font"> a taste of </span> <strong>real food</strong>
+                        <span class="light-font"> A taste of </span> <strong class="darkness">real food</strong>
                         <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>  
                     </div>
                 </div>
@@ -46,46 +47,46 @@
                         <div class="col-md-3 col-sm-6 text-center">
                             <div class="feature-wrap">
                                 <img src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""/>
-                                <h3 class="title-1 ptb-15 " style="color: black"> <span class="light-font">fresh from </span> <strong> Bombay Choco N Nuts</strong> </h3>
-                                <p style="color: black">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.  </p>
+                                <h3 class="title-1 ptb-15 " style="color: black"> <span >fresh from </span>  Bombay Choco N Nuts </h3>
+                                <p style="color: #ea5251">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.  </p>
                                 <a href="/#" class="sm-bnt-wht">Read More</a>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 text-center">
                             <div class="feature-wrap">
                                 <img src="{{asset('web-assets/images/giftbasket/2.png')}}" alt=""/>
-                                <h3 class="title-1 ptb-15" style="color: black"> <span class="light-font"> 100%</span> <strong> organic goods</strong> </h3>
-                                <p style="color: black">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.  </p>
+                                <h3 class="title-1 ptb-15" style="color: black"> <span > 100%</span>  organic goods </h3>
+                                <p style="color: #ea5251">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.  </p>
                                 <a href="/#" class="sm-bnt-wht">Read More</a>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 text-center">
                             <div class="feature-wrap">
                                 <img src="{{asset('web-assets/images/giftbasket/3.png')}}" alt=""/>
-                                <h3 class="title-1 ptb-15" style="color: black"> <span class="light-font">premium </span> <strong> quality</strong> </h3>
-                                <p style="color: black">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.  </p>
+                                <h3 class="title-1 ptb-15" style="color: black"> <span >premium </span>  quality </h3>
+                                <p style="color: #ea5251">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.  </p>
                                 <a href="/#" class="sm-bnt-wht">Read More</a>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 text-center">
                             <div class="feature-wrap">
                                 <img src="{{asset('web-assets/images/giftbasket/4.png')}}" alt=""/>
-                                <h3 class="title-1 ptb-15" style="color: black"> <span class="light-font">100% </span> <strong>natural</strong> </h3>
-                                <p style="color: black">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.  </p>
+                                <h3 class="title-1 ptb-15" style="color: black"> <span >100% </span> natural </h3>
+                                <p style="color: #ea5251">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.  </p>
                                 <a href="/#" class="sm-bnt-wht">Read More</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="rel-div feature-img">
-                        <img src="{{asset('web-assets/images/banner/splash-41.png')}}" alt=""/>
+                        <img src="{{asset('web-assets/images/product/3-removebg-preview.png')}}" alt=""/>
                     </div>
                 </div>
             </section>
             <!-- / Organic Farmfood Ends -->      
 
             <!-- About Us Starts-->
-            <section class="short-about sec-space light-bg">
+            <section class="short-about sec-space light-bg" style="background-color: #ee8922 !important;">
 
                 <img alt="" src="assets/img/extra/sec-img-1.png" class="left-top-img">  
                 <img alt="" src="assets/img/extra/sec-img-3.png" class="center-bg-img">  
@@ -93,7 +94,7 @@
 
                 <div class="container rel-div">
                     <div class="title-wrap pt-15">                       
-                        <h4 class="fsz-20"> <strong>naturix</strong> <span class="light-font">  organic farmfood since 1990 </span> </h4>
+                        <h4 class="fsz-20"> <strong>Bombay</strong> <span class="light-font">  organic farmfood since 1990 </span> </h4>
                         <h2 class="fsz-50 over-txt-title"> 
                             <span class="light-font"> WE DO <span class="over-txt light-bg">100% ORGANIC GUARANTEE</span> </span> 
                             <strong>HEALTHY</strong> 
@@ -102,14 +103,14 @@
                     </div>
 
                     <div class="about-wrap"> 
-                        {{-- <img class="logo-img" alt="" src="assets/img/extra/sign-1.png" />
-                        <h4 class=""> <strong>Gabriel</strong> <span class="light-font"> Johnson </span> </h4> --}}
-                        {{-- <h5 class="clr-txt sub-title-sm">NATURIX OWNER</h5> --}}
-                        <img class="logo-img" src="{{asset('web-assets/images/banner/about3.png')}}" alt=""/>
+                         <img class="logo-img" alt="" src="assets/img/extra/sign-1.png" />
+                        <h4 class="owner-name">  <span class="light-font"> IBRAHIM</span> </h4> 
+                        <h5 class="clr-txt sub-title-sm">BCN OWNER</h5> 
+                        <img class="logo-img" src="{{asset('web-assets/images/product/4-removebg-preview.png')}}" alt=""/>
                         <h2 class="font-3 fsz-35">Live Organic Live Healthy</h2>
                         <div class="icon"> 
                             <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>   
-                            <span class="light-font"> a taste of </span> <strong>real food</strong> 
+                            <span class="light-font"> A taste of </span> <strong class="real">real food</strong> 
                             <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>  
                         </div>
                     </div>

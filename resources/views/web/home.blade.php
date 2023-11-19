@@ -1,7 +1,7 @@
 @extends('web.master')
 @section('content')
 <!-- Main Slider Start -->
-<section class="main-slide">
+<!-- <section class="main-slide">
     <div id="naturix-slider" class="owl-carousel nav-1">
         <div class="item">                        
             <img src="{{asset('web-assets/images/banner/banner3.jpeg')}}" alt="">
@@ -70,21 +70,35 @@
             </div>
         </div>
     </div>               
-</section>
+</section> -->
 <!-- / Main Slider Ends -->   
+<section class="home-banner" style=" background-image: url({{asset('web-assets/images/banner/BACKGROUND.jpg')}}) ;">
+    <div class="container flex-iin">
+    <div class="home-banner-content">
+<h1>The Perfect <br>Dry Fruits Store</h1>
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci dolorum natus eaque pariatur maiores quas illum ex temporibus est perspiciatis. Quos nobis doloremque harum voluptate dignissimos quaerat excepturi accusamus ducimus!</p>
 
+<a href="/#" class="slide-btn"> Shop Now</a>  
+</div>
+    <div class="home-banner-image">
+    <img  src="{{asset('web-assets/images/product/3-removebg-preview.png')}}" />
+    </div>
+</div>
+</section>
 <!-- Organic All Starts-->
 <section class="organic-all sec-space-bottom">
-    <div class="pattern"> 
+    <!-- <div class="pattern"> 
         <img alt="" src="assets/img/icons/white-pattern.png" />
-    </div>
+    </div> -->
     <div class="section-icon"> 
-        <img src="{{asset('web-assets/images/product/coco.png')}}" alt style="
-        width: 110px;">
+        <!-- <img src="{{asset('web-assets/images/product/coco.png')}}" alt style="
+        width: 110px;"> -->
     </div>
     <div class="container">                    
         <div class="organic-wrap"> 
-            <img class="logo-img" alt="" src="assets/img/logo/logo-1.png" />
+            <img class="logo-img" alt style="
+        width: 120px;" src="{{asset('web-assets/images/bombaylogo.png')}}" />
+            
             <div class="tabs-box">
                 <ul class="theme-tabs">
                     <li class=""><a href="/#product-tab-1" data-toggle="tab"> <span class="light-font">Dry</span> <strong>fruits </strong> </a></li>                                
@@ -1905,10 +1919,10 @@
 <!-- / Organic All Ends -->
 
 <!-- Organic Farmfood Starts-->
-<section class="organic-farm sec-space-top light-bg">
+<section class="organic-farm sec-space-top light-bg " style=" background-image: url({{asset('web-assets/images/product/5-removebg-preview.png')}}) ;">
   
-    <img alt="" src="assets/img/extra/sec-img-1.png" class="left-bg-img" />  
-    <img alt="" src="assets/img/extra/sec-img-2.png" class="center-bg-img" />  
+    <!-- <img alt="" src="assets/img/extra/sec-img-1.png" class="left-bg-img" />  
+    <img alt="" src="assets/img/extra/sec-img-2.png" class="center-bg-img" />   -->
 
     <div class="container rel-div">
         <div class="title-wrap">
@@ -1952,7 +1966,7 @@
         </div>
 
         <div class="rel-div feature-img">
-            <img class="aligncenter wp-image-402 size-full" src="{{asset('web-assets/images/banner/almo.png')}}"  alt =""> 
+            <img class="aligncenter wp-image-402 size-full" src="{{asset('web-assets/images/product/almonds.png')}}"  alt =""> 
         </div>
     </div>
 </section>
@@ -1961,7 +1975,7 @@
 <!-- Our Products Starts-->
 <section class="organic-product sec-space">
         <div class="row sec-space-top"> 
-            <div class="col-lg-6 col-sm-12"> 
+            <div class="col-lg-7 col-sm-12"> 
                 <div class="row"> 
                     <div class="col-sm-4"> 
                         <div class="organic-prod">
@@ -1989,7 +2003,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-sm-12"> 
+            <div class="col-lg-5 col-sm-12"> 
                 <div class="organic-prod-info">
                     <h4 class="sub-title">  FRESH FROM OUR FARM </h4>
                     <h2 class="section-title ptb-15"> <span class="light-font">220+ </span> <strong>chocolates, dry fruites </strong> <span class="light-font"> & </span> <strong> lot more</strong> </h2>
@@ -1998,14 +2012,14 @@
             </div>
         </div>
         <div class="row sec-space-top"> 
-            <div class="col-lg-6 col-sm-12"> 
+            <div class="col-lg-5 col-sm-12"> 
                 <div class="organic-prod-info">
                     <h4 class="sub-title">  FRESH FROM OUR FARM </h4>
                     <h2 class="section-title ptb-15"> <span class="light-font">115+ </span> <strong>organic juices </strong> <span class="light-font"> and </span> <strong> organic tea</strong> </h2>
                     <p class="fsz-16">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
                 </div>
             </div>
-            <div class="col-lg-6 col-sm-12"> 
+            <div class="col-lg-7 col-sm-12"> 
                 <div class="row"> 
                     <div class="col-sm-4"> 
                         <div class="organic-prod">
@@ -4093,7 +4107,7 @@
             </div>
             <div class="col-sm-2 text-center no-padding"> 
             
-                <img class="prod-img" src="{{asset('web-assets/images/Nuts/22.png')}}" alt="">   
+                <img class="prod-img" src="{{asset('web-assets/images/product/chocsss.png')}}" alt="">   
             </div>
             <div class="col-sm-5"> 
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
@@ -4124,7 +4138,9 @@
                                 <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
                             </div>
                         </div>
-                        <div class="deal-img">   <img src="{{asset('web-assets/images/giftbasket/2.png')}}" alt=""/> </div>
+                        <div class="deal-img">   <img src="{{asset('web-assets/images/product/51-removebg-preview.png')}}" alt style="
+    width: 350px;
+"/> </div>
                     </div>
                 </div>
             </div>
@@ -4147,7 +4163,8 @@
                                 <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
                             </div>
                         </div>
-                        <div class="deal-img"> <img src="{{asset('web-assets/images/giftbasket/3.png')}}" alt=""/> </div>
+                        <div class="deal-img"> <img src="{{asset('web-assets/images/product/52-removebg-preview.png')}}" alt style="
+    width: 350px;"/> </div>
                     </div>
                 </div>
             </div>
@@ -4208,7 +4225,7 @@
         <img alt="" src="assets/img/icons/white-pattern.png">
     </div>
     <div class="section-icon"> 
-        <img src="{{asset('web-assets/images/product/51.jpg')}}" alt style="
+        <img src="{{asset('web-assets/images/product/53-removebg-preview.png')}}" alt style="
         width: 300px;"/> 
         <div class="pt-15 icon"> 
             <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>  
@@ -4506,13 +4523,13 @@
 <!-- Subscribe Newsletter Starts-->
 <section class="subscribe-wrap sec-space light-bg">
     <img alt="" src="assets/img/extra/sec-img-5.png" class="right-bg-img" />  
-    <img src="{{asset('web-assets/images/product/chocolate.png')}}"  class="leftphp-bg-img" alt="">
-
+    <!-- <img src="{{asset('web-assets/images/product/chocolate.png')}}"  class="leftphp-bg-img" alt=""> -->
+    <h4 class="sub-title"> JOIN OUR NEWSLETTER </h4>
+                <h2 class="fsz-35"> <span class="light-font">subscribe </span> <strong> newsletter</strong> </h2>
     <div class="container"> 
         <div class="row"> 
-            <div class="col-md-4"> 
-                <h4 class="sub-title"> JOIN OUR NEWSLETTER </h4>
-                <h2 class="fsz-35"> <span class="light-font">subscribe </span> <strong> newsletter</strong> </h2>
+            <div class="col-md-2"> 
+                
             </div>
             <div class="col-md-8"> 
                 <form class="newsletter-form row">

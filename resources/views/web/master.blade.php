@@ -45,38 +45,35 @@
             <div class="top-header">
             
                     <div class="row">
-                        <div class="col-lg-3">
-                <p style="
-                border-right: 1px solid  white;
-                ">Order On Phone:123456789</p>
+                        <div class="col-lg-5">
+                <p>SUPER DEALS <span style="padding-left:10px;">   FEATURE PRODUCTS <span style="padding-left:10px;">  TRENDING PRODUCTS <span style="padding-left:10px;">  GIFT BASKETS</p>
                         </div>
-                        <div class="col-lg-2">
-                <p><i class="fa fa-envelope" aria-hidden="true"></i>
-                    &nbsp;</i>
-                    bombaychoc@gmail.com</p>
-                        </div>
+                        <!-- <div class="col-lg-3">
+                <p>
+                     <span>adssad</p>
+                        </div> -->
                         <div class="col-lg-2">
 
                         </div>
-                        <div class="col-lg-1">
+                        <div class="col-lg-2 locator">
                             <a href="/giftbundle"> <p>  <i class="fa fa-user-plus" aria-hidden="true"></i>
-                                Account</p> </a>
-                            
+                                STORE LOCATOR</p> </a>
+                            <span>
                         </div>
-                        <div class="col-lg-2">
+                        <div class="col-lg-2 track">
                         <p style="
                         border-right: 1px solid white;
                         border-left: 1px solid white;
                     "><i class="fa fa-heart" aria-hidden="true">&nbsp;
-                        </i>Wishlist</p> 
+                        </i>TRACK YOUR ORDER</p> 
                         </div>
-                        <div class="col-lg-2">
+                        <div class="col-lg-1">
                         <p style="
                         text-align: start;
-                    "><i class="fa fa-circle" aria-hidden="true">&nbsp;</i>
+                    "><i class="fa fa-user-plus" aria-hidden="true"></i>
 
 
-                            Coins Comming Soon</p>
+                            ACCOUNT</p>
                         </div>
                     
                     
@@ -86,25 +83,62 @@
             <!-- Main Header Start -->
             <header class="main-header">                  
                 <div class="container-fluid rel-div">
-                    <div class="pattern"> 
+                    <!-- <div class="pattern"> 
                         <img alt="" src="assets/img/icons/white-pattern.png" />
-                    </div>
+                    </div> -->
                     
-
-                    <div class="col-lg-5 responsive-menu">  
-                        <input type="text" placeholder="Search Products..">
-                    </div>
-                    <div class="col-lg-2 col-sm-8">
+                    <div class="col-lg-3 col-sm-8">
                         <div class="main-logo">
                             <img src="{{asset('web-assets/images/logo/bombaylogo.png')}}" alt="">
                            
                         </div>
                     </div>
-                    <div class="col-lg-2">
-                        <p class="sign-inn"><i class="fa fa-user" aria-hidden="true">&nbsp;</i>
-                            Welcome! Sign In</p>
+                    <div class="col-lg-6 responsive-menu">  
+                    <div class="input-group">
+     <div class="input-group-btn search-panel">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+        <span id="search_concept">All Categories</span> <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu scrollable-dropdown" role="menu">
+        <li><a href="#">Chocolates</a></li>
+        <li><a href="#">Dates</a></li>
+        <li><a href="#">Milk</a></li>
+        <li><a href="#">Gift Pack</a></li>
+        <li><a href="#">Bundles</a></li>
+        <li><a href="#">Basket</a></li>
+        <li><a href="#">Almond</a></li>
+        <li><a href="#">Jelly</a></li>
+        <li><a href="#">Juice</a></li>
+        <li><a href="#">Fresh</a></li>
+        <li><a href="#">Gift Bundle</a></li>
+        <li><a href="#">Coconuts</a></li>
+        <li><a href="#">Chilies</a></li>
+        <li><a href="#">Custard</a></li>
+        <li><a href="#">Toffees</a></li>
+        <li><a href="#">Health and Personal Care</a></li>
+      </ul>
+     </div>
+     <input type="hidden" name="search_param" value="all" id="search_param">
+     <input type="text" class="form-control" name="x" id="search" placeholder="Search  For Products...">
+     <span class="input-group-btn">
+       <button class="btn btn-default" type="button">
+         <span class="glyphicon glyphicon-search"></span>
+       </button>
+   </span>
+    </div>
                     </div>
-                    <div class="col-lg-3 col-sm-4 cart-megamenu">
+                 
+                     <div style=" padding-left: 20px;  padding-top: 10px;   font-size: 20px;" class="col-lg-1 ">
+                     <i class="fa fa-list" aria-hidden="true"></i><span style=" padding-left: 33px; "><i class="fa fa-heart-o" aria-hidden="true"></i>
+
+                           
+                    </div> 
+                    <!-- <div class="col-lg-1">
+                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+
+                           
+                    </div>  -->
+                    <div class="col-lg-2 col-sm-4 cart-megamenu">
                         <div class="cart-hover">
                             <a href="/#"> <img alt="" src="assets/img/icons/cart-icon.png" /> </a>
                             <span class="cnt crl-bg">2</span> <span class="price">$2.170.00</span>
@@ -169,145 +203,13 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="mega-submenu">
-
-                            <span class="nav-trigger">
-                               All Categories <a class="menu-toggle" href="/#"> <img src="assets/img/icons/menu.png" alt="" /> </a>
-                            </span>
-                            <div class="mega-dropdown-menu">
-                                <a class="menu-toggle fa fa-close" href="/#">  </a>
-                                <div class="slider-mega-menu">
-                                    <div class="menu-block">
-                                        <div class="menu-caption">                                                               
-                                            <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Fruits</strong> </h2>
-                                            <ul class="sub-list">
-                                                <li> <a href="/#">Banana</a> </li>
-                                                <li> <a href="/#">Water Melon </a> </li>
-                                                <li> <a href="/#">Blackberry </a> </li>
-                                                <li> <a href="/#">Plume</a> </li>
-                                                <li> <a href="/#">Orange</a> </li>
-                                                <li> <a href="/#">Lemon</a> </li>
-                                                <li> <a href="/#">Pineapple</a> </li>
-                                                <li> <a href="/#">Apple</a> </li>
-                                                <li> <a href="/#">Kiwi</a> </li>
-                                            </ul>
-                                            <h2 class="title"> <a href="/#" class="clr-txt"> All Fruits </a> </h2>
-                                        </div>
-                                        <div class="menu-img">
-                                            <img alt="" src="assets/img/extra/menu-1.png" />
-                                        </div>
-                                    </div>  
-                                    <div class="menu-block">
-                                        <div class="menu-caption">                                                               
-                                            <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Vegetables</strong> </h2>
-                                            <ul class="sub-list">
-                                                <li> <a href="/#">Cabbage</a> </li>
-                                                <li> <a href="/#">Garlic </a> </li>
-                                                <li> <a href="/#">Onion </a> </li>
-                                                <li> <a href="/#">Plume</a> </li>
-                                                <li> <a href="/#">Carrot</a> </li>
-                                                <li> <a href="/#">Papper</a> </li>
-                                                <li> <a href="/#">Mushrome</a> </li>
-                                                <li> <a href="/#">Apple</a> </li>
-                                                <li> <a href="/#">Kiwi</a> </li>
-                                            </ul>
-                                            <h2 class="title"> <a href="/#" class="clr-txt"> All Vegetables </a> </h2>
-                                        </div>
-                                        <div class="menu-img">
-                                            <img alt="" src="assets/img/extra/menu-2.png" />
-                                        </div>
-                                    </div>  
-                                    <div class="menu-block">
-                                        <div class="menu-caption">                                                               
-                                            <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Dread Juices</strong> </h2>
-                                            <ul class="sub-list">
-                                                <li> <a href="/#">Banana Juice</a> </li>
-                                                <li> <a href="/#">Water Melon Juice</a> </li>
-                                                <li> <a href="/#">Blackberry Juice</a> </li>
-                                                <li> <a href="/#">Plume Juice</a> </li>
-                                                <li> <a href="/#">Orange Juice</a> </li>
-                                                <li> <a href="/#">Lemon Juice</a> </li>
-                                                <li> <a href="/#">Pineapple Juice</a> </li>
-                                                <li> <a href="/#">Apple Juice</a> </li>
-                                                <li> <a href="/#">Kiwi Juice</a> </li>
-                                            </ul>
-                                            <h2 class="title"> <a href="/#" class="clr-txt"> All Dread juices </a> </h2>
-                                        </div>
-                                        <div class="menu-img">
-                                            <img alt="" src="assets/img/extra/menu-3.png" />
-                                        </div>
-                                    </div>  
-                                    <div class="menu-block">
-                                        <div class="menu-caption">                                                               
-                                            <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Juices</strong> </h2>
-                                            <ul class="sub-list">
-                                                <li> <a href="/#">Banana Juice</a> </li>
-                                                <li> <a href="/#">Water Melon Juice</a> </li>
-                                                <li> <a href="/#">Blackberry Juice</a> </li>
-                                                <li> <a href="/#">Plume Juice</a> </li>
-                                                <li> <a href="/#">Orange Juice</a> </li>
-                                                <li> <a href="/#">Lemon Juice</a> </li>
-                                                <li> <a href="/#">Pineapple Juice</a> </li>
-                                                <li> <a href="/#">Apple Juice</a> </li>
-                                                <li> <a href="/#">Kiwi Juice</a> </li>
-                                            </ul>
-                                            <h2 class="title"> <a href="/#" class="clr-txt"> All Fresh Juices </a> </h2>
-                                        </div>
-                                        <div class="menu-img">
-                                            <img alt="" src="assets/img/extra/menu-1.png" />
-                                        </div>
-                                    </div>  
-                                    <div class="menu-block">
-                                        <div class="menu-caption">                                                               
-                                            <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Breads</strong> </h2>
-                                            <ul class="sub-list">
-                                                <li> <a href="/#">Banana</a> </li>
-                                                <li> <a href="/#">Water Melon </a> </li>
-                                                <li> <a href="/#">Blackberry </a> </li>
-                                                <li> <a href="/#">Plume</a> </li>
-                                                <li> <a href="/#">Orange</a> </li>
-                                                <li> <a href="/#">Lemon</a> </li>
-                                                <li> <a href="/#">Pineapple</a> </li>
-                                                <li> <a href="/#">Apple</a> </li>
-                                                <li> <a href="/#">Kiwi</a> </li>
-                                            </ul>
-                                            <h2 class="title"> <a href="/#" class="clr-txt"> All Fresh Bread </a> </h2>
-                                        </div>
-                                        <div class="menu-img">
-                                            <img alt="" src="assets/img/extra/menu-5.png" />
-                                        </div>
-                                    </div>  
-                                    <div class="menu-block">
-                                        <div class="menu-caption">                                                               
-                                            <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Tea</strong> </h2>
-                                            <ul class="sub-list">
-                                                <li> <a href="/#">Cabbage</a> </li>
-                                                <li> <a href="/#">Garlic </a> </li>
-                                                <li> <a href="/#">Onion </a> </li>
-                                                <li> <a href="/#">Plume</a> </li>
-                                                <li> <a href="/#">Carrot</a> </li>
-                                                <li> <a href="/#">Papper</a> </li>
-                                                <li> <a href="/#">Mushrome</a> </li>
-                                                <li> <a href="/#">Apple</a> </li>
-                                                <li> <a href="/#">Kiwi</a> </li>
-                                            </ul>
-                                            <h2 class="title"> <a href="/#" class="clr-txt"> All Freash Tea </a> </h2>
-                                        </div>
-                                        <div class="menu-img">
-                                            <img alt="" src="assets/img/extra/menu-6.png" />
-                                        </div>
-                                    </div> 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="responsive-toggle fa fa-bars"> </div>
-                    </div>
+                      
 
                 </div>  
             </header>
             <div class="down-header">
 <div class="row">
-    <div class="col-lg-12 col-md-6 col-sm-12 responsive-menu">  
+    <div class="col-lg-10 col-md-6 col-sm-12 responsive-menu">  
         <div class="responsive-toggle fa fa-bars"> </div>
         <nav class="fix-navbar" id="primary-navigation">            
             <ul class="primary-navbar">                                                
@@ -338,31 +240,152 @@
                     </ul> --}}
                 </li>
                 <li><a href="/contact">Contact Us</a></li>   
-                <li class="dropdown">
-                    <a href="/#" class="sm-bnt-wht order-btn">Order Online</a>
-                </li> 
+               
                 <li class="dropdown">
                     <a href="/giftbundle"  >Gift Bundle</a>
                 </li>
                 <li class="dropdown">
                     <a href="/specialoffers"  >Special Offers</a>
                 </li>
-                <li><a href="https://twitter.com"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-            <li><a href="https://facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-            <li><a href="https://instagram.com"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-            <li><a href="https://youtube.com"><i class="fa fa-youtube-play" aria-hidden="true"></i>
-            </a></li>
+                
             </ul>                           
         </nav>
     </div>
-    {{-- <div class="col-lg-2">
-        <ul>
-            <li><a href="https://twitter.com"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-            <li><a href="https://facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-            <li><a href="https://instagram.com"><i class="bi bi-instagram"></i></a></li>
-            <li><a href="https://pinterest.com"><i class="bi bi-youtube"></i></a></li>
-        </ul>
-    </div> --}}
+   <div class="col-lg-2">
+        <div class="mega-submenu">
+
+<span class="nav-trigger">
+    <a class="menu-toggle" href="/#"> <img src="assets/img/icons/menu.png" alt="" /> </a>
+</span>
+<div class="mega-dropdown-menu">
+    <a class="menu-toggle fa fa-close" href="/#">  </a>
+    <div class="slider-mega-menu">
+        <div class="menu-block">
+            <div class="menu-caption">                                                               
+                <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Fruits</strong> </h2>
+                <ul class="sub-list">
+                    <li> <a href="/#">Banana</a> </li>
+                    <li> <a href="/#">Water Melon </a> </li>
+                    <li> <a href="/#">Blackberry </a> </li>
+                    <li> <a href="/#">Plume</a> </li>
+                    <li> <a href="/#">Orange</a> </li>
+                    <li> <a href="/#">Lemon</a> </li>
+                    <li> <a href="/#">Pineapple</a> </li>
+                    <li> <a href="/#">Apple</a> </li>
+                    <li> <a href="/#">Kiwi</a> </li>
+                </ul>
+                <h2 class="title"> <a href="/#" class="clr-txt"> All Fruits </a> </h2>
+            </div>
+            <div class="menu-img">
+                <img alt="" src="assets/img/extra/menu-1.png" />
+            </div>
+        </div>  
+        <div class="menu-block">
+            <div class="menu-caption">                                                               
+                <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Vegetables</strong> </h2>
+                <ul class="sub-list">
+                    <li> <a href="/#">Cabbage</a> </li>
+                    <li> <a href="/#">Garlic </a> </li>
+                    <li> <a href="/#">Onion </a> </li>
+                    <li> <a href="/#">Plume</a> </li>
+                    <li> <a href="/#">Carrot</a> </li>
+                    <li> <a href="/#">Papper</a> </li>
+                    <li> <a href="/#">Mushrome</a> </li>
+                    <li> <a href="/#">Apple</a> </li>
+                    <li> <a href="/#">Kiwi</a> </li>
+                </ul>
+                <h2 class="title"> <a href="/#" class="clr-txt"> All Vegetables </a> </h2>
+            </div>
+            <div class="menu-img">
+                <img alt="" src="assets/img/extra/menu-2.png" />
+            </div>
+        </div>  
+        <div class="menu-block">
+            <div class="menu-caption">                                                               
+                <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Dread Juices</strong> </h2>
+                <ul class="sub-list">
+                    <li> <a href="/#">Banana Juice</a> </li>
+                    <li> <a href="/#">Water Melon Juice</a> </li>
+                    <li> <a href="/#">Blackberry Juice</a> </li>
+                    <li> <a href="/#">Plume Juice</a> </li>
+                    <li> <a href="/#">Orange Juice</a> </li>
+                    <li> <a href="/#">Lemon Juice</a> </li>
+                    <li> <a href="/#">Pineapple Juice</a> </li>
+                    <li> <a href="/#">Apple Juice</a> </li>
+                    <li> <a href="/#">Kiwi Juice</a> </li>
+                </ul>
+                <h2 class="title"> <a href="/#" class="clr-txt"> All Dread juices </a> </h2>
+            </div>
+            <div class="menu-img">
+                <img alt="" src="assets/img/extra/menu-3.png" />
+            </div>
+        </div>  
+        <div class="menu-block">
+            <div class="menu-caption">                                                               
+                <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Juices</strong> </h2>
+                <ul class="sub-list">
+                    <li> <a href="/#">Banana Juice</a> </li>
+                    <li> <a href="/#">Water Melon Juice</a> </li>
+                    <li> <a href="/#">Blackberry Juice</a> </li>
+                    <li> <a href="/#">Plume Juice</a> </li>
+                    <li> <a href="/#">Orange Juice</a> </li>
+                    <li> <a href="/#">Lemon Juice</a> </li>
+                    <li> <a href="/#">Pineapple Juice</a> </li>
+                    <li> <a href="/#">Apple Juice</a> </li>
+                    <li> <a href="/#">Kiwi Juice</a> </li>
+                </ul>
+                <h2 class="title"> <a href="/#" class="clr-txt"> All Fresh Juices </a> </h2>
+            </div>
+            <div class="menu-img">
+                <img alt="" src="assets/img/extra/menu-1.png" />
+            </div>
+        </div>  
+        <div class="menu-block">
+            <div class="menu-caption">                                                               
+                <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Breads</strong> </h2>
+                <ul class="sub-list">
+                    <li> <a href="/#">Banana</a> </li>
+                    <li> <a href="/#">Water Melon </a> </li>
+                    <li> <a href="/#">Blackberry </a> </li>
+                    <li> <a href="/#">Plume</a> </li>
+                    <li> <a href="/#">Orange</a> </li>
+                    <li> <a href="/#">Lemon</a> </li>
+                    <li> <a href="/#">Pineapple</a> </li>
+                    <li> <a href="/#">Apple</a> </li>
+                    <li> <a href="/#">Kiwi</a> </li>
+                </ul>
+                <h2 class="title"> <a href="/#" class="clr-txt"> All Fresh Bread </a> </h2>
+            </div>
+            <div class="menu-img">
+                <img alt="" src="assets/img/extra/menu-5.png" />
+            </div>
+        </div>  
+        <div class="menu-block">
+            <div class="menu-caption">                                                               
+                <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Tea</strong> </h2>
+                <ul class="sub-list">
+                    <li> <a href="/#">Cabbage</a> </li>
+                    <li> <a href="/#">Garlic </a> </li>
+                    <li> <a href="/#">Onion </a> </li>
+                    <li> <a href="/#">Plume</a> </li>
+                    <li> <a href="/#">Carrot</a> </li>
+                    <li> <a href="/#">Papper</a> </li>
+                    <li> <a href="/#">Mushrome</a> </li>
+                    <li> <a href="/#">Apple</a> </li>
+                    <li> <a href="/#">Kiwi</a> </li>
+                </ul>
+                <h2 class="title"> <a href="/#" class="clr-txt"> All Freash Tea </a> </h2>
+            </div>
+            <div class="menu-img">
+                <img alt="" src="assets/img/extra/menu-6.png" />
+            </div>
+        </div> 
+    </div>
+</div>
+</div>
+<div class="responsive-toggle fa fa-bars"> </div>
+</div>
+    </div>
 </div>
             </div>
             <!-- / Main Header Ends -->   
@@ -401,24 +424,20 @@
                 <section class="sec-space light-bg">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-3 col-sm-12 footer-widget">
+                            <div class="col-md-4 col-sm-12 footer-widget">
                                 {{-- <div class="main-logo"> --}}
                                     {{-- <a href="/"><img src="{{asset('web-assets/images/logo/bombaylogo.png')}}" alt="">  </a> --}}
                                     <span class="medium-font">Bombay Choconuts</span>
                                 {{-- </div> --}}
-                                <span class="divider-2"></span>
+                            
                                 <div class="text-widget">
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
-                                    <ul>
-                                        <li> <i class="fa fa-map-marker"></i> <span> <strong>Muhammad Ali Society</strong> Sindh, Karachi </span> </li>
-                                        <li> <i class="fa fa-envelope-square"></i> <span><a href="/#">contact@bombaychoconuts.com</a> </span> </li>
-                                        <li> <i class="fa fa-phone-square"></i> <span><a href="/#">www.bombaychoconuts.com</a> </span> </li>
-                                    </ul>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh</p>
+                                  
                                 </div>
                             </div>
-                            <div class="col-md-3 col-sm-4 footer-widget">
-                                <h2 class="title-1">  <span class="light-font">naturix  </span> <strong>information </strong> </h2>
-                                <span class="divider-2"></span>
+                            <div class="col-md-4 col-sm-4 footer-widget lpc">
+                                <h2 class="title-1">  <span class="light-font">Services</span> <strong> </strong> </h2>
+                            
                                 <ul class="list">
                                     <li> <a href="/#"> about our shop </a> </li>
                                     <li> <a href="/#"> top sellers </a> </li>
@@ -427,9 +446,9 @@
                                     <li> <a href="/#"> secure shopping </a> </li>
                                 </ul>
                             </div>
-                            <div class="col-md-3 col-sm-4 footer-widget">
-                                <h2 class="title-1">  <span class="light-font">my  </span> <strong>account </strong> </h2>
-                                <span class="divider-2"></span>
+                            <!-- <div class="col-md-2 col-sm-4 footer-widget">
+                                 <h2 class="title-1">  <span class="light-font">my  </span> <strong>account </strong> </h2>
+                            
                                 <ul class="list">
                                     <li> <a href="/my-account"> my account </a> </li>
                                     <li><a href="/account-information"> Account Information </a></li>
@@ -439,18 +458,16 @@
                                     <li><a href="/return"> Returns Requests</a></li>
                                     <li><a href="/newsletter"> Newsletter</a></li>
                                 </ul>
-                            </div>
-                            <div class="col-md-3 col-sm-4 footer-widget">
-                                <h2 class="title-1">  <span class="light-font">photo  </span> <strong>instagram </strong> </h2>
-                                <span class="divider-2"></span>
-                                <ul class="instagram-widget">
-                                    <li> <a href="/#"><img src="{{asset('web-assets/images/instagram/2.png')}}" alt=""/> </a> </li>
-                                    <li> <a href="/#"> <img src="{{asset('web-assets/images/instagram/3.jpg')}}" alt=""/> </a> </li>
-                                    <li> <a href="/#"> <img src="{{asset('web-assets/images/instagram/4.png')}}" alt=""/> </a> </li>
-                                    <li> <a href="/#"> <img src="{{asset('web-assets/images/instagram/2.png')}}" alt=""/> </a> </li>
-                                    <li> <a href="/#"><img src="{{asset('web-assets/images/instagram/1.jpg')}}" alt=""/></a> </li>
-                                    <li> <a href="/#"> <img src="{{asset('web-assets/images/instagram/3.jpg')}}" alt=""/></a> </li>
-                                </ul>
+                            </div>  -->
+                            <div class="col-md-4 col-sm-4 footer-widget">
+                                <h2 class="title-1">  <span class="light-font"> Contact Us </span> <strong> </strong> </h2>
+                            
+                                <ul>
+                                <li> <i class="fa fa-phone"></i> <span>Phone Number<br><a href="/#">03121312312</a> </span> </li>
+                                        <li> <i class="fa fa-map-marker"></i> <span> Location<br><strong>Muhammad Ali Society</strong> Sindh, Karachi </span> </li>
+                                        <li> <i class="fa fa-envelope"></i> <span>Email<br><a href="/#">contact@bombaychoconuts.com</a> </span> </li>
+                                 
+                                    </ul>
                             </div>
                         </div>
                     </div>

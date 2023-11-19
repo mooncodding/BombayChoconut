@@ -10,7 +10,11 @@ body {
 .popover {
  max-width: none;
 }
-
+footer.page-footer .text-widget p {
+    color: white;
+    font-size: 21px;
+    padding-top: 20px;
+}
 .octicon {
  margin-right:.25em;
  vertical-align: baseline;

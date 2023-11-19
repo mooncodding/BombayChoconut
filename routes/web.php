@@ -106,6 +106,9 @@ Route::get('/giftbundle', function () {
 Route::get('/specialoffers', function () {
     return view('web.specialoffers');
 });
+Route::get('/category', function () {
+    return view('web.category');
+});
 Auth::routes(['verify' => true, 'register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

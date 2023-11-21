@@ -72,6 +72,8 @@ Route::get('/getAllChildCategories', [GeneralController::class, 'getAllChildCate
 Route::get('/getAllCustomers', [GeneralController::class, 'getAllCustomers']);
 // Get All Statuses
 Route::get('/getAllOrderStatus', [GeneralController::class, 'getAllOrderStatus']);
+Route::post('/orders/store', [OrderController::class, 'store'])->name('order.store');
+// Route::get('/orders', [OrderController::class, 'index']);
 
 // All Sanctum Routes
 Route::group(['middleware' => ['auth:sanctum']], function () {

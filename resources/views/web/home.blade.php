@@ -114,10 +114,8 @@
             <div class="col-md-12"> 
                 <div class="tab-content organic-content row">
                     <div id="product-tab-1" class="tab-pane fade active in" > 
-                        <div class="product-slider-1 dots-1">
-                            <div id="productCards">
-                                
-                            </div>
+                        <div class="product-slider-1 dots-1" id="productCards">
+                          
                         </div>
                     </div>
                 </div>

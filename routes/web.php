@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 // Home Page
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/products/filter/{category}', [HomeController::class, 'filterByCategory']);
+
 Route::get('/404', function () {
     return view('web.404');
 });

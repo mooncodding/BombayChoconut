@@ -604,7 +604,7 @@
 
 
      
-
+        @yield('scripts')
         <!-- JS Global -->
         <script src="assets/js/plugin/jquery-2.2.4.min.js"></script>   
         <script src="assets/js/plugin/bootstrap.min.js"></script>

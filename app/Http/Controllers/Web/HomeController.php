@@ -22,8 +22,13 @@ class HomeController extends Controller
 
     public function filterByCategory($id)
     {
-        // Implement your logic to fetch products based on the selected id
-        $products = Product::where('product_category_id', $id)->with(['productVariants'])->get();
+        if ($id =='all') {
+            // Implement your logic to fetch products based on the selected id
+            $products = Product::with(['productVariants'])->get();
+        }else{
+            // Implement your logic to fetch products based on the selected id
+            $products = Product::where('product_category_id', $id)->with(['productVariants'])->get();
+        }
     
         return response()->json(['products' => $products]);
     }

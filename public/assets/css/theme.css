@@ -2707,11 +2707,11 @@ h5.clr-txt.sub-title-sm {
     color: black;
 }
 
-div#productCards {
-    display: flex;
+div.productCards {
+    display: flex !important;
 }
 
-div#productCards .item {
+div.productCards .item {
     width: 20%;
 }
 section.short-about.sec-space.light-bg i.fa.fa-star {

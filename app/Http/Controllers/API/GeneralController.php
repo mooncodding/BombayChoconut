@@ -170,4 +170,10 @@ class GeneralController extends Controller
         }
         return $orderStatuses;
     }
+    // Get All Products
+    public function getProductById($id)
+    {
+        $products = Product::where('id',$id)->where('is_disabled', 0)->with(['productVariants','productCategory'])->first();
+        return response()->json($products);
+    }
 }

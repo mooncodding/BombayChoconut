@@ -72,6 +72,8 @@ Route::get('/getAllChildCategories', [GeneralController::class, 'getAllChildCate
 Route::get('/getAllCustomers', [GeneralController::class, 'getAllCustomers']);
 // Get All Statuses
 Route::get('/getAllOrderStatus', [GeneralController::class, 'getAllOrderStatus']);
+// Get Product By Id
+Route::get('/getProductById/{id}', [GeneralController::class, 'getProductById']);
 Route::post('/orders/store', [OrderController::class, 'store'])->name('order.store');
 // Route::get('/orders', [OrderController::class, 'index']);
 

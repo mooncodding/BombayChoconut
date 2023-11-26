@@ -18,14 +18,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Traits\HandleReferenceNumberTrait; // Trait
+use Hash;
 
 class OrderController extends Controller
 {
     use HandleReferenceNumberTrait; // Trait
-    public function __construct()
-    {
-        $this->middleware(['auth', 'permission:orders']);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware(['auth', 'permission:orders']);
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -56,60 +57,56 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-        if (auth()->user()->can('create_order')) {
+        // if (auth()->user()->can('create_order')) {
             $this->validate($request, [
-                'order_date' => 'nullable',
-                'customer_id' => 'nullable',
-                'order_status_id' => 'nullable',
-                'payment_method_id' => 'nullable',
-                'notes' => 'nullable',
-                'order_details.*.product_id' => 'nullable',
-                'order_details.*.quantity' => 'nullable',
+                'name'=>'required',
+                'email'=>'required',
             ]);
-            $orderSubtotal = 0;
 
+            $orderSubtotal = 0;
+            $user = new User();
+            $user->name=$request->name;
+            $user->email=$request->email;
+            $user->password=Hash::make('bombay123');
+            $user->photo='profile.png';
+            $user->assignRole(4);
+            $user->save();
             $order =  new Order();
-            $order->order_number =  'C/ORDER/'.(Order::max('id')+001).'/'.date('y');
-            // check the user login role?
-            if (auth()->user()->hasRole('User')) {
-                $order->customer_id = Auth::user()->id;
-            } else {
-                $order->customer_id = 6;
-            }
+            $order->reference =  'C/ORDER/'.(Order::max('id')+001).'/'.date('y');
+            $order->customer_id = $user->id;
             $order->bill_no = 'C/BILL/NUMBER/'.(Order::max('id')+001).'/'.date('y');
             $order->order_status_id = 1;
             $order->payment_method_id = 1;
-            $order->payment_status = "paid";
+            $order->payment_status = "unpaid";
             $order->order_date = Carbon::now();
             $order->notes = "testing";
-            $order->sub_total = 0;
-            $order->created_by = 1;
+            $order->sub_total = \Cart::getTotal();
+            $order->created_by = $user->id;
             $order->created_at = Carbon::now();
             $order->save();
             // Orders details
             if ($order) {
-                foreach ($request->order_details as  $data) {
+                $cartItems = \Cart::getContent();
+                foreach ($cartItems as  $item) {
                     // Save Order Detail 
                     $orderDetail = new OrderDetail();
                     $orderDetail->order_id = $order->id;
-                    $orderDetail->product_id = 1;
-                    $orderDetail->quantity = 2;
-                    $orderDetail->sale_price = 200;
-                    $orderDetail->weight = 250+'gram';
-                    $orderDetail->sub_total = (1 * 200);
+                    $orderDetail->product_id = $item->id;
+                    $orderDetail->quantity = $item->quantity;
+                    $orderDetail->sale_price = $item->price;
+                    $orderDetail->weight = $item->weight;
+                    $orderDetail->sub_total = ($item->quantity * $item->price);
                     $orderSubtotal += $orderDetail->sub_total;
                     $orderDetail->save();
                 }
                 $order->sub_total = $orderSubtotal;
                 $order->save();
             }
-
-            return response()->json([
-                'message' => "Record created successfully",
-            ], 200);
-        } else {
-            return response()->json("Unauthorized", 401);
-        }
+            \Cart::clear();
+            return redirect()->back()->with('success');
+        // } else {
+        //     return response()->json("Unauthorized", 401);
+        // }
     }
 
     /**

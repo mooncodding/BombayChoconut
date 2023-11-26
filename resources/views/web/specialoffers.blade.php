@@ -206,7 +206,7 @@
                                     </ul>
                                     <div class="divider-full-1"></div>
                                     <div class="add-cart pt-15">
-                                        <a href="/cart" class="theme-btn btn"> <strong> ADD TO CART </strong> </a>
+                                        <a href="/#" class="theme-btn btn add-to-cart-btn" data-product-id="${product.id}"> <strong> ADD TO CART </strong> </a>
                                     </div>
                                 </div>
                             </div>
@@ -231,13 +231,6 @@
                 console.log(newPrice)
                 $('.saleprice').text('Rs' + newPrice);
             }
-        }
-        
-        function addToCart(productId) {
-            // Perform the necessary logic to add the product to the cart
-            // You may want to make another AJAX request to a server endpoint
-            console.log(productId);
-            // Add your cart handling logic here
         }
     });
 </script>

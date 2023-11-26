@@ -74,7 +74,7 @@ Route::get('/getAllCustomers', [GeneralController::class, 'getAllCustomers']);
 Route::get('/getAllOrderStatus', [GeneralController::class, 'getAllOrderStatus']);
 // Get Product By Id
 Route::get('/getProductById/{id}', [GeneralController::class, 'getProductById']);
-Route::post('/orders/store', [OrderController::class, 'store'])->name('order.store');
+
 // Route::get('/orders', [OrderController::class, 'index']);
 
 // All Sanctum Routes
@@ -104,7 +104,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::delete('/removeOrderDetail/{id}', [OrderController::class, 'removeOrderDetail']);
     Route::post('/storeOrder', [OrderController::class, 'storeOrder']);
     //Delete product discount
-    Route::delete('/deleteProductDiscount/{id}', [CampaignController::class, 'deleteProductDiscount']);
+    // Route::delete('/deleteProductDiscount/{id}', [CampaignController::class, 'deleteProductDiscount']);
     // Import Excel File
     Route::post('/import',[ProductController::class,'import']);
     //***********************************************************************************

@@ -23,13 +23,15 @@
         <link href="/assets/css/plugin/owl.carousel.min.css" rel="stylesheet" type="text/css">
         <!-- Custom CSS -->
         <link href="/assets/css/theme.css" rel="stylesheet" type="text/css">
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <!-- Color CSS -->       
     </head>
 
     <body id="home" class="wide">
 
-        <div id="loading">
+        {{-- <div id="loading">
             <div class="loader">
                 <div class="dot"></div>
                 <div class="dot"></div>
@@ -37,7 +39,7 @@
                 <div class="dot"></div>
                 <div class="dot"></div>
             </div>
-        </div>
+        </div> --}}
 
         <!-- WRAPPER -->
         <main class="wrapper home-wrap"> 
@@ -141,67 +143,43 @@
                     <div class="col-lg-2 col-sm-4 cart-megamenu">
                         <div class="cart-hover">
                             <a href="/#"> <img alt="" src="assets/img/icons/cart-icon.png" /> </a>
-                            <span class="cnt crl-bg">2</span> <span class="price">$2.170.00</span>
+                            <span class="cnt crl-bg">{{ Cart::getTotalQuantity()}}</span> @if (Cart::getTotal())
+                            <span class="price">Rs {{Cart::getTotal()}}</span>
+                            @endif 
+                            @if (count(Cart::getContent()) > 0)
                             <ul class="pop-up-box cart-popup">
-                                <li class="cart-list">
-                                    <div class="cart-img"> <img src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""> </div>
-                                    <div class="cart-title">
-                                        <div class="fsz-16">
-                                            <a href="/#"> <span class="light-font"> organic </span>  <strong>almonds</strong></a>
-                                            <h6 class="sub-title-1">DRY FRUITS</h6>
+                                @foreach (Cart::getContent() as $item)
+                                    <li class="cart-list">
+                                        <div class="cart-img"> <img src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""> </div>
+                                        <div class="cart-title">
+                                            <div class="fsz-16">
+                                                <a href="/#"> {{$item->name}}</a>
+                                            </div>
+                                            <div class="price"> 
+                                                <strong class="clr-txt">Rs {{$item->price}} </strong>
+                                            </div>
                                         </div>
-                                        <div class="price"> 
-                                            <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
+                                        <div class="close-icon">
+                                            <form action="{{route('cart.remove')}}" method="POST">
+                                            @csrf
+                                            <input type="hidden" value="{{ $item->id }}" name="id">
+                                             <button type="submit"><i class="fa fa-close clr-txt"></i></button>
+                                            </form>
                                         </div>
-                                    </div>
-                                    <div class="close-icon"> <i class="fa fa-close clr-txt"></i> </div>
-                                </li>
-
-                                <li class="cart-list">
-                                    <div class="cart-img"> <img src="{{asset('web-assets/images/giftbasket/2.png')}}" alt=""> </div>
-                                    <div class="cart-title">
-                                        <div class="fsz-16">
-                                            <a href="/#"> <span class="light-font"> organic </span>  <strong>pepper</strong></a>
-                                            <h6 class="sub-title-1">VEGETABLES</h6>
-                                        </div>
-                                        <div class="price"> 
-                                            <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                        </div>
-                                    </div>
-                                    <div class="close-icon"> <i class="fa fa-close clr-txt"></i> </div>
-                                </li>
-
-                                <li class="cart-list">
-                                    <div class="cart-img"> <img src="{{asset('web-assets/images/giftbasket/3.png')}}" alt=""> </div>
-                                    <div class="cart-title">
-                                        <div class="fsz-16">
-                                            <a href="/#"> <span class="light-font"> organic </span>  <strong>onion</strong></a>
-                                            <h6 class="sub-title-1">VAGETABLES</h6>
-                                        </div>
-                                        <div class="price"> 
-                                            <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                        </div>
-                                    </div>
-                                    <div class="close-icon"> <i class="fa fa-close clr-txt"></i> </div>
-                                </li>
-
-                                <li class="cart-list sub-total">
-                                    <div class="pull-left"> 
-                                        <strong>Subtotal</strong>
-                                    </div>
-                                    <div class="pull-right"> 
-                                        <strong class="clr-txt">$150.00</strong>
-                                    </div>
-                                </li>
+                                    </li>
+                                @endforeach
+                                
                                 <li class="cart-list buttons">
                                     <div class="pull-left"> 
-                                        <a href="/cart" class="theme-btn-sm-2">View Cart</a>
+                                        <a href="{{route('cart')}}" class="theme-btn-sm-2">View Cart</a>
                                     </div>
                                     <div class="pull-right"> 
                                         <a href="/checkout" class="theme-btn-sm-3"> Checkout </a>
                                     </div>
                                 </li>
                             </ul>
+                                
+                            @endif
                         </div>
                       
 
@@ -500,103 +478,10 @@
         <!-- /WRAPPER -->
 
         <!-- Product Preview Popup -->
-        <section class="modal fade" id="product-preview" tabindex="-1" role="dialog" aria-hidden="true">
+        <section class="modal fade" id="product-preview" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg product-modal">
                 <div class="modal-content">
                     <a aria-hidden="true" data-dismiss="modal" class="sb-close-btn close" href="/#"> <i class=" fa fa-close"></i> </a>                 
-
-                    <div class="product-single pb-50 clearfix">
-                        <!-- Single Products Slider Starts --> 
-                        <div class="col-lg-6 col-sm-8 col-sm-offset-2 col-lg-offset-0 pt-50">
-                            <div class="prod-slider sync1">
-                                <div class="item"> 
-                                 <img src="{{asset('web-assets/images/product/52.jpg')}}" alt=""/>
-                                    <a href="/assets/img/products/prod-big-1.png" data-gal="prettyPhoto[prettyPhoto]" title="Product" class="caption-link"><i class="arrow_expand"></i></a>
-                                </div>
-                                <div class="item"> 
-                                    <img src="{{asset('web-assets/images/product/9.jpg')}}" alt=""/>
-                                    <a href="/assets/img/products/prod-big-2.png" data-gal="prettyPhoto[prettyPhoto]" title="Product" class="caption-link"><i class="arrow_expand"></i></a>
-                                </div>
-                                <div class="item"> 
-                                    <img src="{{asset('web-assets/images/product/10.jpg')}}" alt=""/>
-                                    <a href="/assets/img/products/prod-big-3.png" data-gal="prettyPhoto[prettyPhoto]" title="Product" class="caption-link"><i class="arrow_expand"></i></a>
-                                </div> 
-                                <div class="item"> 
-                                 <img src="{{asset('web-assets/images/product/11.jpg')}}" alt=""/> 
-                                    <a href="/assets/img/products/prod-big-1.png" data-gal="prettyPhoto[prettyPhoto]" title="Product" class="caption-link"><i class="arrow_expand"></i></a>
-                                </div> 
-                            </div>
-
-                            <div  class="sync2">
-                                <div class="item"> <a href="/#">       <img src="{{asset('web-assets/images/product/52.jpg')}}" alt=""/> </a> </div>
-                                <div class="item"> <a href="/#"> <img src="{{asset('web-assets/images/product/9.jpg')}}" alt=""/> </a> </div>
-                                <div class="item"> <a href="/#">  <img src="{{asset('web-assets/images/product/10.jpg')}}" alt=""/></a> </div>
-                                <div class="item"> <a href="/#">  <img src="{{asset('web-assets/images/product/11.jpg')}}" alt=""/> </a> </div>
-                            </div>
-                        </div>
-                        <!-- Single Products Slider Ends --> 
-
-                        <div class="col-lg-6 pt-50">
-                            <div class="product-content block-inline">
-
-                                <div class="tag-rate">
-                                    <span class="prod-tag tag-1">new</span> <span class="prod-tag tag-2">sale</span>
-                                    <div class="rating">
-                                        <span class="star active"></span>
-                                        <span class="star active"></span>
-                                        <span class="star active"></span>
-                                        <span class="star active"></span>
-                                        <span class="star active"></span>
-                                        <span class="fsz-12"> Based on 25 reviews</span>
-                                    </div>
-                                </div>
-
-                                <div class="single-caption"> 
-                                    <h3 class="section-title">
-                                        <a href="/#"> <span class="light-font"> Product </span>  <strong>Preview</strong></a>
-                                    </h3>
-                                    <span class="divider-2"></span>
-                                    <p class="price"> 
-                                        <strong class="clr-txt fsz-20">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                    </p>
-
-                                    <div class="fsz-16">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adiping elit food sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
-                                    </div>
-
-                                    <div class="prod-btns">
-                                        <div class="quantity">
-                                            <button class="btn minus"><i class="fa fa-minus-circle"></i></button>
-                                            <input title="Qty" placeholder="03" class="form-control qty" type="text">
-                                            <button class="btn plus"><i class="fa fa-plus-circle"></i></button>
-                                        </div>
-                                        {{-- <div class="sort-dropdown">
-                                            <div class="search-selectpicker selectpicker-wrapper">
-                                                <select class="selectpicker input-price"  data-width="100%"
-                                                        data-toggle="tooltip">
-                                                    <option>Kilo</option>
-                                                    <option>2 Kilo</option>
-                                                    <option>3 Kilo</option>
-                                                    <option>4 Kilo</option>
-                                                    <option>5 Kilo</option>
-                                                </select>
-                                            </div>
-                                        </div> --}}
-                                        {{-- <div class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Ready in stock</span></label> </div> --}}
-                                    </div>
-                                    <ul class="meta">
-                                        <li class="tags-widget"> <strong> Variants </strong> <span>:  <a href="/#">100 gram</a> <a href="/#">250 gram</a> <a href="/#">500 gram</a></span> </li>
-                                        <li> <strong> CATEGORY </strong> <span>:  chocolates</span> </li>
-                                    </ul>
-                                    <div class="divider-full-1"></div>
-                                    <div class="add-cart pt-15">
-                                        <a href="/cart" class="theme-btn btn"> <strong> ADD TO CART </strong> </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>  
-
                 </div>
             </div>
         </section>
@@ -647,11 +532,7 @@
                         fetchAndDisplayProducts(selectedCategory);
                     });
 
-                    // Set up click event for "Add to Cart" buttons
-                    $('.productCards').on('click', '.add-to-cart-btn', function () {
-                        const productId = $(this).data('product-id');
-                        addToCart(productId);
-                    });
+                    
 
                     // Set up click event for "View Details" buttons
                     $('.productCards').on('click', '.view-details-btn', function () {
@@ -673,7 +554,7 @@
                                                 <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
                                                 <div class="prod-icons"> 
                                                     <a href="#" class="fa fa-heart"></a>
-                                                    <a  href="/#product-preview" data-toggle="modal" class="fa fa-shopping-basket view-details-btn" data-product-id="${product.id}"></a>
+                                                    <a  href="javascript:void(0);" data-target="#product-preview" data-toggle="modal" class="fa fa-shopping-basket view-details-btn" data-product-id="${product.id}"></a>
                                                 </div>
                                             </div>
 
@@ -723,7 +604,7 @@
                                 <div class="col-lg-6 col-sm-8 col-sm-offset-2 col-lg-offset-0 pt-50">
                                     <div class="prod-slider sync1">
                                         <div class="item"> 
-                                        <img src="{{asset('images/product-images/${product.photo}')}}" width="300" alt=""/>
+                                        <img src="{{asset('images/product-images/${product.photo}')}}" data-image="${product.photo}" width="300" alt=""/>
                                             <a href="/assets/img/products/prod-big-1.png" data-gal="prettyPhoto[prettyPhoto]" title="Product" class="caption-link"><i class="arrow_expand"></i></a>
                                         </div>
                                     </div>
@@ -760,21 +641,21 @@
 
                                             <div class="prod-btns">
                                                 <div class="quantity">
-                                                    <input title="Qty" name="quantity" placeholder="1" min="1" class="form-control qty" type="number">
+                                                    <input title="Qty" id="quatity" value="1" name="quantity" min="1" class="form-control" type="number">
                                                 </div>
                                             </div>
                                             <ul class="meta">
                                                 <li class="tags-widget" id="variantsContainer"> 
                                                     <strong>Variants:</strong>
                                                     ${product.product_variants.map(variant => `
-                                                        <span class="weight-option" data-price="${variant.sale_price}"><a href="/#">${variant.weight} </a></span>
+                                                        <span class="weight-option" data-variant="${variant.id}" data-price="${variant.sale_price}"><a href="/#">${variant.weight} </a></span>
                                                     `).join('')}
                                                 </li>
                                                 <li> <strong>CATEGORY:</strong><span> ${product.product_category.name}</span> </li>
                                             </ul>
                                             <div class="divider-full-1"></div>
                                             <div class="add-cart pt-15">
-                                                <a href="/cart" class="theme-btn btn"> <strong> ADD TO CART </strong> </a>
+                                                <a href="/#" class="theme-btn btn add-to-cart-btn" data-product-id="${product.id}"> <strong> ADD TO CART </strong> </a>
                                             </div>
                                         </div>
                                     </div>
@@ -783,29 +664,60 @@
 
                         </div>
                     </div>`);
-
-                    // Add event listener to the weight options
-                    $('.weight-option').on('click', function() {
-                        const selectedWeight = $(this).data('price');
-                        updatePrice(selectedWeight);
-                    });
-
                     // Set the default price to be the price of the first variant
                     const defaultPrice = product.product_variants[0].sale_price;
                     updatePrice(defaultPrice);
 
                     // Function to update the displayed price
                     function updatePrice(newPrice) {
-                        console.log(newPrice)
                         $('.saleprice').text('Rs' + newPrice);
                     }
+                    var variantId = product.product_variants[0].id;
+                     // Add event listener to the weight options
+                     $('.weight-option').on('click', function() {
+                        const selectedWeight = $(this).data('price');
+                        variantId = $(this).data('variant');
+                        updatePrice(selectedWeight);
+                    });
+
+                    // Set up click event for "Add to Cart" buttons
+                    $('#product-preview').on('click', '.add-to-cart-btn', function () {
+                        var productId = $(this).data('product-id');
+                        var quantity = document.getElementById('quatity').value;
+                        var variant_id = variantId;
+                       array=[{
+                            'product_id': parseInt(productId),
+                            'quantity': parseInt(quantity),
+                            'variant_id': parseInt(variant_id),
+                        }];
+                        addToCart(array);
+                    });
                 }
                 
-                function addToCart(productId) {
-                    // Perform the necessary logic to add the product to the cart
-                    // You may want to make another AJAX request to a server endpoint
-                    console.log(productId);
-                    // Add your cart handling logic here
+                function addToCart(data) {
+                    // Get the CSRF token from the meta tag
+                    var csrfToken = $('meta[name="csrf-token"]').attr('content');
+                    // Make an AJAX request to add the product to the cart
+                    $.ajax({
+                        url: '{{ route("cart.store") }}',
+                        method: 'POST',
+                        data: {
+                            product_id: data[0].product_id,
+                            quantity: data[0].quantity,
+                            variant_id: data[0].variant_id
+                        },
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        dataType: 'json',
+                        success: function (response) {
+                            $('#product-preview').hide();
+                            location.reload();
+                        },
+                        error: function (error) {
+                            console.error('Error adding to cart:', error);
+                        }
+                    });
                 }
             });
         </script>

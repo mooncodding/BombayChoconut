@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\OrderController;
+use App\Http\Controllers\Web\CartController;
 use App\Http\Controllers\Web\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -44,9 +45,6 @@ Route::get('/blog-single', function () {
 });
 Route::get('/blog', function () {
     return view('web.blog');
-});
-Route::get('/cart', function () {
-    return view('web.cart');
 });
 Route::get('/checkout', function () {
     return view('web.checkout');
@@ -111,6 +109,13 @@ Route::get('/specialoffers', function () {
 Route::get('/category', function () {
     return view('web.category');
 });
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
+Route::post('/cart/store', [CartController::class, 'store'])->name('cart.store');
+Route::post('/cart/update', [CartController::class, 'cartUpdate'])->name('cart.update');
+Route::post('/remove', [CartController::class, 'remove'])->name('cart.remove');
+Route::post('/clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
+Route::post('/orders/store', [OrderController::class, 'store'])->name('order.store');
 Auth::routes(['verify' => true, 'register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -125,3 +130,4 @@ Route::get('language/{locale}', function ($locale) {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Route::get('/email', [App\Http\Controllers\HomeController::class, 'email'])->name('email');
 Route::get('{path}', [App\Http\Controllers\HomeController::class, 'index'])->where('path', '([A-z\d\-\/_.]+)?');
+

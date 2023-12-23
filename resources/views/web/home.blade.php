@@ -85,10 +85,346 @@
     </div>
 </div>
 </section>
+<section class="category-all">
+
+    <h2 class="section-title ptb-15" style="text-align: center;"> <span class="light-font">Shop By </span> <strong>Categories </strong>  </h2>
+<div class="container-fluid"> 
+    <div class="col-md-12"> 
+        <div class="tab-content organic-content row"> 
+            <div id="product-tab-1" class="tab-pane fade active in"> 
+                <div class="product-slider-1 dots-1"> 
+
+                    <div class="item"> 
+                        <div class="product-box category-box"> 
+                            <div class="product-media category-media"> 
+                                <img class="prod-img" src="{{asset('web-assets/images/product/Palm-Date-2.png')}}" alt="">     
+                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
+                            </div>                                           
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
+                                </h3>
+                                <div class="price"> 
+                                   <strong class="clr-txt button  ">View Category </strong></a> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item"> 
+                        <div class="product-box category-box"> 
+                            <div class="product-media category-media"> 
+                                <img class="prod-img" src="{{asset('web-assets/images/product/Palm-Date-2.png')}}" alt="">     
+                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
+                            </div>                                           
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
+                                </h3>
+                                <div class="price"> 
+                                    <strong class="clr-txt">View Category </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item"> 
+                        <div class="product-box category-box"> 
+                            <div class="product-media category-media"> 
+                                <img class="prod-img" src="{{asset('web-assets/images/product/Palm-Date-2.png')}}" alt="">     
+                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
+                            </div>                                           
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
+                                </h3>
+                                <div class="price"> 
+                                    <strong class="clr-txt">View Category </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item"> 
+                        <div class="product-box category-box"> 
+                            <div class="product-media category-media"> 
+                                <img class="prod-img" src="{{asset('web-assets/images/product/Palm-Date-2.png')}}" alt="">     
+                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
+                            </div>                                           
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
+                                </h3>
+                                <div class="price"> 
+                                    <strong class="clr-txt">View Category </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item"> 
+                        <div class="product-box category-box"> 
+                            <div class="product-media category-media"> 
+                                <img class="prod-img" src="{{asset('web-assets/images/product/Palm-Date-2.png')}}" alt="">     
+                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
+                            </div>                                           
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
+                                </h3>
+                                <div class="price"> 
+                                    <strong class="clr-txt">View Category </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item"> 
+                        <div class="product-box category-box"> 
+                            <div class="product-media category-media"> 
+                                <img class="prod-img" src="{{asset('web-assets/images/product/Palm-Date-2.png')}}" alt="">     
+                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
+                            </div>                                           
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
+                                </h3>
+                                <div class="price"> 
+                                    <strong class="clr-txt">View Category </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item"> 
+                        <div class="product-box category-box"> 
+                            <div class="product-media category-media"> 
+                                <img class="prod-img" src="{{asset('web-assets/images/product/Palm-Date-2.png')}}" alt="">     
+                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
+                            </div>                                           
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
+                                </h3>
+                                <div class="price"> 
+                                    <strong class="clr-txt">View Category </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item"> 
+                        <div class="product-box category-box"> 
+                            <div class="product-media category-media"> 
+                                <img class="prod-img" src="{{asset('web-assets/images/product/Palm-Date-2.png')}}" alt="">     
+                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
+                            </div>                                           
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
+                                </h3>
+                                <div class="price"> 
+                                    <strong class="clr-txt">View Category </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item"> 
+                        <div class="product-box category-box"> 
+                            <div class="product-media category-media"> 
+                                <img class="prod-img" src="{{asset('web-assets/images/product/Palm-Date-2.png')}}" alt="">     
+                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
+                            </div>                                           
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
+                                </h3>
+                                <div class="price"> 
+                                    <strong class="clr-txt">View Category </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item"> 
+                        <div class="product-box category-box"> 
+                            <div class="product-media category-media"> 
+                                <img class="prod-img" src="{{asset('web-assets/images/product/Palm-Date-2.png')}}" alt="">     
+                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
+                            </div>                                           
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
+                                </h3>
+                                <div class="price"> 
+                                    <strong class="clr-txt">View Category </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item"> 
+                        <div class="product-box category-box"> 
+                            <div class="product-media category-media"> 
+                                <img class="prod-img" src="{{asset('web-assets/images/product/Palm-Date-2.png')}}" alt="">     
+                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
+                            </div>                                           
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
+                                </h3>
+                                <div class="price"> 
+                                    <strong class="clr-txt">View Category </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item"> 
+                        <div class="product-box category-box"> 
+                            <div class="product-media category-media"> 
+                                <img class="prod-img" src="{{asset('web-assets/images/product/Palm-Date-2.png')}}" alt="">     
+                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
+                            </div>                                           
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
+                                </h3>
+                                <div class="price"> 
+                                    <strong class="clr-txt">View Category </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item"> 
+                        <div class="product-box category-box"> 
+                            <div class="product-media category-media"> 
+                                <img class="prod-img" src="{{asset('web-assets/images/product/Palm-Date-2.png')}}" alt="">     
+                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
+                            </div>                                           
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
+                                </h3>
+                                <div class="price"> 
+                                    <strong class="clr-txt">View Category </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item"> 
+                        <div class="product-box category-box"> 
+                            <div class="product-media category-media"> 
+                                <img class="prod-img" src="{{asset('web-assets/images/product/Palm-Date-2.png')}}" alt="">     
+                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
+                            </div>                                           
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
+                                </h3>
+                                <div class="price"> 
+                                    <strong class="clr-txt">View Category </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item"> 
+                        <div class="product-box category-box"> 
+                            <div class="product-media category-media"> 
+                                <img class="prod-img" src="{{asset('web-assets/images/product/Palm-Date-2.png')}}" alt="">     
+                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
+                            </div>                                           
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
+                                </h3>
+                                <div class="price"> 
+                                    <strong class="clr-txt">View Category </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item"> 
+                        <div class="product-box category-box"> 
+                            <div class="product-media category-media"> 
+                                <img class="prod-img" src="{{asset('web-assets/images/product/Palm-Date-2.png')}}" alt="">     
+                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
+                            </div>                                           
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
+                                </h3>
+                                <div class="price"> 
+                                    <strong class="clr-txt">View Category </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item"> 
+                        <div class="product-box category-box"> 
+                            <div class="product-media category-media"> 
+                                <img class="prod-img" src="{{asset('web-assets/images/product/Palm-Date-2.png')}}" alt="">     
+                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
+                            </div>                                           
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
+                                </h3>
+                                <div class="price"> 
+                                    <strong class="clr-txt">View Category </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item"> 
+                        <div class="product-box category-box"> 
+                            <div class="product-media category-media"> 
+                                <img class="prod-img" src="{{asset('web-assets/images/product/Palm-Date-2.png')}}" alt="">     
+                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
+                            </div>                                           
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
+                                </h3>
+                                <div class="price"> 
+                                    <strong class="clr-txt">View Category </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item"> 
+                        <div class="product-box category-box"> 
+                            <div class="product-media category-media"> 
+                                <img class="prod-img" src="{{asset('web-assets/images/product/Palm-Date-2.png')}}" alt="">     
+                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
+                            </div>                                           
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
+                                </h3>
+                                <div class="price"> 
+                                    <strong class="clr-txt">View Category </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item"> 
+                        <div class="product-box category-box"> 
+                            <div class="product-media category-media"> 
+                                <img class="prod-img" src="{{asset('web-assets/images/product/Palm-Date-2.png')}}" alt="">     
+                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
+                            </div>                                           
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
+                                </h3>
+                                <div class="price"> 
+                                    <strong class="clr-txt">View Category </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
 <!-- Organic All Starts-->
 <section class="organic-all sec-space-bottom">
     <!-- <div class="pattern"> 
-        <img alt="" src="assets/img/icons/white-pattern.png" />
+        <img alt="" src="assets/img/icons/white-pattern.png" />b
     </div> -->
     <div class="section-icon"> 
         <!-- <img src="{{asset('web-assets/images/product/coco.png')}}" alt style="
@@ -96,32 +432,37 @@
     </div>
     <div class="container">                    
         <div class="organic-wrap"> 
-            <img class="logo-img" alt style="
-        width: 120px;" src="{{asset('web-assets/images/bombaylogo.png')}}" />
+            {{-- <img class="logo-img" alt style="
+        width: 120px;" src="{{asset('web-assets/images/bombaylogo.png')}}" /> --}}
             
             <div class="tabs-box">
+                <h2 class="section-title ptb-15"> <span class="light-font">Shop By </span> <strong>Brands </strong>  </h2>
                 <ul class="theme-tabs" id="categories">
                     <li class="active"><a href="#" data-toggle="tab" class="category-btn" data-id="1">Dry fruits</a></li>                                
                     <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="2">Chocolates</a></li>                                
                     <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="3">Fresh Biscuit</a></li>                                
                     <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="4">Gift Boxes</a></li>
+                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="3">Fresh Biscuit</a></li>                                
+                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="4">Gift Boxes</a></li>
+                    
                 </ul>
             </div>
         </div>
     </div>
-    <div class="container-fluid" > 
-        <div class="row">
-            <div class="col-md-12"> 
-                <div class="tab-content organic-content row">
-                    <div id="product-tab-1" class="tab-pane fade active in" > 
-                        <div class="product-slider-1 dots-1 productCards">
-                          
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="container-fluid"> 
+        {{-- <div class="row"> --}}
+            {{-- <div class="col-md-12 productCards">  --}}
+                {{-- <div class="tab-content organic-content row"> --}}
+                    {{-- <div id="product-tab-1" class="tab-pane fade active in " >  --}}
+                        
+                            <div class="productCards">
 
-        </div>
+                            </div>
+                    {{-- </div> --}}
+                {{-- </div> --}}
+            {{-- </div> --}}
+
+        {{-- </div> --}}
     </div>
 </section>
 <!-- / Organic All Ends -->

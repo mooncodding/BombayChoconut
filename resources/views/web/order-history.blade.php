@@ -19,9 +19,9 @@
                 <div class="container"> 
                     <!-- Shopping Cart Starts -->
                     <div class="cart-table">
-                        <form class="cart-form">
-                            <table class="product-table">
-                                <thead class="">
+                        <form class="cart-form">    
+                            <table class="product-table">                   
+                                <thead class="">        
                                     <tr>                                                                       
                                         <th>product detail</th>  
                                         <th></th> 

@@ -109,6 +109,9 @@ Route::get('/specialoffers', function () {
 Route::get('/category', function () {
     return view('web.category');
 });
+Route::get('/thankyou', function () {
+    return view('web.thankyou');
+});
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/cart/store', [CartController::class, 'store'])->name('cart.store');

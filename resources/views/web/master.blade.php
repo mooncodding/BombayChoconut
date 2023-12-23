@@ -229,7 +229,7 @@
             </ul>                           
         </nav>
     </div>
-   <div class="col-lg-2">
+   <div class="col-lg-2 cart-megamenu">
         <div class="mega-submenu">
 
 <span class="nav-trigger">
@@ -547,18 +547,30 @@
                     // Loop through the products and generate HTML for each product card
                     $.each(products, function (index, product) {
                         let productCard = `
-                                    <div class="item">
-                                        <div class="product-box"> 
-                                            <div class="product-media"> 
-                                                <img class="prod-img" src="{{asset('images/product-images/${product.photo}')}}" alt=""/>     
+                        <div class="row">
+                        <div class="col-md-12 "> 
+                        <div class="tab-content organic-content row">
+                        <div id="product-tab-1" class="tab-pane fade active in " > 
+                        <div class="product-slider-1 dots-1">
+                                    <div class="item columns">
+                                        <div class="product-box">
+
+                                            <div class="coloumn">
+                                            <div class="product-media "> 
+                                                <div class="thumbnail-container"></div>
+                                                <img class="prod-img drift-demo-trigger" data-zoom="{{asset('images/product-images/${product.photo}')}}" src="{{asset('images/product-images/${product.photo}')}}" alt=""/>     
+
+                                             
                                                 <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
                                                 <div class="prod-icons"> 
                                                     <a href="#" class="fa fa-heart"></a>
                                                     <a  href="javascript:void(0);" data-target="#product-preview" data-toggle="modal" class="fa fa-shopping-basket view-details-btn" data-product-id="${product.id}"></a>
                                                 </div>
                                             </div>
-
-                                            <div class="product-caption"> 
+                                        </div>
+                                        </div>
+                                        <div class="coloumn">
+                                            <div class="product-caption details"> 
                                                 <h3 class="product-title">
                                                     <a href="#"> ${product.title}</a>
                                                 </h3>
@@ -566,8 +578,14 @@
                                                     <strong class="clr-txt">Rs ${product.product_variants[0].sale_price}</strong>
                                                 </div>
                                             </div>
+                                            </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
                                         `;
                         // Append the product card HTML to the products container
                         productsContainer.append(productCard);
@@ -603,7 +621,9 @@
                                 <!-- Single Products Slider Starts --> 
                                 <div class="col-lg-6 col-sm-8 col-sm-offset-2 col-lg-offset-0 pt-50">
                                     <div class="prod-slider sync1">
-                                        <div class="item"> 
+                                        l
+                              <div id='slideshow-items-container'>
+                                        <div class="item slideshow-items"> 
                                         <img src="{{asset('images/product-images/${product.photo}')}}" data-image="${product.photo}" width="300" alt=""/>
                                             <a href="/assets/img/products/prod-big-1.png" data-gal="prettyPhoto[prettyPhoto]" title="Product" class="caption-link"><i class="arrow_expand"></i></a>
                                         </div>
@@ -655,7 +675,7 @@
                                             </ul>
                                             <div class="divider-full-1"></div>
                                             <div class="add-cart pt-15">
-                                                <a href="/#" class="theme-btn btn add-to-cart-btn" data-product-id="${product.id}"> <strong> ADD TO CART </strong> </a>
+                                                <a href="/#" class="theme-btn btn button js-add-product" data-product-id="${product.id}"> <strong> ADD TO CART </strong> </a>
                                             </div>
                                         </div>
                                     </div>
@@ -664,6 +684,7 @@
 
                         </div>
                     </div>`);
+                   
                     // Set the default price to be the price of the first variant
                     const defaultPrice = product.product_variants[0].sale_price;
                     updatePrice(defaultPrice);
@@ -720,6 +741,383 @@
                     });
                 }
             });
+  
+
         </script>
+        <script>
+            var cartOpen = false;
+        var numberOfProducts = 0;
+        
+        $('body').on('click', '.js-toggle-cart', toggleCart);
+        $('body').on('click', '.js-add-product', addProduct);
+        $('body').on('click', '.js-remove-product', removeProduct);
+        
+        function toggleCart(e) {
+          e.preventDefault();
+          if(cartOpen) {
+            closeCart();
+            return;
+          }
+          openCart();
+        }
+        
+        function openCart() {
+          cartOpen = true;
+          $('body').addClass('open');
+        }
+        
+        function closeCart() {
+          cartOpen = false;
+          $('body').removeClass('open');
+        }
+        
+        function addProduct(e) {
+          e.preventDefault();
+          openCart();
+          $('.js-cart-empty').addClass('hide');
+          var product = $('.js-cart-product-template').html();
+          $('.js-cart-products').prepend(product);
+          numberOfProducts++;
+        }
+        
+        function removeProduct(e) {
+          e.preventDefault();
+          numberOfProducts--;
+          $(this).closest('.js-cart-product').hide(250);
+          if(numberOfProducts == 0) {
+            $('.js-cart-empty').removeClass('hide');
+          }
+        }
+        
+        </script>
+        <style>
+            .details {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+
+.thumbnail-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+            $speed: 250ms;
+        
+        body {
+          background: #F3F3F3;
+          padding: 0;
+          margin: 0;
+          overflow-x: hidden;
+          
+          font-family: Arial, sans-serif;
+          font-size: 16px;
+          line-height: 20px;
+        }
+        
+        body.open {
+          overflow-y: hidden;
+        }
+        
+        .shop {
+          position: relative;
+          z-index: 5;
+        }
+        
+        .shop__header {
+          box-sizing: border-box;
+          position: fixed;
+          background: rgba(255, 255, 255, 0.9);
+          width: 100%;
+          padding: 15px;
+          overflow: hidden;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .shop__products {
+          padding-top: 70px;
+        }
+        
+        .shop__title {
+          display: block;
+          margin: 0;
+          float: left;
+          
+          font-size: 30px;
+          line-height: 40px;
+        }
+        
+        .shop__text {
+          display: block;
+          padding: 0;
+          margin: 0;
+          float: right;
+          
+          .button {
+            padding: 10px 15px;
+          }
+        }
+        
+        .products {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          padding: 20px 0 20px 20px;
+        }
+        
+        .products__item {
+          width: 290px;
+        }
+        
+        .product {
+          background: #FFF;
+          padding: 30px 15px;
+          margin: 0 20px 20px 0;
+          border-radius: 5px;
+          text-align: center;
+        }
+        
+        .product__title {
+          font-weight: bold;
+          font-size: 20px;
+          margin: 0 0 15px 0;
+        }
+        
+        .product__text {
+          margin: 0;
+        }
+        
+        .button {
+          display: inline-block;
+          background: #39C;
+          padding: 5px 10px;
+          border-radius: 3px;
+          
+          font-weight: bold;
+          font-size: 14px;
+          text-decoration: none;
+          color: #FFF;
+        }
+        
+        .button--light {
+          background: #FFF;
+          color: #F00;
+        }
+        
+        .cart {
+          position: fixed;
+          background: #F3F3F3;
+          width: 400px;
+          max-width: 90%;
+          height: 100%;
+          top: 0;
+          right: 0;
+          box-shadow: -2px 0 4px rgba(0, 0, 0, 0.2);
+          overflow: hidden;
+          transform: translate(500px, 0);
+          transition: transform $speed ease-in-out;
+          z-index: 20;
+        }
+        
+        body.open .cart {
+          transform: translate(0, 0);
+        }
+        
+        .cart__header {
+          box-sizing: border-box;
+          position: absolute;
+          background: rgba(255, 255, 255, 0.9);
+          width: 100%;
+          padding: 15px 15px;
+          top: 0;
+          left: 0;
+          overflow: hidden;
+          z-index: 2;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          
+          .cart__text {
+            float: right;
+          }
+        }
+        
+        .cart__title {
+          font-size: 20px;
+          line-height: 40px;
+          margin: 0;
+          float: left;
+        }
+        
+        .cart__products {
+          box-sizing: border-box;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          padding: 70px 0;
+          overflow-x: hidden;
+          overflow-y: scroll;
+          -webkit-overflow-scrolling: touch;
+          z-index: 1;
+          
+          article {
+            padding: 15px;
+            border-bottom: 1px dotted #CCC;
+            
+            h1 {
+              font-size: 16px;
+              line-height: 20px;
+              margin: 0;
+            }
+            
+            p {
+              font-size: 14px;
+              margin: 0;
+              
+              a {
+                color: #F00
+              }
+            }
+          }
+        }
+        
+        .cart__product {
+          display: none;
+        }
+        
+        .cart__empty {
+          padding: 30px 15px;
+          margin: 0;
+          font-style: italic;
+          text-align: center;
+          
+          &.hide {
+            display: none;
+          }
+        }
+        
+        .cart__footer {
+          box-sizing: border-box;
+          position: absolute;
+          background: rgba(255, 255, 255, 0.9);
+          width: 100%;
+          padding: 15px;
+          left: 0;
+          bottom: 0;
+          z-index: 2;
+          box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+          text-align: right;
+        }
+        
+        .cart__text {
+          margin: 0;
+          
+          .button {
+            padding: 10px 15px;
+          }
+        }
+        
+        .lightbox {
+          position: fixed;
+          background: #000;
+          width: 0;
+          height: 100%;
+          top: 0;
+          left: 0;
+          z-index: 10;
+          opacity: 0;
+          transition: opacity $speed ease-in-out, width 0ms ease-in-out $speed;
+        }
+        
+        body.open .lightbox {
+          width: 100%;
+          opacity: 0.8;
+          transition: opacity $speed ease-in-out, width 0ms ease-in-out;
+        }
+        </style>
+           
+          
+          <aside class="cart js-cart">
+            <div class="cart__header">
+              <h1 class="cart__title">Shopping cart</h1>
+              <p class="cart__text">
+                <a class="button button--light js-toggle-cart" href="#" title="Close cart">
+                  Close cart
+                </a>
+              </p>
+            </div>
+            {{-- <div class="cart__products js-cart-products">
+              <p class="cart__empty js-cart-empty">
+                Add a product to your cart
+              </p>
+              <div class="cart__product js-cart-product-template">
+                <article class="js-cart-product">
+                  <h1>Product title</h1>
+                  <p>
+                    <a class="js-remove-product" href="#" title="Delete product">
+                      Delete product
+                    </a>
+                  </p>
+                </article>
+              </div>
+            </div> --}}
+            <div class="col-lg-2 col-sm-4 cart-megamenu">
+                <div class="cart-hover">
+                    <a href="/#"> <img alt="" src="assets/img/icons/cart-icon.png" /> </a>
+                    <span class="cnt crl-bg">{{ Cart::getTotalQuantity()}}</span> @if (Cart::getTotal())
+                    <span class="price">Rs {{Cart::getTotal()}}</span>
+                    @endif 
+                    @if (count(Cart::getContent()) > 0)
+                    <ul class="pop-up-box cart-popup">
+                        @foreach (Cart::getContent() as $item)
+                            <li class="cart-list">
+                                <div class="cart-img"> <img src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""> </div>
+                                <div class="cart-title">
+                                    <div class="fsz-16">
+                                        <a href="/#"> {{$item->name}}</a>
+                                    </div>
+                                    <div class="price"> 
+                                        <strong class="clr-txt">Rs {{$item->price}} </strong>
+                                    </div>
+                                </div>
+                                <div class="close-icon">
+                                    <form action="{{route('cart.remove')}}" method="POST">
+                                    @csrf
+                                    <input type="hidden" value="{{ $item->id }}" name="id">
+                                     <button type="submit"><i class="fa fa-close clr-txt"></i></button>
+                                    </form>
+                                </div>
+                            </li>
+                        @endforeach
+                        
+                        <li class="cart-list buttons">
+                            <div class="pull-left"> 
+                                <a href="{{route('cart')}}" class="theme-btn-sm-2">View Cart</a>
+                            </div>
+                            <div class="pull-right"> 
+                                <a href="/checkout" class="theme-btn-sm-3"> Checkout </a>
+                            </div>
+                        </li>
+                    </ul>
+                        
+                    @endif
+                </div>
+              
+
+        </div> 
+            <div class="cart__footer">
+              <p class="cart__text">
+                <a class="button" href="#" title="Buy products">
+                  Buy products
+                </a>
+              </p>
+            </div>
+          </aside>
+          
+          <div class="lightbox js-lightbox js-toggle-cart"></div>
     </body>
 </html>
+
+<script>
+
+</script>

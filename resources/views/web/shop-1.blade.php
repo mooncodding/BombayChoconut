@@ -1,14 +1,20 @@
 @extends('web.master')
-@section('content')
+@section('content') 
+
             <!--Breadcrumb Section Start-->
-            <section class="breadcrumb-bg" style="background-image:url({{asset('web-assets/images/banner/shop.jpg')}})">                
+            <section class="breadcrumb-bg"  style="background-image:url({{asset('web-assets/images/banner/shop.jpg')}})">                
                 <div class="theme-container container ">                       
                     <div class="site-breadcumb white-clr">                        
                         <h2 class="section-title"> <strong class="clr-txt">Bombay </strong> <span class="light-font">Shop </span> </h2>
+                        <ol class="breadcrumb breadcrumb-menubar">
+                            <li> <a href="/#"> Home </a> SHOP  </li>                             
+                        </ol>
                     </div>  
                 </div>
             </section>
             <!--Breadcrumb Section End-->
+
+
             <!-- Shop Starts-->
             <section class="shop-wrap sec-space-bottom">
                 <div class="pattern"> 
@@ -16,28 +22,185 @@
                 </div>
 
                 <div class="container rel-div">
-                    <div class="organic-wrap"> 
-                        <img class="logo-img" alt style="
-                    width: 120px;" src="{{asset('web-assets/images/bombaylogo.png')}}" />
-                        
-                        <div class="tabs-box">
-                            <ul class="theme-tabs" id="categories">
-                                <li class="active"><a href="#" data-toggle="tab" class="category-btn" data-id="all">All Categories</a></li>                                
-                                <li class="active"><a href="#" data-toggle="tab" class="category-btn" data-id="1">Dry fruits</a></li>                                
-                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="2">Chocolates</a></li>                                
-                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="3">Fresh Biscuit</a></li>                                
-                            </ul>
+                    <div class="row sort-bar">
+                        {{-- <div class="icon"> <img alt="" src="assets/img/logo/logo-2.png" /> </div> --}}
+                        <div class="col-lg-6">
+                            <div class="sort-dropdown left">
+                                <span>CATEGORY</span>
+                                <div class="search-wrap">
+                                    <input class="form-control" placeholder="" >
+                                    <button class="btn" type="submit"> <i class="fa fa-search"></i> </button>
+                                </div>
+                            </div>
+
                         </div>
-                    </div>
-                    <div class="tab-content shop-content">
-                        <div class="tab-pane fade active in productShopCards"  role="tabpanel">
+                        <div class="col-lg-5 right">
+                            <div class="sort-dropdown">
+                                <span>BY PRICE</span>
+                                <div class="search-selectpicker selectpicker-wrapper">
+                                    <select class="selectpicker input-price"  data-width="100%"
+                                            data-toggle="tooltip">                                   
+                                        <option> Low to High </option>
+                                        <option> High to Low </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="sort-dropdown">
+                                <span>SORT BY</span>
+                                <div class="search-selectpicker selectpicker-wrapper">
+                                    <select class="selectpicker input-price"  data-width="100%"
+                                            data-toggle="tooltip">
+                                        <option>Popular item</option>
+                                        <option>A - Z</option>
+                                        <option>Z - A</option>
+                                        <option> Low - High </option>
+                                        <option> High - Low </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <div class="divider-full-1"></div>
+
+                    <div class="row">
+                        <div class="col-md-3 pt-15">
+                            <div class="widget-wrap">
+                                <h2 class="widget-title"> <span class="light-font">Refine by</span> <strong>category</strong> </h2>
+                                <div class="divider-full-1"></div>
+                                <ul class="checkbox-widget">
+                                    <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked="">Fruits
+                                        <ul class="checkbox-widget">
+                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Deals of the day</span></label> </li>
+                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Fresh shipping</span></label> </li>
+                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Best sellers</span></label> </li>
+                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Featured products</span></label> </li>                                    
+                                        </ul>
+                                    </li>
+                                    <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked="">Fruits
+                                        <ul class="checkbox-widget">
+                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Deals of the day</span></label> </li>
+                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Fresh shipping</span></label> </li>
+                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Best sellers</span></label> </li>
+                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Featured products</span></label> </li>                                    
+                                        </ul>
+                                    </li>
+                                    <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked="">Fruits
+                                        <ul class="checkbox-widget">
+                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Deals of the day</span></label> </li>
+                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Fresh shipping</span></label> </li>
+                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Best sellers</span></label> </li>
+                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Featured products</span></label> </li>                                    
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="widget-wrap">
+                                <h2 class="widget-title"> <span class="light-font">Sort by</span> <strong>Price Range</strong> </h2>
+                                <div class="divider-full-1"></div>
+                                <div class="sort-range pt-15">
+                                    <span>PRICE</span> <div id="price-range"></div>
+                                </div>
+                            </div>
+
+                            <div class="widget-wrap">
+                                <h2 class="widget-title"> <span class="light-font">Best</span> <strong>Sellers</strong> </h2>
+                                <div class="divider-full-1"></div>
+                                <div class="widget-post pt-15">
+                                    <div class="random-prod"> 
+                                        <div class="random-img"> 
+                                            <img alt="" src="assets/img/extra/post-xs-1.png">
+                                        </div>
+                                        <div class="random-text"> 
+                                            <h3 class="title-1 no-margin"> <a href="/#"> <span class="light-font">organic </span> <strong>blackberry </strong> </a> </h3>
+                                            <span class="divider"></span>
+                                            <div class="price"> 
+                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="random-prod"> 
+                                        <div class="random-img"> 
+                                            <img alt="" src="assets/img/extra/post-xs-2.png">
+                                        </div>
+                                        <div class="random-text"> 
+                                            <h3 class="title-1 no-margin"> <a href="/#"> <span class="light-font">organic </span> <strong>peach </strong> </a> </h3>
+                                            <span class="divider"></span>
+                                            <div class="price"> 
+                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="random-prod"> 
+                                        <div class="random-img"> 
+                                            <img alt="" src="assets/img/extra/post-xs-3.png">
+                                        </div>
+                                        <div class="random-text"> 
+                                            <h3 class="title-1 no-margin"> <a href="/#"> <span class="light-font">organic </span> <strong>redberry </strong> </a> </h3>
+                                            <span class="divider"></span>
+                                            <div class="price"> 
+                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="random-prod"> 
+                                        <div class="random-img"> 
+                                            <img alt="" src="assets/img/extra/post-xs-4.png">
+                                        </div>
+                                        <div class="random-text"> 
+                                            <h3 class="title-1 no-margin"> <a href="/#"> <span class="light-font">organic </span> <strong>grapes </strong> </a> </h3>
+                                            <span class="divider"></span>
+                                            <div class="price"> 
+                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="widget-wrap">
+                                <h2 class="widget-title"> <span class="light-font">Sort by</span> <strong>Tags</strong> </h2>
+                                <div class="divider-full-1"></div>
+                                <ul class="tags-widget">
+                                    <li> <a href="/#">fruits</a> </li>
+                                    <li> <a href="/#">vegetables</a> </li>
+                                    <li> <a href="/#">juices</a> </li>
+                                    <li> <a href="/#">natural food</a> </li>
+                                    <li> <a href="/#">food</a> </li>
+                                    <li> <a href="/#">Breads</a> </li>
+                                    <li> <a href="/#">natural</a> </li>
+                                    <li> <a href="/#">healthy</a> </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-9">
+                            <div class="result-bar block-inline">
+                                <h4 class="result-txt">search result <b> 125 </b> </h4>
+                                <ul class="view-tabs">
+                                    <li class="">
+                                        <a href="/#grid-view" data-toggle="tab">                                                    
+                                            <i class="fa fa-th"></i>
+                                        </a>
+                                    </li>
+                                    <li class="active">
+                                        <a href="/#list-view" data-toggle="tab">
+                                            <i class="fa fa-th-list"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-content shop-content">
+                                <div class="tab-pane fade active in productShopCards"  role="tabpanel">
+                                </div>
                         </div>
                     </div>
                 </div>
-                
             </section>
-        
-            <!-- / Shop Ends -->   
+            <!-- / Shop Ends -->      
+
+            <!-- / CONTENT AREA -->
 
 @endsection
 
@@ -233,7 +396,3 @@
     });
 </script>
 @endsection
-           
-
-
-

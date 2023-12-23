@@ -1,156 +1,235 @@
 @extends('web.master')
 @section('content')
-            <!--Breadcrumb Section Start-->
-            <section class="breadcrumb-bg" style="background-image:url({{asset('web-assets/images/banner/checkout.jpg')}})">                
-                <div class="theme-container container ">                       
-                    {{-- <div class="site-breadcumb white-clr">                        
-                        <h2 class="section-title"> <strong class="clr-txt">naturix </strong> <span class="light-font">Shop </span> </h2>
-                        <ol class="breadcrumb breadcrumb-menubar">
-                            <li> <a href="/#"> Home </a> Checkout  </li>                             
-                        </ol>
-                    </div>   --}}
-                </div>
-            </section>
-            <!--Breadcrumb Section End-->
 
+<section class="checkout">
+    <h1 class="section-title ptb-15" style="text-align: center;"> <span class="light-font">Check</span> <strong>Out </strong>  </h1>
+    <form action="" method="POST" role="form" id="checkout_form">
+        <div class="row">
+        <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-5 px-md-1 pl-md-3 px-0 px-lg-3 px-sm-0">
+        <div class="bg-white border p-3">
+        <input type="hidden" id="price" name="price" value="9180">
+        <div class="row">
+        <div class="form-group col-md-12 mb-2">
+        <input type="hidden" name="ordertype" id="ordertype" value="12">
+        <label class="" for="name">Name*</label>
+        <input name="name" type="text" id="name" placeholder="Name" value="" class="form-control " required="">
+        </div>
+        <div class="form-group col-md-12 mb-2">
+        <label class="" for="email">Email</label>
+        <input name="email" type="email" id="email" placeholder="Email" value="" class="form-control " required="">
+        </div>
+        <div class="form-group col-lg-6 col-md-6 col-12 mb-2">
+        <label class="" for="mobile">Mobile*</label>
+        <input name="mobile" type="tel" id="mobile" value="" class="form-control  onlyNumerics" placeholder="Mobile Number " pattern="[0-9]*" required="">
+        </div>
+        <div class="form-group col-lg-6 col-md-6 col-12 mb-2">
+        <label class="" for="city">City*</label>
+        <select onchange="get_charges_by_city_checkout()" class="form-control select_city js_select_2" id="city" name="city" required="required" data-select2-id="city" tabindex="0" aria-hidden="false"><option value="" data-select2-id="3">--Select City --</option><option value="2049" data-select2-id="4">AADOWAL</option><option value="2116" data-select2-id="5">ABAZAI</option><option value="2075" data-select2-id="6">ABBAS PUR</option><option value="1033" data-select2-id="7">ABBOTABAD</option><option value="1137" data-select2-id="8">ABDUL HAKIM</option><option value="1955" data-select2-id="9">ADAMKE CHEEMA</option><option value="1138" data-select2-id="10">ADDA BUN BOSAN</option><option value="2251" data-select2-id="11">ADDA FARID KOT</option><option value="2250" data-select2-id="12">ADDA GAMBER</option><option value="1139" data-select2-id="13">ADDA LAR</option><option value="2117" data-select2-id="14">ADDA MIR ABBAS</option><option value="1140" data-select2-id="15">ADDA ZAKHEERA</option><option value="1969" data-select2-id="16">ADHI KOT</option><option value="1810" data-select2-id="17">ADILPUR</option><option value="1561" data-select2-id="18">ADYALA ROAD</option><option value="2084" data-select2-id="19">AHATA FAROOQIA</option><option value="2230" data-select2-id="20">AHMADPUR LUMMA</option><option value="1143" data-select2-id="21">AHMADPUR SIAL</option><option value="1141" data-select2-id="22">AHMED PUR EAST</option><option value="1142" data-select2-id="23">AHMED PUR LAMMA</option><option value="1680" data-select2-id="24">AKORA KHATTAK</option><option value="1145" data-select2-id="25">ALI PUR CHATTA</option><option value="1211" data-select2-id="26">ALIPUR</option><option value="2061" data-select2-id="27">ALIPUR FRASH</option><option value="1224" data-select2-id="28">ALLAH ABAD</option><option value="1147" data-select2-id="29">AMINPUR BANGLA</option><option value="2118" data-select2-id="30">AMIRABAD</option><option value="2016" data-select2-id="31">ARAR</option><option value="1148" data-select2-id="32">ARIF WALA</option><option value="1585" data-select2-id="33">ARIFWALA</option><option value="1812" data-select2-id="34">ARIJA</option><option value="1136" data-select2-id="35">ATHARA HAZARI</option><option value="1150" data-select2-id="36">ATTOCK</option><option value="2093" data-select2-id="37">ATTOWALA</option><option value="2050" data-select2-id="38">AWAN SHARIF</option><option value="1151" data-select2-id="39">AWARAN</option><option value="1579" data-select2-id="40">AZAD KASHMIR</option><option value="1807" data-select2-id="41">BABARLOI</option><option value="2142" data-select2-id="42">BADBHHER</option><option value="2089" data-select2-id="43">BADDAR</option><option value="1821" data-select2-id="44">BADDOMALHI</option><option value="1833" data-select2-id="45">BADIANA</option><option value="1152" data-select2-id="46">BADIN</option><option value="2137" data-select2-id="47">BAFFA</option><option value="1057" data-select2-id="48">BAGH</option><option value="1212" data-select2-id="49">BAHAWAL NAGAR</option><option value="1586" data-select2-id="50">BAHAWALNAGAR</option><option selected="selected" value="1042" data-select2-id="2">BAHAWALPUR</option><option value="100" data-select2-id="51">BAHRIA TOWN (KARACHI)</option><option value="1153" data-select2-id="52">BAJAUR</option><option value="2127" data-select2-id="53">BAKA KHEL WAZIR</option><option value="1811" data-select2-id="54">BAKRANI</option><option value="2138" data-select2-id="55">BALAKOT</option><option value="1535" data-select2-id="56">BALKASAR</option><option value="2135" data-select2-id="57">BANDA DAUD SHAH</option><option value="1213" data-select2-id="58">BANGLA GOGERA</option><option value="2232" data-select2-id="59">BANGLA MANTHAR</option><option value="1794" data-select2-id="60">BANGULDERO</option><option value="1214" data-select2-id="61">BANNU</option><option value="1215" data-select2-id="62">BARAKAHU</option><option value="2086" data-select2-id="63">BARAL</option><option value="1155" data-select2-id="64">BARKHAN</option><option value="1156" data-select2-id="65">BARNALA</option><option value="2239" data-select2-id="66">BARTHI</option><option value="2018" data-select2-id="67">BASHARAT</option><option value="1157" data-select2-id="68">BASIR PUR</option><option value="2094" data-select2-id="69">BASSRIAN</option><option value="2240" data-select2-id="70">BASTI BUZDAR</option><option value="1704" data-select2-id="71">BASTI LAR</option><option value="2241" data-select2-id="72">BASTI MALANA</option><option value="1705" data-select2-id="73">BASTI MALOOK</option><option value="1491" data-select2-id="74">BASTI SHORKOT</option><option value="1158" data-select2-id="75">BATKHELA</option><option value="1159" data-select2-id="76">BATTAGRAM</option><option value="1160" data-select2-id="77">BELA</option><option value="1968" data-select2-id="78">BHADOOR</option><option value="2051" data-select2-id="79">BHAGOWAL KALAN</option><option value="1589" data-select2-id="80">BHAGTANWALA</option><option value="2019" data-select2-id="81">BHAGWAL</option><option value="1707" data-select2-id="82">BHAI PHARU</option><option value="1161" data-select2-id="83">BHAI PHERU</option><option value="1162" data-select2-id="84">BHAKKAR</option><option value="1163" data-select2-id="85">BHALWAL</option><option value="1713" data-select2-id="86">BHAN SYEDABAD</option><option value="1696" data-select2-id="87">BHANYWALI</option><option value="2020" data-select2-id="88">BHARPUR</option><option value="2021" data-select2-id="89">BHAUN</option><option value="1164" data-select2-id="90">BHAWANA</option><option value="2139" data-select2-id="91">BHER KUND</option><option value="1165" data-select2-id="92">BHERA</option><option value="1492" data-select2-id="93">BHIKHI</option><option value="1216" data-select2-id="94">BHIMBER</option><option value="1217" data-select2-id="95">BHIRIA CITY</option><option value="1218" data-select2-id="96">BHIRIA ROAD</option><option value="1169" data-select2-id="97">BHIT SHAH</option><option value="2233" data-select2-id="98">BHONG</option><option value="1826" data-select2-id="99">BHURBAN</option><option value="2022" data-select2-id="100">BUCHAL KALAN</option><option value="2023" data-select2-id="101">BUCHAL KHURD</option><option value="1959" data-select2-id="102">BUDHA GURAYA</option><option value="1171" data-select2-id="103">BUDHLA SANT</option><option value="1172" data-select2-id="104">BUNER</option><option value="1173" data-select2-id="105">BUREWALA</option><option value="1982" data-select2-id="106">CENTER PLATE-MUZAFFARABAD</option><option value="1174" data-select2-id="107">CHACHRO</option><option value="1175" data-select2-id="108">CHAK JHUMRA</option><option value="2256" data-select2-id="109">CHAK SOBARAM</option><option value="2283" data-select2-id="110">CHAKDARA</option><option value="2140" data-select2-id="111">CHAKIA</option><option value="1827" data-select2-id="112">CHAKLALA</option><option value="2024" data-select2-id="113">CHAKORA</option><option value="2025" data-select2-id="114">CHAKRAL</option><option value="1176" data-select2-id="115">CHAKSWARI</option><option value="1075" data-select2-id="116">CHAKWAL</option><option value="1177" data-select2-id="117">CHAMAN</option><option value="1755" data-select2-id="118">CHANGA MANGA</option><option value="2092" data-select2-id="119">CHANNAN</option><option value="2069" data-select2-id="120">CHARHOI</option><option value="1036" data-select2-id="121">CHARSADDA</option><option value="1219" data-select2-id="122">CHASHMA</option><option value="1691" data-select2-id="123">CHATTAR</option><option value="1178" data-select2-id="124">CHAWINDA</option><option value="1985" data-select2-id="125">CHELLA BANDI </option><option value="1179" data-select2-id="126">CHENAB NAGAR</option><option value="1076" data-select2-id="127">CHICHAWATNI</option><option value="1181" data-select2-id="128">CHINIOT</option><option value="1220" data-select2-id="129">CHISHTIAN</option><option value="1183" data-select2-id="130">CHITRAL</option><option value="2141" data-select2-id="131">CHITTA BATTA</option><option value="1184" data-select2-id="132">CHOA SAIDAN SHAH</option><option value="1714" data-select2-id="133">CHOA SYDEN SHAH</option><option value="2284" data-select2-id="134">CHOHAR JAMALI</option><option value="1185" data-select2-id="135">CHOR CANTT</option><option value="2112" data-select2-id="136">CHOTA LAHORE</option><option value="1186" data-select2-id="137">CHOWK AZAM</option><option value="1483" data-select2-id="138">CHOWK MUNDA</option><option value="1744" data-select2-id="139">CHOWK PERMIT</option><option value="1702" data-select2-id="140">CHOWK QURESHI</option><option value="1221" data-select2-id="141">CHOWK SARWER SHAHEED</option><option value="1188" data-select2-id="142">CHUNIAN</option><option value="1270" data-select2-id="143">DAD KHAN JARWAR</option><option value="134" data-select2-id="144">DADU</option><option value="2285" data-select2-id="145">DADYAL</option><option value="1485" data-select2-id="146">DADYAL (A.k)</option><option value="1222" data-select2-id="147">DAHARKI</option><option value="1189" data-select2-id="148">DAHRANWALA</option><option value="1741" data-select2-id="149">DAIRA DIN PANAH</option><option value="1191" data-select2-id="150">DALBANDIN</option><option value="2026" data-select2-id="151">DALIPUR</option><option value="1818" data-select2-id="152">DALUWALI</option><option value="2031" data-select2-id="153">DALWAL</option><option value="1306" data-select2-id="154">DANDOT</option><option value="1192" data-select2-id="155">DARA ADAM KHEL</option><option value="1772" data-select2-id="156">DARABAN</option><option value="1193" data-select2-id="157">DARGAI</option><option value="1566" data-select2-id="158">DARY KHAN</option><option value="1194" data-select2-id="159">DARYA KHAN</option><option value="1195" data-select2-id="160">DASKA</option><option value="1196" data-select2-id="161">DAUD KHEL</option><option value="1207" data-select2-id="162">DAULAT NAGAR</option><option value="1197" data-select2-id="163">DAULATPUR</option><option value="1208" data-select2-id="164">DAUR</option><option value="1198" data-select2-id="165">DEPAL PUR</option><option value="1591" data-select2-id="166">DEPALPUR</option><option value="1199" data-select2-id="167">DERA ALLAH YARAC</option><option value="1078" data-select2-id="168">DERA GHAZI KHAN</option><option value="1035" data-select2-id="169">DERA ISMAIL KHAN</option><option value="1200" data-select2-id="170">DERA MURAD JAMALI</option><option value="1824" data-select2-id="171">DHABEJI</option><option value="1201" data-select2-id="172">DHANOTE</option><option value="1964" data-select2-id="173">DHARAMKOT</option><option value="2033" data-select2-id="174">DHARRABI</option><option value="2034" data-select2-id="175">DHEEDWAL</option><option value="2125" data-select2-id="176">DHERI ALLA DHAND</option><option value="1202" data-select2-id="177">DHODAK</option><option value="1716" data-select2-id="178">DHORIA</option><option value="2286" data-select2-id="179">DHUDIAL</option><option value="1203" data-select2-id="180">DIGRI</option><option value="1204" data-select2-id="181">DIJKOT</option><option value="1080" data-select2-id="182">DINA</option><option value="1205" data-select2-id="183">DINGA</option><option value="1557" data-select2-id="184">DIR</option><option value="1190" data-select2-id="185">DOKOTA</option><option value="1206" data-select2-id="186">DOKRI</option><option value="1493" data-select2-id="187">DONGA BONGA</option><option value="1209" data-select2-id="188">DUKKI</option><option value="1210" data-select2-id="189">DULLE WALA</option><option value="2035" data-select2-id="190">DULMIAL</option><option value="2036" data-select2-id="191">DUMMAN</option><option value="1592" data-select2-id="192">DUNYA PUR</option><option value="1223" data-select2-id="193">DUNYAPUR</option><option value="1028" data-select2-id="194">FAISALABAD</option><option value="1494" data-select2-id="195">FAQIR WALI</option><option value="1595" data-select2-id="196">FAROOKA</option><option value="1225" data-select2-id="197">FAROOQABAD</option><option value="1226" data-select2-id="198">FATEH JANG</option><option value="1227" data-select2-id="199">FATEH PUR</option><option value="1763" data-select2-id="200">FATEH PUR GUJRAT</option><option value="1676" data-select2-id="201">FAZIL PUR</option><option value="1228" data-select2-id="202">FAZILPUR</option><option value="1819" data-select2-id="203">FEROZ WATOWAN</option><option value="1229" data-select2-id="204">FEROZE WATTWAN</option><option value="1545" data-select2-id="205">FEROZEWALA</option><option value="1230" data-select2-id="206">FIROZA</option><option value="1231" data-select2-id="207">FORT ABBAS</option><option value="1567" data-select2-id="208">G-10 MARKAZ</option><option value="1232" data-select2-id="209">GADOON</option><option value="1598" data-select2-id="210">GAGGO MANDI</option><option value="1233" data-select2-id="211">GAGGOO MANDI</option><option value="1081" data-select2-id="212">GAMBAT</option><option value="1791" data-select2-id="213">GARH MOOR</option><option value="1234" data-select2-id="214">GARH MORE</option><option value="1689" data-select2-id="215">GARHI DUPATTA</option><option value="1235" data-select2-id="216">GARHI KHAIRO</option><option value="1236" data-select2-id="217">GARHI YASIN</option><option value="1783" data-select2-id="218">GHAKAR</option><option value="1238" data-select2-id="219">GHAKHAR</option><option value="1961" data-select2-id="220">GHALOTIAN KHURD</option><option value="1239" data-select2-id="221">GHARO</option><option value="1240" data-select2-id="222">GHAZIABAD</option><option value="2037" data-select2-id="223">GHAZIAL</option><option value="1678" data-select2-id="224">GHONDAL</option><option value="2128" data-select2-id="225">GHORIWALA</option><option value="1082" data-select2-id="226">GHOTKI</option><option value="1241" data-select2-id="227">GHOUS PUR</option><option value="1054" data-select2-id="228">GILGIT</option><option value="1599" data-select2-id="229">GIROT</option><option value="1083" data-select2-id="230">GOJRA</option><option value="1242" data-select2-id="231">GOLARCHI</option><option value="1568" data-select2-id="232">GOLRA MOR</option><option value="1243" data-select2-id="233">GUDDU</option><option value="1244" data-select2-id="234">GUJAR KHAN</option><option value="2287" data-select2-id="235">GUJARKHAN</option><option value="1040" data-select2-id="236">GUJRANWALA</option><option value="1045" data-select2-id="237">GUJRAT</option><option value="2052" data-select2-id="238">GULIANA</option><option value="2070" data-select2-id="239">GULPUR</option><option value="2087" data-select2-id="240">GULYANA</option><option value="1237" data-select2-id="241">GWADAR</option><option value="2136" data-select2-id="242">HABIBABAD</option><option value="1894" data-select2-id="243">HADALI</option><option value="1085" data-select2-id="244">HAFIZABAD</option><option value="1245" data-select2-id="245">HAJIRA</option><option value="1246" data-select2-id="246">HALA</option><option value="1797" data-select2-id="247">HALANI</option><option value="1247" data-select2-id="248">HANGU</option><option value="1497" data-select2-id="249">HARAPPA</option><option value="1086" data-select2-id="250">HARIPUR</option><option value="1569" data-select2-id="251">HARNAI</option><option value="1248" data-select2-id="252">HARNOLI</option><option value="1087" data-select2-id="253">HAROONABAD</option><option value="1249" data-select2-id="254">HASILPUR</option><option value="1250" data-select2-id="255">HASSAN ABDAL</option><option value="1603" data-select2-id="256">HASSAN ABDAL</option><option value="1679" data-select2-id="257">HATHIAN</option><option value="1688" data-select2-id="258">HATTAR</option><option value="1251" data-select2-id="259">HATTER</option><option value="1498" data-select2-id="260">HATTIAN BALA</option><option value="1787" data-select2-id="261">HAVELI BAHADUR SHAH</option><option value="1499" data-select2-id="262">HAVELI LAKHA</option><option value="1252" data-select2-id="263">HAVELIAN</option><option value="1687" data-select2-id="264">HAVELLIAN</option><option value="1253" data-select2-id="265">HAZRO</option><option value="1500" data-select2-id="266">HEAD MARALA</option><option value="1254" data-select2-id="267">HUB</option><option value="1255" data-select2-id="268">HUJRA SHAH MUQEEM</option><option value="1606" data-select2-id="269">HUJRA SHAMUQEEM</option><option value="1257" data-select2-id="270">HUNZA VALLEY</option><option value="2077" data-select2-id="271">HURNAMAIRA</option><option value="1046" data-select2-id="272">HYDERABAD</option><option value="1258" data-select2-id="273">IQBAL NAGAR</option><option value="1261" data-select2-id="274">ISA KHEL</option><option value="1259" data-select2-id="275">ISKANDARABAD</option><option value="1026" data-select2-id="276">ISLAMABAD</option><option value="1260" data-select2-id="277">ISLAMKOT</option><option value="1967" data-select2-id="278">JABBI</option><option value="1051" data-select2-id="279">JACOBABAD</option><option value="1274" data-select2-id="280">JAHANIAN</option><option value="1828" data-select2-id="281">JALAL PUR BHATTIAN</option><option value="1263" data-select2-id="282">JALALPUR BHATTIAN</option><option value="1264" data-select2-id="283">JALALPUR JATTAN</option><option value="1266" data-select2-id="284">JALALPUR PIRWALA</option><option value="1267" data-select2-id="285">JAMAL DIN WALI</option><option value="1682" data-select2-id="286">JAMESABAD</option><option value="1954" data-select2-id="287">JAMKE CHEEMA</option><option value="1268" data-select2-id="288">JAMPUR</option><option value="1090" data-select2-id="289">JAMSHORO</option><option value="1502" data-select2-id="290">JAND</option><option value="1269" data-select2-id="291">JAND WALA</option><option value="1091" data-select2-id="292">JARANWALA</option><option value="1717" data-select2-id="293">JATLAN</option><option value="1271" data-select2-id="294">JATOI</option><option value="1277" data-select2-id="295">JAUHARABAD</option><option value="1273" data-select2-id="296">JEHANGIRA</option><option value="1611" data-select2-id="297">JETHA BHUTTA</option><option value="2038" data-select2-id="298">JHAMRAH</option><option value="1093" data-select2-id="299">JHANG</option><option value="2133" data-select2-id="300">JHANGI</option><option value="2039" data-select2-id="301">JHATLA</option><option value="1275" data-select2-id="302">JHATPAT</option><option value="1272" data-select2-id="303">JHAWARIAN</option><option value="1276" data-select2-id="304">JHELUM</option><option value="2242" data-select2-id="305">JHOK UTRA</option><option value="1804" data-select2-id="306">JHOL</option><option value="1684" data-select2-id="307">JHUDDO</option><option value="1504" data-select2-id="308">JIN PUR</option><option value="2105" data-select2-id="309">JUND</option><option value="1733" data-select2-id="310">KABAL</option><option value="1278" data-select2-id="311">KABIRWALA</option><option value="1279" data-select2-id="312">KACHA KHUH</option><option value="1289" data-select2-id="313">KAHNA NAU</option><option value="1614" data-select2-id="314">KAHOTA</option><option value="1294" data-select2-id="315">KAHROR PAKKA</option><option value="1280" data-select2-id="316">KAHUTA</option><option value="2129" data-select2-id="317">KAKKI 1</option><option value="2053" data-select2-id="318">KAKRALI</option><option value="2066" data-select2-id="319">KALA GUJRAN</option><option value="1282" data-select2-id="320">KALA SHAH KAKU</option><option value="1281" data-select2-id="321">KALABAGH</option><option value="1735" data-select2-id="322">KALAR SYEDAN</option><option value="1571" data-select2-id="323">KALASKE</option><option value="1283" data-select2-id="324">KALAT</option><option value="1095" data-select2-id="325">KALLAR KAHAR</option><option value="1581" data-select2-id="326">KALlAR SYEDAN</option><option value="1773" data-select2-id="327">KALLUR KOT</option><option value="1284" data-select2-id="328">KALLUR KOT TEHSIL</option><option value="1285" data-select2-id="329">KAMALIA</option><option value="1287" data-select2-id="330">KAMAR MASHANI</option><option value="1286" data-select2-id="331">KAMBAR ALI KHAN</option><option value="1508" data-select2-id="332">KAMIR</option><option value="1288" data-select2-id="333">KAMOKE</option><option value="1489" data-select2-id="334">KAMRA KALAN</option><option value="1956" data-select2-id="335">KANDAN SIAN</option><option value="1097" data-select2-id="336">KANDHKOT</option><option value="1290" data-select2-id="337">KANDIARI</option><option value="1291" data-select2-id="338">KANDIARO</option><option value="1619" data-select2-id="339">KANDYARO</option><option value="1756" data-select2-id="340">KANGANPUR</option><option value="2119" data-select2-id="341">KANGRA</option><option value="1024" data-select2-id="342">KARACHI</option><option value="1292" data-select2-id="343">KARAK</option><option value="1540" data-select2-id="344">KARIANWALA</option><option value="1293" data-select2-id="345">KAROR LAL ESAN</option><option value="2040" data-select2-id="346">KARULI</option><option value="1099" data-select2-id="347">KASHMORE</option><option value="1726" data-select2-id="348">KASOWAL</option><option value="1295" data-select2-id="349">KASSOWAL</option><option value="1296" data-select2-id="350">KASUR</option><option value="1970" data-select2-id="351">KATHA SAGRAL</option><option value="1297" data-select2-id="352">KATLANG</option><option value="1836" data-select2-id="353">KCP COLONY</option><option value="1805" data-select2-id="354">KHADRO</option><option value="2078" data-select2-id="355">KHAI GALA</option><option value="1505" data-select2-id="356">KHAIR PUR NATHAN SHAH</option><option value="1737" data-select2-id="357">KHAIRABAD</option><option value="1052" data-select2-id="358">KHAIRPUR</option><option value="1101" data-select2-id="359">KHAIRPUR NATHAN</option><option value="1612" data-select2-id="360">KHAIRPUR NATHAN SHAH</option><option value="1298" data-select2-id="361">KHAIRPUR TAMEWALI</option><option value="2288" data-select2-id="362">KHAIRPUR TAMIWALI</option><option value="1718" data-select2-id="363">KHALABAT TOWNSHIP</option><option value="1299" data-select2-id="364">KHAN BELA</option><option value="1743" data-select2-id="365">KHAN GARH</option><option value="1103" data-select2-id="366">KHANEWAL</option><option value="1550" data-select2-id="367">KHANGARH</option><option value="1300" data-select2-id="368">KHANPUR</option><option value="2047" data-select2-id="369">KHANPUR (CHAKWAL)</option><option value="1510" data-select2-id="370">KHANPUR DAM</option><option value="1719" data-select2-id="371">KHANPUR MAHAR</option><option value="1301" data-select2-id="372">KHANQAH SHARIF</option><option value="1302" data-select2-id="373">KHAPLU</option><option value="1303" data-select2-id="374">KHARAN</option><option value="1996" data-select2-id="375">KHARI SHARIF</option><option value="1104" data-select2-id="376">KHARIAN</option><option value="1304" data-select2-id="377">KHARIAN CANTT</option><option value="1720" data-select2-id="378">KHAROTA SYEDAN</option><option value="1622" data-select2-id="379">KHEBAR</option><option value="1623" data-select2-id="380">KHICHIWALA</option><option value="1307" data-select2-id="381">KHIDER WALA</option><option value="1308" data-select2-id="382">KHIPRO</option><option value="1757" data-select2-id="383">KHUDIAN KHAS</option><option value="2071" data-select2-id="384">KHUIRATTA</option><option value="1537" data-select2-id="385">KHURRIAN WALA</option><option value="1309" data-select2-id="386">KHUSHAB</option><option value="1059" data-select2-id="387">KHUZDAR </option><option value="1305" data-select2-id="388">KHWAZAKHELA</option><option value="1506" data-select2-id="389">KHYBER</option><option value="1034" data-select2-id="390">KOHAT</option><option value="1310" data-select2-id="391">KOT ABDUL MALIK</option><option value="1311" data-select2-id="392">KOT ADDU</option><option value="1790" data-select2-id="393">KOT BAHADUR SHAH</option><option value="1312" data-select2-id="394">KOT CHUTTA</option><option value="1313" data-select2-id="395">KOT GHULAM MUHAMMAD</option><option value="1314" data-select2-id="396">KOT MITHAN</option><option value="1315" data-select2-id="397">KOT MOMIN</option><option value="2243" data-select2-id="398">KOT QAISARANI</option><option value="1316" data-select2-id="399">KOT RADHA KISHAN</option><option value="1624" data-select2-id="400">KOT SABZAL</option><option value="1317" data-select2-id="401">KOT SAMABA</option><option value="2252" data-select2-id="402">KOT SHAUKAT</option><option value="1740" data-select2-id="403">KOT SULTAN</option><option value="1318" data-select2-id="404">KOTLA ARAB ALI KHAN</option><option value="1534" data-select2-id="405">KOTLA JAM</option><option value="1723" data-select2-id="406">KOTLA SYEDAN</option><option value="1319" data-select2-id="407">KOTLI</option><option value="1721" data-select2-id="408">KOTLI LOHARAN</option><option value="2072" data-select2-id="409">KOTLI SARSAWA</option><option value="1626" data-select2-id="410">KOTLI-A-KASHMIR</option><option value="1320" data-select2-id="411">KOTRI</option><option value="1767" data-select2-id="412">KUCHLAK</option><option value="1769" data-select2-id="413">KULACHI</option><option value="1321" data-select2-id="414">KUNDIAN</option><option value="1764" data-select2-id="415">KUNJAH</option><option value="1322" data-select2-id="416">KUNRI</option><option value="1530" data-select2-id="417">KUTHIALA ABOTTABAD</option><option value="1025" data-select2-id="418">LAHORE</option><option value="1801" data-select2-id="419">LAKHI GHULAM SHAH</option><option value="1774" data-select2-id="420">LAKI MARWAT</option><option value="1323" data-select2-id="421">LAKKI MARWAT</option><option value="1324" data-select2-id="422">LALAMUSA</option><option value="1325" data-select2-id="423">LALIAN</option><option value="1326" data-select2-id="424">LANDI KOTAL</option><option value="1048" data-select2-id="425">LARKANA</option><option value="1544" data-select2-id="426">LASBELA</option><option value="1327" data-select2-id="427">LAYYAH</option><option value="2048" data-select2-id="428">LEHR SULTANPUR</option><option value="1328" data-select2-id="429">LIAQATPUR</option><option value="1627" data-select2-id="430">LIAQUAT PUR</option><option value="2290" data-select2-id="431">LIAQUATPUR</option><option value="1329" data-select2-id="432">LODHRAN</option><option value="2062" data-select2-id="433">LOHI BHAIR</option><option value="1330" data-select2-id="434">LORALAI</option><option value="1992" data-select2-id="435">LOWER CHATTAR-MUZAFFARABAD</option><option value="1711" data-select2-id="436">LOWER DIR</option><option value="1984" data-select2-id="437">LOWER PLATE-AZAD KASHMIR</option><option value="1628" data-select2-id="438">LUDDAN</option><option value="1359" data-select2-id="439">MACH</option><option value="1331" data-select2-id="440">MACHI GOTH</option><option value="1629" data-select2-id="441">MACHIWAL</option><option value="1793" data-select2-id="442">MADEJI</option><option value="1727" data-select2-id="443">MADRESSA</option><option value="1795" data-select2-id="444">MAHOTA</option><option value="1332" data-select2-id="445">MAILSI</option><option value="1333" data-select2-id="446">MAKHDOOM AALI</option><option value="1747" data-select2-id="447">MAKHDUM RASHID</option><option value="1675" data-select2-id="448">MAKLI</option><option value="1334" data-select2-id="449">MALAK WAL</option><option value="1335" data-select2-id="450">MALAKAND</option><option value="1736" data-select2-id="451">MALAKWAL</option><option value="1630" data-select2-id="452">MALKA HANS</option><option value="1336" data-select2-id="453">MAMUN KANJAN</option><option value="1554" data-select2-id="454">MANAWALA</option><option value="2091" data-select2-id="455">MANDEER</option><option value="324" data-select2-id="456">MANDI BAHAUDDIN</option><option value="1170" data-select2-id="457">MANDI BUCHIANA</option><option value="1337" data-select2-id="458">MANDI FAIZ ABAD</option><option value="1785" data-select2-id="459">MANDI SHAH JEEWNA</option><option value="1514" data-select2-id="460">MANDRA</option><option value="1536" data-select2-id="461">MANDRANWALA</option><option value="1338" data-select2-id="462">MANGA MANDI</option><option value="1546" data-select2-id="463">MANGAT</option><option value="1542" data-select2-id="464">MANGLA CANTT</option><option value="1339" data-select2-id="465">MANGLA HAMLET</option><option value="1340" data-select2-id="466">MANGOWAL</option><option value="2244" data-select2-id="467">MANGROTHA</option><option value="2045" data-select2-id="468">MANGWAL</option><option value="1341" data-select2-id="469">MANKERA</option><option value="1632" data-select2-id="470">MANSEHRA</option><option value="1342" data-select2-id="471">MANSHERA</option><option value="327" data-select2-id="472">MARDAN</option><option value="1633" data-select2-id="473">MAROT</option><option value="1343" data-select2-id="474">MASTUNG</option><option value="1109" data-select2-id="475">MATIARI</option><option value="1357" data-select2-id="476">MATIARI</option><option value="1344" data-select2-id="477">MATLI</option><option value="2120" data-select2-id="478">MATTA MUGHAL KHEL</option><option value="1746" data-select2-id="479">MATTI TALL</option><option value="1345" data-select2-id="480">MEHAR TALUKA</option><option value="1346" data-select2-id="481">MEHMOOD KOT</option><option value="1347" data-select2-id="482">MEHRABPUR</option><option value="1348" data-select2-id="483">MIAN CHANNU</option><option value="1634" data-select2-id="484">MIAN CHANOO</option><option value="1349" data-select2-id="485">MIANWALI</option><option value="2234" data-select2-id="486">MIANWALI QURESHIAN</option><option value="2130" data-select2-id="487">MICHAN KHELADDA LAKKI MARWAT</option><option value="1635" data-select2-id="488">MINCHANABAD</option><option value="1350" data-select2-id="489">MINCHINABAD</option><option value="1351" data-select2-id="490">MINGORA</option><option value="2291" data-select2-id="491">MINGORA (SWAT)</option><option value="2254" data-select2-id="492">MIRBAZ</option><option value="1636" data-select2-id="493">MIRPUR A.K.</option><option value="1050" data-select2-id="494">MIRPUR KHAS</option><option value="1353" data-select2-id="495">MIRPUR MATHELO</option><option value="1354" data-select2-id="496">MIRPUR SAKRO</option><option value="1355" data-select2-id="497">MIRWAH GORCHANI</option><option value="1835" data-select2-id="498">MITHA TIWANA</option><option value="1356" data-select2-id="499">MITHI</option><option value="1957" data-select2-id="500">MITRAN WALI</option><option value="1637" data-select2-id="501">MITRO</option><option value="1256" data-select2-id="502">MODEL TOWN HUMAK</option><option value="2056" data-select2-id="503">MOIN UD DIN PUR</option><option value="1547" data-select2-id="504">MONA DEPOT</option><option value="1555" data-select2-id="505">MORE KHUNDA</option><option value="1114" data-select2-id="506">MORO</option><option value="1358" data-select2-id="507">MUBARAKPUR</option><option value="2046" data-select2-id="508">MULHAL MUGHLAN</option><option value="1039" data-select2-id="509">MULTAN</option><option value="1361" data-select2-id="510">MURIDKE</option><option value="1752" data-select2-id="511">MURIDKEY</option><option value="1360" data-select2-id="512">MURIDWALA</option><option value="1362" data-select2-id="513">MURREE</option><option value="2236" data-select2-id="514">MURYALI</option><option value="1781" data-select2-id="515">MUSAKHEL</option><option value="1363" data-select2-id="516">MUSLIM BAGH</option><option value="1640" data-select2-id="517">MUZAFFARABAD</option><option value="1364" data-select2-id="518">MUZAFFARABAD AK</option><option value="1115" data-select2-id="519">MUZAFFARGARH</option><option value="1989" data-select2-id="520">NALUCHI</option><option value="1365" data-select2-id="521">NANKANA SAHIB</option><option value="1549" data-select2-id="522">NARANG MANDI</option><option value="1366" data-select2-id="523">NAROWAL</option><option value="1367" data-select2-id="524">NARWALA BANGLA</option><option value="1065" data-select2-id="525">NASIRABAD</option><option value="1531" data-select2-id="526">NATHIA GALI</option><option value="1368" data-select2-id="527">NAUABAD</option><option value="1369" data-select2-id="528">NAUDERO</option><option value="1374" data-select2-id="529">NAUSHAHRO FEROZE</option><option value="1370" data-select2-id="530">NAUSHEHRA</option><option value="1748" data-select2-id="531">NAWABPUR</option><option value="1049" data-select2-id="532">NAWABSHAH</option><option value="1784" data-select2-id="533">NAYA LAHORE</option><option value="1371" data-select2-id="534">NEW JATOI</option><option value="1352" data-select2-id="535">NEW MIRPUR CITY</option><option value="1372" data-select2-id="536">NEW SAEEDABAD</option><option value="2121" data-select2-id="537">NISATTA</option><option value="1642" data-select2-id="538">NOOR SHAH</option><option value="1515" data-select2-id="539">NOORIABAD</option><option value="1373" data-select2-id="540">NOORPUR THAL</option><option value="1375" data-select2-id="541">NOSHKI</option><option value="1645" data-select2-id="542">NOUSHERO FEROZ</option><option value="1037" data-select2-id="543">NOWSHERA </option><option value="1644" data-select2-id="544">NOWSHERA VIRKA</option><option value="1376" data-select2-id="545">NOWSHERA VIRKAN</option><option value="1822" data-select2-id="546">NURKOT</option><option value="1377" data-select2-id="547">NURPUR THAL</option><option value="2044" data-select2-id="548">ODHERWAL</option><option value="1378" data-select2-id="549">OGHI</option><option value="375" data-select2-id="550">OKARA</option><option value="1379" data-select2-id="551">OKARA CANTONMENT</option><option value="1383" data-select2-id="552">PABBI</option><option value="1573" data-select2-id="553">PACCA CHANG</option><option value="2079" data-select2-id="554">PACHIOT</option><option value="1384" data-select2-id="555">PAHARPUR</option><option value="1677" data-select2-id="556">PAIGAH</option><option value="1385" data-select2-id="557">PAINSRA</option><option value="1646" data-select2-id="558">PAK PATTAN SHARIF</option><option value="1386" data-select2-id="559">PAKPATTAN</option><option value="1387" data-select2-id="560">PALLANDRI</option><option value="2237" data-select2-id="561">PANIALA</option><option value="1776" data-select2-id="562">PANJ GIRAIN</option><option value="2085" data-select2-id="563">PANJAN KASANA</option><option value="1712" data-select2-id="564">PANJERI</option><option value="1388" data-select2-id="565">PANJGUR</option><option value="1647" data-select2-id="566">PANNU AQIL</option><option value="1389" data-select2-id="567">PANO AQIL</option><option value="2293" data-select2-id="568">PANO AQIL</option><option value="1390" data-select2-id="569">PANU AQIL CANTT</option><option value="1768" data-select2-id="570">PAROA</option><option value="1391" data-select2-id="571">PASNI</option><option value="1392" data-select2-id="572">PASRUR</option><option value="1692" data-select2-id="573">PASRUR</option><option value="1725" data-select2-id="574">PATOKI</option><option value="1393" data-select2-id="575">PATTOKI</option><option value="1027" data-select2-id="576">PESHAWAR</option><option value="1394" data-select2-id="577">PETARO</option><option value="1775" data-select2-id="578">PEZU</option><option value="1395" data-select2-id="579">PHALIA</option><option value="1396" data-select2-id="580">PIND DADAN KHAN</option><option value="1648" data-select2-id="581">PINDI BHATIAN</option><option value="1397" data-select2-id="582">PINDI BHATTIAN</option><option value="1398" data-select2-id="583">PINDIGHEB</option><option value="1399" data-select2-id="584">PIPLAN</option><option value="1690" data-select2-id="585">PIR BALA </option><option value="1516" data-select2-id="586">PIR MAHAL</option><option value="1799" data-select2-id="587">PIRJO GOTH</option><option value="2083" data-select2-id="588">PIRWADHAI</option><option value="1400" data-select2-id="589">PIRYALOI</option><option value="1401" data-select2-id="590">PISHIN</option><option value="1402" data-select2-id="591">QABOOLA</option><option value="1403" data-select2-id="592">QADIRPUR RAN</option><option value="1650" data-select2-id="593">QAIM PUR</option><option value="1404" data-select2-id="594">QALANDARABAD</option><option value="1792" data-select2-id="595">QAMBAR</option><option value="1698" data-select2-id="596">QASBA GUJRAT</option><option value="1405" data-select2-id="597">QAZI AHMED</option><option value="1651" data-select2-id="598">QILA DEDAR SING</option><option value="1406" data-select2-id="599">QILA DIDAR SINGH</option><option value="2253" data-select2-id="600">QILA JAWAND SINGH</option><option value="1832" data-select2-id="601">QILA KALAR WALA</option><option value="1407" data-select2-id="602">QUAIDABAD</option><option value="1031" data-select2-id="603">QUETTA</option><option value="1408" data-select2-id="604">RADHAN STATION</option><option value="1119" data-select2-id="605">RAHIM YAR KHAN</option><option value="2144" data-select2-id="606">RAHIMABAD</option><option value="1653" data-select2-id="607">RAHIMYARKHAN</option><option value="1538" data-select2-id="608">RAHWALI</option><option value="1754" data-select2-id="609">RAIWAND</option><option value="1410" data-select2-id="610">RAIWIND</option><option value="1760" data-select2-id="611">RAJA JANG</option><option value="1411" data-select2-id="612">RAJANA</option><option value="1654" data-select2-id="613">RAJANPUR</option><option value="1412" data-select2-id="614">RAJANPUR DISTRICT</option><option value="2122" data-select2-id="615">RAJJAR 1</option><option value="2248" data-select2-id="616">RAJKAN</option><option value="2238" data-select2-id="617">RANGPUR</option><option value="1120" data-select2-id="618">RANIPUR</option><option value="1761" data-select2-id="619">RAO KHAN WALA</option><option value="1414" data-select2-id="620">RATO DERO</option><option value="1834" data-select2-id="621">RATTA BAJWA</option><option value="1655" data-select2-id="622">RATTO DERO</option><option value="1415" data-select2-id="623">RAWALAKOT</option><option value="1038" data-select2-id="624">RAWALPINDI</option><option value="1416" data-select2-id="625">RAWAT</option><option value="1417" data-select2-id="626">RENALA KHURD</option><option value="1418" data-select2-id="627">RISALPUR</option><option value="1789" data-select2-id="628">RODU SULTAN</option><option value="1742" data-select2-id="629">ROHILLANWALI</option><option value="1122" data-select2-id="630">ROHRI</option><option value="1965" data-select2-id="631">ROODA</option><option value="1730" data-select2-id="632">RUSTAM</option><option value="1123" data-select2-id="633">SADIQABAD</option><option value="2043" data-select2-id="634">SADWAL</option><option value="1124" data-select2-id="635">SAHIWAL</option><option value="1419" data-select2-id="636">SAHIWAL - FSD</option><option value="1420" data-select2-id="637">SAIDU SHARIF</option><option value="1520" data-select2-id="638">SAKHI SARWAR</option><option value="1421" data-select2-id="639">SAKRAND</option><option value="2041" data-select2-id="640">SALOI</option><option value="1423" data-select2-id="641">SAMARO</option><option value="2249" data-select2-id="642">SAMASATTA</option><option value="1424" data-select2-id="643">SAMBRIAL</option><option value="2057" data-select2-id="644">SAMRALA</option><option value="1422" data-select2-id="645">SAMUNDRI</option><option value="2294" data-select2-id="646">SAMUNDRI</option><option value="1425" data-select2-id="647">SANAWAN</option><option value="1426" data-select2-id="648">SANGHAR</option><option value="2067" data-select2-id="649">SANGHOI</option><option value="1427" data-select2-id="650">SANGLA HILL</option><option value="2080" data-select2-id="651">SANGOLA</option><option value="1521" data-select2-id="652">SANJARPUR</option><option value="1446" data-select2-id="653">SARAI ALAMGIR</option><option value="1779" data-select2-id="654">SARAI MAHAJIR</option><option value="1430" data-select2-id="655">SARAI NAURANG</option><option value="2123" data-select2-id="656">SARDHERI BAZAR</option><option value="1657" data-select2-id="657">SARGODAH</option><option value="1041" data-select2-id="658">SARGODHA</option><option value="1429" data-select2-id="659">SATIANA</option><option value="1960" data-select2-id="660">SATRAH</option><option value="2042" data-select2-id="661">SEHGALABAD</option><option value="2073" data-select2-id="662">SEHNSA</option><option value="1126" data-select2-id="663">SEHWAN</option><option value="1518" data-select2-id="664">SEKHAT</option><option value="1958" data-select2-id="665">SEOKI</option><option value="1431" data-select2-id="666">SHABQADAR</option><option value="2245" data-select2-id="667">SHADAN LUND</option><option value="1765" data-select2-id="668">SHADIWAL</option><option value="2063" data-select2-id="669">SHAH ALLAH DITTA</option><option value="1551" data-select2-id="670">SHAH JAMAL</option><option value="2246" data-select2-id="671">SHAH SADAR DIN</option><option value="2131" data-select2-id="672">SHAHBAZ AZMAT KHEL</option><option value="1734" data-select2-id="673">SHAHDAD KOT</option><option value="1432" data-select2-id="674">SHAHDADKOT</option><option value="1433" data-select2-id="675">SHAHDADPUR</option><option value="1434" data-select2-id="676">SHAHDARA</option><option value="1750" data-select2-id="677">SHAHER SULTAN</option><option value="1435" data-select2-id="678">SHAHKOT</option><option value="1660" data-select2-id="679">SHAHPUR</option><option value="1575" data-select2-id="680">SHAHPUR CHAKAR</option><option value="1523" data-select2-id="681">SHAHPUR SADDAR</option><option value="1436" data-select2-id="682">SHAKAR GARH</option><option value="1437" data-select2-id="683">SHANGLA</option><option value="1438" data-select2-id="684">SHARAQPUR</option><option value="2058" data-select2-id="685">SHEIKH PUR</option><option value="1044" data-select2-id="686">SHEIKHUPURA</option><option value="2295" data-select2-id="687">SHEWA ADDA</option><option value="472" data-select2-id="688">SHIKARPUR</option><option value="1440" data-select2-id="689">SHINKIARI</option><option value="1441" data-select2-id="690">SHORKOT</option><option value="1519" data-select2-id="691">SHORKOT CANTONMENT</option><option value="1442" data-select2-id="692">SHUJAABAD</option><option value="1553" data-select2-id="693">SIAL SHARIF</option><option value="1043" data-select2-id="694">SIALKOT</option><option value="1062" data-select2-id="695">SIBI</option><option value="2059" data-select2-id="696">SIDH</option><option value="2064" data-select2-id="697">SIHALA</option><option value="2132" data-select2-id="698">SIKANDAR KHEL BALA</option><option value="2235" data-select2-id="699">SIKANDARABAD</option><option value="1443" data-select2-id="700">SILLANWALI</option><option value="1444" data-select2-id="701">SINJHORO</option><option value="1962" data-select2-id="702">SIRANWALI</option><option value="2134" data-select2-id="703">SIRIKOT</option><option value="1445" data-select2-id="704">SITA ROAD</option><option value="1482" data-select2-id="705">SKARDU</option><option value="2065" data-select2-id="706">SOHAN</option><option value="1524" data-select2-id="707">SOHAWA</option><option value="2247" data-select2-id="708">SOKAR</option><option value="1649" data-select2-id="709">SRAI ALAMGEER</option><option value="1447" data-select2-id="710">SUI</option><option value="1448" data-select2-id="711">SUJAWAL</option><option value="1047" data-select2-id="712">SUKKUR</option><option value="1556" data-select2-id="713">SULTAN KOT</option><option value="1539" data-select2-id="714">SULTAN PUR</option><option value="1449" data-select2-id="715">SUMBRIAL</option><option value="1526" data-select2-id="716">SUNDAR</option><option value="1450" data-select2-id="717">SUNDAR ADDA</option><option value="2060" data-select2-id="718">SURKHPUR</option><option value="1067" data-select2-id="719">SWABI</option><option value="1030" data-select2-id="720">SWAT</option><option value="1577" data-select2-id="721">TAHKAL</option><option value="1451" data-select2-id="722">TAKHAT BHAI</option><option value="1728" data-select2-id="723">TAKHT BHAI</option><option value="1452" data-select2-id="724">TALAGANG</option><option value="1803" data-select2-id="725">TALHAR</option><option value="1766" data-select2-id="726">TANDA</option><option value="1454" data-select2-id="727">TANDLIANWALA</option><option value="1129" data-select2-id="728">TANDO ADAM</option><option value="1665" data-select2-id="729">TANDO ALLAH YAR</option><option value="1455" data-select2-id="730">TANDO ALLAHYAR</option><option value="1456" data-select2-id="731">TANDO BAGHO</option><option value="1130" data-select2-id="732">TANDO JAM</option><option value="1685" data-select2-id="733">TANDO JAN MOHAMMAD</option><option value="1666" data-select2-id="734">TANDO MOHD KHAN</option><option value="1457" data-select2-id="735">TANDO MUHAMMAD KHAN</option><option value="1458" data-select2-id="736">TANK</option><option value="1528" data-select2-id="737">TARANDA MUHAMMAD PANAH</option><option value="1459" data-select2-id="738">TARBELA</option><option value="1532" data-select2-id="739">TARBELA DAM</option><option value="1668" data-select2-id="740">TARINDA SAWAY KHAN</option><option value="1462" data-select2-id="741">TARNOL</option><option value="2074" data-select2-id="742">TATAPANI</option><option value="1527" data-select2-id="743">TATLAY AALI</option><option value="1460" data-select2-id="744">TAUNSA SHARIF</option><option value="1069" data-select2-id="745">TAXILA</option><option value="1453" data-select2-id="746">THAL</option><option value="2126" data-select2-id="747">THANA</option><option value="2029" data-select2-id="748">THANIL KAMAL</option><option value="1681" data-select2-id="749">THARI MIRWAH</option><option value="1463" data-select2-id="750">THARU SHAH</option><option value="1053" data-select2-id="751">THATTA</option><option value="1762" data-select2-id="752">THEENG MORE</option><option value="1808" data-select2-id="753">THERHI</option><option value="2082" data-select2-id="754">THORAR</option><option value="1464" data-select2-id="755">THUL</option><option value="1465" data-select2-id="756">TIBBA SULTANPUR</option><option value="1461" data-select2-id="757">TIMARGARAH</option><option value="1670" data-select2-id="758">TIMERGARAH</option><option value="1466" data-select2-id="759">TOBA TEK SINGH</option><option value="1671" data-select2-id="760">TOBATEK-SINGH</option><option value="1467" data-select2-id="761">TOPI</option><option value="1729" data-select2-id="762">TORU</option><option value="2081" data-select2-id="763">TRAR KHEL</option><option value="1061" data-select2-id="764">TURBAT</option><option value="1829" data-select2-id="765">UBARO</option><option value="1468" data-select2-id="766">UBAURO</option><option value="1469" data-select2-id="767">UCH SHARIF</option><option value="1529" data-select2-id="768">UGOKE</option><option value="2124" data-select2-id="769">UMARZAI</option><option value="1470" data-select2-id="770">UMERKOT</option><option value="1991" data-select2-id="771">UPPER CHATTER-MUZAFFARABAD</option><option value="1472" data-select2-id="772">UPPER DIR</option><option value="1983" data-select2-id="773">UPPER PLATE-MUZAFFARABAD</option><option value="1759" data-select2-id="774">USMAN WALA</option><option value="2296" data-select2-id="775">USTA MOHAMMAD
+        </option><option value="1473" data-select2-id="776">USTA MUHAMMAD</option><option value="1474" data-select2-id="777">UTHAL</option><option value="2027" data-select2-id="778">VASNAL</option><option value="1134" data-select2-id="779">VEHARI</option><option value="1963" data-select2-id="780">WADALA SANDHUAN</option><option value="1476" data-select2-id="781">WAH CANTONMENT</option><option value="1477" data-select2-id="782">WAN BHACHRAN</option><option value="1478" data-select2-id="783">WARAH</option><option value="1475" data-select2-id="784">WARI UPPER DIR</option><option value="1745" data-select2-id="785">WASANDAYWALI</option><option value="2028" data-select2-id="786">WAULAH</option><option value="1070" data-select2-id="787">WAZIRABAD</option><option value="1479" data-select2-id="788">WINDER</option><option value="1770" data-select2-id="789">YARIK</option><option value="1068" data-select2-id="790">YAZMAN MANDI</option><option value="1480" data-select2-id="791">ZAFARWAL</option><option value="1481" data-select2-id="792">ZAHIR PIR</option><option value="1064" data-select2-id="793">ZHOB</option><option value="1578" data-select2-id="794">ZIARAT</option></select> </div>
+        <div class="form-group col-md-12 mb-2">
+        <label class="" for="address">Address*</label>
+        <textarea name="address" class="form-control " placeholder="Address" row="2" id="address" required=""></textarea>
+        </div>
+        <div class="form-group col-md-12 ">
+        <label class="" for="instructions">Special Instructions</label>
+        <textarea name="instructions" class="form-control " row="2" id="instructions" placeholder="Instructions"></textarea>
+        </div>
+        
+        </div>
+        </div>
+        <div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-6 px-0">
+        <div class="w-100">
+        <p class="bg-primary text-uppercase p-2 get_nav font-weight-semi-bold">Payment Method</p>
+        <div class="container ">
+        <div class="row">
+        <div class="col-md-12 my-2">
+        <div class="row"><input type="hidden" id="pm_type" value="2"><div id="payment_box" class="col-lg-3 col-md-6 col-sm-6 col-6 my-2 pr-1 pl-0"> <label class=" cursor-pointer text-center rounded mx-1 py-2 border w-100 border-primary" for="payment_methods4"><input checked="" class="d-none" type="radio" onchange="show_payment_description(this.value);" id="payment_methods4" name="payment_methods" value="4" required="required"><img src="https://www.bombaydryfruits.com/images/COD.webp" width="50" height="50" alt=""><span class="d-block text-capitalize font-weight-medium text-black font-size11" checked="" value="4">Cash On Delivery</span> </label></div><input type="hidden" id="pm_type" value="2"></div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+        </div>
+        
+        
+        <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-7 px-md-1 pr-md-3 px-0 px-lg-3 px-sm-0">
+       
+        
+        <table class="table table-bordered mb-0 bg-white">
+        <thead>
+        <tr>
+        <th class="text-uppercase" style="
+        width: 40%;
+    ">PRODUCT NAME</th>
+        <th class="text-uppercase">QTY</th>
+        <th class="text-uppercase">Price</th>
+        <th class="text-uppercase">Total Price</th>
+        <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <input type="hidden" onclick="typeof fbq != 'undefined' &amp;&amp; fbq('track', 'RemoveFromCart', {content_ids:'1626,201,1022,1189',content_type:'product',value: '9687',currency: 'PKR',contents: [ {id: '1626',quantity: '1'},{id: '201',quantity: '1'},{id: '1022',quantity: '3'},{id: '1189',quantity: '4'}]})" id="removefromcart"> <input type="hidden" id="gid1626" value="1626">
+        <input type="hidden" id="gtitle1626" value="3 In 1 Flavoured Cashews Box">
+        <input type="hidden" id="gbrand1626" value="BDF">
+        <input type="hidden" id="gcategory1626" value="dry-fruits/flavoured-nuts/">
+        <input type="hidden" id="glast_category1626" value="flavoured-nuts">
+        <input type="hidden" id="gvariant1626" value="330Gm">
+        <input type="hidden" id="gqty1626" value="1">
+        <input type="hidden" id="gprice1626" value="2180">
+        <tr class="row_0 row_count_checkout">
+        
+        
+        
+        <td class="boxis">
+        <img class="img-fluid no-src lazyloaded" data-src="https://www.bombaydryfruits.com/images/product_gallery/1684756624_512.webp" width="70" alt="3 In 1 Flavoured Cashews Box" src="https://www.bombaydryfruits.com/images/product_gallery/1684756624_512.webp">
+        <p class="font-size12">3 In 1 Flavoured Cashews Box </p>
+           
+         
+        </td>
+        <td class="px-0 px-sm-0 px-md-2 px-lg-2">
+        <div class="cart-qty-btn">
+       <p>x 1</p>
+        </div>
+        </td>
+        <td>
+        <p>Rs.<span id="cart_row_price0">2,180</span></p>
+        </td>
+        <td>
+            <p>Rs.<span id="cart_row_price0">2,180</span></p>
+            </td>
+        <td class="text-center align-middle">
+        <button class="btn btn-danger" type="button" onclick="remove_cart_item(1626,0);">
+        <img src="https://www.bombaydryfruits.com/images/theme_icons/trash-icon-02.svg" class="white-icons" alt="trash" width="18" height="18">
+        </button>
+        </td>
+        </tr>
+        <input type="hidden" id="gid201" value="201">
+        <input type="hidden" id="gtitle201" value="Sughai Dates">
+        <input type="hidden" id="gbrand201" value="BDF">
+        <input type="hidden" id="gcategory201" value="dates/saudi-dates/">
+        <input type="hidden" id="glast_category201" value="saudi-dates">
+        <input type="hidden" id="gvariant201" value="500gm">
+        <input type="hidden" id="gqty201" value="1">
+        <input type="hidden" id="gprice201" value="2000">
+        <tr class="row_2 row_count_checkout">
+        
+        
+        
+        <td class="boxis">
+        <img class="img-fluid no-src lazyloaded" data-src="https://www.bombaydryfruits.com/images/product_gallery\/1678356339_217.webp" width="70" alt="Sughai Dates" src="https://www.bombaydryfruits.com/images/product_gallery\/1678356339_217.webp">
+        <p class="font-size12">Sughai Dates weight:500gm, </p>
+           
+         
+        </td>
+        <td class="px-0 px-sm-0 px-md-2 px-lg-2">
+            <div class="cart-qty-btn">
+                <p>x 2</p>
+                 </div>
+        </td>
+        <td>
+        <p>Rs.<span id="cart_row_price2">2,000</span></p>
+        </td>
+        <td>
+            <p>Rs.<span id="cart_row_price0">2,180</span></p>
+            </td>
+        <td class="text-center align-middle">
+        <button class="btn btn-danger" type="button" onclick="remove_cart_item(201,2);">
+        <img src="https://www.bombaydryfruits.com/images/theme_icons/trash-icon-02.svg" class="white-icons" alt="trash" width="18" height="18">
+        </button>
+        </td>
+        </tr>
+        <input type="hidden" id="gid1022" value="1022">
+        <input type="hidden" id="gtitle1022" value="Cardamom Green">
+        <input type="hidden" id="gbrand1022" value="BDF">
+        <input type="hidden" id="gcategory1022" value="mouth-freshener/mukhwas/">
+        <input type="hidden" id="glast_category1022" value="mukhwas">
+        <input type="hidden" id="gvariant1022" value="125gm">
+        <input type="hidden" id="gqty1022" value="3">
+        <input type="hidden" id="gprice1022" value="1500">
+        <tr class="row_3 row_count_checkout">
+        
+        
+        
+        <td class="boxis">
+        <img class="img-fluid no-src lazyloaded" data-src="https://www.bombaydryfruits.com/images/product_gallery\/1678356339_217.webp" width="70" alt="Cardamom Green" src="https://www.bombaydryfruits.com/images/product_gallery\/1678356339_217.webp">
+        <p class="font-size12">Cardamom Green weight:125gm, </p>
+           
+         
+        </td>
+        <td class="px-0 px-sm-0 px-md-2 px-lg-2">
+            <div class="cart-qty-btn">
+                <p>x 4</p>
+                 </div>
+        </td>
+        <td>
+        <p>Rs.<span id="cart_row_price3">4,500</span></p>
+        </td>
+        <td>
+            <p>Rs.<span id="cart_row_price0">2,180</span></p>
+            </td>
+        <td class="text-center align-middle">
+        <button class="btn btn-danger" type="button" onclick="remove_cart_item(1022,3);">
+        <img src="https://www.bombaydryfruits.com/images/theme_icons/trash-icon-02.svg" class="white-icons" alt="trash" width="18" height="18">
+        </button>
+        </td>
+        </tr>
+        <input type="hidden" id="gid1189" value="1189">
+        <input type="hidden" id="gtitle1189" value="Sugar Coated Fennel Seeds (Saunf)">
+        <input type="hidden" id="gbrand1189" value="BDF">
+        <input type="hidden" id="gcategory1189" value="mouth-freshener/mukhwas/">
+        <input type="hidden" id="glast_category1189" value="mukhwas">
+        <input type="hidden" id="gvariant1189" value="250gm">
+        <input type="hidden" id="gqty1189" value="4">
+        <input type="hidden" id="gprice1189" value="125">
+        <tr class="row_4 row_count_checkout">
+        
+        
+        
+        <td class="boxis">
+        <img class="img-fluid no-src lazyloaded" data-src="https://www.bombaydryfruits.com/images/product_gallery\/1693150278_773.webp" width="70" alt="Sugar Coated Fennel Seeds (Saunf)" src="https://www.bombaydryfruits.com/images/product_gallery\/1693150278_773.webp">
+        <p class="font-size12">Sugar Coated Fennel Seeds (Saunf) weight:250gm, </p>
+           
+         
+        </td>
+        <td class="px-0 px-sm-0 px-md-2 px-lg-2">
+            <div class="cart-qty-btn">
+                <p>x 1s</p>
+                 </div>
+        </td>
+        <td>
+        <p>Rs.<span id="cart_row_price4">500</span></p>
+        </td>
+        <td>
+            <p>Rs.<span id="cart_row_price0">2,180</span></p>
+            </td>
+        <td class="text-center align-middle">
+        <button class="btn btn-danger" type="button" onclick="remove_cart_item(1189,4);">
+        <img src="https://www.bombaydryfruits.com/images/theme_icons/trash-icon-02.svg" class="white-icons" alt="trash" width="18" height="18">
+        </button>
+        </td>
+        </tr>
+        <input type="hidden" id="checkout_items" value="1626,201,1022,1189"> </tbody>
+        </table>
+        <div class="d-flex align-items-end justify-content-between mb-30">
+            <h4>Your Order</h4>
+            <h4 class="text-muted">Subtotal
+                <span class="sub-pri"> 6000</span>
+            </h4>
+        </div>
+        <div class=" bg-white ">
+        <span id="loader_checkout" style="display:none; font-size: 40px;" class="fa fa-spinner fa-spin float-right"></span>
+        <button type="submit" name="submit" class="font16 mbl_btn_checkout btn bg-primary rounded font-weight-bold float-right  btn-checkout  text-uppercase py-md-3 hvr-float-shadow">
+        Place Order
+        </button>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </form>
 
-            <!-- Checkout Starts-->
-            <section class="checkout-wrap sec-space">
-                <head>
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                <style>
-                * {
-                box-sizing: border-box;
-                }
-                .section-checkout .row {
-                display: -ms-flexbox; /* IE10 */
-                display: flex;
-                -ms-flex-wrap: wrap; /* IE10 */
-                flex-wrap: wrap;
-                margin: 0 -16px;
-                }
-                .section-checkout .col-25 {
-                -ms-flex: 25%; /* IE10 */
-                flex: 25%;
-                }
-                .section-checkout .col-50 {
-                -ms-flex: 50%; /* IE10 */
-                flex: 50%;
-                }
-                .section-checkout .col-75 {
-                -ms-flex: 75%; /* IE10 */
-                flex: 75%;
-                }
-                .section-checkout .col-25,
-                .col-50,
-                .col-75 {
-                padding: 0 16px;
-                }
-                .section-checkout .container {
-                padding: 5px 20px 15px 20px;
-                border-radius: 3px;
-                }
-                .section-checkout input[type=text] {
-                width: 100%;
-                margin-bottom: 20px;
-                padding: 12px;
-                border: 1px solid #ccc;
-                border-radius: 3px;
-                }
-                .section-checkout label {
-                margin-bottom: 10px;
-                display: block;
-                }
-                .section-checkout .icon-container {
-                margin-bottom: 20px;
-                padding: 7px 0;
-                font-size: 24px;
-                }
-                .section-checkout .btn {
-                background-color: #04AA6D;
-                color: white;
-                padding: 12px;
-                margin: 10px 0;
-                border: none;
-                width: 100%;
-                border-radius: 3px;
-                cursor: pointer;
-                font-size: 17px;
-                }
-                .section-checkout .btn:hover {
-                background-color: #45a049;
-                }
-                .section-checkout a {
-                color: #2196F3;
-                }
-                .section-checkout hr {
-                border: 1px solid lightgrey;
-                }
-                .section-checkout span.price {
-                float: right;
-                color: grey;
-                }
-                /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
-                @media (max-width: 800px) {
-                    .section-checkout .row {
-                    flex-direction: column-reverse;
-                }
-                .section-checkout .col-25 {
-                    margin-bottom: 20px;
-                }
-                }
-                </style>
-                </head>
-                <body>
-                <div class="section-checkout">
-                <div class="row">
-                <div class="col-75">
-                    <div class="container">
-                        @if ($message = Session::get('success'))
-                          <div class="p-4 mb-3 bg-green-400 rounded">
-                              <p class="text-green-800">{{ $message }}</p>
-                          </div>
-                      @endif
-                    <form action="{{route('order.store')}}" method="POST">
-                        @csrf
-                        <div class="row">
-                        <div class="col-50">
-                            <h3>Billing Address</h3>
-                            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-                            <input type="text" id="fname" name="name" placeholder="John M. Doe">
-                            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                            <input type="text" id="email" name="email" placeholder="john@example.com">
-                            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-                            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
-                            <label for="city"><i class="fa fa-institution"></i> City</label>
-                            <input type="text" id="city" name="city" placeholder="New York">
-                            <div class="row">
-                            <div class="col-50">
-                                <label for="state">State</label>
-                                <input type="text" id="state" name="state" placeholder="NY">
-                            </div>
-                            <div class="col-50">
-                                <label for="zip">Zip</label>
-                                <input type="text" id="zip" name="zip" placeholder="10001">
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        <label>
-                        <input type="checkbox" checked="checked" name="sameadr"> Cash On Delivery
-                        </label>
-                        <button type="submit" class="btn">Order Placed</button>
-                    </form>
-                    </div>
-                </div>
-                </div>
-                </div>
-                </body>
-                </html>
-            </section>
-            <!-- / Checkout Ends -->      
-
-            <!-- / CONTENT AREA -->
+</section>
 
      @endsection

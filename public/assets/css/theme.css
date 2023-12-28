@@ -594,7 +594,13 @@ h2, h3, h4, h5, h6 {
     top: 3px;
     width: 50px;
 }
+section.naturix-goods.sec-space-bottom .naturix-slider-1.dots-1.productCards.owl-carousel.owl-theme.owl-loaded {
+    width: 1225px !important;
+}
 
+section.naturix-goods.sec-space-bottom .organic-content .item {
+    padding: unset;
+}
 .sub-title span:before {
     right: 100%;
     margin-right: 15px;
@@ -1203,6 +1209,7 @@ blockquote {
     margin: 40px auto;
     background-color: #eee;
     padding: 10px;
+    margin-left: 10px !important;
 }
 
 .product-box:hover {
@@ -2321,7 +2328,60 @@ p.sign-inn {
         right: auto;
         left: 0;
     }
-
+    .owl-carousel .product-box {
+        margin-left: 10px;
+    }
+    
+    
+   
+    .thankyou-container h1 {
+        font-size: 50px;
+    }
+    
+    .thankyou-sumary {
+        padding: unset !important;
+    }
+    
+    
+    table.table.table-bordered.mb-0.bg-white {
+        margin: unset;
+    }
+    
+    th.text-uppercase {
+        width: unset !important;
+    }
+    .flex-iin {
+        display: unset;
+        width: unset;
+    }
+    
+    .home-banner-content {
+        width: unset;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .home-banner-content h1 {
+        font-size: 50px;
+    }
+    
+    .home-banner-content p {
+        text-align: justify;
+    }
+    
+    
+    
+    .countdown-section {
+        width: 80px !important;
+    }
+    
+    .col-md-4.col-sm-4.footer-widget.lpc {
+        padding-left: 20px!important;
+    }
+    
+    ul.primary-navbar li a {
+        padding-left: unset;
+    }
     .main-header {
         padding: 20px 10px;
         position: static;
@@ -2715,6 +2775,7 @@ h5.clr-txt.sub-title-sm {
 
 div.productCards {
     display: flex !important;
+    width:1500px
 }
 
 div.productCards .item {
@@ -5021,7 +5082,25 @@ p.bg-primary.text-uppercase.p-2.get_nav.font-weight-semi-bold {
 div#ajax_change_method {
     width: 47%!important;
 }
+p.font-size12 {
+    font-size: 12px !important;
+}
 
+th.text-uppercase {
+    font-size: 13px  !important;
+}
+
+
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+    padding-left: 8px !important;
+}
+
+button.btn.btn-danger {
+    color: white;
+}
 label.remove_border.border.border-primary.rounded.p-2.m-2.cursor-pointer.position-relative {
     border: 1px solid #ac2925;
     padding: 20px;
@@ -5042,13 +5121,13 @@ span#title_w_c {
 
 
 table.table.table-bordered.mb-0.bg-white {
-    margin: 20px;
+
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
    
 }
 
 td.boxis {
-    display: flex;
+    /* display: flex; */
     gap: 10px;
     align-items: center;
 }
@@ -5089,15 +5168,24 @@ span.show_charges_by_dm.bg-primary.mx-2.border-radius15.px-2.py-1 {
     padding: 5px;
     border-radius: 7px;
 }
-.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+/* .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
     padding: 15px !important;
-}
+} */
 button.font16.mbl_btn_checkout.btn.bg-primary.rounded.font-weight-bold.float-right.btn-checkout.text-uppercase.py-md-3.hvr-float-shadow {
     background-color: #ac2925;
     padding: 15px 50px;
     color: white;
     font-size: 16px;
-    margin-top: 20px;
+    
+}
+button.slide-btn.cont {
+    border-radius: unset;
+    background-color: #ebc54d;
+    padding: 2px 41px;
+    color: white;
+    font-size: 16px;
+    width: unset;
+    height: unset;
 }
 .d-flex.align-items-end.justify-content-between.mb-30 {
     display: flex;

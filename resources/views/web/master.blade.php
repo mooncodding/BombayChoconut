@@ -547,17 +547,13 @@
                     // Loop through the products and generate HTML for each product card
                     $.each(products, function (index, product) {
                         let productCard = `
-                        <div class="row">
-                        <div class="col-md-12 "> 
-                        <div class="tab-content organic-content row">
-                        <div id="product-tab-1" class="tab-pane fade active in " > 
-                        <div class="product-slider-1 dots-1">
-                                    <div class="item columns">
+                   
+                                    <div class="item">
                                         <div class="product-box">
 
-                                            <div class="coloumn">
+                                       
                                             <div class="product-media "> 
-                                                <div class="thumbnail-container"></div>
+                                               
                                                 <img class="prod-img drift-demo-trigger" data-zoom="{{asset('images/product-images/${product.photo}')}}" src="{{asset('images/product-images/${product.photo}')}}" alt=""/>     
 
                                              
@@ -568,8 +564,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        </div>
-                                        <div class="coloumn">
+                                       
+                                       
                                             <div class="product-caption details"> 
                                                 <h3 class="product-title">
                                                     <a href="#"> ${product.title}</a>
@@ -579,13 +575,11 @@
                                                 </div>
                                             </div>
                                             </div>
-                                        </div>
+                                      
                                     </div>
-                                </div>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
+                             
+                    
+                           
                                         `;
                         // Append the product card HTML to the products container
                         productsContainer.append(productCard);
@@ -619,15 +613,17 @@
 
                             <div class="product-single pb-50 clearfix">
                                 <!-- Single Products Slider Starts --> 
-                                <div class="col-lg-6 col-sm-8 col-sm-offset-2 col-lg-offset-0 pt-50">
+                                <div class="row">
+                                <div class="col-lg-6 col-sm-6 col-sm-offset-2 col-lg-offset-0 pt-50">
                                     <div class="prod-slider sync1">
-                                        l
+                                    
                               <div id='slideshow-items-container'>
                                         <div class="item slideshow-items"> 
                                         <img src="{{asset('images/product-images/${product.photo}')}}" data-image="${product.photo}" width="300" alt=""/>
                                             <a href="/assets/img/products/prod-big-1.png" data-gal="prettyPhoto[prettyPhoto]" title="Product" class="caption-link"><i class="arrow_expand"></i></a>
                                         </div>
                                     </div>
+                                </div>
                                 </div>
                                 <!-- Single Products Slider Ends --> 
 
@@ -681,7 +677,7 @@
                                     </div>
                                 </div> 
                             </div>  
-
+                        </div>
                         </div>
                     </div>`);
                    

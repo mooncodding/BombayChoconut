@@ -62,9 +62,13 @@
         <th class="text-uppercase" style="
         width: 40%;
     ">PRODUCT NAME</th>
-        <th class="text-uppercase">QTY</th>
+        <th class="text-uppercase" style="
+        width: 23%;
+    ">QTY</th>
         <th class="text-uppercase">Price</th>
-        <th class="text-uppercase">Total Price</th>
+        <th class="text-uppercase" style="
+        width: 22%;
+    ">Total Price</th>
         <th></th>
         </tr>
         </thead>
@@ -88,9 +92,15 @@
          
         </td>
         <td class="px-0 px-sm-0 px-md-2 px-lg-2">
-        <div class="cart-qty-btn">
-       <p>x 1</p>
-        </div>
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default btn-subtract" type="button">-</button>
+                </span>
+                <input type="text" class="form-control no-padding text-center item-quantity" value="1">
+                <span class="input-group-btn">
+                     <button class="btn btn-default btn-add" type="button">+</button>
+                </span>
+            </div>
         </td>
         <td>
         <p>Rs.<span id="cart_row_price0">2,180</span></p>
@@ -123,9 +133,15 @@
          
         </td>
         <td class="px-0 px-sm-0 px-md-2 px-lg-2">
-            <div class="cart-qty-btn">
-                <p>x 2</p>
-                 </div>
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default btn-subtract" type="button">-</button>
+                </span>
+                <input type="text" class="form-control no-padding text-center item-quantity" value="1">
+                <span class="input-group-btn">
+                     <button class="btn btn-default btn-add" type="button">+</button>
+                </span>
+            </div>
         </td>
         <td>
         <p>Rs.<span id="cart_row_price2">2,000</span></p>
@@ -158,9 +174,15 @@
          
         </td>
         <td class="px-0 px-sm-0 px-md-2 px-lg-2">
-            <div class="cart-qty-btn">
-                <p>x 4</p>
-                 </div>
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default btn-subtract" type="button">-</button>
+                </span>
+                <input type="text" class="form-control no-padding text-center item-quantity" value="1">
+                <span class="input-group-btn">
+                     <button class="btn btn-default btn-add" type="button">+</button>
+                </span>
+            </div>
         </td>
         <td>
         <p>Rs.<span id="cart_row_price3">4,500</span></p>
@@ -193,9 +215,15 @@
          
         </td>
         <td class="px-0 px-sm-0 px-md-2 px-lg-2">
-            <div class="cart-qty-btn">
-                <p>x 1s</p>
-                 </div>
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default btn-subtract" type="button">-</button>
+                </span>
+                <input type="text" class="form-control no-padding text-center item-quantity" value="1">
+                <span class="input-group-btn">
+                     <button class="btn btn-default btn-add" type="button">+</button>
+                </span>
+            </div>
         </td>
         <td>
         <p>Rs.<span id="cart_row_price4">500</span></p>
@@ -208,6 +236,21 @@
         <img src="https://www.bombaydryfruits.com/images/theme_icons/trash-icon-02.svg" class="white-icons" alt="trash" width="18" height="18">
         </button>
         </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+                
+            </td>
+            <td>
+                <button class="btn btn-danger" type="button" onclick="remove_cart_item(1189,4);">Delete All
+                    {{-- <img src="https://www.bombaydryfruits.com/images/theme_icons/trash-icon-02.svg" class="white-icons" alt="trash" width="18" height="18"> --}}
+                    </button>
+            </td>
         </tr>
         <input type="hidden" id="checkout_items" value="1626,201,1022,1189"> </tbody>
         </table>
@@ -222,6 +265,9 @@
         <button type="submit" name="submit" class="font16 mbl_btn_checkout btn bg-primary rounded font-weight-bold float-right  btn-checkout  text-uppercase py-md-3 hvr-float-shadow">
         Place Order
         </button>
+        <button  class="slide-btn cont">
+           COntinue Shopping
+            </button>
         </div>
         </div>
         </div>

@@ -27,7 +27,8 @@
             Payment method: <strong>Check payments</strong>
           </li>
         </ul>
-       
+       <div class="row">
+        <div class="col-lg-7">
             <div class="w-100 border">
            <p class="bg-primary text-uppercase p-2 get_nav font-weight-semi-bold" style="text-align: center">REVIEW YOUR ORDER</p>
            </div>
@@ -39,7 +40,7 @@
            width: 15%;
        ">QTY</th>
            <th class="text-uppercase">Price</th>
-           <th>Total Price</th>
+           <th >Total Price</th>
            </tr>
            </thead>
            <tbody>
@@ -56,18 +57,16 @@
            
            
            <td>
-           <img class="img-fluid no-src lazyloaded" data-src="https://www.bombaydryfruits.com/images/product_gallery/1684756624_512.webp" width="70" alt="3 In 1 Flavoured Cashews Box" src="https://www.bombaydryfruits.com/images/product_gallery/1684756624_512.webp">
+           {{-- <img class="img-fluid no-src lazyloaded" data-src="https://www.bombaydryfruits.com/images/product_gallery/1684756624_512.webp" width="70" alt="3 In 1 Flavoured Cashews Box" src="https://www.bombaydryfruits.com/images/product_gallery/1684756624_512.webp"> --}}
            <p class="font-size12">3 In 1 Flavoured Cashews Box </p>
               
             
            </td>
            <td class="px-0 px-sm-0 px-md-2 px-lg-2">
-           <div class="input-group cart-qty-btn">
-           <input type="hidden" name="" id="purchase_limit" value="1000">
-          
-           <input type="text" name="bqty" id="bqty0" class="form-control input-number text-center" onkeyup="" value="1" min="1" max="50" aria-describedby="btnGroupAddon" readonly="">
-           
-           </div>
+            <div class=" cart-qty-btn">
+                <p>x4</p>
+               
+                </div>
            </td>
            <td>
            <p>Rs.<span id="cart_row_price0">2,180</span></p>
@@ -89,18 +88,16 @@
            
            
            <td>
-           <img class="img-fluid no-src lazyloaded" data-src="https://www.bombaydryfruits.com/images/product_gallery\/1678356339_217.webp" width="70" alt="Sughai Dates" src="https://www.bombaydryfruits.com/images/product_gallery\/1678356339_217.webp">
+           {{-- <img class="img-fluid no-src lazyloaded" data-src="https://www.bombaydryfruits.com/images/product_gallery\/1678356339_217.webp" width="70" alt="Sughai Dates" src="https://www.bombaydryfruits.com/images/product_gallery\/1678356339_217.webp"> --}}
            <p class="font-size12">Sughai Dates weight:500gm, </p>
               
             
            </td>
            <td class="px-0 px-sm-0 px-md-2 px-lg-2">
-           <div class="input-group cart-qty-btn">
-           <input type="hidden" name="" id="purchase_limit" value="1000">
-        
-           <input type="text" name="bqty" id="bqty2" class="form-control input-number text-center" onkeyup="" value="1" min="1" max="50" aria-describedby="btnGroupAddon" readonly="">
-       
-           </div>
+            <div class=" cart-qty-btn">
+                <p>x3</p>
+               
+                </div>
            </td>
            <td>
            <p>Rs.<span id="cart_row_price2">2,000</span></p>
@@ -122,16 +119,14 @@
            
            
            <td>
-           <img class="img-fluid no-src lazyloaded" data-src="https://www.bombaydryfruits.com/images/product_gallery\/1678356339_217.webp" width="70" alt="Cardamom Green" src="https://www.bombaydryfruits.com/images/product_gallery\/1678356339_217.webp">
+           {{-- <img class="img-fluid no-src lazyloaded" data-src="https://www.bombaydryfruits.com/images/product_gallery\/1678356339_217.webp" width="70" alt="Cardamom Green" src="https://www.bombaydryfruits.com/images/product_gallery\/1678356339_217.webp"> --}}
            <p class="font-size12">Cardamom Green weight:125gm, </p>
               
             
            </td>
            <td class="px-0 px-sm-0 px-md-2 px-lg-2">
-           <div class="input-group cart-qty-btn">
-           <input type="hidden" name="" id="purchase_limit" value="1000">
-          
-           <input type="text" name="bqty" id="bqty3" class="form-control input-number text-center" onkeyup="" value="3" min="1" max="50" aria-describedby="btnGroupAddon" readonly="">
+           <div class=" cart-qty-btn">
+           <p>x1</p>
           
            </div>
            </td>
@@ -155,18 +150,16 @@
            
            
            <td>
-           <img class="img-fluid no-src lazyloaded" data-src="https://www.bombaydryfruits.com/images/product_gallery\/1693150278_773.webp" width="70" alt="Sugar Coated Fennel Seeds (Saunf)" src="https://www.bombaydryfruits.com/images/product_gallery\/1693150278_773.webp">
+           {{-- <img class="img-fluid no-src lazyloaded" data-src="https://www.bombaydryfruits.com/images/product_gallery\/1693150278_773.webp" width="70" alt="Sugar Coated Fennel Seeds (Saunf)" src="https://www.bombaydryfruits.com/images/product_gallery\/1693150278_773.webp"> --}}
            <p class="font-size12">Sugar Coated Fennel Seeds (Saunf) weight:250gm, </p>
               
             
            </td>
            <td class="px-0 px-sm-0 px-md-2 px-lg-2">
-           <div class="input-group cart-qty-btn">
-           <input type="hidden" name="" id="purchase_limit" value="1000">
-          
-           <input type="text" name="bqty" id="bqty4" class="form-control input-number text-center" onkeyup="" value="4" min="1" max="13" aria-describedby="btnGroupAddon" readonly="">
-          
-           </div>
+            <div class=" cart-qty-btn">
+                <p>x5</p>
+               
+                </div>
            </td>
            <td>
            <p>Rs.<span id="cart_row_price4">500</span></p>
@@ -177,6 +170,11 @@
            </tr>
            <input type="hidden" id="checkout_items" value="1626,201,1022,1189"> </tbody>
            </table>
+        </div>
+        <div class="col-lg-5">
+            <div class="w-100 border">
+                <p class="bg-primary text-uppercase p-2 get_nav font-weight-semi-bold" style="text-align: center">REVIEW YOUR TOTAL AMOUNT</p>
+                </div>
            <div id="cart_total_container" class="panel-body text-dark mb-3"><table class="table table-bordered bg-white mb-0">
                            <tbody class="text-left">
                            <input type="hidden" name="check_amount" value="9180">
@@ -186,54 +184,9 @@
            
                            </tfoot>
                            </table></div>
+                        </div>
+                    </div>
            <div class="container px-md-0">
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
            <div class="col-12 p-0">
            <div class="col-5 col-lg-12 col-md-12 py-0 py-lg-2 py-md-4 py-sm-0 mt-0 mt-lg-2 mt-md-2 mt-sm-0 mbl_checkout px-0 px-lg-0 px-md-0 px-sm-0 ">
            <div class=" bg-white ">

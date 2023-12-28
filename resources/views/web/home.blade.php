@@ -105,7 +105,7 @@
                                     <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
                                 </h3>
                                 <div class="price"> 
-                                   <strong class="clr-txt button  ">View Category </strong></a> 
+                                   <strong class="clr-txt   ">View Category </strong></a> 
                                 </div>
                             </div>
                         </div>
@@ -449,21 +449,23 @@
             </div>
         </div>
     </div>
+    <div class="product-slider-1 dots-1">
     <div class="container-fluid"> 
-        {{-- <div class="row"> --}}
-            {{-- <div class="col-md-12 productCards">  --}}
-                {{-- <div class="tab-content organic-content row"> --}}
-                    {{-- <div id="product-tab-1" class="tab-pane fade active in " >  --}}
+         
+            <div class="col-md-12 productCards">  
+                 <div class="tab-content organic-content row"> 
+                    <div id="product-tab-1" class="tab-pane fade active in " >  
                         
                             <div class="productCards">
 
                             </div>
-                    {{-- </div> --}}
-                {{-- </div> --}}
-            {{-- </div> --}}
+                    </div>
+                </div>
+             </div> 
 
-        {{-- </div> --}}
+       
     </div>
+</div>
 </section>
 <!-- / Organic All Ends -->
 

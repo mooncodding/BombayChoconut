@@ -193,6 +193,10 @@
                             </div>
                             <div class="tab-content shop-content">
                                 <div class="tab-pane fade active in productShopCards"  role="tabpanel">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                        </div>
+                                    </div>
                                 </div>
                         </div>
                     </div>
@@ -254,8 +258,8 @@
             productsContainer.empty(); // Clear previous products
             // Loop through the products and generate HTML for each product card
             $.each(products, function (index, product) {
-                let productCard = `<div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
+                let productCard = `
+               
                         <div class="col-lg-3 col-md-4 col-sm-6"> 
                                     <div class="product-box"> 
                                         <div class="product-media"> 
@@ -277,9 +281,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                          
                         
-                    </div>
+                   
                                 `;
                 // Append the product card HTML to the products container
                 productsContainer.append(productCard);

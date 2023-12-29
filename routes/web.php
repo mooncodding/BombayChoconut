@@ -112,7 +112,9 @@ Route::get('/category', function () {
 Route::get('/thankyou', function () {
     return view('web.thankyou');
 });
-
+Route::get('/tracking', function () {
+    return view('web.tracking');
+});
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/cart/store', [CartController::class, 'store'])->name('cart.store');
 Route::post('/cart/update', [CartController::class, 'cartUpdate'])->name('cart.update');

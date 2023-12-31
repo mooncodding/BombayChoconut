@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\OrderHistory;
-use App\Models\OrderPayment;
 use App\Models\OrderStatus;
 use App\Models\Product;
 use App\Models\Setting;
@@ -18,7 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Traits\HandleReferenceNumberTrait; // Trait
-use Hash;
+use Illuminate\Support\Facades\Hash;
 
 class OrderController extends Controller
 {
@@ -57,56 +56,52 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-        // if (auth()->user()->can('create_order')) {
-            $this->validate($request, [
-                'name'=>'required',
-                'email'=>'required',
-            ]);
+        $this->validate($request, [
+            'name'=>'required',
+            'email'=>'required',
+        ]);
 
-            $orderSubtotal = 0;
-            $user = new User();
-            $user->name=$request->name;
-            $user->email=$request->email;
-            $user->password=Hash::make('bombay123');
-            $user->photo='profile.png';
-            $user->assignRole(4);
-            $user->save();
-            $order =  new Order();
-            $order->reference =  'C/ORDER/'.(Order::max('id')+001).'/'.date('y');
-            $order->customer_id = $user->id;
-            $order->bill_no = 'C/BILL/NUMBER/'.(Order::max('id')+001).'/'.date('y');
-            $order->order_status_id = 1;
-            $order->payment_method_id = 1;
-            $order->payment_status = "unpaid";
-            $order->order_date = Carbon::now();
-            $order->notes = "testing";
-            $order->sub_total = \Cart::getTotal();
-            $order->created_by = $user->id;
-            $order->created_at = Carbon::now();
-            $order->save();
-            // Orders details
-            if ($order) {
-                $cartItems = \Cart::getContent();
-                foreach ($cartItems as  $item) {
-                    // Save Order Detail 
-                    $orderDetail = new OrderDetail();
-                    $orderDetail->order_id = $order->id;
-                    $orderDetail->product_id = $item->id;
-                    $orderDetail->quantity = $item->quantity;
-                    $orderDetail->sale_price = $item->price;
-                    $orderDetail->weight = $item->weight;
-                    $orderDetail->sub_total = ($item->quantity * $item->price);
-                    $orderSubtotal += $orderDetail->sub_total;
-                    $orderDetail->save();
-                }
-                $order->sub_total = $orderSubtotal;
-                $order->save();
+        $orderSubtotal = 0;
+        $user = new User();
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->password=Hash::make('bombay123');
+        $user->photo='profile.png';
+        $user->assignRole(4);
+        $user->save();
+        $order =  new Order();
+        $order->reference =  'C/ORDER/'.(Order::max('id')+001).'/'.date('y');
+        $order->customer_id = $user->id;
+        $order->bill_no = 'C/BILL/NUMBER/'.(Order::max('id')+001).'/'.date('y');
+        $order->order_status_id = 1;
+        $order->payment_method_id = 1;
+        $order->payment_status = "unpaid";
+        $order->order_date = Carbon::now();
+        $order->notes = "testing";
+        $order->sub_total = \Cart::getTotal();
+        $order->created_by = $user->id;
+        $order->created_at = Carbon::now();
+        $order->save();
+        // Orders details
+        if ($order) {
+            $cartItems = \Cart::getContent();
+            foreach ($cartItems as  $item) {
+                // Save Order Detail 
+                $orderDetail = new OrderDetail();
+                $orderDetail->order_id = $order->id;
+                $orderDetail->product_id = $item->id;
+                $orderDetail->quantity = $item->quantity;
+                $orderDetail->sale_price = $item->price;
+                $orderDetail->weight = $item->weight;
+                $orderDetail->sub_total = ($item->quantity * $item->price);
+                $orderSubtotal += $orderDetail->sub_total;
+                $orderDetail->save();
             }
-            \Cart::clear();
-            return redirect()->back()->with('success');
-        // } else {
-        //     return response()->json("Unauthorized", 401);
-        // }
+            $order->sub_total = $orderSubtotal;
+            $order->save();
+        }
+        \Cart::clear();
+        return redirect()->back()->with('success');
     }
 
     /**
@@ -304,13 +299,13 @@ class OrderController extends Controller
     {
         $order = Order::where('id', $id)->with(['orderDetails','orderStatus'])->first();
         // Order History
-        $orderHistories = new OrderHistory();
-        $orderHistories->order_id = $order->id;
-        $orderHistories->customer = $order->customer_id;
-        $orderHistories->order_status_id = $request->order_status_id;
-        $orderHistories->order_status_updated_at = Carbon::now();
-        $orderHistories->order_status_updated_by = Auth::user()->id;
-        $orderHistories->save();
+        // $orderHistories = new OrderHistory();
+        // $orderHistories->order_id = $order->id;
+        // $orderHistories->customer = $order->customer_id;
+        // $orderHistories->order_status_id = $request->order_status_id;
+        // $orderHistories->order_status_updated_at = Carbon::now();
+        // $orderHistories->order_status_updated_by = Auth::user()->id;
+        // $orderHistories->save();
         // update order status
         $order->update([
             "order_status_id" => $request->order_status_id,
@@ -318,24 +313,14 @@ class OrderController extends Controller
         $user = User::where('id',$order->customer_id)->first();
         if ($user->email !=null) {
             // Current Order Status
-            $currentStatus = OrderStatus::where('id',$request->order_status_id)->first();
+            // $currentStatus = OrderStatus::where('id',$request->order_status_id)->first();
            // Send Email for User
-            Mail::send('email.orderPlaced', ['order' => $order, 'order_details' => $order->orderDetails,'customer' => $order->customer->name,'user'=> $user,'order_status_id'=>$request->order_status_id,'order_status'=>$currentStatus,'role'=>'user'],  function ($message) use ($order,$user,$currentStatus) {
-                $message->to($user->email,'')
-                ->subject('Update regarding Order No. ' . $order->order_number.' '. $currentStatus->name);
-                $message->from('greenline@thewebsquare.com', 'K2');
-            });
+            // Mail::send('email.orderPlaced', ['order' => $order, 'order_details' => $order->orderDetails,'customer' => $order->customer->name,'user'=> $user,'order_status_id'=>$request->order_status_id,'order_status'=>$currentStatus,'role'=>'user'],  function ($message) use ($order,$user,$currentStatus) {
+            //     $message->to($user->email,'')
+            //     ->subject('Update regarding Order No. ' . $order->order_number.' '. $currentStatus->name);
+            //     $message->from('bombayweb@hosting.com', 'Bombay');
+            // });
         }
-        // Get users Token
-        $userToken = UserToken::where('user_id','=',$order->customer_id)->get();
-        // Check the user token is exist or not
-        if (count($userToken) > 0) {
-            // Send push notification
-            $title = "Order update";
-            $content = "Bonjour, votre colis n .$order->order_number est arrivé au Drive.Vous pouvez le récupérer en présentant votre carte au comptoir.";
-            $this->sendPushNotifications($title,$content,$order->customer_id);
-        }
-        
         return response()->json("successfully updated order status", 200);
         
     }

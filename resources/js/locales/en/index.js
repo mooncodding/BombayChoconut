@@ -158,6 +158,7 @@ export default {
         VIEW_ORDER_STATUS:"View Order Status",
         // Cities
         CITIES:"Cities",
+        DELIVERY_CHARGES:"Delivery Charges",
         CREATE_CITY:"Create City",
         EDIT_CITY:"Edit City",
         VIEW_CITY:"View City",

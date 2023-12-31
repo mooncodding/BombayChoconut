@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\BrandController;
+use App\Http\Controllers\API\CityController;
 use App\Http\Controllers\API\DashboardController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -95,6 +96,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::apiResources(['brands' => BrandController::class]);
     Route::apiResources(['homeSliders' => HomeSliderController::class]);
     Route::apiResources(['orderStatus' => OrderStatusController::class]);
+    Route::apiResources(['cities' => CityController::class]);
     //Delete Product Images
     Route::delete('/removeProductImages/{id}', [ProductController::class, 'removeProductImages']);
     //Delete Product Variants
@@ -118,6 +120,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboardSummary']);
    
     Route::get('/getLatestOrders', [DashboardController::class, 'getLatestOrders']);
+    //Update Order Status
+    Route::post('/updateOrderStatus/{id}', [OrderController::class, 'updateOrderStatus']);
 
 });
 

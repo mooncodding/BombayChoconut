@@ -41,5 +41,8 @@ const routes = [
     {
         name: 'orderStatus', path: '/orderStatus', component: require('./components/orderStatus.vue').default
     },
+    {
+        name: 'cities', path: '/cities', component: require('./components/cities.vue').default
+    },
 ];
 export default routes;

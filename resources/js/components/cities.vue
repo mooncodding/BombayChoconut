@@ -139,6 +139,7 @@ export default {
       cityInfo: {},
       headers: [
         { text: this.$t("message.NAME"), value: "name" },
+        { text: this.$t("message.DELIVERY_CHARGES"), value: "delivery_price" },
         {
           text: this.$t("message.ACTIONS"),
           value: "actions",

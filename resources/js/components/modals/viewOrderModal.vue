@@ -215,6 +215,64 @@
                   </tr>
                 </tbody>
               </table>
+              <!-- Change Approval Status Work -->
+              <div
+                class="row notForPrint"
+                v-if="
+                  orderData &&
+                    orderData.order_status &&
+                    orderData.order_status.status_type == 1
+                "
+              >
+                <div class="col-md-12">
+                  <button
+                    @click.prevent="changeStatus"
+                    class="btn btn-success btn-sm mb-2"
+                    v-if="is('Super Admin') || can('orders')"
+                  >
+                    {{ $t("message.CHANGE_STATUS") }}
+                  </button>
+                  <div v-if="isChange" class="my-3">
+                    <form @submit.prevent="updateStatus()">
+                      <input type="hidden" name="_token" :value="csrf" />
+                      <!-- Order Status -->
+                      <div class="form-group">
+                        <label
+                          >{{ $t("message.ORDER_STATUS")
+                          }}<span class="required-star"> *</span></label
+                        >
+                        <v-select
+                          v-model="form.order_status_id"
+                          :options="orderStatuses"
+                          label="name"
+                          :reduce="(orderStatus) => orderStatus.id"
+                          :selectOnTab="true"
+                          :class="{
+                            'is-invalid': form.errors.has('order_status_id'),
+                          }"
+                        />
+                        <div
+                          class="error-message"
+                          v-if="form.errors.has('order_status_id')"
+                          v-html="form.errors.get('order_status_id')"
+                        />
+                      </div>
+                      <!-- End -->
+                      <div class="text-center">
+                        <button
+                          @click.prevent="updateStatus"
+                          type="submit"
+                          :disabled="form.order_status_id == ''"
+                          class="btn btn-primary "
+                        >
+                          {{ $t("message.UPDATE") }}
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- End of Change Approval Status Work -->
               <!-- Amount Summary -->
               <span v-if="orderData.sub_total != 0"
                 ><h5 class="text-center mt-3">
@@ -260,7 +318,9 @@ export default {
   props: ["orderData"],
   data() {
     return {
+      isChange: false,
       orderInfo: {},
+      orderStatuses: [],
       csrf: document
         .querySelector('meta[name="csrf-token"]')
         .getAttribute("content"),
@@ -276,12 +336,77 @@ export default {
     printSale() {
       this.$htmlToPaper("printData");
     },
+    // change status toggle function
+    changeStatus() {
+      this.isChange = !this.isChange;
+    },
+    // update the order status
+    updateStatus() {
+      if (this.is("Super Admin") || this.can("orders")) {
+        this.$Progress.start();
+        swal
+          .fire({
+            text: this.$t(
+              "message.ARE_YOU_SURE_YOU_WANT_TO_UPDATE_THIS_ORDER_STATUS"
+            ),
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: this.$t("message.UPDATED"),
+          })
+          .then((result) => {
+            if (result.value) {
+              // Send request to the server
+              this.form
+                .post("api/updateOrderStatus/" + this.orderData.id)
+                .then(() => {
+                  Fire.$emit("reloadOrders");
+                  $("#viewOrderModal").modal("hide");
+                  swal.fire(
+                    this.$t("message.UPDATED"),
+                    this.$t("message.ORDER_STATUS_UPDATED_SUCCESSFULLY"),
+                    "success"
+                  );
+                  this.form.reset();
+                  this.isChange = !this.isChange;
+                  this.$Progress.finish();
+                })
+                .catch(() => {
+                  swal.fire(
+                    this.$t("Failed!"),
+                    this.$t("message.deletedMessageError"),
+                    "warning"
+                  );
+                  $("#viewOrderModal").modal("hide");
+                });
+            }
+          });
+      } else {
+        swal.fire({
+          text: this.$t("message.unAuthorizedText"),
+          type: "warning",
+        });
+      }
+    },
   },
   mounted() {
     var form = this.form;
     var that = this;
     $("#viewOrderModal").on("show.bs.modal", function(e) {
-    });
+      that.form.reset();
+      that.isChange = false;
+      Vue.nextTick().then(function() {
+        axios
+          .get(
+            "api/getAllOrderStatus?order_status_id=" +
+              that.orderData.order_status_id
+          )
+          .then((response) => {
+            that.orderStatuses = response.data;
+          });
+      });
+    }); 
   },
 };
 </script>

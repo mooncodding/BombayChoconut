@@ -141,6 +141,14 @@
                     </router-link>
                   </li>
                 @endcan
+                @can('cities')
+                  <li class="nav-item">
+                    <router-link to="/cities" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>{{ __('translation.Cities') }}</p>
+                    </router-link>
+                  </li>
+                @endcan
                </ul>
             </li>
             @endcanany
@@ -261,7 +269,7 @@
     <footer class="main-footer">
       <!-- To the right -->
       <div class="float-right d-none d-sm-inline">
-        Developped by <a href="#">Vivotic Solucions</a>
+        Developped by <a href="#">Asad Amjad</a>
       </div>
       <!-- Default to the left -->
       <strong>Copyright &copy; {{ now()->year }} Bombay Choconuts</strong> All rights reserved.

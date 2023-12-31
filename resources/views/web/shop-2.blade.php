@@ -191,8 +191,10 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="tab-content shop-content">
-                                <div class="tab-pane fade active in productShopCards"  role="tabpanel">
+                            <div  class="tab-content shop-content">
+                                <div id="grid-view" class="tab-pane fade active in "  role="tabpanel">
+                                </div>
+                                <div id="list-view" class="tab-pane fade productShopCards" role="tabpanel">
                                 </div>
                         </div>
                     </div>

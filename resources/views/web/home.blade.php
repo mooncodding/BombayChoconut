@@ -87,7 +87,7 @@
 </section>
 <section class="category-all">
 
-    <h2 class="section-title ptb-15" style="text-align: center;"> <span class="light-font">Shop By </span> <strong>Categories </strong>  </h2>
+    <h2 class="section-title ptb-15" style="text-align: center;"> <span class="light-font">Explore </span> <strong>Categories </strong>  </h2>
 <div class="container-fluid"> 
     <div class="col-md-12"> 
         <div class="tab-content organic-content row"> 
@@ -104,9 +104,7 @@
                                 <h3 class="product-title">
                                     <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
                                 </h3>
-                                <div class="price"> 
-                                   <strong class="clr-txt   ">View Category </strong></a> 
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -120,9 +118,7 @@
                                 <h3 class="product-title">
                                     <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
                                 </h3>
-                                <div class="price"> 
-                                    <strong class="clr-txt">View Category </strong>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -136,9 +132,7 @@
                                 <h3 class="product-title">
                                     <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
                                 </h3>
-                                <div class="price"> 
-                                    <strong class="clr-txt">View Category </strong>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -152,9 +146,7 @@
                                 <h3 class="product-title">
                                     <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
                                 </h3>
-                                <div class="price"> 
-                                    <strong class="clr-txt">View Category </strong>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -168,9 +160,7 @@
                                 <h3 class="product-title">
                                     <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
                                 </h3>
-                                <div class="price"> 
-                                    <strong class="clr-txt">View Category </strong>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -184,9 +174,7 @@
                                 <h3 class="product-title">
                                     <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
                                 </h3>
-                                <div class="price"> 
-                                    <strong class="clr-txt">View Category </strong>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -200,9 +188,7 @@
                                 <h3 class="product-title">
                                     <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
                                 </h3>
-                                <div class="price"> 
-                                    <strong class="clr-txt">View Category </strong>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -216,9 +202,7 @@
                                 <h3 class="product-title">
                                     <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
                                 </h3>
-                                <div class="price"> 
-                                    <strong class="clr-txt">View Category </strong>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -232,9 +216,7 @@
                                 <h3 class="product-title">
                                     <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
                                 </h3>
-                                <div class="price"> 
-                                    <strong class="clr-txt">View Category </strong>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -248,9 +230,7 @@
                                 <h3 class="product-title">
                                     <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
                                 </h3>
-                                <div class="price"> 
-                                    <strong class="clr-txt">View Category </strong>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -264,9 +244,7 @@
                                 <h3 class="product-title">
                                     <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
                                 </h3>
-                                <div class="price"> 
-                                    <strong class="clr-txt">View Category </strong>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -280,9 +258,7 @@
                                 <h3 class="product-title">
                                     <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
                                 </h3>
-                                <div class="price"> 
-                                    <strong class="clr-txt">View Category </strong>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -296,9 +272,7 @@
                                 <h3 class="product-title">
                                     <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
                                 </h3>
-                                <div class="price"> 
-                                    <strong class="clr-txt">View Category </strong>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -312,9 +286,7 @@
                                 <h3 class="product-title">
                                     <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
                                 </h3>
-                                <div class="price"> 
-                                    <strong class="clr-txt">View Category </strong>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -328,9 +300,7 @@
                                 <h3 class="product-title">
                                     <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
                                 </h3>
-                                <div class="price"> 
-                                    <strong class="clr-txt">View Category </strong>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -344,9 +314,7 @@
                                 <h3 class="product-title">
                                     <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
                                 </h3>
-                                <div class="price"> 
-                                    <strong class="clr-txt">View Category </strong>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -360,9 +328,7 @@
                                 <h3 class="product-title">
                                     <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
                                 </h3>
-                                <div class="price"> 
-                                    <strong class="clr-txt">View Category </strong>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -376,9 +342,7 @@
                                 <h3 class="product-title">
                                     <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
                                 </h3>
-                                <div class="price"> 
-                                    <strong class="clr-txt">View Category </strong>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -392,9 +356,7 @@
                                 <h3 class="product-title">
                                     <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
                                 </h3>
-                                <div class="price"> 
-                                    <strong class="clr-txt">View Category </strong>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -408,13 +370,26 @@
                                 <h3 class="product-title">
                                     <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
                                 </h3>
-                                <div class="price"> 
-                                    <strong class="clr-txt">View Category </strong>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
-
+                    <div class="item"   > 
+                        <div class="product-box category-box category-views1" style=" background-image: url({{asset('web-assets/images/product/categorynut.webp')}}) ;"> 
+                            <div class="product-media category-media category-all"> 
+                                {{-- <img class="prod-img" src="{{asset('web-assets/images/product/Palm-Date-2.png')}}" alt="">      --}}
+                                {{-- <img class="shape" alt="" src="assets/img/icons/shap-small.png" />   --}}
+                            </div>                                           
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="#"> <span class="light-font">  </span>  <strong>View All Categories</strong></a>
+                                </h3>
+                                    {{-- <div class="price"> 
+                                        <strong class="clr-txt"> </strong>
+                                    </div> --}}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -436,25 +411,56 @@
         width: 120px;" src="{{asset('web-assets/images/bombaylogo.png')}}" /> --}}
             
             <div class="tabs-box">
-                <h2 class="section-title ptb-15"> <span class="light-font">Shop By </span> <strong>Brands </strong>  </h2>
+                <h2 class="section-title ptb-15"> <span class="light-font">Shop By </span> <strong>Categories </strong>  </h2>
+                <div class="container-fluid"> 
+                <div class="col-md-12"> 
+                <div class="tab-content organic-content row"> 
+                <div id="product-tab-1" class="tab-pane fade active in"> 
+                <div class="product-slider-1 dots-1">  
                 <ul class="theme-tabs" id="categories">
-                    <li class="active"><a href="#" data-toggle="tab" class="category-btn" data-id="1">Dry fruits</a></li>                                
-                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="2">Chocolates</a></li>                                
-                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="3">Fresh Biscuit</a></li>                                
+                    <li class="active"><a href="#" data-toggle="tab" class="category-btn" data-id="1">Dry fruits</a></li>  
+                 </ul>                             
+                 <ul class="theme-tabs" id="categories">
+                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="2">Chocolates</a></li> 
+                 </ul>
+                 <ul class="theme-tabs" id="categories">                               
+                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="3">Fresh Biscuit</a></li>
+                 </ul>
+                 <ul class="theme-tabs" id="categories">                               
                     <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="4">Gift Boxes</a></li>
-                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="3">Fresh Biscuit</a></li>                                
-                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="4">Gift Boxes</a></li>
-                    
-                </ul>
+                 </ul>
+                 <ul class="theme-tabs" id="categories">
+                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="5">Fresh Biscuit</a></li> </ul>
+                    <ul class="theme-tabs" id="categories">                               
+                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="6">Gift Boxes</a></li>
+                    </ul>
+                    {{-- <li class="active"><a href="#" data-toggle="tab" class="category-btn" data-id="1">Dry fruits</a></li>   
+                                                  --}}
+                   <ul class="theme-tabs" id="categories">
+                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="7">Chocolates</a></li>   </ul>
+                    <ul class="theme-tabs" id="categories">                             
+                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="8">Fresh Biscuit</a></li> </ul>
+                    <ul class="theme-tabs" id="categories">                               
+                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="9">Gift Boxes</a></li></ul>
+                    <ul class="theme-tabs" id="categories">
+                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="10">Fresh Biscuit</a></li>  
+                    </ul>
+                    <ul class="theme-tabs" id="categories">                              
+                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="11">Gift Boxes</a></li>
+                    </ul>
             </div>
         </div>
     </div>
-    <div class="product-slider-1 dots-1">
+</div>
+</div>
+</div>
+</div>
+    </div>
     <div class="container-fluid"> 
-         
-            <div class="col-md-12 productCards">  
-                 <div class="tab-content organic-content row"> 
-                    <div id="product-tab-1" class="tab-pane fade active in " >  
+        <div class="col-md-12"> 
+            <div class="tab-content organic-content row"> 
+                <div id="product-tab-1" class="tab-pane fade active in"> 
+                    <div class="product-slider-1 dots-1"> 
                         
                             <div class="productCards">
 
@@ -462,10 +468,10 @@
                     </div>
                 </div>
              </div> 
-
+            </div>
        
     </div>
-</div>
+
 </section>
 <!-- / Organic All Ends -->
 
@@ -603,82 +609,7 @@
 </section>
 <!-- / Our Products Ends -->            
 
-<!-- Naturix Goods Starts-->
-<section class="naturix-goods sec-space-bottom">
-    <div class="container"> 
-        <div class="title-wrap">
-            <h4 class="sub-title"> FRESH FROM OUR FARM </h4>
-            <h2 class="section-title"> <span class="round-shape">  <span class="light-font">Bombay Choco & Nuts </span> <strong> organic goods <img src="assets/img/icons/logo-icon.png" alt="" /></strong> </span> </h2>
-        </div>
 
-        <div class="tabs-box text-center">
-            <ul class="theme-tabs small">
-                {{-- <li class=""><a href="/#naturix-tab-1" data-toggle="tab"> <span class="light-font">all </span> <strong>gift </strong> </a></li>                                
-                <li class="active"><a href="/#naturix-tab-2" data-toggle="tab"> <span class="light-font">organic </span> <strong>chocolates</strong> </a></li>                               
-                <li class=""><a href="/#naturix-tab-3" data-toggle="tab"> <span class="light-font">organic </span> <strong>dates </strong> </a></li>
-                <li class=""><a href="/#naturix-tab-4" data-toggle="tab"> <span class="light-font">organic </span> <strong>tea </strong> </a></li>
-                <li class=""><a href="/#naturix-tab-5" data-toggle="tab"> <span class="light-font">all </span> <strong>bread </strong> </a></li>
-                <li class=""><a href="/#naturix-tab-6" data-toggle="tab"> <span class="light-font">organic </span> <strong>juices </strong> </a></li> --}}
-                <ul class="theme-tabs" id="categories">
-                    <li class="active"><a href="#" data-toggle="tab" class="category-btn" data-id="1">Dry fruits</a></li>                                
-                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="2">Chocolates</a></li>                                
-                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="3">Fresh Biscuit</a></li>                                
-                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="4">Gift Boxes</a></li>
-                </ul>
-            </ul>
-        </div>
-
-        <div class="tab-content organic-content row"> 
-            <div id="naturix-tab-1" class="tab-pane fade active in"> 
-                <div class="naturix-slider-1 dots-1 productCards"> 
-                    {{-- <div class="item"> 
-                        <div class="product-box"> 
-                            <div class="product-media"> 
-                                <img class="prod-img" src="{{asset('web-assets/images/giftbasket/4.png')}}" alt=""/>    
-                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
-                                <div class="prod-icons"> 
-                                    <a href="/#" class="fa fa-heart"></a>
-                                    <a href="/#" class="fa fa-shopping-basket"></a>
-                                    <a  href="/#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                </div>
-                            </div>                                           
-                            <div class="product-caption"> 
-                                <h3 class="product-title">
-                                    <a href="/#"> <span class="light-font"> organic </span>  <strong>mushroom</strong></a>
-                                </h3>
-                                <div class="price"> 
-                                    <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="product-box"> 
-                            <div class="product-media"> 
-                                <img class="prod-img" alt="" src="{{asset('web-assets/images/giftbasket/5.png')}}" alt="" />     
-                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
-                                <div class="prod-icons"> 
-                                    <a href="/#" class="fa fa-heart"></a>
-                                    <a href="/#" class="fa fa-shopping-basket"></a>
-                                    <a  href="/#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                </div>
-                            </div>                                           
-                            <div class="product-caption"> 
-                                <h3 class="product-title">
-                                    <a href="/#"> <span class="light-font"> organic </span>  <strong>gift</strong></a>
-                                </h3>
-                                <div class="price"> 
-                                    <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
-<!-- / Naturix Goods Ends -->
 
 <!-- Deals Starts-->
 <section class="deals sec-space light-bg">

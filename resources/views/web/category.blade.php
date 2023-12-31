@@ -17,11 +17,15 @@
 <section class="bombay-categories sec-space-bottom">
     <div class="container"> 
         <div class="title-wrap">
-            <h4 class="sub-title"> FILTER </h4>
+            <h4 class="sub-title"> SEARCH </h4>
             <h2 class="section-title">  <span class="light-font cate">CATEGORIES </span> </h2>
+            <div class="search-wrap">
+                <input class="form-control" placeholder="" >
+                <button class="btn" type="submit"> <i class="fa fa-search"></i> </button>
+            </div>
         </div>
-
-        <div class="tabs-box text-center">
+       
+        {{-- <div class="tabs-box text-center">
             <ul class="theme-tabs small">
                 <li class=""><a href="/#naturix-tab-1" data-toggle="tab"> <span class="light-font">all </span> <strong>gift </strong> </a></li>                                
                 <li class="active"><a href="/#naturix-tab-2" data-toggle="tab"> <span class="light-font">organic </span> <strong>chocolates</strong> </a></li>                               
@@ -30,7 +34,7 @@
                 <li class=""><a href="/#naturix-tab-5" data-toggle="tab"> <span class="light-font">all </span> <strong>bread </strong> </a></li>
                 <li class=""><a href="/#naturix-tab-6" data-toggle="tab"> <span class="light-font">organic </span> <strong>juices </strong> </a></li>
             </ul>
-        </div>
+        </div> --}}
 
         <div class="tab-content shop-content">
                         <div id="grid-view" class="tab-pane fade active in" role="tabpanel">

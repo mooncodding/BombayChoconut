@@ -563,7 +563,7 @@
                                                     <a  href="javascript:void(0);" data-target="#product-preview" data-toggle="modal" class="fa fa-shopping-basket view-details-btn" data-product-id="${product.id}"></a>
                                                 </div>
                                             </div>
-                                        </div>
+                                   
                                        
                                        
                                             <div class="product-caption details"> 
@@ -574,7 +574,7 @@
                                                     <strong class="clr-txt">Rs ${product.product_variants[0].sale_price}</strong>
                                                 </div>
                                             </div>
-                                            </div>
+                                        </div>
                                       
                                     </div>
                              
@@ -671,7 +671,7 @@
                                             </ul>
                                             <div class="divider-full-1"></div>
                                             <div class="add-cart pt-15">
-                                                <a href="/#" class="theme-btn btn button js-add-product" data-product-id="${product.id}"> <strong> ADD TO CART </strong> </a>
+                                                <a href="/#" class="theme-btn add-to-cart-btn button js-add-product " data-product-id="${product.id}"> <strong> ADD TO CART </strong> </a>
                                             </div>
                                         </div>
                                     </div>
@@ -1042,62 +1042,37 @@
                 </a>
               </p>
             </div>
-            {{-- <div class="cart__products js-cart-products">
+            <div class="cart__products js-cart-products">
               <p class="cart__empty js-cart-empty">
                 Add a product to your cart
               </p>
               <div class="cart__product js-cart-product-template">
                 <article class="js-cart-product">
-                  <h1>Product title</h1>
-                  <p>
-                    <a class="js-remove-product" href="#" title="Delete product">
-                      Delete product
-                    </a>
-                  </p>
+                    @foreach (Cart::getContent() as $item)
+                                <li class="cart-list">
+                                    <div class="cart-img"> <img src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""> </div>
+                                    <div class="cart-title">
+                                        <div class="fsz-16">
+                                            <a href="/#"> {{$item->name}}</a>
+                                        </div>
+                                        <div class="price"> 
+                                            <strong class="clr-txt">Rs {{$item->price}} </strong>
+                                        </div>
+                                    </div>
+                                    <div class="close-icon">
+                                        <form action="{{route('cart.remove')}}" method="POST">
+                                        @csrf
+                                        <input type="hidden" value="{{ $item->id }}" name="id">
+                                         <button type="submit"><i class="fa fa-close clr-txt"></i></button>
+                                        </form>
+                                    </div>
+                                </li>
+                            @endforeach
                 </article>
               </div>
-            </div> --}}
+            </div>
             <div class="col-lg-2 col-sm-4 cart-megamenu">
-                <div class="cart-hover">
-                    <a href="/#"> <img alt="" src="assets/img/icons/cart-icon.png" /> </a>
-                    <span class="cnt crl-bg">{{ Cart::getTotalQuantity()}}</span> @if (Cart::getTotal())
-                    <span class="price">Rs {{Cart::getTotal()}}</span>
-                    @endif 
-                    @if (count(Cart::getContent()) > 0)
-                    <ul class="pop-up-box cart-popup">
-                        @foreach (Cart::getContent() as $item)
-                            <li class="cart-list">
-                                <div class="cart-img"> <img src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""> </div>
-                                <div class="cart-title">
-                                    <div class="fsz-16">
-                                        <a href="/#"> {{$item->name}}</a>
-                                    </div>
-                                    <div class="price"> 
-                                        <strong class="clr-txt">Rs {{$item->price}} </strong>
-                                    </div>
-                                </div>
-                                <div class="close-icon">
-                                    <form action="{{route('cart.remove')}}" method="POST">
-                                    @csrf
-                                    <input type="hidden" value="{{ $item->id }}" name="id">
-                                     <button type="submit"><i class="fa fa-close clr-txt"></i></button>
-                                    </form>
-                                </div>
-                            </li>
-                        @endforeach
-                        
-                        <li class="cart-list buttons">
-                            <div class="pull-left"> 
-                                <a href="{{route('cart')}}" class="theme-btn-sm-2">View Cart</a>
-                            </div>
-                            <div class="pull-right"> 
-                                <a href="/checkout" class="theme-btn-sm-3"> Checkout </a>
-                            </div>
-                        </li>
-                    </ul>
-                        
-                    @endif
-                </div>
+              
               
 
         </div> 

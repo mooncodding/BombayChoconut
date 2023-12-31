@@ -1,211 +1,230 @@
 @extends('web.master')
-@section('content') 
-
-            <!--Breadcrumb Section Start-->
-            <section class="breadcrumb-bg"  style="background-image:url({{asset('web-assets/images/banner/shop.jpg')}})">                
-                <div class="theme-container container ">                       
-                    <div class="site-breadcumb white-clr">                        
-                        <h2 class="section-title"> <strong class="clr-txt">Bombay </strong> <span class="light-font">Shop </span> </h2>
-                        <ol class="breadcrumb breadcrumb-menubar">
-                            <li> <a href="/#"> Home </a> SHOP  </li>                             
-                        </ol>
-                    </div>  
-                </div>
-            </section>
-            <!--Breadcrumb Section End-->
-
-
-            <!-- Shop Starts-->
-            <section class="shop-wrap sec-space-bottom">
-                <div class="pattern"> 
-                    <img alt="" src="assets/img/icons/white-pattern.png">
-                </div>
-
-                <div class="container rel-div">
-                    <div class="row sort-bar">
-                        {{-- <div class="icon"> <img alt="" src="assets/img/logo/logo-2.png" /> </div> --}}
-                        <div class="col-lg-6">
-                            <div class="sort-dropdown left">
-                                <span>CATEGORY</span>
-                                <div class="search-wrap">
-                                    <input class="form-control" placeholder="" >
-                                    <button class="btn" type="submit"> <i class="fa fa-search"></i> </button>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-5 right">
-                            <div class="sort-dropdown">
-                                <span>BY PRICE</span>
-                                <div class="search-selectpicker selectpicker-wrapper">
-                                    <select class="selectpicker input-price"  data-width="100%"
-                                            data-toggle="tooltip">                                   
-                                        <option> Low to High </option>
-                                        <option> High to Low </option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="sort-dropdown">
-                                <span>SORT BY</span>
-                                <div class="search-selectpicker selectpicker-wrapper">
-                                    <select class="selectpicker input-price"  data-width="100%"
-                                            data-toggle="tooltip">
-                                        <option>Popular item</option>
-                                        <option>A - Z</option>
-                                        <option>Z - A</option>
-                                        <option> Low - High </option>
-                                        <option> High - Low </option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-
-                    <div class="divider-full-1"></div>
-
-                    <div class="row">
-                        <div class="col-md-3 pt-15">
-                            <div class="widget-wrap">
-                                <h2 class="widget-title"> <span class="light-font">Refine by</span> <strong>category</strong> </h2>
-                                <div class="divider-full-1"></div>
-                                <ul class="checkbox-widget">
-                                    <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked="">Fruits
-                                        <ul class="checkbox-widget">
-                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Deals of the day</span></label> </li>
-                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Fresh shipping</span></label> </li>
-                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Best sellers</span></label> </li>
-                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Featured products</span></label> </li>                                    
-                                        </ul>
-                                    </li>
-                                    <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked="">Fruits
-                                        <ul class="checkbox-widget">
-                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Deals of the day</span></label> </li>
-                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Fresh shipping</span></label> </li>
-                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Best sellers</span></label> </li>
-                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Featured products</span></label> </li>                                    
-                                        </ul>
-                                    </li>
-                                    <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked="">Fruits
-                                        <ul class="checkbox-widget">
-                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Deals of the day</span></label> </li>
-                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Fresh shipping</span></label> </li>
-                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Best sellers</span></label> </li>
-                                            <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Featured products</span></label> </li>                                    
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="widget-wrap">
-                                <h2 class="widget-title"> <span class="light-font">Sort by</span> <strong>Price Range</strong> </h2>
-                                <div class="divider-full-1"></div>
-                                <div class="sort-range pt-15">
-                                    <span>PRICE</span> <div id="price-range"></div>
-                                </div>
-                            </div>
-
-                            <div class="widget-wrap">
-                                <h2 class="widget-title"> <span class="light-font">Best</span> <strong>Sellers</strong> </h2>
-                                <div class="divider-full-1"></div>
-                                <div class="widget-post pt-15">
-                                    <div class="random-prod"> 
-                                        <div class="random-img"> 
-                                            <img alt="" src="assets/img/extra/post-xs-1.png">
-                                        </div>
-                                        <div class="random-text"> 
-                                            <h3 class="title-1 no-margin"> <a href="/#"> <span class="light-font">organic </span> <strong>blackberry </strong> </a> </h3>
-                                            <span class="divider"></span>
-                                            <div class="price"> 
-                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="random-prod"> 
-                                        <div class="random-img"> 
-                                            <img alt="" src="assets/img/extra/post-xs-2.png">
-                                        </div>
-                                        <div class="random-text"> 
-                                            <h3 class="title-1 no-margin"> <a href="/#"> <span class="light-font">organic </span> <strong>peach </strong> </a> </h3>
-                                            <span class="divider"></span>
-                                            <div class="price"> 
-                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="random-prod"> 
-                                        <div class="random-img"> 
-                                            <img alt="" src="assets/img/extra/post-xs-3.png">
-                                        </div>
-                                        <div class="random-text"> 
-                                            <h3 class="title-1 no-margin"> <a href="/#"> <span class="light-font">organic </span> <strong>redberry </strong> </a> </h3>
-                                            <span class="divider"></span>
-                                            <div class="price"> 
-                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="random-prod"> 
-                                        <div class="random-img"> 
-                                            <img alt="" src="assets/img/extra/post-xs-4.png">
-                                        </div>
-                                        <div class="random-text"> 
-                                            <h3 class="title-1 no-margin"> <a href="/#"> <span class="light-font">organic </span> <strong>grapes </strong> </a> </h3>
-                                            <span class="divider"></span>
-                                            <div class="price"> 
-                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="widget-wrap">
-                                <h2 class="widget-title"> <span class="light-font">Sort by</span> <strong>Tags</strong> </h2>
-                                <div class="divider-full-1"></div>
-                                <ul class="tags-widget">
-                                    <li> <a href="/#">fruits</a> </li>
-                                    <li> <a href="/#">vegetables</a> </li>
-                                    <li> <a href="/#">juices</a> </li>
-                                    <li> <a href="/#">natural food</a> </li>
-                                    <li> <a href="/#">food</a> </li>
-                                    <li> <a href="/#">Breads</a> </li>
-                                    <li> <a href="/#">natural</a> </li>
-                                    <li> <a href="/#">healthy</a> </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-md-9">
-                            <div class="result-bar block-inline">
-                                <h4 class="result-txt">search result <b> 125 </b> </h4>
-                                <ul class="view-tabs">
-                                    <li class="">
-                                        <a href="/#grid-view" data-toggle="tab">                                                    
-                                            <i class="fa fa-th"></i>
-                                        </a>
-                                    </li>
-                                    <li class="active">
-                                        <a href="/#list-view" data-toggle="tab">
-                                            <i class="fa fa-th-list"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="tab-content shop-content">
-                                <div class="tab-pane fade active in productShopCards"  role="tabpanel">
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-12 col-sm-12">
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
+@section('content')
+                 <!--Breadcrumb Section Start-->
+                 <section class="breadcrumb-bg"  style="background-image:url({{asset('web-assets/images/banner/shop.jpg')}})">                
+                    <div class="theme-container container ">                       
+                        <div class="site-breadcumb white-clr">                        
+                            <h2 class="section-title"> <strong class="clr-txt">Bombay </strong> <span class="light-font">Shop </span> </h2>
+                            <ol class="breadcrumb breadcrumb-menubar">
+                                <li> <a href="/#"> Home </a> SHOP  </li>                             
+                            </ol>
+                        </div>  
                     </div>
+                </section>
+                <!--Breadcrumb Section End-->
+    
+    
+                <!-- Shop Starts-->
+                <section class="shop-wrap sec-space-bottom">
+                    <div class="pattern"> 
+                        <img alt="" src="assets/img/icons/white-pattern.png">
+                    </div>
+    
+                    <div class="container rel-div">
+                        <div class="row sort-bar">
+                            {{-- <div class="icon"> <img alt="" src="assets/img/logo/logo-2.png" /> </div> --}}
+                            <div class="col-lg-6">
+                                <div class="sort-dropdown left">
+                                    <span>CATEGORY</span>
+                                    <div class="search-wrap">
+                                        <input class="form-control" placeholder="" >
+                                        <button class="btn" type="submit"> <i class="fa fa-search"></i> </button>
+                                    </div>
+                                </div>
+    
+                            </div>
+                            <div class="col-lg-5 right">
+                                <div class="sort-dropdown">
+                                    <span>BY PRICE</span>
+                                    <div class="search-selectpicker selectpicker-wrapper">
+                                        <select class="selectpicker input-price"  data-width="100%"
+                                                data-toggle="tooltip">                                   
+                                            <option> Low to High </option>
+                                            <option> High to Low </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="sort-dropdown">
+                                    <span>SORT BY</span>
+                                    <div class="search-selectpicker selectpicker-wrapper">
+                                        <select class="selectpicker input-price"  data-width="100%"
+                                                data-toggle="tooltip">
+                                            <option>Popular item</option>
+                                            <option>A - Z</option>
+                                            <option>Z - A</option>
+                                            <option> Low - High </option>
+                                            <option> High - Low </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+    
+                        <div class="divider-full-1"></div>
+    
+                        <div class="row">
+                            <div class="col-md-3 pt-15">
+                                <div class="widget-wrap">
+                                    <h2 class="widget-title"> <span class="light-font">Refine by</span> <strong>category</strong> </h2>
+                                    <div class="divider-full-1"></div>
+                                    <ul class="checkbox-widget">
+                                        <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked="">Fruits
+                                            <ul class="checkbox-widget">
+                                                <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Deals of the day</span></label> </li>
+                                                <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Fresh shipping</span></label> </li>
+                                                <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Best sellers</span></label> </li>
+                                                <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Featured products</span></label> </li>                                    
+                                            </ul>
+                                        </li>
+                                        <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked="">Fruits
+                                            <ul class="checkbox-widget">
+                                                <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Deals of the day</span></label> </li>
+                                                <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Fresh shipping</span></label> </li>
+                                                <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Best sellers</span></label> </li>
+                                                <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Featured products</span></label> </li>                                    
+                                            </ul>
+                                        </li>
+                                        <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked="">Fruits
+                                            <ul class="checkbox-widget">
+                                                <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Deals of the day</span></label> </li>
+                                                <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Fresh shipping</span></label> </li>
+                                                <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Best sellers</span></label> </li>
+                                                <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Featured products</span></label> </li>                                    
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="widget-wrap">
+                                    <h2 class="widget-title"> <span class="light-font">Sort by</span> <strong>Price Range</strong> </h2>
+                                    <div class="divider-full-1"></div>
+                                    <div class="sort-range pt-15">
+                                        <span>PRICE</span> <div id="price-range"></div>
+                                    </div>
+                                </div>
+    
+                                <div class="widget-wrap">
+                                    <h2 class="widget-title"> <span class="light-font">Best</span> <strong>Sellers</strong> </h2>
+                                    <div class="divider-full-1"></div>
+                                    <div class="widget-post pt-15">
+                                        <div class="random-prod"> 
+                                            <div class="random-img"> 
+                                                <img alt="" src="assets/img/extra/post-xs-1.png">
+                                            </div>
+                                            <div class="random-text"> 
+                                                <h3 class="title-1 no-margin"> <a href="/#"> <span class="light-font">organic </span> <strong>blackberry </strong> </a> </h3>
+                                                <span class="divider"></span>
+                                                <div class="price"> 
+                                                    <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="random-prod"> 
+                                            <div class="random-img"> 
+                                                <img alt="" src="assets/img/extra/post-xs-2.png">
+                                            </div>
+                                            <div class="random-text"> 
+                                                <h3 class="title-1 no-margin"> <a href="/#"> <span class="light-font">organic </span> <strong>peach </strong> </a> </h3>
+                                                <span class="divider"></span>
+                                                <div class="price"> 
+                                                    <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="random-prod"> 
+                                            <div class="random-img"> 
+                                                <img alt="" src="assets/img/extra/post-xs-3.png">
+                                            </div>
+                                            <div class="random-text"> 
+                                                <h3 class="title-1 no-margin"> <a href="/#"> <span class="light-font">organic </span> <strong>redberry </strong> </a> </h3>
+                                                <span class="divider"></span>
+                                                <div class="price"> 
+                                                    <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="random-prod"> 
+                                            <div class="random-img"> 
+                                                <img alt="" src="assets/img/extra/post-xs-4.png">
+                                            </div>
+                                            <div class="random-text"> 
+                                                <h3 class="title-1 no-margin"> <a href="/#"> <span class="light-font">organic </span> <strong>grapes </strong> </a> </h3>
+                                                <span class="divider"></span>
+                                                <div class="price"> 
+                                                    <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="widget-wrap">
+                                    <h2 class="widget-title"> <span class="light-font">Sort by</span> <strong>Tags</strong> </h2>
+                                    <div class="divider-full-1"></div>
+                                    <ul class="tags-widget">
+                                        <li> <a href="/#">fruits</a> </li>
+                                        <li> <a href="/#">vegetables</a> </li>
+                                        <li> <a href="/#">juices</a> </li>
+                                        <li> <a href="/#">natural food</a> </li>
+                                        <li> <a href="/#">food</a> </li>
+                                        <li> <a href="/#">Breads</a> </li>
+                                        <li> <a href="/#">natural</a> </li>
+                                        <li> <a href="/#">healthy</a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+    
+                            <div class="col-md-9">
+                                <div class="result-bar block-inline">
+                                    <h4 class="result-txt">search result <b> 125 </b> </h4>
+                                    <ul class="view-tabs">
+                                        <li class="">
+                                            <a href="/#grid-view" data-toggle="tab">                                                    
+                                                <i class="fa fa-th"></i>
+                                            </a>
+                                        </li>
+                                        <li class="active">
+                                            <a href="/#list-view" data-toggle="tab">
+                                                <i class="fa fa-th-list"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-content shop-content">
+                                    <div class="tab-pane fade active in productShopCards"  role="tabpanel">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rel-div pt-50">
+                                <div class="divider-full-1"></div>
+                                <div class="nav-page">
+                                    <a href="/#" class="fa fa-long-arrow-left left"></a> 
+                                    <a href="/#" class="fa fa-long-arrow-right right"></a> 
+                                </div>
+                                </div> 
+                                <div class="pagination-wrap">
+                                <ul class="pagintn">                                  
+                                    <li><a href="/#">01</a></li>
+                                    <li><a href="/#">02</a></li>
+                                    <li><a href="/#">03</a></li>
+                                    <li><a href="/#">04</a></li>
+                                    <li><a href="/#">05</a></li>
+                                    <li><a href="/#">...</a></li>
+                                    <li><a href="/#">15</a></li>                                    
+                                </ul>
+                                </div>
+                            </div>
+                  </div>
                 </div>
-            </section>
-            <!-- / Shop Ends -->      
-
-            <!-- / CONTENT AREA -->
-
+                </section>
+                <!-- / Shop Ends -->      
+    
+                <!-- / CONTENT AREA -->
+      
+<!-- / Shop Ends -->      
 @endsection
 
 @section('scripts')
@@ -258,9 +277,7 @@
             productsContainer.empty(); // Clear previous products
             // Loop through the products and generate HTML for each product card
             $.each(products, function (index, product) {
-                let productCard = `
-               
-                        <div class="col-lg-3 col-md-4 col-sm-6"> 
+                let productCard = `<div class="col-lg-3 col-md-4 col-sm-6"> 
                                     <div class="product-box"> 
                                         <div class="product-media"> 
                                             <img class="prod-img" src="{{asset('images/product-images/${product.photo}')}}" alt=""/>     
@@ -281,10 +298,7 @@
                                         </div>
                                     </div>
                                 </div>
-                          
-                        
-                   
-                                `;
+                             `;
                 // Append the product card HTML to the products container
                 productsContainer.append(productCard);
             });
@@ -371,7 +385,7 @@
                                     </ul>
                                     <div class="divider-full-1"></div>
                                     <div class="add-cart pt-15">
-                                        <a href="/#" class="theme-btn btn add-to-cart-btn" data-product-id="${product.id}"> <strong> ADD TO CART </strong> </a>
+                                        <a href="/cart" class="theme-btn btn"> <strong> ADD TO CART </strong> </a>
                                     </div>
                                 </div>
                             </div>
@@ -397,6 +411,15 @@
                 $('.saleprice').text('Rs' + newPrice);
             }
         }
+        
+        function addToCart(productId) {
+            // Perform the necessary logic to add the product to the cart
+            // You may want to make another AJAX request to a server endpoint
+            console.log(productId);
+            // Add your cart handling logic here
+        }
     });
 </script>
 @endsection
+
+

@@ -38,6 +38,7 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+        dd('123');
         $product = Product::find($request->product_id);
         $productVariants = ProductVariant::where('product_id',$request->product_id)->where('id',$request->variant_id)->first();
 

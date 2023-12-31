@@ -5,7 +5,7 @@
             <section class="breadcrumb-bg" style="background-image:url({{asset('web-assets/images/banner/shop.jpg')}})">                
                 <div class="theme-container container ">                       
                     <div class="site-breadcumb white-clr">                        
-                        <h2 class="section-title"> <strong class="clr-txt">Bombay </strong> <span class="light-font">Shop </span> </h2>
+                        <h2 class="section-title"> <strong class="clr-txt">Gift </strong> <span class="light-font">Bundle </span> </h2>
                       
                     </div>  
                 </div>
@@ -18,26 +18,81 @@
 
                 <div class="container rel-div">
                     <div class="organic-wrap"> 
-                        <img class="logo-img" alt style="
-                    width: 120px;" src="{{asset('web-assets/images/bombaylogo.png')}}" />
+                        {{-- <img class="logo-img" alt style="
+                    width: 120px;" src="{{asset('web-assets/images/bombaylogo.png')}}" /> --}}
                         
                         <div class="tabs-box">
+                            <h2 class="section-title ptb-15"> <span class="light-font">Shop By </span> <strong>Categories </strong>  </h2>
+                            <div class="container-fluid"> 
+                            <div class="col-md-12"> 
+                            <div class="tab-content organic-content row"> 
+                            <div id="product-tab-1" class="tab-pane fade active in"> 
+                            <div class="product-slider-1 dots-1">  
                             <ul class="theme-tabs" id="categories">
-                                <li class="active"><a href="#" data-toggle="tab" class="category-btn" data-id="all">All Categories</a></li>                                
-                                <li class="active"><a href="#" data-toggle="tab" class="category-btn" data-id="1">Dry fruits</a></li>                                
-                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="2">Chocolates</a></li>                                
-                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="3">Fresh Biscuit</a></li>                                
-                            </ul>
+                                <li class="active"><a href="#" data-toggle="tab" class="category-btn" data-id="1">Dry fruits</a></li>  
+                             </ul>                             
+                             <ul class="theme-tabs" id="categories">
+                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="2">Chocolates</a></li> 
+                             </ul>
+                             <ul class="theme-tabs" id="categories">                               
+                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="3">Fresh Biscuit</a></li>
+                             </ul>
+                             <ul class="theme-tabs" id="categories">                               
+                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="4">Gift Boxes</a></li>
+                             </ul>
+                             <ul class="theme-tabs" id="categories">
+                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="5">Fresh Biscuit</a></li> </ul>
+                                <ul class="theme-tabs" id="categories">                               
+                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="6">Gift Boxes</a></li>
+                                </ul>
+                                {{-- <li class="active"><a href="#" data-toggle="tab" class="category-btn" data-id="1">Dry fruits</a></li>   
+                                                              --}}
+                               <ul class="theme-tabs" id="categories">
+                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="7">Chocolates</a></li>   </ul>
+                                <ul class="theme-tabs" id="categories">                             
+                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="8">Fresh Biscuit</a></li> </ul>
+                                <ul class="theme-tabs" id="categories">                               
+                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="9">Gift Boxes</a></li></ul>
+                                <ul class="theme-tabs" id="categories">
+                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="10">Fresh Biscuit</a></li>  
+                                </ul>
+                                <ul class="theme-tabs" id="categories">                              
+                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="11">Gift Boxes</a></li>
+                                </ul>
                         </div>
                     </div>
                     <div class="tab-content shop-content">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
                         <div class="tab-pane fade active in productShopCards"  role="tabpanel">
+                            
+                                
                         </div>
-                    </div>
+                            </div>
+                        </div>
                 </div>
-                
+                <div class="rel-div pt-50">
+                    <div class="divider-full-1"></div>
+                    <div class="nav-page">
+                        <a href="/#" class="fa fa-long-arrow-left left"></a> 
+                        <a href="/#" class="fa fa-long-arrow-right right"></a> 
+                    </div>
+                </div> 
+                <div class="pagination-wrap">
+                    <ul class="pagintn">                                  
+                        <li><a href="/#">01</a></li>
+                        <li><a href="/#">02</a></li>
+                        <li><a href="/#">03</a></li>
+                        <li><a href="/#">04</a></li>
+                        <li><a href="/#">05</a></li>
+                        <li><a href="/#">...</a></li>
+                        <li><a href="/#">15</a></li>                                    
+                    </ul>
+                </div>
+                </div>
+                </div>  
             </section>
-        </div>
+      
 <!-- / Shop Ends -->      
 @endsection
 @section('scripts')
@@ -90,9 +145,7 @@
             productsContainer.empty(); // Clear previous products
             // Loop through the products and generate HTML for each product card
             $.each(products, function (index, product) {
-                let productCard = `<div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="col-lg-3 col-md-4 col-sm-6"> 
+                let productCard = `<div class="col-lg-3 col-md-4 col-sm-6"> 
                                     <div class="product-box"> 
                                         <div class="product-media"> 
                                             <img class="prod-img" src="{{asset('images/product-images/${product.photo}')}}" alt=""/>     
@@ -113,10 +166,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        
-                    </div>
-                                `;
+                             `;
                 // Append the product card HTML to the products container
                 productsContainer.append(productCard);
             });

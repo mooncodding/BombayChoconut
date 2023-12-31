@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="agency, ecommerce">
         <meta name="author" content="Md. Siful Islam, Jtheme">
-
         <title>Bombay Choconuts</title>
 
         <!-- Favicon -->
@@ -30,57 +29,39 @@
     </head>
 
     <body id="home" class="wide">
-
-        {{-- <div id="loading">
-            <div class="loader">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-        </div> --}}
-
         <!-- WRAPPER -->
         <main class="wrapper home-wrap"> 
             <!-- CONTENT AREA -->
             <div class="top-header">
-            
-                    <div class="row">
-                        <div class="col-lg-5">
-                <p>SUPER DEALS <span style="padding-left:10px;">   FEATURE PRODUCTS <span style="padding-left:10px;">  TRENDING PRODUCTS <span style="padding-left:10px;">  GIFT BASKETS</p>
-                        </div>
-                        <!-- <div class="col-lg-3">
-                <p>
-                     <span>adssad</p>
-                        </div> -->
-                        <div class="col-lg-2">
-
-                        </div>
-                        <div class="col-lg-2 locator">
-                            <a href="/giftbundle"> <p>  <i class="fa fa-user-plus" aria-hidden="true"></i>
-                                STORE LOCATOR</p> </a>
-                            <span>
-                        </div>
-                        <div class="col-lg-2 track">
-                        <p style="
-                        border-right: 1px solid white;
-                        border-left: 1px solid white;
-                    "><i class="fa fa-heart" aria-hidden="true">&nbsp;
-                        </i>TRACK YOUR ORDER</p> 
-                        </div>
-                        <div class="col-lg-1">
-                        <p style="
-                        text-align: start;
-                    "><i class="fa fa-user-plus" aria-hidden="true"></i>
-
-
-                            ACCOUNT</p>
-                        </div>
-                    
-                    
+                <div class="row">
+                    <div class="col-lg-5">
+                        <p>SUPER DEALS <span style="padding-left:10px;">   FEATURE PRODUCTS <span style="padding-left:10px;">  TRENDING PRODUCTS <span style="padding-left:10px;">  GIFT BASKETS</p>
                     </div>
-                    
+                    <div class="col-lg-2">
+                    </div>
+                    <div class="col-lg-2 locator">
+                        <a href="/giftbundle"> <p>  <i class="fa fa-user-plus" aria-hidden="true"></i>
+                            STORE LOCATOR</p> </a>
+                        <span>
+                    </div>
+                    <div class="col-lg-2 track">
+                    <p style="
+                    border-right: 1px solid white;
+                    border-left: 1px solid white;
+                        "><i class="fa fa-heart" aria-hidden="true">&nbsp;
+                            </i>TRACK YOUR ORDER</p> 
+                            </div>
+                            <div class="col-lg-1">
+                            <p style="
+                            text-align: start;
+                        "><i class="fa fa-user-plus" aria-hidden="true"></i>
+
+
+                                ACCOUNT</p>
+                            </div>
+                
+                
+                </div>
             </div>
             <!-- Main Header Start -->
             <header class="main-header">                  
@@ -95,51 +76,41 @@
                            
                         </div>
                     </div>
-                    <div class="col-lg-6 responsive-menu">  
-                    <div class="input-group">
-     <div class="input-group-btn search-panel">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-        <span id="search_concept">All Categories</span> <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu scrollable-dropdown" role="menu" id="categories">
-        <li><a href="#">Chocolates</a></li>
-        <li><a href="#">Dates</a></li>
-        <li><a href="#">Milk</a></li>
-        <li><a href="#">Gift Pack</a></li>
-        <li><a href="#">Bundles</a></li>
-        <li><a href="#">Basket</a></li>
-        <li><a href="#">Almond</a></li>
-        <li><a href="#">Jelly</a></li>
-        <li><a href="#">Juice</a></li>
-        <li><a href="#">Fresh</a></li>
-        <li><a href="#">Gift Bundle</a></li>
-        <li><a href="#">Coconuts</a></li>
-        <li><a href="#">Chilies</a></li>
-        <li><a href="#">Custard</a></li>
-        <li><a href="#">Toffees</a></li>
-        <li><a href="#">Health and Personal Care</a></li>
-      </ul>
-     </div>
-     <input type="hidden" name="search_param" value="all" id="search_param">
-     <input type="text" class="form-control" name="x" id="search" placeholder="Search  For Products...">
-     <span class="input-group-btn">
-       <button class="btn btn-default" type="button">
-         <span class="glyphicon glyphicon-search"></span>
-       </button>
-   </span>
-    </div>
+                    <div class="col-lg-6 responsive-menu">
+                        @php
+                            $parentCategories = App\Models\ProductCategory::parentCategories()->get();
+                            $products = App\Models\Product::all();
+                        @endphp
+                        <form action="{{route('searchByProduct')}}" method="GET">  
+                        <div class="input-group">
+                            <div class="input-group-btn search-panel">
+                                <select name="category_id" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    <ul class="dropdown-menu scrollable-dropdown" role="menu" id="categories">
+                                     <option value="all"class="caret">All Categories</option>   
+                                        @foreach ($parentCategories as $category)
+                                            <option value="{{$category->id}}"  >{{$category->name}}</option>
+                                        @endforeach
+                                    </ul>
+                                </select>
+                            </div>
+                                {{-- <select name="id" class="form-control">
+                                    <option value="" id="search" >Search Product.....</option>
+                                    @foreach ($products as $product)
+                                        <option value="{{$product->id}}">{{$product->title}}</option>
+                                    @endforeach
+                                </select> --}}
+                                <input type="text" class="form-control" name="name" placeholder="Search  For Products...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </span>
+                        </div>
+                        </form>
                     </div>
-                 
                      <div style=" padding-left: 20px;  padding-top: 10px;   font-size: 20px;" class="col-lg-1 ">
                      <i class="fa fa-list" aria-hidden="true"></i><span style=" padding-left: 33px; "><i class="fa fa-heart-o" aria-hidden="true"></i>
-
-                           
                     </div> 
-                    <!-- <div class="col-lg-1">
-                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-
-                           
-                    </div>  -->
                     <div class="col-lg-2 col-sm-4 cart-megamenu">
                         <div class="cart-hover">
                             <a href="/#"> <img alt="" src="assets/img/icons/cart-icon.png" /> </a>

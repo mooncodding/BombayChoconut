@@ -32,4 +32,15 @@ class HomeController extends Controller
     
         return response()->json(['products' => $products]);
     }
+
+
+    public function searchByProduct(Request $request){
+
+        if ($request->category_id !="all") {
+            $products = Product::where('title','LIKE', '%' . $request->name . '%')->where('product_category_id',$request->category_id)->with(['productVariants'])->get();
+        }else{
+            $products = Product::where('title','LIKE', '%' . $request->name . '%')->with(['productVariants'])->get();
+        }
+        return view('web.searchByProduct')->with('products',$products);        
+    }
 }

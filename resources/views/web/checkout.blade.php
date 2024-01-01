@@ -4,6 +4,7 @@
 <section class="checkout">
     <h1 class="section-title ptb-15" style="text-align: center;"> <span class="light-font">Check</span> <strong>Out </strong>  </h1>
     <form action="{{route('order.store')}}" method="POST" role="form" id="checkout_form">
+        @csrf
         <div class="row">
         <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-5 px-md-1 pl-md-3 px-0 px-lg-3 px-sm-0">
         <div class="bg-white border p-3">

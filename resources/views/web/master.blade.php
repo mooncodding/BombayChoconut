@@ -270,6 +270,9 @@
                       opacity: 0.8;
                       transition: opacity $speed ease-in-out, width 0ms ease-in-out;
                     }
+                    .modal-backdrop.fade.in {
+                        display: none;
+                    }
                     </style>
                           
     </head>
@@ -1209,7 +1212,7 @@
                                             </ul>
                                             <div class="divider-full-1"></div>
                                             <div class="add-cart pt-15">
-                                                <a href="/#" class="theme-btn button js-add-product  add-to-cart-btn" data-product-id="${product.Id}"> <strong> ADD TO CART </strong> </a>
+                                                <a href="/#" class="theme-btn button js-add-product  add-to-cart-btn" data-product-id="${product.id}"> <strong> ADD TO CART </strong> </a>
                                             </div>
                                         </div>
                                     </div>
@@ -1267,7 +1270,7 @@
                         dataType: 'json',
                         success: function (response) {
                             $('#product-preview').hide();
-                            location.reload();
+                            // location.reload();
                         },
                         error: function (error) {
                             console.error('Error adding to cart:', error);
@@ -1343,39 +1346,36 @@
               </p>
               <div class="cart__product js-cart-product-template">
                 <article class="js-cart-product">
-                  {{-- <h1>hello</h1> --}}
-                  {{-- @foreach (Cart::getContent() as $item)
-                                <li class="cart-list">
-                                    <div class="cart-img"> <img src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""> </div>
-                                    <div class="cart-title">
-                                        <div class="fsz-16">
-                                            <a href="/#"> {{$item->name}}</a>
-                                        </div>
-                                        <div class="price"> 
-                                            <strong class="clr-txt">Rs {{$item->price}} </strong>
-                                        </div>
-                                    </div>
-                                    <div class="close-icon">
-                                        <form action="{{route('cart.remove')}}" method="POST">
-                                        @csrf
-                                        <input type="hidden" value="{{ $item->id }}" name="id">
-                                         <button type="submit"><i class="fa fa-close clr-txt"></i></button>
-                                        </form>
-                                    </div>
-                                </li>
-                            @endforeach --}}
+                  @foreach (Cart::getContent() as $item)
+                        <li class="cart-list">
+                            <div class="cart-img"> <img src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""> </div>
+                            <div class="cart-title">
+                                <div class="fsz-16">
+                                    <a href="/#"> {{$item->name}}</a>
+                                </div>
+                                <div class="price"> 
+                                    <strong class="clr-txt">Rs {{$item->price}} </strong>
+                                </div>
+                            </div>
+                            <div class="close-icon">
+                                <form action="{{route('cart.remove')}}" method="POST">
+                                @csrf
+                                <input type="hidden" value="{{ $item->id }}" name="id">
+                                    <button type="submit"><i class="fa fa-close clr-txt"></i></button>
+                                </form>
+                            </div>
+                        </li>
+                    @endforeach
                 </article>
               </div>
             </div>
             <div class="col-lg-2 col-sm-4 cart-megamenu">
-              
-              
 
         </div> 
             <div class="cart__footer">
               <p class="cart__text">
-                <a class="button" href="#" title="Buy products">
-                  Buy products
+                <a class="button" href="/checkout">
+                  Check out
                 </a>
               </p>
             </div>

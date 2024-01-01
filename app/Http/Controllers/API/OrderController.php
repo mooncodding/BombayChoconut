@@ -101,7 +101,7 @@ class OrderController extends Controller
             $order->save();
         }
         \Cart::clear();
-        return redirect()->back()->with('success');
+        return redirect('/thankyou');
     }
 
     /**

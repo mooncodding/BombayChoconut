@@ -22,44 +22,8 @@
                     width: 120px;" src="{{asset('web-assets/images/bombaylogo.png')}}" /> --}}
                         
                         <div class="tabs-box">
-                            <h2 class="section-title ptb-15"> <span class="light-font">Shop By </span> <strong>Categories </strong>  </h2>
-                            <div class="container-fluid"> 
-                            <div class="col-md-12"> 
-                            <div class="tab-content organic-content row"> 
-                            <div id="product-tab-1" class="tab-pane fade active in"> 
-                            <div class="product-slider-1 dots-1">  
-                            <ul class="theme-tabs" id="categories">
-                                <li class="active"><a href="#" data-toggle="tab" class="category-btn" data-id="1">Dry fruits</a></li>  
-                             </ul>                             
-                             <ul class="theme-tabs" id="categories">
-                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="2">Chocolates</a></li> 
-                             </ul>
-                             <ul class="theme-tabs" id="categories">                               
-                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="3">Fresh Biscuit</a></li>
-                             </ul>
-                             <ul class="theme-tabs" id="categories">                               
-                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="4">Gift Boxes</a></li>
-                             </ul>
-                             <ul class="theme-tabs" id="categories">
-                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="5">Fresh Biscuit</a></li> </ul>
-                                <ul class="theme-tabs" id="categories">                               
-                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="6">Gift Boxes</a></li>
-                                </ul>
-                                {{-- <li class="active"><a href="#" data-toggle="tab" class="category-btn" data-id="1">Dry fruits</a></li>   
-                                                              --}}
-                               <ul class="theme-tabs" id="categories">
-                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="7">Chocolates</a></li>   </ul>
-                                <ul class="theme-tabs" id="categories">                             
-                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="8">Fresh Biscuit</a></li> </ul>
-                                <ul class="theme-tabs" id="categories">                               
-                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="9">Gift Boxes</a></li></ul>
-                                <ul class="theme-tabs" id="categories">
-                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="10">Fresh Biscuit</a></li>  
-                                </ul>
-                                <ul class="theme-tabs" id="categories">                              
-                                <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="11">Gift Boxes</a></li>
-                                </ul>
-                        </div>
+                            <h2 class="section-title ptb-15"> <span class="light-font">Shop By </span> <strong>Gift Bundles </strong>  </h2>
+                            {{--  --}}
                     </div>
                     <div class="tab-content shop-content">
                         <div class="row">
@@ -253,7 +217,7 @@
                                     </ul>
                                     <div class="divider-full-1"></div>
                                     <div class="add-cart pt-15">
-                                        <a href="/cart" class="theme-btn btn"> <strong> ADD TO CART </strong> </a>
+                                        <a href="/cart" class="theme-btn btn add-to-cart-btn button js-add-product"> <strong> ADD TO CART </strong> </a>
                                     </div>
                                 </div>
                             </div>

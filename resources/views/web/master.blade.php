@@ -26,7 +26,253 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Color CSS -->       
+        <!-- Color CSS -->    
+        <style>
+            .details {
+              position: relative;
+              width: 100%;
+              height: 100%;
+              float: left;
+            }
+            
+            .thumbnail-container {
+              position: relative;
+              width: 100%;
+              height: 100%;
+              float: left;
+            }
+                        $speed: 250ms;
+                    
+                    body {
+                      background: #F3F3F3;
+                      padding: 0;
+                      margin: 0;
+                      overflow-x: hidden;
+                      
+                      font-family: Arial, sans-serif;
+                      font-size: 16px;
+                      line-height: 20px;
+                    }
+                    
+                    body.open {
+                      overflow-y: hidden;
+                    }
+                    
+                    .shop {
+                      position: relative;
+                      z-index: 5;
+                    }
+                    
+                    .shop__header {
+                      box-sizing: border-box;
+                      position: fixed;
+                      background: rgba(255, 255, 255, 0.9);
+                      width: 100%;
+                      padding: 15px;
+                      overflow: hidden;
+                      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                    }
+                    
+                    .shop__products {
+                      padding-top: 70px;
+                    }
+                    
+                    .shop__title {
+                      display: block;
+                      margin: 0;
+                      float: left;
+                      
+                      font-size: 30px;
+                      line-height: 40px;
+                    }
+                    
+                    .shop__text {
+                      display: block;
+                      padding: 0;
+                      margin: 0;
+                      float: right;
+                      
+                      .button {
+                        padding: 10px 15px;
+                      }
+                    }
+                    
+                    .products {
+                      display: flex;
+                      flex-wrap: wrap;
+                      justify-content: center;
+                      padding: 20px 0 20px 20px;
+                    }
+                    
+                    .products__item {
+                      width: 290px;
+                    }
+                    
+                    .product {
+                      background: #FFF;
+                      padding: 30px 15px;
+                      margin: 0 20px 20px 0;
+                      border-radius: 5px;
+                      text-align: center;
+                    }
+                    
+                    .product__title {
+                      font-weight: bold;
+                      font-size: 20px;
+                      margin: 0 0 15px 0;
+                    }
+                    
+                    .product__text {
+                      margin: 0;
+                    }
+                    
+                    .button {
+                      display: inline-block;
+                      background: #39C;
+                      padding: 5px 10px;
+                      border-radius: 3px;
+                      
+                      font-weight: bold;
+                      font-size: 14px;
+                      text-decoration: none;
+                      color: #FFF;
+                    }
+                    
+                    .button--light {
+                      background: #FFF;
+                      color: #F00;
+                    }
+                    
+                    .cart {
+                      position: fixed;
+                      background: #F3F3F3;
+                      width: 400px;
+                      max-width: 90%;
+                      height: 100%;
+                      top: 0;
+                      right: 0;
+                      box-shadow: -2px 0 4px rgba(0, 0, 0, 0.2);
+                      overflow: hidden;
+                      transform: translate(500px, 0);
+                      transition: transform $speed ease-in-out;
+                      z-index: 20;
+                    }
+                    
+                    body.open .cart {
+                      transform: translate(0, 0);
+                    }
+                    
+                    .cart__header {
+                      box-sizing: border-box;
+                      position: absolute;
+                      background: rgba(255, 255, 255, 0.9);
+                      width: 100%;
+                      padding: 15px 15px;
+                      top: 0;
+                      left: 0;
+                      overflow: hidden;
+                      z-index: 2;
+                      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                      
+                      .cart__text {
+                        float: right;
+                      }
+                    }
+                    
+                    .cart__title {
+                      font-size: 20px;
+                      line-height: 40px;
+                      margin: 0;
+                      float: left;
+                    }
+                    
+                    .cart__products {
+                      box-sizing: border-box;
+                      position: absolute;
+                      width: 100%;
+                      height: 100%;
+                      padding: 70px 0;
+                      overflow-x: hidden;
+                      overflow-y: scroll;
+                      -webkit-overflow-scrolling: touch;
+                      z-index: 1;
+                      
+                      article {
+                        padding: 15px;
+                        border-bottom: 1px dotted #CCC;
+                        
+                        h1 {
+                          font-size: 16px;
+                          line-height: 20px;
+                          margin: 0;
+                        }
+                        
+                        p {
+                          font-size: 14px;
+                          margin: 0;
+                          
+                          a {
+                            color: #F00
+                          }
+                        }
+                      }
+                    }
+                    
+                    .cart__product {
+                      display: none;
+                    }
+                    
+                    .cart__empty {
+                      padding: 30px 15px;
+                      margin: 0;
+                      font-style: italic;
+                      text-align: center;
+                      
+                      &.hide {
+                        display: none;
+                      }
+                    }
+                    
+                    .cart__footer {
+                      box-sizing: border-box;
+                      position: absolute;
+                      background: rgba(255, 255, 255, 0.9);
+                      width: 100%;
+                      padding: 15px;
+                      left: 0;
+                      bottom: 0;
+                      z-index: 2;
+                      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+                      text-align: right;
+                    }
+                    
+                    .cart__text {
+                      margin: 0;
+                      
+                      .button {
+                        padding: 10px 15px;
+                      }
+                    }
+                    
+                    .lightbox {
+                      position: fixed;
+                      background: #000;
+                      width: 0;
+                      height: 100%;
+                      top: 0;
+                      left: 0;
+                      z-index: 10;
+                      opacity: 0;
+                      transition: opacity $speed ease-in-out, width 0ms ease-in-out $speed;
+                    }
+                    
+                    body.open .lightbox {
+                      width: 100%;
+                      opacity: 0.8;
+                      transition: opacity $speed ease-in-out, width 0ms ease-in-out;
+                    }
+                    </style>
+                          
     </head>
 
     <body id="home" class="wide">
@@ -188,6 +434,7 @@
             <div class="down-header">
 <div class="row">
     <div class="col-lg-10 col-md-6 col-sm-12 responsive-menu">  
+
         <div class="responsive-toggle fa fa-bars"> </div>
         <nav class="fix-navbar" id="primary-navigation">            
             <ul class="primary-navbar">                                                
@@ -367,7 +614,327 @@
 </div>
             </div>
             <!-- / Main Header Ends -->   
+<section class="mob-top-header">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3">
+            <p>SUPER DEALS</p>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3">
+            <p>FEATURE PRODUCTS</p>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3">
+            <p>TRENDING PRODUCTS</p>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3">
+            <p>GIFT BASKETS</p>
+        </div>
+    </div>
+</section>
+<section class="mob-top-search">
+    <div class="search-wrap">
+        <input class="form-control" placeholder="" >
+        <button class="btn" type="submit"> <i class="fa fa-search"></i> </button>
+    </div>
+</section>
+<section class="mob-menu-header">
+    <div class="row">
+        <div class="col-lg-10 col-md-6 col-sm-12 responsive-menu">  
+            <div class="responsive-toggle fa fa-bars"> </div>
+            <div class="row mind">
+            <div class="col-lg-4 locator">
+                <a href="/giftbundle">   <i class="fa fa-user-plus" aria-hidden="true"></i>
+                    <p>SIGN IN</p> </a>
+                <span>
+            </div>
+            <div class="col-lg-4 track">
+                <i class="fa fa-heart" aria-hidden="true">&nbsp;
+                </i>
+            <p>TRACK ORDER</p> 
+            </div>
+            <div class="col-lg-4 account">
+                <i class="fa fa-user-plus" aria-hidden="true"></i>
+            <p style="
+            text-align: start;
+        ">
 
+
+                ACCOUNT</p>
+            </div>
+        </div>
+            <section id="marzen" class="tab-panel">
+  
+        
+              
+              <div class="tabset">
+                <!-- Tab 1 -->
+                
+                <input  type="radio" name="tabset" id="tab1" aria-controls="marzen" checked>
+                <label for="tab1" class="menu-tabs1">Menu</label>
+                <!-- Tab 2 -->
+                <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier">
+                <label for="tab2" class="menu-tabs2">Categories</label>
+                
+                <!-- Tab 3 -->
+             
+                
+                <div class="tab-panels">
+                  <section id="marzen" class="tab-panel">
+                   
+                    <nav class="fix-navbar" id="primary-navigation">            
+                        <ul class="primary-navbar">                                                
+                            <li class="dropdown active">
+                                <a href="/" >Home</a>                                            
+                                {{-- <ul class="dropdown-menu">    
+                                    <li><a href="/"> Home 1 </a></li> 
+                                    <li><a href="/index-2"> Home 2 </a></li> 
+                                    <li><a href="/index-3"> Home 3 </a></li>
+                                    <li><a href="/index-4"> Home 4 </a></li>
+                                </ul> --}}
+                            </li> 
+                            <li><a href="/about-us">About Us</a></li>
+                            <li class="dropdown">
+                                <a href="/shop-1"  >Shop</a>                                            
+                                {{-- <ul class="dropdown-menu">    
+                                    <li><a href="/shop-1"> shop </a></li> 
+                                    <li><a href="/shop-2"> shop 2 </a></li> 
+                                    <li><a href="/shop-single"> shop single </a></li>  
+                                    <li><a href="/my-account"> my account </a></li> 
+                                </ul> --}}
+                            </li> 
+                            <li class="dropdown">
+                                <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" >Blog</a>
+                                {{-- <ul class="dropdown-menu">    
+                                    <li><a href="/blog"> blog </a></li>
+                                    <li><a href="/blog-single"> blog single </a></li>                  
+                                </ul> --}}
+                            </li>
+                            <li><a href="/contact">Contact Us</a></li>   
+                           
+                            <li class="dropdown">
+                                <a href="/giftbundle"  >Gift Bundle</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="/specialoffers"  >Special Offers</a>
+                            </li>
+                            
+                        </ul>                           
+                    </nav>
+                </section>
+                  <section id="rauchbier" class="tab-panel">
+                    <ul>
+                        <li><a href="#">Chocolates</a></li>
+                        <li><a href="#">Dates</a></li>
+                        <li><a href="#">Milk</a></li>
+                        <li><a href="#">Gift Pack</a></li>
+                        <li><a href="#">Bundles</a></li>
+                        <li><a href="#">Basket</a></li>
+                        <li><a href="#">Almond</a></li>
+                        <li><a href="#">Jelly</a></li>
+                        <li><a href="#">Juice</a></li>
+                        <li><a href="#">Fresh</a></li>
+                        <li><a href="#">Gift Bundle</a></li>
+                        <li><a href="#">Coconuts</a></li>
+                        <li><a href="#">Chilies</a></li>
+                        <li><a href="#">Custard</a></li>
+                        <li><a href="#">Toffees</a></li>
+                        <li><a href="#">Health and Personal Care</a></li>
+                      </ul>
+                  </section>
+                
+                </div>
+                
+              </div>
+              
+                  
+            
+        
+        </div>
+       <div class="col-lg-2 cart-megamenu">
+    {{-- <div class="mega-submenu">
+    
+    <span class="nav-trigger">
+        <a class="menu-toggle" href="/#"> <img src="assets/img/icons/menu.png" alt="" /> </a>
+    </span>
+    <div class="mega-dropdown-menu">
+        <a class="menu-toggle fa fa-close" href="/#">  </a>
+        <div class="slider-mega-menu">
+            <div class="menu-block">
+                <div class="menu-caption">                                                               
+                    <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Fruits</strong> </h2>
+                    <ul class="sub-list">
+                        <li> <a href="/#">Banana</a> </li>
+                        <li> <a href="/#">Water Melon </a> </li>
+                        <li> <a href="/#">Blackberry </a> </li>
+                        <li> <a href="/#">Plume</a> </li>
+                        <li> <a href="/#">Orange</a> </li>
+                        <li> <a href="/#">Lemon</a> </li>
+                        <li> <a href="/#">Pineapple</a> </li>
+                        <li> <a href="/#">Apple</a> </li>
+                        <li> <a href="/#">Kiwi</a> </li>
+                    </ul>
+                    <h2 class="title"> <a href="/#" class="clr-txt"> All Fruits </a> </h2>
+                </div>
+                <div class="menu-img">
+                    <img alt="" src="assets/img/extra/menu-1.png" />
+                </div>
+            </div>  
+            <div class="menu-block">
+                <div class="menu-caption">                                                               
+                    <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Vegetables</strong> </h2>
+                    <ul class="sub-list">
+                        <li> <a href="/#">Cabbage</a> </li>
+                        <li> <a href="/#">Garlic </a> </li>
+                        <li> <a href="/#">Onion </a> </li>
+                        <li> <a href="/#">Plume</a> </li>
+                        <li> <a href="/#">Carrot</a> </li>
+                        <li> <a href="/#">Papper</a> </li>
+                        <li> <a href="/#">Mushrome</a> </li>
+                        <li> <a href="/#">Apple</a> </li>
+                        <li> <a href="/#">Kiwi</a> </li>
+                    </ul>
+                    <h2 class="title"> <a href="/#" class="clr-txt"> All Vegetables </a> </h2>
+                </div>
+                <div class="menu-img">
+                    <img alt="" src="assets/img/extra/menu-2.png" />
+                </div>
+            </div>  
+            <div class="menu-block">
+                <div class="menu-caption">                                                               
+                    <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Dread Juices</strong> </h2>
+                    <ul class="sub-list">
+                        <li> <a href="/#">Banana Juice</a> </li>
+                        <li> <a href="/#">Water Melon Juice</a> </li>
+                        <li> <a href="/#">Blackberry Juice</a> </li>
+                        <li> <a href="/#">Plume Juice</a> </li>
+                        <li> <a href="/#">Orange Juice</a> </li>
+                        <li> <a href="/#">Lemon Juice</a> </li>
+                        <li> <a href="/#">Pineapple Juice</a> </li>
+                        <li> <a href="/#">Apple Juice</a> </li>
+                        <li> <a href="/#">Kiwi Juice</a> </li>
+                    </ul>
+                    <h2 class="title"> <a href="/#" class="clr-txt"> All Dread juices </a> </h2>
+                </div>
+                <div class="menu-img">
+                    <img alt="" src="assets/img/extra/menu-3.png" />
+                </div>
+            </div>  
+            <div class="menu-block">
+                <div class="menu-caption">                                                               
+                    <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Juices</strong> </h2>
+                    <ul class="sub-list">
+                        <li> <a href="/#">Banana Juice</a> </li>
+                        <li> <a href="/#">Water Melon Juice</a> </li>
+                        <li> <a href="/#">Blackberry Juice</a> </li>
+                        <li> <a href="/#">Plume Juice</a> </li>
+                        <li> <a href="/#">Orange Juice</a> </li>
+                        <li> <a href="/#">Lemon Juice</a> </li>
+                        <li> <a href="/#">Pineapple Juice</a> </li>
+                        <li> <a href="/#">Apple Juice</a> </li>
+                        <li> <a href="/#">Kiwi Juice</a> </li>
+                    </ul>
+                    <h2 class="title"> <a href="/#" class="clr-txt"> All Fresh Juices </a> </h2>
+                </div>
+                <div class="menu-img">
+                    <img alt="" src="assets/img/extra/menu-1.png" />
+                </div>
+            </div>  
+            <div class="menu-block">
+                <div class="menu-caption">                                                               
+                    <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Breads</strong> </h2>
+                    <ul class="sub-list">
+                        <li> <a href="/#">Banana</a> </li>
+                        <li> <a href="/#">Water Melon </a> </li>
+                        <li> <a href="/#">Blackberry </a> </li>
+                        <li> <a href="/#">Plume</a> </li>
+                        <li> <a href="/#">Orange</a> </li>
+                        <li> <a href="/#">Lemon</a> </li>
+                        <li> <a href="/#">Pineapple</a> </li>
+                        <li> <a href="/#">Apple</a> </li>
+                        <li> <a href="/#">Kiwi</a> </li>
+                    </ul>
+                    <h2 class="title"> <a href="/#" class="clr-txt"> All Fresh Bread </a> </h2>
+                </div>
+                <div class="menu-img">
+                    <img alt="" src="assets/img/extra/menu-5.png" />
+                </div>
+            </div>  
+            <div class="menu-block">
+                <div class="menu-caption">                                                               
+                    <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Tea</strong> </h2>
+                    <ul class="sub-list">
+                        <li> <a href="/#">Cabbage</a> </li>
+                        <li> <a href="/#">Garlic </a> </li>
+                        <li> <a href="/#">Onion </a> </li>
+                        <li> <a href="/#">Plume</a> </li>
+                        <li> <a href="/#">Carrot</a> </li>
+                        <li> <a href="/#">Papper</a> </li>
+                        <li> <a href="/#">Mushrome</a> </li>
+                        <li> <a href="/#">Apple</a> </li>
+                        <li> <a href="/#">Kiwi</a> </li>
+                    </ul>
+                    <h2 class="title"> <a href="/#" class="clr-txt"> All Freash Tea </a> </h2>
+                </div>
+                <div class="menu-img">
+                    <img alt="" src="assets/img/extra/menu-6.png" />
+                </div>
+            </div> 
+        </div>
+    </div>
+    </div> --}}
+    <div class="responsive-toggle fa fa-bars"> </div>
+    </div>
+        <div class="col-lg-8 col-md-8 col-sm-8">
+            <div class="main-logo">
+                <img src="{{asset('web-assets/images/logo/bombaylogo.png')}}" alt="">
+               
+            </div>
+        </div>
+        <div class="col-lg-2 col-sm-4 cart-megamenu ">
+            <div class="cart-hover">
+                <a href="/#"> <img alt="" src="assets/img/icons/cart-icon.png" /> </a>
+                <span class="cnt crl-bg">{{ Cart::getTotalQuantity()}}</span> @if (Cart::getTotal())
+                <span class="price">Rs {{Cart::getTotal()}}</span>
+                @endif 
+                @if (count(Cart::getContent()) > 0)
+                <ul class="pop-up-box cart-popup">
+                    @foreach (Cart::getContent() as $item)
+                        <li class="cart-list">
+                            <div class="cart-img"> <img src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""> </div>
+                            <div class="cart-title">
+                                <div class="fsz-16">
+                                    <a href="/#"> {{$item->name}}</a>
+                                </div>
+                                <div class="price"> 
+                                    <strong class="clr-txt">Rs {{$item->price}} </strong>
+                                </div>
+                            </div>
+                            <div class="close-icon">
+                                <form action="{{route('cart.remove')}}" method="POST">
+                                @csrf
+                                <input type="hidden" value="{{ $item->id }}" name="id">
+                                 <button type="submit"><i class="fa fa-close clr-txt"></i></button>
+                                </form>
+                            </div>
+                        </li>
+                    @endforeach
+                    
+                    <li class="cart-list buttons">
+                        <div class="pull-left"> 
+                            <a href="{{route('cart')}}" class="theme-btn-sm-2">View Cart</a>
+                        </div>
+                        <div class="pull-right"> 
+                            <a href="/checkout" class="theme-btn-sm-3"> Checkout </a>
+                        </div>
+                    </li>
+                </ul>
+                    
+                @endif
+            </div>
+          
+
+    </div>
+</div>
+</section>
             @yield('content');
 
             <!-- / CONTENT AREA -->
@@ -671,7 +1238,7 @@
                                             </ul>
                                             <div class="divider-full-1"></div>
                                             <div class="add-cart pt-15">
-                                                <a href="/#" class="theme-btn add-to-cart-btn button js-add-product " data-product-id="${product.id}"> <strong> ADD TO CART </strong> </a>
+                                                <a href="/#" class="theme-btn button js-add-product  add-to-cart-btn" data-product-id="${product.Id}"> <strong> ADD TO CART </strong> </a>
                                             </div>
                                         </div>
                                     </div>
@@ -769,6 +1336,7 @@
         
         function addProduct(e) {
           e.preventDefault();
+          console.log(e)
           openCart();
           $('.js-cart-empty').addClass('hide');
           var product = $('.js-cart-product-template').html();
@@ -778,6 +1346,7 @@
         
         function removeProduct(e) {
           e.preventDefault();
+          
           numberOfProducts--;
           $(this).closest('.js-cart-product').hide(250);
           if(numberOfProducts == 0) {
@@ -786,252 +1355,7 @@
         }
         
         </script>
-        <style>
-            .details {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  float: left;
-}
 
-.thumbnail-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  float: left;
-}
-            $speed: 250ms;
-        
-        body {
-          background: #F3F3F3;
-          padding: 0;
-          margin: 0;
-          overflow-x: hidden;
-          
-          font-family: Arial, sans-serif;
-          font-size: 16px;
-          line-height: 20px;
-        }
-        
-        body.open {
-          overflow-y: hidden;
-        }
-        
-        .shop {
-          position: relative;
-          z-index: 5;
-        }
-        
-        .shop__header {
-          box-sizing: border-box;
-          position: fixed;
-          background: rgba(255, 255, 255, 0.9);
-          width: 100%;
-          padding: 15px;
-          overflow: hidden;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        
-        .shop__products {
-          padding-top: 70px;
-        }
-        
-        .shop__title {
-          display: block;
-          margin: 0;
-          float: left;
-          
-          font-size: 30px;
-          line-height: 40px;
-        }
-        
-        .shop__text {
-          display: block;
-          padding: 0;
-          margin: 0;
-          float: right;
-          
-          .button {
-            padding: 10px 15px;
-          }
-        }
-        
-        .products {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          padding: 20px 0 20px 20px;
-        }
-        
-        .products__item {
-          width: 290px;
-        }
-        
-        .product {
-          background: #FFF;
-          padding: 30px 15px;
-          margin: 0 20px 20px 0;
-          border-radius: 5px;
-          text-align: center;
-        }
-        
-        .product__title {
-          font-weight: bold;
-          font-size: 20px;
-          margin: 0 0 15px 0;
-        }
-        
-        .product__text {
-          margin: 0;
-        }
-        
-        .button {
-          display: inline-block;
-          background: #39C;
-          padding: 5px 10px;
-          border-radius: 3px;
-          
-          font-weight: bold;
-          font-size: 14px;
-          text-decoration: none;
-          color: #FFF;
-        }
-        
-        .button--light {
-          background: #FFF;
-          color: #F00;
-        }
-        
-        .cart {
-          position: fixed;
-          background: #F3F3F3;
-          width: 400px;
-          max-width: 90%;
-          height: 100%;
-          top: 0;
-          right: 0;
-          box-shadow: -2px 0 4px rgba(0, 0, 0, 0.2);
-          overflow: hidden;
-          transform: translate(500px, 0);
-          transition: transform $speed ease-in-out;
-          z-index: 20;
-        }
-        
-        body.open .cart {
-          transform: translate(0, 0);
-        }
-        
-        .cart__header {
-          box-sizing: border-box;
-          position: absolute;
-          background: rgba(255, 255, 255, 0.9);
-          width: 100%;
-          padding: 15px 15px;
-          top: 0;
-          left: 0;
-          overflow: hidden;
-          z-index: 2;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-          
-          .cart__text {
-            float: right;
-          }
-        }
-        
-        .cart__title {
-          font-size: 20px;
-          line-height: 40px;
-          margin: 0;
-          float: left;
-        }
-        
-        .cart__products {
-          box-sizing: border-box;
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          padding: 70px 0;
-          overflow-x: hidden;
-          overflow-y: scroll;
-          -webkit-overflow-scrolling: touch;
-          z-index: 1;
-          
-          article {
-            padding: 15px;
-            border-bottom: 1px dotted #CCC;
-            
-            h1 {
-              font-size: 16px;
-              line-height: 20px;
-              margin: 0;
-            }
-            
-            p {
-              font-size: 14px;
-              margin: 0;
-              
-              a {
-                color: #F00
-              }
-            }
-          }
-        }
-        
-        .cart__product {
-          display: none;
-        }
-        
-        .cart__empty {
-          padding: 30px 15px;
-          margin: 0;
-          font-style: italic;
-          text-align: center;
-          
-          &.hide {
-            display: none;
-          }
-        }
-        
-        .cart__footer {
-          box-sizing: border-box;
-          position: absolute;
-          background: rgba(255, 255, 255, 0.9);
-          width: 100%;
-          padding: 15px;
-          left: 0;
-          bottom: 0;
-          z-index: 2;
-          box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
-          text-align: right;
-        }
-        
-        .cart__text {
-          margin: 0;
-          
-          .button {
-            padding: 10px 15px;
-          }
-        }
-        
-        .lightbox {
-          position: fixed;
-          background: #000;
-          width: 0;
-          height: 100%;
-          top: 0;
-          left: 0;
-          z-index: 10;
-          opacity: 0;
-          transition: opacity $speed ease-in-out, width 0ms ease-in-out $speed;
-        }
-        
-        body.open .lightbox {
-          width: 100%;
-          opacity: 0.8;
-          transition: opacity $speed ease-in-out, width 0ms ease-in-out;
-        }
-        </style>
-           
           
           <aside class="cart js-cart">
             <div class="cart__header">
@@ -1048,7 +1372,8 @@
               </p>
               <div class="cart__product js-cart-product-template">
                 <article class="js-cart-product">
-                    @foreach (Cart::getContent() as $item)
+                  {{-- <h1>hello</h1> --}}
+                  {{-- @foreach (Cart::getContent() as $item)
                                 <li class="cart-list">
                                     <div class="cart-img"> <img src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""> </div>
                                     <div class="cart-title">
@@ -1067,7 +1392,7 @@
                                         </form>
                                     </div>
                                 </li>
-                            @endforeach
+                            @endforeach --}}
                 </article>
               </div>
             </div>

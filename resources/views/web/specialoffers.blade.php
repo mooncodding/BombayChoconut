@@ -253,7 +253,7 @@
                                     </ul>
                                     <div class="divider-full-1"></div>
                                     <div class="add-cart pt-15">
-                                        <a href="/cart" class="theme-btn btn"> <strong> ADD TO CART </strong> </a>
+                                        <a href="/cart" class="theme-btn btn add-to-cart-btn button js-add-product"> <strong> ADD TO CART </strong> </a>
                                     </div>
                                 </div>
                             </div>

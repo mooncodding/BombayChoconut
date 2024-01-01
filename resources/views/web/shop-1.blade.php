@@ -68,7 +68,7 @@
                                     <h2 class="widget-title"> <span class="light-font">Refine by</span> <strong>category</strong> </h2>
                                     <div class="divider-full-1"></div>
                                     <ul class="checkbox-widget">
-                                        <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked="">Fruits
+                                        <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked="">Fruits</label>
                                             <ul class="checkbox-widget">
                                                 <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Deals of the day</span></label> </li>
                                                 <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Fresh shipping</span></label> </li>
@@ -76,7 +76,7 @@
                                                 <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Featured products</span></label> </li>                                    
                                             </ul>
                                         </li>
-                                        <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked="">Fruits
+                                        <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked="">Fruits</label>
                                             <ul class="checkbox-widget">
                                                 <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Deals of the day</span></label> </li>
                                                 <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Fresh shipping</span></label> </li>
@@ -84,7 +84,7 @@
                                                 <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Featured products</span></label> </li>                                    
                                             </ul>
                                         </li>
-                                        <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked="">Fruits
+                                        <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked="">Fruits</label>
                                             <ul class="checkbox-widget">
                                                 <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Deals of the day</span></label> </li>
                                                 <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Fresh shipping</span></label> </li>
@@ -99,7 +99,7 @@
                                     <h2 class="widget-title"> <span class="light-font">Sort by</span> <strong>Price Range</strong> </h2>
                                     <div class="divider-full-1"></div>
                                     <div class="sort-range pt-15">
-                                        <span>PRICE</span> <div id="price-range"></div>
+                                        <span>PRICE</span> 
                                     </div>
                                 </div>
     
@@ -173,6 +173,7 @@
                                     </ul>
                                 </div>
                             </div>
+
     
                             <div class="col-md-9">
                                 <div class="result-bar block-inline">
@@ -217,6 +218,7 @@
                                 </ul>
                                 </div>
                             </div>
+                            
                   </div>
                 </div>
                 </section>
@@ -385,7 +387,7 @@
                                     </ul>
                                     <div class="divider-full-1"></div>
                                     <div class="add-cart pt-15">
-                                        <a href="/cart" class="theme-btn btn"> <strong> ADD TO CART </strong> </a>
+                                        <a href="/cart" class="theme-btn btn add-to-cart-btn button js-add-product"> <strong> ADD TO CART </strong> </a>
                                     </div>
                                 </div>
                             </div>

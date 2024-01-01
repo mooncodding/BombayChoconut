@@ -20,282 +20,40 @@
             <h4 class="sub-title"> SEARCH </h4>
             <h2 class="section-title">  <span class="light-font cate">CATEGORIES </span> </h2>
             <div class="search-wrap">
-                <input class="form-control" placeholder="" >
-                <button class="btn" type="submit"> <i class="fa fa-search"></i> </button>
+                <form action="{{url('/category')}}" method="GET">
+                    <input class="form-control" name="search" placeholder="">
+                    <button class="btn" type="submit"> <i class="fa fa-search"></i> </button>
+                </form>
             </div>
         </div>
-       
-        {{-- <div class="tabs-box text-center">
-            <ul class="theme-tabs small">
-                <li class=""><a href="/#naturix-tab-1" data-toggle="tab"> <span class="light-font">all </span> <strong>gift </strong> </a></li>                                
-                <li class="active"><a href="/#naturix-tab-2" data-toggle="tab"> <span class="light-font">organic </span> <strong>chocolates</strong> </a></li>                               
-                <li class=""><a href="/#naturix-tab-3" data-toggle="tab"> <span class="light-font">organic </span> <strong>dates </strong> </a></li>
-                <li class=""><a href="/#naturix-tab-4" data-toggle="tab"> <span class="light-font">organic </span> <strong>tea </strong> </a></li>
-                <li class=""><a href="/#naturix-tab-5" data-toggle="tab"> <span class="light-font">all </span> <strong>bread </strong> </a></li>
-                <li class=""><a href="/#naturix-tab-6" data-toggle="tab"> <span class="light-font">organic </span> <strong>juices </strong> </a></li>
-            </ul>
-        </div> --}}
-
         <div class="tab-content shop-content">
                         <div id="grid-view" class="tab-pane fade active in" role="tabpanel">
-                            <div class="row"> 
-                                <div class="col-lg-3 col-md-4 col-sm-6"> 
-                                    <div class="product-box"> 
-                                        <div class="product-media"> 
-                                           <img class="prod-img" src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""/>   
-                                            <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
-                                            <div class="prod-icons"> 
-                                                <a href="/#" class="fa fa-heart"></a>
-                                                <a href="/#" class="fa fa-shopping-basket"></a>
-                                                <a  href="/#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                            </div>
-                                        </div>                                           
-                                        <div class="product-caption"> 
-                                            <h3 class="product-title">
-                                           <a href="/shop-single-fullwidth"> <span class="light-font"> organic </span>  <strong>mushroom</strong></a>
-                                            </h3>
-                                            <div class="price"> 
-                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6"> 
-                                    <div class="product-box"> 
-                                        <div class="product-media"> 
-                                              <img class="prod-img" src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""/>      
-                                            <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
-                                            <div class="prod-icons"> 
-                                                <a href="/#" class="fa fa-heart"></a>
-                                                <a href="/#" class="fa fa-shopping-basket"></a>
-                                                <a  href="/#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                            </div>
-                                        </div>                                           
-                                        <div class="product-caption"> 
-                                            <h3 class="product-title">
-                                           <a href="/shop-single-fullwidth"> <span class="light-font"> organic </span>  <strong>onion</strong></a>
-                                            </h3>
-                                            <div class="price"> 
-                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
+                            <div class="row">
+                                @if (count($categories) > 0)
+                                    @foreach ($categories as $category) 
+                                    <div class="col-lg-3 col-md-4 col-sm-6"> 
+                                        <div class="product-box"> 
+                                            <div class="product-media"> 
+                                            <img class="prod-img" src="{{asset('images/product-categories/'.$category->image)}}" alt=""/>   
+                                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
+                                                <div class="prod-icons"> 
+                                                    <a href="/#" class="fa fa-heart"></a>
+                                                    <a href="/#" class="fa fa-shopping-basket"></a>
+                                                    <a  href="/#product-preview" data-toggle="modal" class="fa fa-expand"></a>
+                                                </div>
+                                            </div>                                           
+                                            <div class="product-caption"> 
+                                                <h3 class="product-title">
+                                            <a href="/shop-single-fullwidth"> <span class="light-font"> {{$category->name}}</a>
+                                                </h3>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6"> 
-                                    <div class="product-box"> 
-                                        <div class="product-media"> 
-                                              <img class="prod-img" src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""/>      
-                                            <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
-                                            <div class="prod-icons"> 
-                                                <a href="/#" class="fa fa-heart"></a>
-                                                <a href="/#" class="fa fa-shopping-basket"></a>
-                                                <a  href="/#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                            </div>
-                                        </div>
-
-                                        <div class="product-caption"> 
-                                            <h3 class="product-title">
-                                           <a href="/shop-single-fullwidth"> <span class="light-font"> organic </span>  <strong>cherry</strong></a>
-                                            </h3>
-                                            <div class="price"> 
-                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6"> 
-                                    <div class="product-box"> 
-                                        <div class="product-media"> 
-                                              <img class="prod-img" src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""/>      
-                                            <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
-                                            <div class="prod-icons"> 
-                                                <a href="/#" class="fa fa-heart"></a>
-                                                <a href="/#" class="fa fa-shopping-basket"></a>
-                                                <a  href="/#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                            </div>
-                                        </div>                                           
-                                        <div class="product-caption"> 
-                                            <h3 class="product-title">
-                                           <a href="/shop-single-fullwidth"> <span class="light-font"> organic </span>  <strong>pinapple</strong></a>
-                                            </h3>
-                                            <div class="price"> 
-                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                                <div class="col-lg-3 col-md-4 col-sm-6"> 
-                                    <div class="product-box"> 
-                                        <div class="product-media"> 
-                                              <img class="prod-img" src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""/>      
-                                            <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
-                                            <div class="prod-icons"> 
-                                                <a href="/#" class="fa fa-heart"></a>
-                                                <a href="/#" class="fa fa-shopping-basket"></a>
-                                                <a  href="/#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                            </div>
-                                        </div>                                           
-                                        <div class="product-caption"> 
-                                            <h3 class="product-title">
-                                           <a href="/shop-single-fullwidth"> <span class="light-font"> organic </span>  <strong>cabbage</strong></a>
-                                            </h3>
-                                            <div class="price"> 
-                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6"> 
-                                    <div class="product-box"> 
-                                        <div class="product-media"> 
-                                              <img class="prod-img" src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""/>      
-                                            <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
-                                            <div class="prod-icons"> 
-                                                <a href="/#" class="fa fa-heart"></a>
-                                                <a href="/#" class="fa fa-shopping-basket"></a>
-                                                <a  href="/#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                            </div>
-                                        </div>                                           
-                                        <div class="product-caption"> 
-                                            <h3 class="product-title">
-                                           <a href="/shop-single-fullwidth"> <span class="light-font"> green </span>  <strong>salad</strong></a>
-                                            </h3>
-                                            <div class="price"> 
-                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6"> 
-                                    <div class="product-box"> 
-                                        <div class="product-media"> 
-                                              <img class="prod-img" src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""/>      
-                                            <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
-                                            <div class="prod-icons"> 
-                                                <a href="/#" class="fa fa-heart"></a>
-                                                <a href="/#" class="fa fa-shopping-basket"></a>
-                                                <a  href="/#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                            </div>
-                                        </div>
-
-                                        <div class="product-caption"> 
-                                            <h3 class="product-title">
-                                           <a href="/shop-single-fullwidth"> <span class="light-font"> organic </span>  <strong>pepper </strong></a>
-                                            </h3>
-                                            <div class="price"> 
-                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6"> 
-                                    <div class="product-box"> 
-                                        <div class="product-media"> 
-                                              <img class="prod-img" src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""/>      
-                                            <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
-                                            <div class="prod-icons"> 
-                                                <a href="/#" class="fa fa-heart"></a>
-                                                <a href="/#" class="fa fa-shopping-basket"></a>
-                                                <a  href="/#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                            </div>
-                                        </div>                                           
-                                        <div class="product-caption"> 
-                                            <h3 class="product-title">
-                                           <a href="/shop-single-fullwidth"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
-                                            </h3>
-                                            <div class="price"> 
-                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                                <div class="col-lg-3 col-md-4 col-sm-6"> 
-                                    <div class="product-box"> 
-                                        <div class="product-media"> 
-                                              <img class="prod-img" src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""/>      
-                                            <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
-                                            <div class="prod-icons"> 
-                                                <a href="/#" class="fa fa-heart"></a>
-                                                <a href="/#" class="fa fa-shopping-basket"></a>
-                                                <a  href="/#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                            </div>
-                                        </div>
-
-                                        <div class="product-caption"> 
-                                            <h3 class="product-title">
-                                           <a href="/shop-single-fullwidth"> <span class="light-font"> organic </span>  <strong>cherry</strong></a>
-                                            </h3>
-                                            <div class="price"> 
-                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6"> 
-                                    <div class="product-box"> 
-                                        <div class="product-media"> 
-                                              <img class="prod-img" src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""/>      
-                                            <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
-                                            <div class="prod-icons"> 
-                                                <a href="/#" class="fa fa-heart"></a>
-                                                <a href="/#" class="fa fa-shopping-basket"></a>
-                                                <a  href="/#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                            </div>
-                                        </div>                                           
-                                        <div class="product-caption"> 
-                                            <h3 class="product-title">
-                                           <a href="/shop-single-fullwidth"> <span class="light-font"> organic </span>  <strong>pinapple</strong></a>
-                                            </h3>
-                                            <div class="price"> 
-                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                                <div class="col-lg-3 col-md-4 col-sm-6"> 
-                                    <div class="product-box"> 
-                                        <div class="product-media"> 
-                                              <img class="prod-img" src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""/>      
-                                            <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
-                                            <div class="prod-icons"> 
-                                                <a href="/#" class="fa fa-heart"></a>
-                                                <a href="/#" class="fa fa-shopping-basket"></a>
-                                                <a  href="/#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                            </div>
-                                        </div>                                           
-                                        <div class="product-caption"> 
-                                            <h3 class="product-title">
-                                           <a href="/shop-single-fullwidth"> <span class="light-font"> organic </span>  <strong>cabbage</strong></a>
-                                            </h3>
-                                            <div class="price"> 
-                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6"> 
-                                    <div class="product-box"> 
-                                        <div class="product-media"> 
-                                              <img class="prod-img" src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""/>      
-                                            <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
-                                            <div class="prod-icons"> 
-                                                <a href="/#" class="fa fa-heart"></a>
-                                                <a href="/#" class="fa fa-shopping-basket"></a>
-                                                <a  href="/#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                            </div>
-                                        </div>                                           
-                                        <div class="product-caption"> 
-                                            <h3 class="product-title">
-                                           <a href="/shop-single-fullwidth"> <span class="light-font"> green </span>  <strong>salad</strong></a>
-                                            </h3>
-                                            <div class="price"> 
-                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>                                
+                                    @endforeach
+                                @else
+                                    <h2 class="text-danger">No Record Found</h2>
+                                @endif                               
                             </div>
-
                             <div class="rel-div pt-50">
                                 <div class="divider-full-1"></div>
                                 <div class="nav-page">

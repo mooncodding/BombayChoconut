@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\Web\CartController;
+use App\Http\Controllers\Web\CategoryController;
 use App\Http\Controllers\Web\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +19,8 @@ use Illuminate\Support\Facades\Route;
 // Home Page
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/products/filter/{category}', [HomeController::class, 'filterByCategory']);
-
+Route::get('/searchByProduct', [HomeController::class, 'searchByProduct'])->name('searchByProduct');
+Route::get('/category', [CategoryController::class, 'index']);
 Route::get('/404', function () {
     return view('web.404');
 });
@@ -105,9 +107,6 @@ Route::get('/giftbundle', function () {
 });
 Route::get('/specialoffers', function () {
     return view('web.specialoffers');
-});
-Route::get('/category', function () {
-    return view('web.category');
 });
 Route::get('/thankyou', function () {
     return view('web.thankyou');

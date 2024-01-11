@@ -33,13 +33,9 @@
               height: 100%;
               float: left;
             }
-            
-            .thumbnail-container {
-              position: relative;
-              width: 100%;
-              height: 100%;
-              float: left;
-            }
+            * {box-sizing: border-box;}
+
+
                         $speed: 250ms;
                     
                     body {
@@ -274,6 +270,62 @@
                         display: none;
                     }
                     </style>
+                    <script>
+                        function imageZoom(imgID, resultID) {
+              var img, lens, result, cx, cy;
+              img = document.getElementById(imgID);
+              result = document.getElementById(resultID);
+              /* Create lens: */
+              lens = document.createElement("DIV");
+              lens.setAttribute("class", "img-zoom-lens");
+              /* Insert lens: */
+              img.parentElement.insertBefore(lens, img);
+              /* Calculate the ratio between result DIV and lens: */
+              cx = result.offsetWidth / lens.offsetWidth;
+              cy = result.offsetHeight / lens.offsetHeight;
+              /* Set background properties for the result DIV */
+              result.style.backgroundImage = "url('" + img.src + "')";
+              result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+              /* Execute a function when someone moves the cursor over the image, or the lens: */
+              lens.addEventListener("mousemove", moveLens);
+              img.addEventListener("mousemove", moveLens);
+              /* And also for touch screens: */
+              lens.addEventListener("touchmove", moveLens);
+              img.addEventListener("touchmove", moveLens);
+              function moveLens(e) {
+                var pos, x, y;
+                /* Prevent any other actions that may occur when moving over the image */
+                e.preventDefault();
+                /* Get the cursor's x and y positions: */
+                pos = getCursorPos(e);
+                /* Calculate the position of the lens: */
+                x = pos.x - (lens.offsetWidth / 2);
+                y = pos.y - (lens.offsetHeight / 2);
+                /* Prevent the lens from being positioned outside the image: */
+                if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+                if (x < 0) {x = 0;}
+                if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+                if (y < 0) {y = 0;}
+                /* Set the position of the lens: */
+                lens.style.left = x + "px";
+                lens.style.top = y + "px";
+                /* Display what the lens "sees": */
+                result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+              }
+              function getCursorPos(e) {
+                var a, x = 0, y = 0;
+                e = e || window.event;
+                /* Get the x and y positions of the image: */
+                a = img.getBoundingClientRect();
+                /* Calculate the cursor's x and y coordinates, relative to the image: */
+                x = e.pageX - a.left;
+                y = e.pageY - a.top;
+                /* Consider any page scrolling: */
+                x = x - window.pageXOffset;
+                y = y - window.pageYOffset;
+                return {x : x, y : y};
+              }
+            }</script>
                           
     </head>
 
@@ -361,8 +413,8 @@
                      <i class="fa fa-list" aria-hidden="true"></i><span style=" padding-left: 33px; "><i class="fa fa-heart-o" aria-hidden="true"></i>
                     </div> 
                     <div class="col-lg-2 col-sm-4 cart-megamenu">
-                        <div class="cart-hover">
-                            <a href="/#"> <img alt="" src="assets/img/icons/cart-icon.png" /> </a>
+                        <div class="cart-hover modal-open" id="openCartButton">
+                            <a id="openCartButton" href=""> <img  src="assets/img/icons/cart-icon.png" /> </a>
                             <span class="cnt crl-bg">{{ Cart::getTotalQuantity()}}</span> @if (Cart::getTotal())
                             <span class="price">Rs {{Cart::getTotal()}}</span>
                             @endif 
@@ -1088,14 +1140,14 @@
                     // Loop through the products and generate HTML for each product card
                     $.each(products, function (index, product) {
                         let productCard = `
-                   
+                        
                                     <div class="item">
                                         <div class="product-box">
 
                                        
                                             <div class="product-media "> 
                                                
-                                                <img class="prod-img drift-demo-trigger" data-zoom="{{asset('images/product-images/${product.photo}')}}" src="{{asset('images/product-images/${product.photo}')}}" alt=""/>     
+                                                <img class="prod-img drift-demo-trigger " data-zoom="{{asset('images/product-images/${product.photo}')}}" src="{{asset('images/product-images/${product.photo}')}}" alt=""/>     
 
                                              
                                                 <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
@@ -1117,10 +1169,9 @@
                                             </div>
                                         </div>
                                       
-                                    </div>
+                                  </div>  
                              
                     
-                           
                                         `;
                         // Append the product card HTML to the products container
                         productsContainer.append(productCard);
@@ -1159,8 +1210,9 @@
                                     <div class="prod-slider sync1">
                                     
                               <div id='slideshow-items-container'>
-                                        <div class="item slideshow-items"> 
-                                        <img src="{{asset('images/product-images/${product.photo}')}}" data-image="${product.photo}" width="300" alt=""/>
+                                        <div class="item slideshow-items img-zoom-container"> 
+                                        <img id="myimage"  src="{{asset('images/product-images/${product.photo}')}}" data-image="${product.photo}" width="300" alt=""/>
+                                        <div id="myresult" class="img-zoom-result"></div>
                                             <a href="/assets/img/products/prod-big-1.png" data-gal="prettyPhoto[prettyPhoto]" title="Product" class="caption-link"><i class="arrow_expand"></i></a>
                                         </div>
                                     </div>
@@ -1212,7 +1264,7 @@
                                             </ul>
                                             <div class="divider-full-1"></div>
                                             <div class="add-cart pt-15">
-                                                <a href="/#" class="theme-btn button js-add-product  add-to-cart-btn" data-product-id="${product.id}"> <strong> ADD TO CART </strong> </a>
+                                                <a href="/#" class="theme-btn js-add-product  add-to-cart-btn" data-product-id="${product.id}"> <strong> ADD TO CART </strong> </a>
                                             </div>
                                         </div>
                                     </div>
@@ -1240,6 +1292,18 @@
 
                     // Set up click event for "Add to Cart" buttons
                     $('#product-preview').on('click', '.add-to-cart-btn', function () {
+                        var productId = $(this).data('product-id');
+                        var quantity = document.getElementById('quatity').value;
+                        var variant_id = variantId;
+                       array=[{
+                            'product_id': parseInt(productId),
+                            'quantity': parseInt(quantity),
+                            'variant_id': parseInt(variant_id),
+                        }];
+                        addToCart(array);
+                    });
+                    $('.modal-open').on('click', '.add-to-cart-btn', function () {
+                        // console.log(123)
                         var productId = $(this).data('product-id');
                         var quantity = document.getElementById('quatity').value;
                         var variant_id = variantId;
@@ -1282,6 +1346,9 @@
 
         </script>
         <script>
+            imageZoom("myimage", "myresult");
+            </script>
+        <script>
             var cartOpen = false;
         var numberOfProducts = 0;
         
@@ -1304,7 +1371,7 @@
         }
         
         function closeCart() {
-          cartOpen = false;
+          cartOpen = true;
           $('body').removeClass('open');
         }
         
@@ -1327,10 +1394,10 @@
             $('.js-cart-empty').removeClass('hide');
           }
         }
-        
+ 
         </script>
 
-          
+ 
           <aside class="cart js-cart">
             <div class="cart__header">
               <h1 class="cart__title">Shopping cart</h1>
@@ -1356,12 +1423,19 @@
                                 <div class="price"> 
                                     <strong class="clr-txt">Rs {{$item->price}} </strong>
                                 </div>
+                               
                             </div>
+                            <div class="quantity-product">
+                                <p>Quantity </p>
+                                <p>x1</p>
+                                
+                            </div>
+
                             <div class="close-icon">
                                 <form action="{{route('cart.remove')}}" method="POST">
                                 @csrf
                                 <input type="hidden" value="{{ $item->id }}" name="id">
-                                    <button type="submit"><i class="fa fa-close clr-txt"></i></button>
+                                    <button type="submit"><i class="fa fa-trash clr-txt"></i></button>
                                 </form>
                             </div>
                         </li>
@@ -1373,12 +1447,18 @@
 
         </div> 
             <div class="cart__footer">
+                <div class="width-price">
+                <p class="text-left">Total Price: <span class="price"> Rs {{Cart::getTotal()}}</span></p>
+            </div>
+            <div class="foter-check">
               <p class="cart__text">
+                
                 <a class="button" href="/checkout">
                   Check out
                 </a>
               </p>
             </div>
+        </div>
           </aside>
           
           <div class="lightbox js-lightbox js-toggle-cart"></div>

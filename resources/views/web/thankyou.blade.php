@@ -5,7 +5,7 @@
     <h1 class="section-title ptb-15" style="text-align: center;"> <span class="light-font">Thank</span> <strong>You </strong>  </h1>
     <p>Your order has been placed successfully.</p>
     <p>We appreciate your business and hope to see you again soon.</p>
-    <a href="shop.html" class="continue-btn">Continue Shopping</a>
+    
 </div>
 
 </section>
@@ -40,6 +40,7 @@
            width: 15%;
        ">QTY</th>
            <th class="text-uppercase">Price</th>
+           <th class="text-uppercase">Tax Amount</th>
            <th >Total Price</th>
            </tr>
            </thead>
@@ -70,6 +71,9 @@
            </td>
            <td>
            <p>Rs.<span id="cart_row_price0">2,180</span></p>
+           </td>
+            <td>
+           <p>Rs.<span id="cart_row_price0">50</span></p>
            </td>
            <td >
             <p>Rs.<span id="cart_row_price0">2,180</span></p>
@@ -102,6 +106,9 @@
            <td>
            <p>Rs.<span id="cart_row_price2">2,000</span></p>
            </td>
+           <td>
+            <p>Rs.<span id="cart_row_price0">50</span></p>
+            </td>
            <td >
             <p>Rs.<span id="cart_row_price0">2,180</span></p>
            </td>
@@ -133,8 +140,11 @@
            <td>
            <p>Rs.<span id="cart_row_price3">4,500</span></p>
            </td>
+           <td>
+            <p>Rs.<span id="cart_row_price0">50</span></p>
+            </td>
            <td >
-            <p>Rs.<span id="cart_row_price0">2,180</span></p>>
+            <p>Rs.<span id="cart_row_price0">2,180</span></p>
            </td>
            </tr>
            <input type="hidden" id="gid1189" value="1189">
@@ -164,6 +174,9 @@
            <td>
            <p>Rs.<span id="cart_row_price4">500</span></p>
            </td>
+           <td>
+            <p>Rs.<span id="cart_row_price0">50</span></p>
+            </td>
            <td >
             <p>Rs.<span id="cart_row_price0">2,180</span></p>
            </td>
@@ -178,7 +191,7 @@
            <div id="cart_total_container" class="panel-body text-dark mb-3"><table class="table table-bordered bg-white mb-0">
                            <tbody class="text-left">
                            <input type="hidden" name="check_amount" value="9180">
-                           <tr><td>Invoice Total:</td><td class="text-right">Rs.9,180</td></tr> <tr class="mbl_charges_total"><td>Delivery Charges : </td><td class="text-right charges_checkout pl-md-0 pl-2">Rs.507</td></tr>  </tbody>
+                           <tr><td>Invoice Total:</td><td class="text-right">Rs.9,180</td></tr><tr><td>Total Tax Amount</td><td class="text-right">Rs.80</td></tr> <tr class="mbl_charges_total"><td>Delivery Charges : </td><td class="text-right charges_checkout pl-md-0 pl-2">Rs.507</td></tr>  </tbody>
                            <tfoot>
                            <tr class="mbl_total bg-white" style="width: 63%;"><td><strong>Net Total : </strong></td><td class="text-right charges_checkout_total pl-md-0 pl-2"><strong>Rs.9687</strong></td></tr>
            

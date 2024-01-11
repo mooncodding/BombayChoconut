@@ -140,45 +140,38 @@
             {{-- <img class="logo-img" alt style="
         width: 120px;" src="{{asset('web-assets/images/bombaylogo.png')}}" /> --}}
             
-            <div class="tabs-box">
+            
                 <h2 class="section-title ptb-15"> <span class="light-font">Shop By </span> <strong>Categories </strong>  </h2>
-                <div class="container-fluid"> 
-                <div class="col-md-12"> 
-                <div class="tab-content organic-content row"> 
-                <div id="product-tab-1" class="tab-pane fade active in"> 
-                <div class="product-slider-1 dots-1">  
+                <div class="tabs-box">
+                  
+                  
                 <ul class="theme-tabs" id="categories">
-                    <li class="active"><a href="#" data-toggle="tab" class="category-btn" data-id="1">Dry fruits</a></li>  
-                 </ul>                             
-                 <ul class="theme-tabs" id="categories">
+                    <div class="container-fluid"> 
+                        <div class="col-md-12"> 
+                        <div class="tab-content organic-content row"> 
+                        
+                        <div class="product-slider-1 dots-1">
+                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="1">Dry fruits</a></li>  
+                 
                     <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="2">Chocolates</a></li> 
-                 </ul>
-                 <ul class="theme-tabs" id="categories">                               
+                                             
                     <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="3">Fresh Biscuit</a></li>
-                 </ul>
-                 <ul class="theme-tabs" id="categories">                               
+                                               
                     <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="4">Gift Boxes</a></li>
-                 </ul>
-                 <ul class="theme-tabs" id="categories">
-                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="5">Fresh Biscuit</a></li> </ul>
-                    <ul class="theme-tabs" id="categories">                               
+                
+                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="5">Fresh Biscuit</a></li>                           
                     <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="6">Gift Boxes</a></li>
-                    </ul>
-                    {{-- <li class="active"><a href="#" data-toggle="tab" class="category-btn" data-id="1">Dry fruits</a></li>   
-                                                  --}}
-                   <ul class="theme-tabs" id="categories">
-                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="7">Chocolates</a></li>   </ul>
-                    <ul class="theme-tabs" id="categories">                             
-                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="8">Fresh Biscuit</a></li> </ul>
-                    <ul class="theme-tabs" id="categories">                               
-                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="9">Gift Boxes</a></li></ul>
-                    <ul class="theme-tabs" id="categories">
+                 
+                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="7">Chocolates</a></li>                       
+                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="8">Fresh Biscuit</a></li>                       
+                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="9">Gift Boxes</a></li>
                     <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="10">Fresh Biscuit</a></li>  
-                    </ul>
-                    <ul class="theme-tabs" id="categories">                              
+                                             
                     <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="11">Gift Boxes</a></li>
-                    </ul>
-            </div>
+                   
+                </ul>
+           
+        </div>
         </div>
     </div>
 </div>
@@ -187,7 +180,7 @@
 </div>
     </div>
     <div class="container-fluid"> 
-        <div class="col-md-12"> 
+        <div class="col-md-12 center-btn"> 
             <div class="tab-content organic-content row"> 
                 <div id="product-tab-1" class="tab-pane fade active in"> 
                     <div class="product-slider-1 dots-1"> 
@@ -195,9 +188,13 @@
                             <div class="productCards">
 
                             </div>
+                           
                     </div>
+                    
                 </div>
+               
              </div> 
+             <a href="/shop" class="theme-btn btn "> <strong> View All Products</strong> </a>
             </div>
        
     </div>

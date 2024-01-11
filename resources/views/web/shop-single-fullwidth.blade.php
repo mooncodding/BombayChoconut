@@ -24,25 +24,29 @@
                                 <!-- Single Products Slider Starts --> 
                                 <div class="col-lg-6 pb-50 col-sm-8 col-sm-offset-2 col-lg-offset-0">
                                     <div class="prod-slider sync1">
-                                        <div class="item"> 
-                                            <img src="assets/img/products/prod-single-1.png" alt="">                                           
+                                        <div class="item img-zoom-container"> 
+                                            <img id="myimage" src="{{asset('web-assets/images/giftboxes/1.png')}}" alt=""/> 
+                                            <div id="myresult" class="img-zoom-result"></div>                                         
                                         </div>
-                                        <div class="item"> 
-                                            <img src="assets/img/products/prod-single-2.png" alt="">                                             
+                                        <div class="item img-zoom-container"> 
+                                            <img id="myimage" src="{{asset('web-assets/images/giftboxes/1.png')}}" alt=""/> 
+                                            <div id="myresult" class="img-zoom-result"></div>                                         
                                         </div>
-                                        <div class="item"> 
-                                            <img src="assets/img/products/prod-single-3.png" alt="">                                          
-                                        </div> 
-                                        <div class="item"> 
-                                            <img src="assets/img/products/prod-single-1.png" alt="">                                            
-                                        </div> 
+                                        <div class="item img-zoom-container"> 
+                                            <img id="myimage" src="{{asset('web-assets/images/giftboxes/1.png')}}" alt=""/> 
+                                            <div id="myresult" class="img-zoom-result"></div>                                         
+                                        </div>
+                                        <div class="item img-zoom-container"> 
+                                            <img id="myimage" src="{{asset('web-assets/images/giftboxes/1.png')}}" alt=""/> 
+                                            <div id="myresult" class="img-zoom-result"></div>                                         
+                                        </div>
                                     </div>
 
                                     <div  class="sync2">
-                                        <div class="item"> <a href="/#"> <img src="assets/img/products/thumb-1.png" alt=""> </a> </div>
-                                        <div class="item"> <a href="/#"> <img src="assets/img/products/thumb-2.png" alt=""> </a> </div>
-                                        <div class="item"> <a href="/#"> <img src="assets/img/products/thumb-3.png" alt=""> </a> </div>
-                                        <div class="item"> <a href="/#"> <img src="assets/img/products/thumb-1.png" alt=""> </a> </div>
+                                        <div class="item "> <a href="/#">   <img id="myimage" src="{{asset('web-assets/images/giftboxes/1.png')}}" alt=""/> </a> </div>
+                                        <div class="item"> <a href="/#">   <img  id="myimage" src="{{asset('web-assets/images/giftboxes/1.png')}}" alt=""/> </a> </div>
+                                        <div class="item"> <a href="/#">   <img id="myimage" src="{{asset('web-assets/images/giftboxes/1.png')}}" alt=""/> </a> </div>
+                                        <div class="item"> <a href="/#">   <img id="myimage" src="{{asset('web-assets/images/giftboxes/1.png')}}" alt=""/> </a> </div>
                                     </div>
                                 </div>
                                 <!-- Single Products Slider Ends --> 

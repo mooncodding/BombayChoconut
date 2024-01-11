@@ -197,6 +197,7 @@
                                 <div id="list-view" class="tab-pane fade productShopCards" role="tabpanel">
                                 </div>
                         </div>
+                        
                     </div>
                 </div>
             </section>
@@ -277,11 +278,13 @@
                                                 <strong class="clr-txt">Rs ${product.product_variants[0].sale_price}</strong>
                                             </div>
                                         </div>
+                                        
                                     </div>
                                 </div>
                             </div>
                         
                     </div>
+                    
                                 `;
                 // Append the product card HTML to the products container
                 productsContainer.append(productCard);

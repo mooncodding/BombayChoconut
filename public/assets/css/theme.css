@@ -965,6 +965,44 @@ section.organic-farm.sec-space-top.light-bg h4 {
 .col-md-12.center-btn {
     text-align: center;
 }
+li.hish :focus {
+    background-color: #b81f31;
+color: white !important;
+    border:1px solid white !important;
+}
+div#product-tab-2 .product-media {
+    background-color: #b81f31 !important;
+}
+div#product-tab-3 .product-media {
+    background-color: aqua !important;
+}
+div#product-tab-4 .product-media {
+    background-color: cornflowerblue !important;
+}
+div#product-tab-5 .product-media {
+    background-color: chartreuse !important;
+}
+div#product-tab-6 .product-media {
+    background-color: cadetblue !important;
+}
+div#product-tab-7 .product-media {
+    background-color: brown !important;
+}
+div#product-tab-8 .product-media {
+    background-color: burlywood !important;
+}
+div#product-tab-9 .product-media {
+    background-color: peru !important;
+}
+div#product-tab-10 .product-media {
+    background-color: purple !important;
+}
+div#product-tab-11 .product-media {
+    background-color: black !important;
+}
+div#product-tab-12 .product-media {
+    background-color: #999999 !important;
+}
 .form-group [type="radio"] + span::before {
     color: #999999;
     content: "\f10c";

@@ -114,6 +114,12 @@ Route::get('/thankyou', function () {
 Route::get('/tracking', function () {
     return view('web.tracking');
 });
+Route::get('/wishlist', function () {
+    return view('web.wishlist');
+});
+Route::get('/wishlist-product', function () {
+    return view('web.wishlist-product');
+});
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/cart/store', [CartController::class, 'store'])->name('cart.store');
 Route::post('/cart/update', [CartController::class, 'cartUpdate'])->name('cart.update');

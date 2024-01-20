@@ -78,7 +78,7 @@
 <h1>The Perfect <br>Dry Fruits Store</h1>
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci dolorum natus eaque pariatur maiores quas illum ex temporibus est perspiciatis. Quos nobis doloremque harum voluptate dignissimos quaerat excepturi accusamus ducimus!</p>
 
-<a href="/#" class="slide-btn"> Shop Now</a>  
+<a href="/shop" class="slide-btn"> Shop Now</a>  
 </div>
     <div class="home-banner-image">
     <img  src="{{asset('web-assets/images/product/3-removebg-preview.png')}}" />
@@ -151,21 +151,21 @@
                         <div class="tab-content organic-content row"> 
                         
                         <div class="product-slider-1 dots-1">
-                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="1">Dry fruits</a></li>  
+                    <li class="hish"><a href="#" data-toggle="tab" class="category-btn" data-id="1">Dry fruits</a></li>  
                  
-                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="2">Chocolates</a></li> 
+                    <li class="hish"><a href="#" data-toggle="tab" class="category-btn" data-id="2">Chocolates</a></li> 
                                              
-                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="3">Fresh Biscuit</a></li>
+                    <li class="hish"><a href="#" data-toggle="tab" class="category-btn" data-id="3">Fresh Biscuit</a></li>
                                                
-                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="4">Gift Boxes</a></li>
+                    <li class="hish"><a href="#" data-toggle="tab" class="category-btn" data-id="4">Gift Boxes</a></li>
                 
-                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="5">Fresh Biscuit</a></li>                           
-                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="6">Gift Boxes</a></li>
+                    <li class="hish"><a href="#" data-toggle="tab" class="category-btn" data-id="5">Fresh Biscuit</a></li>                           
+                    <li class="hish"><a href="#" data-toggle="tab" class="category-btn" data-id="6">Gift Boxes</a></li>
                  
-                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="7">Chocolates</a></li>                       
-                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="8">Fresh Biscuit</a></li>                       
-                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="9">Gift Boxes</a></li>
-                    <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="10">Fresh Biscuit</a></li>  
+                    <li class="hish"><a href="#" data-toggle="tab" class="category-btn" data-id="7">Chocolates</a></li>                       
+                    <li class="hish"><a href="#" data-toggle="tab" class="category-btn" data-id="8">Fresh Biscuit</a></li>                       
+                    <li class="hish"><a href="#" data-toggle="tab" class="category-btn" data-id="9">Gift Boxes</a></li>
+                    <li class="hish"><a href="#" data-toggle="tab" class="category-btn" data-id="10">Fresh Biscuit</a></li>  
                                              
                     <li class=""><a href="#" data-toggle="tab" class="category-btn" data-id="11">Gift Boxes</a></li>
                    
@@ -201,7 +201,7 @@
 
 </section>
 <!-- / Organic All Ends -->
-<section class="organic-all sec-space-bottom">
+{{-- <section class="organic-all sec-space-bottom">
     
     <div class="container">                    
         <div class="organic-wrap"> 
@@ -5893,7 +5893,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <!-- Organic Farmfood Starts-->
 <section class="organic-farm sec-space-top light-bg " style=" background-image: url({{asset('web-assets/images/product/5-removebg-preview.png')}}) ;">
   

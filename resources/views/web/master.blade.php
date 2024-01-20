@@ -336,7 +336,7 @@
             <div class="top-header">
                 <div class="row">
                     <div class="col-lg-5">
-                        <p>SUPER DEALS <span style="padding-left:10px;">   FEATURE PRODUCTS <span style="padding-left:10px;">  TRENDING PRODUCTS <span style="padding-left:10px;">  GIFT BASKETS</p>
+                        <a href="/specialoffers">  <p>SUPER DEALS <span style="padding-left:10px;">   FEATURE PRODUCTS <span style="padding-left:10px;">  TRENDING PRODUCTS <span style="padding-left:10px;">  GIFT BASKETS</p></a>
                     </div>
                     <div class="col-lg-2">
                     </div>
@@ -346,19 +346,19 @@
                         <span>
                     </div>
                     <div class="col-lg-2 track">
-                    <p style="
+                        <a href="/tracking">  <p style="
                     border-right: 1px solid white;
                     border-left: 1px solid white;
                         "><i class="fa fa-heart" aria-hidden="true">&nbsp;
-                            </i>TRACK YOUR ORDER</p> 
+                            </i>TRACK YOUR ORDER</p> </a>
                             </div>
                             <div class="col-lg-1">
-                            <p style="
+                                <a href="/wishlist">  <p style="
                             text-align: start;
                         "><i class="fa fa-user-plus" aria-hidden="true"></i>
 
 
-                                ACCOUNT</p>
+                                ACCOUNT</p></a>
                             </div>
                 
                 
@@ -410,7 +410,7 @@
                         </form>
                     </div>
                      <div style=" padding-left: 20px;  padding-top: 10px;   font-size: 20px;" class="col-lg-1 ">
-                     <i class="fa fa-list" aria-hidden="true"></i><span style=" padding-left: 33px; "><i class="fa fa-heart-o" aria-hidden="true"></i>
+                     <i class="fa fa-list" aria-hidden="true"></i><span style=" padding-left: 33px; "><a href="/wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                     </div> 
                     <div class="col-lg-2 col-sm-4 cart-megamenu">
                         <div class="cart-hover modal-open" id="openCartButton">
@@ -1010,11 +1010,11 @@
                                 <h2 class="title-1">  <span class="light-font">Services</span> <strong> </strong> </h2>
                             
                                 <ul class="list">
-                                    <li> <a href="/#"> about our shop </a> </li>
-                                    <li> <a href="/#"> top sellers </a> </li>
+                                    <li> <a href="/about-us"> about our shop </a> </li>
+                                    <li> <a href="/specialoffers"> top sellers </a> </li>
                                     <li> <a href="/#"> our blog </a> </li>
-                                    <li> <a href="/#"> new products </a> </li>
-                                    <li> <a href="/#"> secure shopping </a> </li>
+                                    <li> <a href="/shop"> new products </a> </li>
+                                    <li> <a href="/wishlist"> secure shopping </a> </li>
                                 </ul>
                             </div>
                             <!-- <div class="col-md-2 col-sm-4 footer-widget">
@@ -1031,7 +1031,7 @@
                                 </ul>
                             </div>  -->
                             <div class="col-md-4 col-sm-4 footer-widget">
-                                <h2 class="title-1">  <span class="light-font"> Contact Us </span> <strong> </strong> </h2>
+                                <a href="/contact"> <h2 class="title-1">  <span class="light-font"> Contact Us </span> <strong> </strong> </h2></a>
                             
                                 <ul>
                                 <li> <i class="fa fa-phone"></i> <span>Phone Number<br><a href="/#">03121312312</a> </span> </li>
@@ -1055,9 +1055,9 @@
                             </div>
                             <div class="col-md-6 col-sm-7">
                                 <ul class="primary-navbar footer-menu">
-                                    <li> <a href="/#">contact us </a> </li>
-                                    <li> <a href="/#">order online  </a> </li>
-                                    <li> <a href="/#">special offer </a> </li>
+                                    <li> <a href="/contact">contact us </a> </li>
+                                    <li> <a href="/shop">order online  </a> </li>
+                                    <li> <a href="/specialoffers">special offer </a> </li>
                               
                                 </ul>
                             </div>
@@ -1348,7 +1348,7 @@
         <script>
             imageZoom("myimage", "myresult");
             </script>
-        <script>
+<script>
             var cartOpen = false;
         var numberOfProducts = 0;
         
@@ -1440,12 +1440,13 @@
                             </div>
                         </li>
                     @endforeach
+                   
                 </article>
               </div>
             </div>
-            <div class="col-lg-2 col-sm-4 cart-megamenu">
+            {{-- <div class="col-lg-2 col-sm-4 cart-megamenu">
 
-        </div> 
+        </div>  --}}
             <div class="cart__footer">
                 <div class="width-price">
                 <p class="text-left">Total Price: <span class="price"> Rs {{Cart::getTotal()}}</span></p>
@@ -1462,9 +1463,8 @@
           </aside>
           
           <div class="lightbox js-lightbox js-toggle-cart"></div>
-    </body>
+   
+
+
+</body>
 </html>
-
-<script>
-
-</script>

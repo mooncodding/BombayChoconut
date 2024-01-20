@@ -940,11 +940,13 @@ textarea.form-control, textarea {
 section.organic-farm.sec-space-top.light-bg h2 {
     color: white;
 }
-
+.new-customers p {
+    font-size: 20px !important;
+}
 section.organic-farm.sec-space-top.light-bg h4 {
     color: white;
 }
-.form-group [type="checkbox"] + span::before {
+.wishlist .form-group [type="checkbox"] + span::before {
     color: #e6e6e5;
     content: "\f096";
     font-family: FontAwesome;
@@ -953,7 +955,86 @@ section.organic-farm.sec-space-top.light-bg h4 {
     vertical-align: middle;
     line-height: 0;
 }
+.new-inn{
+    padding-top: 100px;
+}
+/* Bordered form */
+.wishlist form {
+    border: 1px solid #ccc;
+    
+    border-radius: 20px;
+    padding: 50px;
+    margin-top: 20px;
+  }
+  
+  /* Full-width inputs */
+  .wishlist input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  button.theme-btn.login-but {
+    width: 100%;
+    background-color: #EBC54D !important;
+    margin-bottom: 20px;
+}
+  /* Set a style for all buttons */
+  /* .wishlist button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  } */
+  
+  /* Add a hover effect for buttons */
+  .wishlist button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Extra style for the cancel button (red) */
+  .wishlist .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+  }
+  section.wishlist.account {
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-bottom: 100px;
+    padding-bottom: 50px;
+}   
 
+  
+  /* Add padding to containers */
+  .wishlist .container {
+    padding: 16px;
+  }
+  
+  /* The "Forgot password" text */
+  .wishlist  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    .wishlist span.psw {
+      display: block;
+      float: none;
+    }
+    .wishlist .cancelbtn {
+      width: 100%;
+    }
+  }
+.modal{
+    background-color: #0000008a !important;
+}
 .form-group [type="checkbox"]:checked + span:before {
     content: "\f046";
     font-family: FontAwesome;
@@ -1016,11 +1097,130 @@ div#product-tab-12 .product-media {
     overflow: unset !important;
     padding: unset !important;
 }
-.form-group [type="radio"]:checked + span:before {
+ .form-group [type="radio"]:checked + span:before {
     content: "\f192";
     font-family: FontAwesome;
 }
-
+.great input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  /* Add a background color when the inputs get focus */
+  .great input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Set a style for all buttons */
+  .great button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .great button:hover {
+    opacity:1;
+  }
+  
+  /* Extra styles for the cancel button */
+  .great .cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+  }
+  
+  /* Float cancel and signup buttons and add an equal width */
+  .great .cancelbtn, .signupbtn {
+    float: left;
+    width: 50%;
+  }
+  .new-customers button {
+    border: medium none;
+    border-radius: 2em;
+    box-shadow: none;
+    font-size: 18px;
+    height: 52px;
+    padding: 0 25px;
+    color: #fff;
+    min-width: 200px;
+    line-height: 50px;
+    background-color: #EBC54D;
+}
+.modal-content {
+    height: 600px;
+}
+  /* Add padding to container elements */
+  .great .container {
+    padding: 16px;
+  }
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #474e5d;
+    
+  }
+  
+  /* Modal Content/Box */
+  .great .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    margin-top: 10px !important;
+  }
+  
+  /* Style the horizontal ruler */
+  .great hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+   
+  /* The Close Button (x) */
+  .great .close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+  }
+  
+  .great .close:hover,
+  .close:focus {
+    color: #f44336;
+    cursor: pointer;
+  }
+  
+  /* Clear floats */
+  .great .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Change styles for cancel button and signup button on extra small screens */
+  @media screen and (max-width: 300px) {
+    .great .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+  }
 /*-- Checkbox/Radiobox Ends --*/
 
 /*--Bootstrap Select--*/
@@ -2576,11 +2776,11 @@ select.btn.btn-default.dropdown-toggle {
     }
     
     footer.page-footer .text-widget p {
-        font-size: 16px;
+        font-size: 16px !important;
     }
     
     footer.page-footer h2.title-1 {
-        font-size: 30px;
+        font-size: 30px !important;
     }
     
     .footer-widget .list li a {

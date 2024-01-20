@@ -158,98 +158,148 @@
             modalBody.empty();
             // Display product details in the modal
             modalBody.append(`<div class="modal-dialog modal-lg product-modal">
-                <div class="modal-content">
-                    <a aria-hidden="true" data-dismiss="modal" class="sb-close-btn close" href="/#"> <i class=" fa fa-close"></i> </a>                 
+                        <div class="modal-content">
+                            <a aria-hidden="true" data-dismiss="modal" class="sb-close-btn close" href="/#"> <i class=" fa fa-close"></i> </a>                 
 
-                    <div class="product-single pb-50 clearfix">
-                        <!-- Single Products Slider Starts --> 
-                        <div class="col-lg-6 col-sm-8 col-sm-offset-2 col-lg-offset-0 pt-50">
-                            <div class="prod-slider sync1">
-                                <div class="item"> 
-                                <img src="{{asset('images/product-images/${product.photo}')}}" width="300" alt=""/>
-                                    <a href="/assets/img/products/prod-big-1.png" data-gal="prettyPhoto[prettyPhoto]" title="Product" class="caption-link"><i class="arrow_expand"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single Products Slider Ends --> 
-
-                        <div class="col-lg-6 pt-50">
-                            <div class="product-content block-inline">
-
-                                <div class="tag-rate">
-                                    <span class="prod-tag tag-1">new</span> <span class="prod-tag tag-2">sale</span>
-                                    <div class="rating">
-                                        <span class="star active"></span>
-                                        <span class="star active"></span>
-                                        <span class="star active"></span>
-                                        <span class="star active"></span>
-                                        <span class="star active"></span>
-                                        <span class="fsz-12"> Based on 25 reviews</span>
-                                    </div>
-                                </div>
-
-                                <div class="single-caption"> 
-                                    <h3 class="section-title">
-                                        <a href="/#"><strong>${product.title}</strong></a>
-                                    </h3>
-                                    <span class="divider-2"></span>
-                                    <p class="price"> 
-                                        <strong class="clr-txt fsz-20 saleprice"></strong>
-                                    </p>
-
-                                    <div class="fsz-16">
-                                        <p>${product.description}</p>
-                                    </div>
-
-                                    <div class="prod-btns">
-                                        <div class="quantity">
-                                            <input title="Qty" name="quantity" placeholder="1" min="1" class="form-control qty" type="number">
+                            <div class="product-single pb-50 clearfix">
+                                <!-- Single Products Slider Starts --> 
+                                <div class="row">
+                                <div class="col-lg-6 col-sm-6 col-sm-offset-2 col-lg-offset-0 pt-50">
+                                    <div class="prod-slider sync1">
+                                    
+                              <div id='slideshow-items-container'>
+                                        <div class="item slideshow-items img-zoom-container"> 
+                                        <img id="myimage"  src="{{asset('images/product-images/${product.photo}')}}" data-image="${product.photo}" width="300" alt=""/>
+                                        <div id="myresult" class="img-zoom-result"></div>
+                                            <a href="/assets/img/products/prod-big-1.png" data-gal="prettyPhoto[prettyPhoto]" title="Product" class="caption-link"><i class="arrow_expand"></i></a>
                                         </div>
                                     </div>
-                                    <ul class="meta">
-                                        <li class="tags-widget" id="variantsContainer"> 
-                                            <strong>Variants:</strong>
-                                            ${product.product_variants.map(variant => `
-                                                <span class="weight-option" data-price="${variant.sale_price}"><a href="/#">${variant.weight} </a></span>
-                                            `).join('')}
-                                        </li>
-                                        <li> <strong>CATEGORY:</strong><span> ${product.product_category.name}</span> </li>
-                                    </ul>
-                                    <div class="divider-full-1"></div>
-                                    <div class="add-cart pt-15">
-                                        <a href="/cart" class="theme-btn btn add-to-cart-btn button js-add-product"> <strong> ADD TO CART </strong> </a>
-                                    </div>
                                 </div>
-                            </div>
-                        </div> 
-                    </div>  
+                                </div>
+                                <!-- Single Products Slider Ends --> 
 
-                </div>
-            </div>`);
+                                <div class="col-lg-6 pt-50">
+                                    <div class="product-content block-inline">
+
+                                        <div class="tag-rate">
+                                            <span class="prod-tag tag-1">new</span> <span class="prod-tag tag-2">sale</span>
+                                            <div class="rating">
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                                <span class="fsz-12"> Based on 25 reviews</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="single-caption"> 
+                                            <h3 class="section-title">
+                                                <a href="/#"><strong>${product.title}</strong></a>
+                                            </h3>
+                                            <span class="divider-2"></span>
+                                            <p class="price"> 
+                                                <strong class="clr-txt fsz-20 saleprice"></strong>
+                                            </p>
+
+                                            <div class="fsz-16">
+                                                <p>${product.description}</p>
+                                            </div>
+
+                                            <div class="prod-btns">
+                                                <div class="quantity">
+                                                    <input title="Qty" id="quatity" value="1" name="quantity" min="1" class="form-control" type="number">
+                                                </div>
+                                            </div>
+                                            <ul class="meta">
+                                                <li class="tags-widget" id="variantsContainer"> 
+                                                    <strong>Variants:</strong>
+                                                    ${product.product_variants.map(variant => `
+                                                        <span class="weight-option" data-variant="${variant.id}" data-price="${variant.sale_price}"><a href="/#">${variant.weight} </a></span>
+                                                    `).join('')}
+                                                </li>
+                                                <li> <strong>CATEGORY:</strong><span> ${product.product_category.name}</span> </li>
+                                            </ul>
+                                            <div class="divider-full-1"></div>
+                                            <div class="add-cart pt-15">
+                                                <a href="/#" class="theme-btn js-add-product  add-to-cart-btn" data-product-id="${product.id}"> <strong> ADD TO CART </strong> </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>  
+                        </div>
+                        </div>
+                    </div>`);
 
             // Add event listener to the weight options
-            $('.weight-option').on('click', function() {
-                const selectedWeight = $(this).data('price');
-                updatePrice(selectedWeight);
-            });
+  // Set the default price to be the price of the first variant
+  const defaultPrice = product.product_variants[0].sale_price;
+                    updatePrice(defaultPrice);
 
-            // Set the default price to be the price of the first variant
-            const defaultPrice = product.product_variants[0].sale_price;
-            updatePrice(defaultPrice);
+                    // Function to update the displayed price
+                    function updatePrice(newPrice) {
+                        $('.saleprice').text('Rs' + newPrice);
+                    }
+                    var variantId = product.product_variants[0].id;
+                     // Add event listener to the weight options
+                     $('.weight-option').on('click', function() {
+                        const selectedWeight = $(this).data('price');
+                        variantId = $(this).data('variant');
+                        updatePrice(selectedWeight);
+                    });
 
-            // Function to update the displayed price
-            function updatePrice(newPrice) {
-                console.log(newPrice)
-                $('.saleprice').text('Rs' + newPrice);
-            }
-        }
+                    // Set up click event for "Add to Cart" buttons
+                    $('#product-preview').on('click', '.add-to-cart-btn', function () {
+                        var productId = $(this).data('product-id');
+                        var quantity = document.getElementById('quatity').value;
+                        var variant_id = variantId;
+                       array=[{
+                            'product_id': parseInt(productId),
+                            'quantity': parseInt(quantity),
+                            'variant_id': parseInt(variant_id),
+                        }];
+                        addToCart(array);
+                    });
+                    $('.modal-open').on('click', '.add-to-cart-btn', function () {
+                        // console.log(123)
+                        var productId = $(this).data('product-id');
+                        var quantity = document.getElementById('quatity').value;
+                        var variant_id = variantId;
+                       array=[{
+                            'product_id': parseInt(productId),
+                            'quantity': parseInt(quantity),
+                            'variant_id': parseInt(variant_id),
+                        }];
+                        addToCart(array);
+                    });
+                }
         
-        function addToCart(productId) {
-            // Perform the necessary logic to add the product to the cart
-            // You may want to make another AJAX request to a server endpoint
-            console.log(productId);
-            // Add your cart handling logic here
-        }
+                function addToCart(data) {
+                    // Get the CSRF token from the meta tag
+                    var csrfToken = $('meta[name="csrf-token"]').attr('content');
+                    // Make an AJAX request to add the product to the cart
+                    $.ajax({
+                        url: '{{ route("cart.store") }}',
+                        method: 'POST',
+                        data: {
+                            product_id: data[0].product_id,
+                            quantity: data[0].quantity,
+                            variant_id: data[0].variant_id
+                        },
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        dataType: 'json',
+                        success: function (response) {
+                            $('#product-preview').hide();
+                            // location.reload();
+                        },
+                        error: function (error) {
+                            console.error('Error adding to cart:', error);
+                        }
+                    });
+                }
     });
 </script>
 @endsection

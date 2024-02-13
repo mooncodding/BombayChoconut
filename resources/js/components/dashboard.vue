@@ -19,7 +19,7 @@
       <div class="content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-8">
+            <div class="col-12">
               <!-- TABLE: LATEST ORDERS -->
               <div class="card">
               <div class="card-header border-transparent">
@@ -33,99 +33,49 @@
                     <tr>
                       <th>{{$t('message.ORDER_NUMBER')}}</th>
                       <th>{{$t('message.CUSTOMER')}}</th>
-                      <th>{{$t('message.GRAND_TOTAL')}}</th>
+                      <th>{{$t('message.SUB_TOTAL')}}</th>
                       <th>{{$t('message.STATUS')}}</th>
                     </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td>0001</td>
-                        <td>Asad Amjad</td>
-                        <td>50000</td>
-                        <td>Delivered</td>
+                    <tbody v-if="getLatestOrders !=''">
+                      <tr v-for="(data,index) in getLatestOrders" :key="index" >
+                        <td><a href="/orders">{{data.reference}}</a></td>
+                        <td v-if="data.customer">{{data.customer.name}}</td>
+                        <td v-if="data.sub_total">{{data.sub_total }}</td>
+                        <td v-else>0 </td>
+                        <td v-if="data.order_status">
+                          <span class="badge badge-primary" v-if="data.order_status.id == 1">
+                            {{data.order_status.name}}
+                          </span>
+                          <span class="badge badge-warning" v-else-if="data.order_status.id == 2">
+                            {{data.order_status.name}}
+                          </span>
+                          <span class="badge badge-info" v-else-if="data.order_status.id == 3">
+                            {{data.order_status.name}}
+                          </span>
+                          <span class="badge badge-success" v-else-if="data.order_status.id == 4">
+                            {{data.order_status.name}}
+                          </span>
+                          <span class="badge badge-danger" v-else-if="data.order_status.id == 5">
+                            {{data.order_status.name}}
+                          </span>
+                          <span class="badge badge-secondary" v-else>
+                            {{data.order_status.name}}
+                          </span>
+                        </td>
                       </tr>
-                      <tr>
-                        <td>0001</td>
-                        <td>Asad Amjad</td>
-                        <td>50000</td>
-                        <td>Delivered</td>
-                      </tr>
-                      <tr>
-                        <td>0001</td>
-                        <td>Asad Amjad</td>
-                        <td>50000</td>
-                        <td>Delivered</td>
-                      </tr>
-                      <tr>
-                        <td>0001</td>
-                        <td>Asad Amjad</td>
-                        <td>50000</td>
-                        <td>Delivered</td>
-                      </tr>
-                      <tr>
-                        <td>0001</td>
-                        <td>Asad Amjad</td>
-                        <td>50000</td>
-                        <td>Delivered</td>
-                      </tr>
-                    </tbody>
+                      </tbody>
+                      <thead v-else>
+                        <tr>
+                          <td colspan="4" align="center">{{$t('message.SORRY_NO_LATEST_ORDER_AVAILABLE')}}</td>
+                        </tr>
+                      </thead>
                   </table>
                 </div>
                 <!-- /.table-responsive -->
               </div>
             </div>
             <!-- /.card -->
-            </div>
-            <div class="col-4">
-            <!-- Info Boxes Style 2 -->
-            <div class="info-box mb-3 bg-warning">
-              <span class="info-box-icon"><i class="fa fa-cubes"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">{{$t('message.ORDERS')}}</span>
-                <span class="info-box-number">12</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-            <div class="info-box mb-3 bg-success">
-              <span class="info-box-icon"><i class="fa fa-barcode"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">{{$t('message.PRODUCTS')}}</span>
-                <span class="info-box-number">15,000</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-            <div class="info-box mb-3 bg-info">
-              <span class="info-box-icon"><i class="fa fa-object-group"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">{{$t('message.PRODUCT_CATEGORIES')}}</span>
-                <span class="info-box-number">200</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <div class="info-box mb-3 bg-secondary">
-              <span class="info-box-icon"><i class="fa fa-users"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">{{$t('message.CUSTOMERS')}}</span>
-                <span class="info-box-number">50</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <div class="info-box mb-3 bg-primary">
-              <span class="info-box-icon"><i class="fa fa-user"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">{{$t('message.SYSTEM_USERS')}}</span>
-                <span class="info-box-number">3</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
             </div>
           </div>
           <!-- /.row -->
@@ -139,5 +89,26 @@
 
 <script>
 export default {
+  data() {
+        return {
+          getLatestOrders:{},
+        };
+    },
+    methods:{
+      getData(){
+        axios
+          .get("api/getLatestOrders")
+          .then((response) => { 
+            this.getLatestOrders = response.data;
+            this.$Progress.finish();
+            }).catch(() => {
+          this.$Progress.fail();
+          this.loading = false;
+        });
+      }
+    },
+    mounted() {
+       this.getData();
+    },
 };
 </script>

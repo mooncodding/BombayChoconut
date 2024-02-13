@@ -176,6 +176,48 @@
             </li>
             @endcanany
             
+            {{--Reports --}}
+            @canany(['customer_report','stock_adjustment_report','orders_report','stock_report'])
+            <li class="nav-item menu-close">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-file"></i>
+                <p>
+                  {{ __('translation.Reports') }}
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+              {{-- Customer --}}
+                @can('customer_report')
+                <li class="nav-item">
+                  <router-link to="/customerReport" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>{{ __('translation.CustomerReport') }}</p>
+                  </router-link>
+                </li>
+                @endcan
+              {{-- Orders Report --}}
+                @can('orders_report')
+                <li class="nav-item">
+                  <router-link to="/ordersReport" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>{{ __('translation.OrdersReport') }}</p>
+                  </router-link>
+                </li>
+                @endcan
+              {{-- Stock Report --}}
+                @can('stock_report')
+                <li class="nav-item">
+                  <router-link to="/stockReport" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>{{ __('translation.StockReport') }}</p>
+                  </router-link>
+                </li>
+                @endcan
+              </ul>
+            </li>
+            @endcanany
+
             {{-- SETTINGS --}}
             @canany(['roles','permissions','application','profile'])
             <li class="nav-item menu-close">

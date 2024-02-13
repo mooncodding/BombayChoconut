@@ -79,8 +79,6 @@
                                 <a href="/" class="theme-btn-2 btn"> <b> CONTINUE SHOPPING </b> </a>
                                 <a href="/checkout" class="theme-btn-3 btn"> <b>     CHECKOUT NOW </b> </a>
                             </div>                                   
-
-
                         </form>
                     </div>                    
                     <!-- / Shopping Cart Ends -->

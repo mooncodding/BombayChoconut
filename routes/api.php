@@ -19,6 +19,7 @@ use App\Http\Controllers\API\HomeSliderController;
 use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\OrderStatusController;
 use App\Http\Controllers\API\ProductFlavourController;
+use App\Http\Controllers\API\ReportController;
 use App\Models\OrderStatus;
 
 /*
@@ -112,16 +113,21 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     //***********************************************************************************
     //***************************** Dashboard Screen Routes *****************************
     //***********************************************************************************
-    //Get Monthly sale charts
-    Route::get('/monthlySalesChart', [DashboardController::class, 'monthlySalesChart']);
-    //Get Quarterly sale charts
-    Route::get('/quarterlySaleGraph', [DashboardController::class, 'quarterlySaleGraph']);
-    // Dashboard Summary
-    Route::get('/dashboard', [DashboardController::class, 'dashboardSummary']);
-   
     Route::get('/getLatestOrders', [DashboardController::class, 'getLatestOrders']);
     //Update Order Status
     Route::post('/updateOrderStatus/{id}', [OrderController::class, 'updateOrderStatus']);
+
+    //***********************************************************************************
+    //******************************Report Controller Routes*****************************
+    //***********************************************************************************
+    // Customer Report
+    Route::get('/customerReport', [ReportController::class, 'customerReport']);
+    // Orders Report
+    Route::get('/ordersReport', [ReportController::class, 'ordersReport']);
+    // Order Detail Report
+    Route::get('/orderDetailReport', [ReportController::class, 'orderDetailReport']);
+    // Stock Report
+    Route::get('/stockReport', [ReportController::class, 'stockReport']);
 
 });
 

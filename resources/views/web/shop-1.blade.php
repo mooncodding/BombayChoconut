@@ -95,15 +95,15 @@
                                     </ul>
                                 </div>
     
-                                <div class="widget-wrap">
+                                {{-- <div class="widget-wrap">
                                     <h2 class="widget-title"> <span class="light-font">Sort by</span> <strong>Price Range</strong> </h2>
                                     <div class="divider-full-1"></div>
                                     <div class="sort-range pt-15">
                                         <span>PRICE</span> 
                                     </div>
-                                </div>
+                                </div> --}}
     
-                                <div class="widget-wrap">
+                                {{-- <div class="widget-wrap">
                                     <h2 class="widget-title"> <span class="light-font">Best</span> <strong>Sellers</strong> </h2>
                                     <div class="divider-full-1"></div>
                                     <div class="widget-post pt-15">
@@ -171,7 +171,7 @@
                                         <li> <a href="/#">natural</a> </li>
                                         <li> <a href="/#">healthy</a> </li>
                                     </ul>
-                                </div>
+                                </div> --}}
                             </div>
 
     

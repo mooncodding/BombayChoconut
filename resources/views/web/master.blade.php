@@ -341,7 +341,7 @@
                     <div class="col-lg-2">
                     </div>
                     <div class="col-lg-2 locator">
-                        <a href="/giftbundle"> <p>  <i class="fa fa-user-plus" aria-hidden="true"></i>
+                        <a href="/contact"> <p>  <i class="fa fa-user-plus" aria-hidden="true"></i>
                             STORE LOCATOR</p> </a>
                         <span>
                     </div>
@@ -484,7 +484,7 @@
                     </ul> --}}
                 </li> 
                 <li class="dropdown">
-                    <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" >Blog</a>
+                    <a href="/blog" >Blog</a>
                     {{-- <ul class="dropdown-menu">    
                         <li><a href="/blog"> blog </a></li>
                         <li><a href="/blog-single"> blog single </a></li>                  

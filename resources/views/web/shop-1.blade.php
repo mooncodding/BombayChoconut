@@ -1,7 +1,7 @@
 @extends('web.master')
 @section('content')
                  <!--Breadcrumb Section Start-->
-                 <section class="breadcrumb-bg"  style="background-image:url({{asset('web-assets/images/banner/shop.jpg')}})">                
+                 <section class="breadcrumb-bg"  style="background-image:url({{asset('web-assets/images/banner/Syrup.jpg')}})">                
                     <div class="theme-container container ">                       
                         <div class="site-breadcumb white-clr">                        
                             <h2 class="section-title"> <strong class="clr-txt">Bombay </strong> <span class="light-font">Shop </span> </h2>

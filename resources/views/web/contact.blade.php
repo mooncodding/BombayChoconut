@@ -2,7 +2,7 @@
 @section('content')
 
             <!--Breadcrumb Section Start-->
-            <section class="breadcrumb-bg" style="background-image:url({{asset('web-assets/images/banner/bannercontact.jpg')}})">                
+            <section class="breadcrumb-bg" style="background-image:url({{asset('web-assets/images/banner/Contact1.jpg')}})">                
                 <div class="theme-container container ">                       
                     <div class="site-breadcumb white-clr">                        
                         <h2 class="section-title"> <strong class="clr-txt">Contact Us </strong> <span class="light-font"> </span> </h2>

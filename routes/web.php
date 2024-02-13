@@ -120,6 +120,9 @@ Route::get('/wishlist', function () {
 Route::get('/wishlist-product', function () {
     return view('web.wishlist-product');
 });
+Route::get('/shopbybrands', function () {
+    return view('web.shopbybrands');
+});
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/cart/store', [CartController::class, 'store'])->name('cart.store');
 Route::post('/cart/update', [CartController::class, 'cartUpdate'])->name('cart.update');

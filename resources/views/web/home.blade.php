@@ -1,10 +1,10 @@
 @extends('web.master')
 @section('content')
 <!-- Main Slider Start -->
-<!-- <section class="main-slide">
+<section class="main-slide">
     <div id="naturix-slider" class="owl-carousel nav-1">
         <div class="item">                        
-            <img src="{{asset('web-assets/images/banner/banner3.jpeg')}}" alt="">
+            <img src="{{asset('web-assets/images/banner/Home1.jpg')}}" alt="">
             <div class="tbl-wrp slide-1">
                 <div class="text-middle">
                     <div class="tbl-cell">
@@ -13,20 +13,20 @@
                                 {{-- <img src="assets/img/icons/slide-txt-1.png" alt=""> --}}
                                 {{-- <span>100% Guarantee</span> --}}
                             </div>
-                            <div class="slide-title2 pb-50">
+                            {{-- <div class="slide-title2 pb-50">
                                 <h2 class="section-title"> <span class="light-font">Live </span> <strong>organic </strong> <span class="light-font">for live </span> <strong>healthy </strong> </h2>
                                 <h4 class="sub-title"> ORGANIC FRUITS, VEGETABLES, AND LOT MORE TO YOUR DOOR </h4>
                             </div>
                             <div class="slide">
                                 <a href="/#" class="slide-btn"> Shop Now</a>  
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="item">                       
-            <img src="{{asset('web-assets/images/banner/banner2.jpg')}}" alt="">
+            <img src="{{asset('web-assets/images/banner/Home2.jpg')}}" alt="">
             <div class="tbl-wrp slide-1">
                 <div class="text-middle">
                     <div class="tbl-cell">
@@ -35,20 +35,20 @@
                                 {{-- <img src="assets/img/icons/slide-txt-1.png" alt=""> --}}
                                 {{-- <span>100% Guarantee</span> --}}
                             </div>
-                            <div class="slide-title2 pb-50">
+                            {{-- <div class="slide-title2 pb-50">
                                 <h2 class="section-title"> <span class="light-font">Live </span> <strong>organic </strong> <span class="light-font">for live </span> <strong>healthy </strong> </h2>
                                 <h4 class="sub-title"> ORGANIC FRUITS, VEGETABLES, AND LOT MORE TO YOUR DOOR </h4>
                             </div>
                             <div class="slide">
                                 <a href="/#" class="slide-btn"> Shop Now</a>  
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="item">                       
-            <img src="{{asset('web-assets/images/banner/banner3.jpg')}}" alt="">
+            <img src="{{asset('web-assets/images/banner/Home3.jpg')}}" alt="">
             <div class="tbl-wrp slide-1">
                 <div class="text-middle">
                     <div class="tbl-cell">
@@ -57,22 +57,22 @@
                                 {{-- <img src="assets/img/icons/slide-txt-1.png" alt=""> --}}
                                 {{-- <span>100% Guarantee</span> --}}
                             </div>
-                            <div class="slide-title2 pb-50">
+                            {{-- <div class="slide-title2 pb-50">
                                 <h2 class="section-title"> <span class="light-font">Live </span> <strong>organic </strong> <span class="light-font">for live </span> <strong>healthy </strong> </h2>
                                 <h4 class="sub-title"> ORGANIC FRUITS, VEGETABLES, AND LOT MORE TO YOUR DOOR </h4>
                             </div>
                             <div class="slide">
                                 <a href="/#" class="slide-btn"> Shop Now</a>  
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>               
-</section> -->
+</section> 
 <!-- / Main Slider Ends -->   
-<section class="home-banner" style=" background-image: url({{asset('web-assets/images/banner/BACKGROUND.jpg')}}) ;">
+{{-- <section class="home-banner" style=" background-image: url({{asset('web-assets/images/banner/BACKGROUND.jpg')}}) ;">
     <div class="container flex-iin">
     <div class="home-banner-content">
 <h1>The Perfect <br>Dry Fruits Store</h1>
@@ -84,7 +84,7 @@
     <img  src="{{asset('web-assets/images/product/3-removebg-preview.png')}}" />
     </div>
 </div>
-</section>
+</section> --}}
 <section class="category-all">
 
     <h2 class="section-title ptb-15" style="text-align: center;"> <span class="light-font">Explore </span> <strong>Categories </strong>  </h2>

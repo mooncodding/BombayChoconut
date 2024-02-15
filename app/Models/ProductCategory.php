@@ -15,6 +15,8 @@ class ProductCategory extends Model
     protected $fillable =[
         'name',
         'image',
+        'banner_image',
+        'description',
         'parent_id',
         'created_by',
         'created_at',
@@ -23,7 +25,7 @@ class ProductCategory extends Model
     ];
 
     public function categoryProducts(){
-        return $this->hasMany(Product::class,'category_id','id');
+        return $this->hasMany(Product::class,'product_category_id','id');
     }
 
     public function parentCategory(){

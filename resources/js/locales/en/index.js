@@ -76,6 +76,7 @@ export default {
         UPDATED_AT:"Updated At",
         YES:"Yes",
         NO:"No",
+        BANNER_IMAGE:"Banner Image",
         // Product Flavours
         PRODUCT_FLAVOURS:"Product Flavours",
         PRODUCT_FLAVOUR:"Product Flavour",

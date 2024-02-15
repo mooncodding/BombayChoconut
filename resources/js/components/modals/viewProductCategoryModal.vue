@@ -49,11 +49,27 @@
                     <td v-else>-</td>
                   </tr>
                   <tr>
+                    <th>{{ $t("message.DESCRIPTION") }}</th>
+                    <td>{{ productCategoryData.description }}</td>
+                  </tr>
+                  <tr>
                     <th>{{ $t("message.PHOTO") }}</th>
                     <td>
                       <img
                         v-bind:src="
                           'images/product-categories/' + productCategoryData.image
+                        "
+                        width="50"
+                        alt="Photo not found"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t("message.BANNER_IMAGE") }}</th>
+                    <td>
+                      <img
+                        v-bind:src="
+                          'images/product-categories/' + productCategoryData.banner_image
                         "
                         width="50"
                         alt="Photo not found"

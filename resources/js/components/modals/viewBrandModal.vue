@@ -44,11 +44,28 @@
                     <td>{{ brandData.name }}</td>
                   </tr>
                   <tr>
+                    <th>{{ $t("message.DESCRIPTION") }}</th>
+                    <td v-if="brandData.description">{{ brandData.description }}</td>
+                    <td v-else>-</td>
+                  </tr>
+                  <tr>
                     <th>{{ $t("message.PHOTO") }}</th>
                     <td>
                       <img
                         v-bind:src="
                           'images/brands/' + brandData.image
+                        "
+                        width="50"
+                        alt="Photo not found"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t("message.BANNER_IMAGE") }}</th>
+                    <td>
+                      <img
+                        v-bind:src="
+                          'images/brands/' + brandData.banner_image
                         "
                         width="50"
                         alt="Photo not found"

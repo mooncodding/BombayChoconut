@@ -275,7 +275,7 @@
               <!-- End -->
               <!-- Description -->
               <div class="form-group">
-                  <label>{{ $t("message.DESCRIPTION") }}<span class="required-star">*</span></label>
+                  <label>{{ $t("message.DESCRIPTION") }}<span class="required-star"></span></label>
                   <textarea
                     v-model="form.description"
                     v-bind:placeholder="$t('message.DESCRIPTION')"

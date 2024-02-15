@@ -83,6 +83,47 @@
                   v-html="form.errors.get('image')"
                 />
               </div>
+              <div class="form-group">
+                <label>{{ $t("message.BANNER_IMAGE") }}</label>
+                <span v-if="editMode && form.banner_image!=null"
+                  ><img
+                    v-bind:src="'images/brands/' + form.banner_image"
+                    width="15%"
+                    alt="Banner not found"
+                /></span>
+
+                <input
+                  @change="addBannerImage"
+                  type="file"
+                  name="banner_image"
+                  id="banner_image"
+                  class="form-control"
+                  :class="{ 'is-invalid': form.errors.has('banner_image') }"
+                />
+                <div
+                  class="error-message"
+                  v-if="form.errors.has('banner_image')"
+                  v-html="form.errors.get('banner_image')"
+                />
+              </div>
+              <!-- Description -->
+              <div class="form-group">
+                  <label>{{ $t("message.DESCRIPTION") }}<span class="required-star"></span></label>
+                  <textarea
+                    v-model="form.description"
+                    v-bind:placeholder="$t('message.DESCRIPTION')"
+                    type="text"
+                    name="description"
+                    class="form-control"
+                    :class="{ 'is-invalid': form.errors.has('description') }"
+                  ></textarea>
+                  <div
+                    class="error-message"
+                    v-if="form.errors.has('description')"
+                    v-html="form.errors.get('description')"
+                  />
+              </div>
+              <!-- End -->
             </div>
             <div class="modal-footer">
               <button
@@ -129,6 +170,8 @@ export default {
         id: "",
         name: "",
         image: "",
+        banner_image: "",
+        description: "",
       }),
     };
   },
@@ -194,6 +237,14 @@ export default {
       let reader = new FileReader();
       reader.onloadend = () => {
         this.form.image = reader.result;
+      };
+      reader.readAsDataURL(file);
+    },
+    addBannerImage(e) {
+      let file = e.target.files[0];
+      let reader = new FileReader();
+      reader.onloadend = () => {
+        this.form.banner_image = reader.result;
       };
       reader.readAsDataURL(file);
     },

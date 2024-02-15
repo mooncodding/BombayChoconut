@@ -64,8 +64,10 @@ class ProductCategoryController extends Controller
         if(auth()->user()->can('create_product_category')){
             $this->validate($request, [
                 'name'=>'required|string|max:64',
-                'parent_id'=>'nullable',
                 'image'=>'required',
+                'parent_id'=>'nullable',
+                'banner_image'=>'nullable',
+                'description'=>'nullable',
             ]);
             if($request['image']){
                 $name=time().'.'.explode('/', explode(':', substr($request->image,0,strpos($request->image, ';')))[1])[1];
@@ -73,9 +75,17 @@ class ProductCategoryController extends Controller
             }else{
                 $name= null;
             }
+            if($request['banner_image']){
+                $bannerImage=time().'.'.explode('/', explode(':', substr($request->banner_image,0,strpos($request->banner_image, ';')))[1])[1];
+                \Image::make($request->banner_image)->save(public_path('images/product-categories/'.$bannerImage));
+            }else{
+                $bannerImage= null;
+            }
             $category=ProductCategory::create([
                 'name'=>$request->name,
                 'image'=>$name,
+                'banner_image'=>$bannerImage,
+                'description'=>$request->description,
                 'parent_id'=>$request->parent_id,
                 'created_at'=> Carbon::now(),
                 'created_by'=>Auth::user()->id
@@ -122,8 +132,10 @@ class ProductCategoryController extends Controller
             $categories = ProductCategory::findOrfail($id);
             $this->validate($request, [
                 'name'=>'required|string|max:64',
-                'parent_id'=>'nullable',
                 'image'=>'required',
+                'parent_id'=>'nullable',
+                'banner_image'=>'nullable',
+                'description'=>'nullable',
             ]);
             if($request['image']!=$categories->image){
                 $name=time().'.'.explode('/', explode(':', substr($request->image,0,strpos($request->image, ';')))[1])[1];
@@ -137,9 +149,24 @@ class ProductCategoryController extends Controller
             else {
                  $name = $categories->image;
             }
+            // Banner Image
+            if($request['banner_image']!=$categories->banner_image){
+                $bannerImage=time().'.'.explode('/', explode(':', substr($request->banner_image,0,strpos($request->banner_image, ';')))[1])[1];
+                $publicPath=public_path('images/product-categories/'.$bannerImage);
+                \Image::make($request->banner_image)->save($publicPath);
+                if((file_exists(public_path('images/product-categories/'.$categories->banner_image)))){
+                    @unlink(public_path('images/product-categories/'.$categories->banner_image));
+                }
+                $request->merge(['banner_image'=>$bannerImage]);
+            }
+            else {
+                $bannerImage = $categories->banner_image;
+            }
             $categories->update([
                 'name'=>$request->name,
                 'image'=>$name,
+                'banner_image'=>$bannerImage,
+                'description'=>$request->description,
                 'parent_id'=>$request->parent_id,
                 'updated_at'=> Carbon::now(),
                 'updated_by'=>Auth::user()->id

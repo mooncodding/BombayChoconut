@@ -4,6 +4,7 @@ use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\Web\CartController;
 use App\Http\Controllers\Web\CategoryController;
 use App\Http\Controllers\Web\HomeController;
+use App\Http\Controllers\Web\ShopController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/products/filter/{category}', [HomeController::class, 'filterByCategory']);
 Route::get('/searchByProduct', [HomeController::class, 'searchByProduct'])->name('searchByProduct');
 Route::get('/category', [CategoryController::class, 'index']);
+Route::get('/shop', [ShopController::class, 'index']);
 Route::get('/404', function () {
     return view('web.404');
 });
@@ -84,9 +86,9 @@ Route::get('/return', function () {
 Route::get('/review-rating', function () {
     return view('web.review-rating');
 });
-Route::get('/shop-1', function () {
-    return view('web.shop-1');
-});
+// Route::get('/shop-1', function () {
+//     return view('web.shop-1');
+// });
 Route::get('/shop-2', function () {
     return view('web.shop-2');
 });

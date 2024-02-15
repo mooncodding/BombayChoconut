@@ -14,7 +14,7 @@ class HomeController extends Controller
     public function index()
     {
     
-        $parentCategories = ProductCategory::parentCategories()->get();
+        $parentCategories = ProductCategory::parentCategories()->has('categoryProducts')->get();
         $products = Product::with(['productVariants'])->get();
         return view('web.home')->with(['parentCategories'=>$parentCategories,'products'=>$products]);
     }

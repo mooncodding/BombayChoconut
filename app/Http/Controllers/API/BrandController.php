@@ -66,6 +66,8 @@ class BrandController extends Controller
             $this->validate($request, [
                 'name'=>'required|string|max:64',
                 'image'=>'required',
+                'banner_image'=>'nullable',
+                'description'=>'nullable',
             ]);
             if($request['image']){
                 $name=time().'.'.explode('/', explode(':', substr($request->image,0,strpos($request->image, ';')))[1])[1];
@@ -73,9 +75,17 @@ class BrandController extends Controller
             }else{
                 $name= null;
             }
+            if($request['banner_image']){
+                $bannerImage=time().'.'.explode('/', explode(':', substr($request->banner_image,0,strpos($request->banner_image, ';')))[1])[1];
+                \Image::make($request->banner_image)->save(public_path('images/brands/'.$bannerImage));
+            }else{
+                $bannerImage= null;
+            }
             $brand=Brand::create([
                 'name'=>$request->name,
                 'image'=>$name,
+                'banner_image'=>$bannerImage,
+                'description'=>$request->description,
                 'created_at'=> Carbon::now(),
                 'created_by'=>Auth::user()->id
             ]);
@@ -122,6 +132,8 @@ class BrandController extends Controller
             $this->validate($request, [
                 'name'=>'required|string|max:64',
                 'image'=>'required',
+                'banner_image'=>'nullable',
+                'description'=>'nullable',
             ]);
             if($request['image']!=$categories->image){
                 $name=time().'.'.explode('/', explode(':', substr($request->image,0,strpos($request->image, ';')))[1])[1];
@@ -135,9 +147,24 @@ class BrandController extends Controller
             else {
                  $name = $categories->image;
             }
+            // Banner Image
+            if($request['banner_image']!=$categories->banner_image){
+                $bannerImage=time().'.'.explode('/', explode(':', substr($request->banner_image,0,strpos($request->banner_image, ';')))[1])[1];
+                $publicPath=public_path('images/brands/'.$bannerImage);
+                \Image::make($request->banner_image)->save($publicPath);
+                if((file_exists(public_path('images/brands/'.$categories->banner_image)))){
+                    @unlink(public_path('images/brands/'.$categories->banner_image));
+                }
+                $request->merge(['banner_image'=>$bannerImage]);
+            }
+            else {
+                $bannerImage = $categories->banner_image;
+            }
             $categories->update([
                 'name'=>$request->name,
                 'image'=>$name,
+                'banner_image'=>$bannerImage,
+                'description'=>$request->description,
                 'updated_at'=> Carbon::now(),
                 'updated_by'=>Auth::user()->id
             ]);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 
@@ -88,5 +89,12 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+    }
+    
+    // Get Category By Products
+    public function getCategoryByProduct($category_id)
+    {
+        $category = ProductCategory::where('id',$category_id)->with(['categoryProducts'])->first();
+        return view('web.categoryByProducts')->with('category', $category);
     }
 }

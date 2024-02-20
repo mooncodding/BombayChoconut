@@ -65,7 +65,7 @@
                                         </div>
                                         <div class="product-caption">
                                             <h3 class="product-title">
-                                                <a href="#"> <span class="light-font"> {{ $category->name }}</a>
+                                                <a href="{{ route('getCategoryByProduct', $category->id) }}"> <span class="light-font"> {{ $category->name }}</a>
                                             </h3>
 
                                         </div>

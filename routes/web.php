@@ -23,6 +23,7 @@ Route::get('/products/filter/{category}', [HomeController::class, 'filterByCateg
 Route::get('/searchByProduct', [HomeController::class, 'searchByProduct'])->name('searchByProduct');
 Route::get('/category', [CategoryController::class, 'index']);
 Route::get('/shop', [ShopController::class, 'index']);
+Route::get('/getCategoryByProduct/{category}', [CategoryController::class, 'getCategoryByProduct'])->name('getCategoryByProduct');
 Route::get('/404', function () {
     return view('web.404');
 });
@@ -65,7 +66,7 @@ Route::get('/contact', function () {
 Route::get('/forgot-password', function () {
     return view('web.forgot-password');
 });
-Route::get('/login', function () {
+Route::get('/web/login', function () {
     return view('web.login');
 });
 Route::get('/my-account', function () {

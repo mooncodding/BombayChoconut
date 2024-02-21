@@ -36,11 +36,11 @@
                                     <tr>
                                         <td class="image">
                                             <div class="white-bg">
-                                                <a class="media-link" href="/#"><img src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""></a> 
+                                                <a class="media-link" href="#"><img src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""></a> 
                                             </div>
                                         </td>
-                                        <td >
-                                            <h3 class="product-title no-margin"> <a href="/#"> <span class="light-font">{{$item->name}}</a> </h3>
+                                        <td>
+                                            <h3 class="product-title no-margin"> <a href="#"> <span class="light-font">{{$item->name}}</a> </h3>
                                         </td>   
                                         <td>
                                             <div class="prod-btns fontbold-2">

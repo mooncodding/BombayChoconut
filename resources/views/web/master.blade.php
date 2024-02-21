@@ -379,7 +379,8 @@
                     border-left: 1px solid white;
                         ">
                             <i class="fa fa-heart" aria-hidden="true">&nbsp;
-                            </i>TRACK YOUR ORDER</p>
+                            </i>TRACK YOUR ORDER
+                        </p>
                     </a>
                 </div>
                 <div class="col-lg-1">
@@ -555,20 +556,23 @@
                                     $productCategory = App\Models\ProductCategory::with('children')->get();
                                 @endphp
                                 @foreach ($productCategory as $category)
-                                <div class="menu-block">
-                                    <div class="menu-caption">
-                                        <h2 class="menu-title"> <span class="light-font"> {{$category->name}} </span> </h2>
-                                        @foreach ($category->children as $child)
-                                            <ul class="sub-list">
-                                                <li> <a href="#">{{$child->name}}</a></li>
-                                            </ul>
-                                        @endforeach
-                                        <h2 class="title"> <a href="/#" class="clr-txt"> All {{$category->name}} </a> </h2>
+                                    <div class="menu-block">
+                                        <div class="menu-caption">
+                                            <h2 class="menu-title"> <span class="light-font"> {{ $category->name }}
+                                                </span> </h2>
+                                            @foreach ($category->children as $child)
+                                                <ul class="sub-list">
+                                                    <li> <a href="#">{{ $child->name }}</a></li>
+                                                </ul>
+                                            @endforeach
+                                            <h2 class="title"> <a href="/#" class="clr-txt"> All
+                                                    {{ $category->name }} </a> </h2>
+                                        </div>
+                                        <div class="menu-img">
+                                            <img alt=""
+                                                src="{{ asset('images/product-categories/' . $category->image) }}" />
+                                        </div>
                                     </div>
-                                    <div class="menu-img">
-                                        <img alt="" src="{{ asset('images/product-categories/' . $category->image) }}" />
-                                    </div>
-                                </div>
                                 @endforeach
                             </div>
                         </div>
@@ -1204,8 +1208,8 @@
                                                 <li class="tags-widget" id="variantsContainer"> 
                                                     <strong>Variants:</strong>
                                                     ${product.product_variants.map(variant => `
-                                                            <span class="weight-option" data-variant="${variant.id}" data-price="${variant.sale_price}"><a href="/#">${variant.weight} </a></span>
-                                                        `).join('')}
+                                                                <span class="weight-option" data-variant="${variant.id}" data-price="${variant.sale_price}"><a href="/#">${variant.weight} </a></span>
+                                                            `).join('')}
                                                 </li>
                                                 <li> <strong>CATEGORY:</strong><span> ${product.product_category.name}</span> </li>
                                             </ul>
@@ -1363,7 +1367,7 @@
                                     alt=""> </div>
                             <div class="cart-title">
                                 <div class="fsz-16">
-                                    <a href="/#"> {{ $item->name }}</a>
+                                    <a href=""> {{ $item->name }}</a>
                                 </div>
                                 <div class="price">
                                     <strong class="clr-txt">Rs {{ $item->price }} </strong>

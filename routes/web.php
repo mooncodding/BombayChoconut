@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\Web\CartController;
 use App\Http\Controllers\Web\CategoryController;
+use App\Http\Controllers\Web\CheckoutController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\ShopController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,7 @@ Route::get('/searchByProduct', [HomeController::class, 'searchByProduct'])->name
 Route::get('/category', [CategoryController::class, 'index']);
 Route::get('/shop', [ShopController::class, 'index']);
 Route::get('/getCategoryByProduct/{category}', [CategoryController::class, 'getCategoryByProduct'])->name('getCategoryByProduct');
+
 Route::get('/404', function () {
     return view('web.404');
 });
@@ -51,9 +53,9 @@ Route::get('/blog-single', function () {
 Route::get('/blog', function () {
     return view('web.blog');
 });
-Route::get('/checkout', function () {
-    return view('web.checkout');
-});
+// Route::get('/checkout', function () {
+//     return view('web.checkout');
+// });
 Route::get('/cng-pw', function () {
     return view('web.cng-pw');
 });
@@ -132,6 +134,7 @@ Route::post('/cart/update', [CartController::class, 'cartUpdate'])->name('cart.u
 Route::post('/remove', [CartController::class, 'remove'])->name('cart.remove');
 Route::post('/clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
 Route::post('/orders/store', [OrderController::class, 'store'])->name('order.store');
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 Auth::routes(['verify' => true, 'register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

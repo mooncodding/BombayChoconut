@@ -114,7 +114,7 @@ class CartController extends Controller
 
         // session()->flash('success', 'Item Cart is Updated Successfully !');
 
-        return redirect('/cart');
+        return redirect()->back();
     }
     /**
      * Remove the specified resource from storage.
@@ -132,15 +132,14 @@ class CartController extends Controller
         \Cart::remove($request->id);
         // session()->flash('success', 'Item Cart Remove Successfully !');
 
-        return redirect('/');
+        return redirect()->back();
         
     }
     public function clearAllCart()
     {
         \Cart::clear();
 
+        return redirect('/checkout');
         // session()->flash('success', 'All Item Cart Clear Successfully !');
-
-        return redirect()->route('cart.list');
     }
 }

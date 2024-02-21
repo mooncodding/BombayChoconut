@@ -3,9 +3,9 @@
     <section class="checkout">
         <h1 class="section-title ptb-15" style="text-align: center;"> <span class="light-font">Check</span> <strong>Out
             </strong> </h1>
-        <form action="{{ route('order.store') }}" method="POST" role="form" id="checkout_form">
-            @csrf
             <div class="row">
+                <form action="{{ route('order.store') }}" method="POST" role="form" id="checkout_form">
+                    @csrf
                 <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-5 px-md-1 pl-md-3 px-0 px-lg-3 px-sm-0">
                     <div class="bg-white border p-3">
                         <input type="hidden" id="price" name="price" value="9180">
@@ -75,9 +75,15 @@
                             </div>
                         </div>
                     </div>
-
+                    <div class="text-right">
+                        <a href="/" class="slide-btn"> Continue </a>
+                        <button type="submit" name="submit"
+                            class="text-right font16 mbl_btn_checkout btn bg-primary rounded font-weight-bold float-right  btn-checkout  text-uppercase py-md-3 hvr-float-shadow">
+                            Place Order
+                        </button>
+                    </div>
                 </div>
-
+                </form>
 
                 <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-7 px-md-1 pr-md-3 px-0 px-lg-3 px-sm-0">
 
@@ -99,206 +105,52 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <input type="hidden"
-                                onclick="typeof fbq != 'undefined' &amp;&amp; fbq('track', 'RemoveFromCart', {content_ids:'1626,201,1022,1189',content_type:'product',value: '9687',currency: 'PKR',contents: [ {id: '1626',quantity: '1'},{id: '201',quantity: '1'},{id: '1022',quantity: '3'},{id: '1189',quantity: '4'}]})"
-                                id="removefromcart"> <input type="hidden" id="gid1626" value="1626">
-                            <input type="hidden" id="gtitle1626" value="3 In 1 Flavoured Cashews Box">
-                            <input type="hidden" id="gbrand1626" value="BDF">
-                            <input type="hidden" id="gcategory1626" value="dry-fruits/flavoured-nuts/">
-                            <input type="hidden" id="glast_category1626" value="flavoured-nuts">
-                            <input type="hidden" id="gvariant1626" value="330Gm">
-                            <input type="hidden" id="gqty1626" value="1">
-                            <input type="hidden" id="gprice1626" value="2180">
+                            @foreach ($cartItems as $item)
                             <tr class="row_0 row_count_checkout">
-
-
-
                                 <td class="boxis">
-                                    <img class="img-fluid no-src lazyloaded"
-                                        data-src="https://www.bombaydryfruits.com/images/product_gallery/1684756624_512.webp"
-                                        width="70" alt="3 In 1 Flavoured Cashews Box"
-                                        src="https://www.bombaydryfruits.com/images/product_gallery/1684756624_512.webp">
-                                    <p class="font-size12">3 In 1 Flavoured Cashews Box </p>
-
-
+                                    <a class="media-link" href="/#"><img src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""></a> 
+                                    {{$item->name}} </p>
                                 </td>
-                                <td class="px-0 px-sm-0 px-md-2 px-lg-2">
-                                    <div class="input-group">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default btn-subtract" type="button">-</button>
-                                        </span>
-                                        <input type="text" class="form-control no-padding text-center item-quantity"
-                                            value="1">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default btn-add" type="button">+</button>
-                                        </span>
+                                <td>
+                                    <div class="prod-btns fontbold-2">
+                                        <div class="quantity">
+                                        <form action="{{ route('cart.update') }}" method="POST">
+                                            @csrf
+                                                <input type="hidden" name="id" value="{{ $item->id}}" >
+                                                <input title="Qty"  name="quantity" value="{{$item->quantity}}" class="form-control qty" type="number">
+                                        </div>
+                                          <button href="/checkout" class="btn btn-primary">update</button>
+                                        </form>
                                     </div>
                                 </td>
-                                <td>
-                                    <p>Rs.<span id="cart_row_price0">2,180</span></p>
-                                </td>
-                                <td>
-                                    <p>Rs.<span id="cart_row_price0">2,180</span></p>
-                                </td>
-                                <td class="text-center align-middle">
-                                    <button class="btn btn-danger" type="button" onclick="remove_cart_item(1626,0);">
-                                        <img src="https://www.bombaydryfruits.com/images/theme_icons/trash-icon-02.svg"
-                                            class="white-icons" alt="trash" width="18" height="18">
-                                    </button>
-                                </td>
-                            </tr>
-                            <input type="hidden" id="gid201" value="201">
-                            <input type="hidden" id="gtitle201" value="Sughai Dates">
-                            <input type="hidden" id="gbrand201" value="BDF">
-                            <input type="hidden" id="gcategory201" value="dates/saudi-dates/">
-                            <input type="hidden" id="glast_category201" value="saudi-dates">
-                            <input type="hidden" id="gvariant201" value="500gm">
-                            <input type="hidden" id="gqty201" value="1">
-                            <input type="hidden" id="gprice201" value="2000">
-                            <tr class="row_2 row_count_checkout">
-
-
-
-                                <td class="boxis">
-                                    <img class="img-fluid no-src lazyloaded"
-                                        data-src="https://www.bombaydryfruits.com/images/product_gallery\/1678356339_217.webp"
-                                        width="70" alt="Sughai Dates"
-                                        src="https://www.bombaydryfruits.com/images/product_gallery\/1678356339_217.webp">
-                                    <p class="font-size12">Sughai Dates weight:500gm, </p>
-
-
-                                </td>
-                                <td class="px-0 px-sm-0 px-md-2 px-lg-2">
-                                    <div class="input-group">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default btn-subtract" type="button">-</button>
-                                        </span>
-                                        <input type="text" class="form-control no-padding text-center item-quantity"
-                                            value="1">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default btn-add" type="button">+</button>
-                                        </span>
+                                <td> 
+                                    <div class="price fontbold-2"> 
+                                        <strong class="fsz-20">Rs {{$item->price}} </strong>
                                     </div>
                                 </td>
-                                <td>
-                                    <p>Rs.<span id="cart_row_price2">2,000</span></p>
-                                </td>
-                                <td>
-                                    <p>Rs.<span id="cart_row_price0">2,180</span></p>
-                                </td>
-                                <td class="text-center align-middle">
-                                    <button class="btn btn-danger" type="button" onclick="remove_cart_item(201,2);">
-                                        <img src="https://www.bombaydryfruits.com/images/theme_icons/trash-icon-02.svg"
-                                            class="white-icons" alt="trash" width="18" height="18">
-                                    </button>
-                                </td>
-                            </tr>
-                            <input type="hidden" id="gid1022" value="1022">
-                            <input type="hidden" id="gtitle1022" value="Cardamom Green">
-                            <input type="hidden" id="gbrand1022" value="BDF">
-                            <input type="hidden" id="gcategory1022" value="mouth-freshener/mukhwas/">
-                            <input type="hidden" id="glast_category1022" value="mukhwas">
-                            <input type="hidden" id="gvariant1022" value="125gm">
-                            <input type="hidden" id="gqty1022" value="3">
-                            <input type="hidden" id="gprice1022" value="1500">
-                            <tr class="row_3 row_count_checkout">
-
-
-
-                                <td class="boxis">
-                                    <img class="img-fluid no-src lazyloaded"
-                                        data-src="https://www.bombaydryfruits.com/images/product_gallery\/1678356339_217.webp"
-                                        width="70" alt="Cardamom Green"
-                                        src="https://www.bombaydryfruits.com/images/product_gallery\/1678356339_217.webp">
-                                    <p class="font-size12">Cardamom Green weight:125gm, </p>
-
-
-                                </td>
-                                <td class="px-0 px-sm-0 px-md-2 px-lg-2">
-                                    <div class="input-group">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default btn-subtract" type="button">-</button>
-                                        </span>
-                                        <input type="text" class="form-control no-padding text-center item-quantity"
-                                            value="1">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default btn-add" type="button">+</button>
-                                        </span>
+                                <td> 
+                                    <div class="price fontbold-2"> 
+                                        <strong class="fsz-20">Rs {{$item->price*$item->quantity}} </strong>
                                     </div>
                                 </td>
-                                <td>
-                                    <p>Rs.<span id="cart_row_price3">4,500</span></p>
-                                </td>
-                                <td>
-                                    <p>Rs.<span id="cart_row_price0">2,180</span></p>
-                                </td>
-                                <td class="text-center align-middle">
-                                    <button class="btn btn-danger" type="button" onclick="remove_cart_item(1022,3);">
-                                        <img src="https://www.bombaydryfruits.com/images/theme_icons/trash-icon-02.svg"
-                                            class="white-icons" alt="trash" width="18" height="18">
-                                    </button>
+                                <td> 
+                                    <form action="{{ route('cart.remove') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" value="{{ $item->id }}" name="id">
+                                        <button href="/checkout" class="remove fa fa-close clr-txt"></button>
+                                    </form>
                                 </td>
                             </tr>
-                            <input type="hidden" id="gid1189" value="1189">
-                            <input type="hidden" id="gtitle1189" value="Sugar Coated Fennel Seeds (Saunf)">
-                            <input type="hidden" id="gbrand1189" value="BDF">
-                            <input type="hidden" id="gcategory1189" value="mouth-freshener/mukhwas/">
-                            <input type="hidden" id="glast_category1189" value="mukhwas">
-                            <input type="hidden" id="gvariant1189" value="250gm">
-                            <input type="hidden" id="gqty1189" value="4">
-                            <input type="hidden" id="gprice1189" value="125">
-                            <tr class="row_4 row_count_checkout">
-
-
-
-                                <td class="boxis">
-                                    <img class="img-fluid no-src lazyloaded"
-                                        data-src="https://www.bombaydryfruits.com/images/product_gallery\/1693150278_773.webp"
-                                        width="70" alt="Sugar Coated Fennel Seeds (Saunf)"
-                                        src="https://www.bombaydryfruits.com/images/product_gallery\/1693150278_773.webp">
-                                    <p class="font-size12">Sugar Coated Fennel Seeds (Saunf) weight:250gm, </p>
-
-
-                                </td>
-                                <td class="px-0 px-sm-0 px-md-2 px-lg-2">
-                                    <div class="input-group">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default btn-subtract" type="button">-</button>
-                                        </span>
-                                        <input type="text" class="form-control no-padding text-center item-quantity"
-                                            value="1">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default btn-add" type="button">+</button>
-                                        </span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p>Rs.<span id="cart_row_price4">500</span></p>
-                                </td>
-                                <td>
-                                    <p>Rs.<span id="cart_row_price0">2,180</span></p>
-                                </td>
-                                <td class="text-center align-middle">
-                                    <button class="btn btn-danger" type="button" onclick="remove_cart_item(1189,4);">
-                                        <img src="https://www.bombaydryfruits.com/images/theme_icons/trash-icon-02.svg"
-                                            class="white-icons" alt="trash" width="18" height="18">
-                                    </button>
-                                </td>
-                            </tr>
+                            @endforeach
                             <tr>
-                                <td>
-
-                                </td>
+                                <td></td>
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td>
-
-                                </td>
-                                <td>
-                                    <button class="btn btn-danger" type="button"
-                                        onclick="remove_cart_item(1189,4);">Delete All
-                                        {{-- <img src="https://www.bombaydryfruits.com/images/theme_icons/trash-icon-02.svg" class="white-icons" alt="trash" width="18" height="18"> --}}
-                                    </button>
+                                    <a class="btn btn-danger" href="javascript: void(0)"
+                                        onclick="clearCart()">Delete All
+                                    </a>
                                 </td>
                             </tr>
                             <input type="hidden" id="checkout_items" value="1626,201,1022,1189">
@@ -307,26 +159,45 @@
                     <div class="d-flex align-items-end justify-content-between mb-30">
                         <h4>Your Order</h4>
                         <h4 class="text-muted">Subtotal
-                            <span class="sub-pri"> 6000</span>
+                            <span class="sub-pri">  Rs {{ Cart::getTotal() }}</span>
                         </h4>
                     </div>
-                    <div class=" bg-white ">
+                    {{-- <div class=" bg-white ">
                         <span id="loader_checkout" style="display:none; font-size: 40px;"
                             class="fa fa-spinner fa-spin float-right"></span>
-                        <button type="submit" name="submit"
-                            class="font16 mbl_btn_checkout btn bg-primary rounded font-weight-bold float-right  btn-checkout  text-uppercase py-md-3 hvr-float-shadow">
-                            Place Order
-                        </button>
-                        <button class="slide-btn cont">
-                            Continue Shopping
-                        </button>
-                    </div>
+                        <a href="/" class="slide-btn cont"> Continue </a>
+                    </div> --}}
                 </div>
             </div>
             </div>
             </div>
             </div>
-        </form>
-
     </section>
+@endsection
+
+@section('scripts')
+<script>
+    function clearCart() {
+        // Assuming you have included the necessary JavaScript library for making AJAX requests
+        // Example using axios:
+        $.ajax({
+            type: 'POST',
+            url: '/clear',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(response) {
+                // Handle the response if needed
+                // Refresh the page on success
+                window.location.reload();
+
+                console.log(response);
+            },
+            error: function(error) {
+                // Handle errors if needed
+                console.error(error);
+            }
+        });
+    }
+</script>
 @endsection

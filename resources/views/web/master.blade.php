@@ -562,15 +562,16 @@
                                                 </span> </h2>
                                             @foreach ($category->children as $child)
                                                 <ul class="sub-list">
-                                                    <li> <a href="#">{{ $child->name }}</a></li>
+                                                    <li> <a href="{{ route('getCategoryByProduct', $category->id) }}">{{ $child->name }}</a></li>
                                                 </ul>
                                             @endforeach
-                                            <h2 class="title"> <a href="/#" class="clr-txt"> All
+                                            <h2 class="title"> <a href="{{ route('getCategoryByProduct', $category->id) }}" class="clr-txt"> All
                                                     {{ $category->name }} </a> </h2>
                                         </div>
                                         <div class="menu-img">
-                                            <img alt=""
-                                                src="{{ asset('images/product-categories/' . $category->image) }}" />
+                                            <a href="{{ route('getCategoryByProduct', $category->id) }}">
+                                                <img alt=""
+                                                    src="{{ asset('images/product-categories/' . $category->image) }}" /></a>
                                         </div>
                                     </div>
                                 @endforeach

@@ -22,7 +22,6 @@
 
         <div class="container rel-div">
             <div class="row sort-bar">
-                {{-- <div class="icon"> <img alt="" src="assets/img/logo/logo-2.png" /> </div> --}}
                 <div class="col-lg-6">
                     <div class="sort-dropdown left">
                         <span>Products</span>
@@ -32,6 +31,26 @@
                         </div>
                     </div>
 
+                </div>
+                <div class="col-lg-5 right">
+                    <div class="sort-dropdown">
+                        <span>BY PRICE</span>
+                        <div class="search-selectpicker selectpicker-wrapper">
+                            <select class="selectpicker input-price" data-width="100%" data-toggle="tooltip">
+                                <option> Low to High </option>
+                                <option> High to Low </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="sort-dropdown">
+                        <span>SORT BY</span>
+                        <div class="search-selectpicker selectpicker-wrapper">
+                            <select class="selectpicker input-price" data-width="100%" data-toggle="tooltip">
+                                <option>A - Z</option>
+                                <option>Z - A</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -46,31 +65,15 @@
                             @foreach ($productCategory as $category)
                                 <ul class="checkbox-widget">
                                     <li class="form-group"><label class="checkbox-inline"><input value=""
-                                                type="checkbox" data-id="{{ $category->id }}">
-                                            <span>{{ $category->name }}</span></label> </li>
+                                                type="checkbox" data-id="{{ $category->id }}" class="category-btn">
+                                            <span>{{ $category->name }}</span></label>
+                                    </li>
                                 </ul>
                             @endforeach
                         </ul>
                     </div>
                 </div>
-
-
                 <div class="col-md-9">
-                    <div class="result-bar block-inline">
-                        <h4 class="result-txt">search result <b> 125 </b> </h4>
-                        <ul class="view-tabs">
-                            <li class="">
-                                <a href="/#grid-view" data-toggle="tab">
-                                    <i class="fa fa-th"></i>
-                                </a>
-                            </li>
-                            <li class="active">
-                                <a href="/#list-view" data-toggle="tab">
-                                    <i class="fa fa-th-list"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                     <div class="tab-content shop-content">
                         <div class="tab-pane fade active in productShopCards" role="tabpanel">
                             <div class="row">
@@ -79,7 +82,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="rel-div pt-50">
+                    {{-- <div class="rel-div pt-50">
                         <div class="divider-full-1"></div>
                         <div class="nav-page">
                             <a href="/#" class="fa fa-long-arrow-left left"></a>
@@ -96,7 +99,7 @@
                             <li><a href="/#">...</a></li>
                             <li><a href="/#">15</a></li>
                         </ul>
-                    </div>
+                    </div> --}}
                 </div>
 
             </div>
@@ -120,6 +123,7 @@
                     method: 'GET',
                     dataType: 'json',
                     success: function(data) {
+                        products = data.products;
                         displayProductCards(data.products);
                     },
                     error: function(error) {
@@ -137,6 +141,7 @@
 
                 // Set up click event for category buttons
                 $('.category-btn').on('click', function() {
+                    console.log($(this).data('id'));
                     const selectedCategory = $(this).data('id');
                     fetchAndDisplayProducts(selectedCategory);
                 });
@@ -153,6 +158,71 @@
                     fetchProductDetails(productId);
                 });
             });
+
+            // Assuming your search button has the class "btn" and the input has the class "form-control"
+            $(".sort-dropdown .btn").on("click", function() {
+                console.log(products);
+                // Get the search input value
+                let searchInput = $(".sort-dropdown .form-control").val().toLowerCase();
+
+                // Filter products based on the search input
+                let filteredProducts = products.filter(function(product) {
+                    return product.title.toLowerCase().includes(searchInput);
+                });
+
+                // Display the filtered products
+                displayProductCards(filteredProducts);
+            });
+            // Assuming your select dropdown has the class "input-price"
+            $(".input-price").on("change", function() {
+                // Get the selected sort option
+                let selectedSort = $(this).val();
+
+                // Sort the products based on the selected option
+                let sortedProducts = sortProducts(products, selectedSort);
+
+                // Display the sorted products
+                displayProductCards(sortedProducts);
+            });
+            // Assuming your select dropdown has the class "input-price"
+            $(".input-price").on("change", function() {
+                // Get the selected price option
+                let selectedPrice = $(this).val();
+
+                // Filter the products based on the selected option
+                let filteredProducts = filterProductsByPrice(products, selectedPrice);
+
+                // Display the filtered products
+                displayProductCards(filteredProducts);
+            });
+            // Function to filter products based on the selected price option
+            function filterProductsByPrice(products, selectedPrice) {
+                if (selectedPrice === "Low to High") {
+                    // Filter products in ascending order by price
+                    return products.sort((a, b) => a.product_variants[0].sale_price - b.product_variants[0]
+                        .sale_price);
+                } else if (selectedPrice === "High to Low") {
+                    // Filter products in descending order by price
+                    return products.sort((a, b) => b.product_variants[0].sale_price - a.product_variants[0]
+                        .sale_price);
+                } else {
+                    // Default filtering (no filtering)
+                    return products;
+                }
+            }
+            // Function to sort products based on the selected option
+            function sortProducts(products, selectedSort) {
+                if (selectedSort === "A - Z") {
+                    // Sort products in ascending order by title
+                    return products.sort((a, b) => a.title.localeCompare(b.title));
+                } else if (selectedSort === "Z - A") {
+                    // Sort products in descending order by title
+                    return products.sort((a, b) => b.title.localeCompare(a.title));
+                } else {
+                    // Default sorting (no sorting)
+                    return products;
+                }
+            }
 
             function displayProductCards(products) {
                 let productsContainer = $(".productShopCards");
@@ -253,8 +323,8 @@
                                                 <li class="tags-widget" id="variantsContainer"> 
                                                     <strong>Variants:</strong>
                                                     ${product.product_variants.map(variant => `
-                                                                    <span class="weight-option" data-variant="${variant.id}" data-price="${variant.sale_price}"><a href="javascript: void(0)">${variant.weight} </a></span>
-                                                                `).join('')}
+                                                                        <span class="weight-option" data-variant="${variant.id}" data-price="${variant.sale_price}"><a href="javascript: void(0)">${variant.weight} </a></span>
+                                                                    `).join('')}
                                                 </li>
                                                 <li> <strong>CATEGORY:</strong><span> ${product.product_category.name}</span> </li>
                                             </ul>
@@ -337,6 +407,7 @@
                     }
                 });
             }
+
         });
     </script>
 @endsection

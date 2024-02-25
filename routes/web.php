@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\API\OrderController;
+use App\Http\Controllers\API\UserAuthController;
 use App\Http\Controllers\Web\CartController;
 use App\Http\Controllers\Web\CategoryController;
 use App\Http\Controllers\Web\CheckoutController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\ShopController;
+use App\Http\Controllers\Web\TrackOrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +26,7 @@ Route::get('/products/filter/{category}', [HomeController::class, 'filterByCateg
 Route::get('/searchByProduct', [HomeController::class, 'searchByProduct'])->name('searchByProduct');
 Route::get('/category', [CategoryController::class, 'index']);
 Route::get('/shop', [ShopController::class, 'index']);
+Route::get('/getCategoryByProduct/{category}', [CategoryController::class, 'getCategoryByProduct'])->name('getCategoryByProduct');
 Route::get('/getCategoryByProduct/{category}', [CategoryController::class, 'getCategoryByProduct'])->name('getCategoryByProduct');
 
 Route::get('/404', function () {
@@ -71,9 +74,7 @@ Route::get('/forgot-password', function () {
 Route::get('/web/login', function () {
     return view('web.login');
 });
-Route::get('/my-account', function () {
-    return view('web.my-account');
-});
+
 Route::get('/myaccount-leftsidebar', function () {
     return view('web.myaccount-leftsidebar');
 });
@@ -116,12 +117,17 @@ Route::get('/specialoffers', function () {
 Route::get('/thankyou', function () {
     return view('web.thankyou');
 });
-Route::get('/tracking', function () {
-    return view('web.tracking');
-});
+// Route::get('/tracking', function () {
+//     return view('web.tracking');
+// });
 Route::get('/wishlist', function () {
     return view('web.wishlist');
 });
+
+Route::get('/my-account', function () {
+    return view('web.my-account');
+});
+
 Route::get('/wishlist-product', function () {
     return view('web.wishlist-product');
 });
@@ -135,6 +141,11 @@ Route::post('/remove', [CartController::class, 'remove'])->name('cart.remove');
 Route::post('/clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
 Route::post('/orders/store', [OrderController::class, 'store'])->name('order.store');
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+Route::get('/trackOrders', [TrackOrderController::class, 'index'])->name('trackOrders');
+Route::get('/getTrackOrder', [TrackOrderController::class, 'getTrackOrder'])->name('getTrackOrder');
+Route::post('/web/login', [UserAuthController::class, 'login'])->name('web.login');
+Route::post('/my-account/update', [UserAuthController::class, 'updateAccount'])->name('update.account');
+Route::post('/update-password', [UserAuthController::class, 'updatePassword'])->name('update.password');
 Auth::routes(['verify' => true, 'register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

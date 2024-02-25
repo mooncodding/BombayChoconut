@@ -7,90 +7,58 @@
             <div class="col-8 heading">
                 <h5><b>Track Your Order</b></h5>
             </div>
-            {{-- <div class="col-4">
-                <img class="img-fluid" src="https://i.imgur.com/Rzjor3M.png">
-            </div> --}}
         </div>
-        <form>
+        <form action="{{route('trackOrders')}}" method="GET">
             <div class="form-element">
-                <span id="input-header">Order ID</span>
-                <input type="text" id="order_id" placeholder="2548745588958">
+                <span id="input-header">Order Number</span>
+                <input type="text" id="order_id" name="reference" placeholder="BOMBAY/ORDER/123">
             </div>
-          
-        </form>
-        
     </div>
     <hr>
     <div class="lower">
-        <button class="btn">Track Order</button>
+        <button type="submit" class="btn">Track Order</button>
     </div>
-        
-    
+    </form>
 </div>
 </section>
 <section class="account-page ptb-50">
     <div class="container"> 
         <!-- Shopping Cart Starts -->
         <div class="cart-table">
-            <form class="cart-form">    
+            @if ($order != "" && isset($order))
                 <table class="product-table">                   
-                    <thead class="">        
+                    <thead>        
                         <tr>                                                                       
-                            <th>product detail</th>  
-                            
-                            <th>date</th> 
-                            <th>quantity</th>
-                            <th>Product price</th>
-                            <th>Total price</th>
-                            <th>status</th>                                        
+                            <th>Product Name</th>  
+                            <th>Quantity</th>
+                            <th>Product Price</th>
+                            <th>Total Price</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($order->orderDetails as $item)
                         <tr>
-                            {{-- <td class="image">
-                                <div class="white-bg">
-                                    <img class="prod-img" src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""/>    
-                                </div>
-                            </td> --}}
                             <td class="description">
-                                <div class="rating">
-                                    <span class="star active"></span>
-                                    <span class="star active"></span>
-                                    <span class="star active"></span>
-                                    <span class="star active"></span>
-                                    <span class="star active"></span>                                               
-                                </div>
-                                <h6 class="fsz-12 gray-color"> Overall Rating : 5/5 </h6>
-                                <div class="divider-2"></div>
-                                <h3 class="product-title no-margin"> <a href="/#"> <span class="light-font">organic </span> <strong>almonds </strong> </a> </h3>
-                                <h6>DRY FRUITS</h6>                                                                                                                             
+                                <h4>{{$item->product->title}}</h4>                                                                                                                             
                             </td> 
-                            <td> 
-                                <div class="text-center pt-20"> <b class="fsz-16"> 12th Dec'15 </b> </div>
-                            </td>   
                             <td>
                                 <div class="prod-btns fontbold-2">
-                                    <b class="fsz-16"> 1 </b>
+                                    <b class="fsz-16"> {{$item->quantity}} </b>
                                 </div>
                             </td>
                             <td> 
                                 <div class="price fontbold-2"> 
-                                    <strong class="fsz-20">Rs 50.00 </strong> 
+                                    <strong class="fsz-20">{{$item->sale_price}} </strong> 
                                 </div>
                             </td> 
                             <td> 
                                 <div class="price fontbold-2"> 
-                                    <strong class="fsz-20">Rs 150.00 </strong> 
-                                </div>
-                            </td> 
-                            
-                            <td> 
-                                <div class="order-status pt-15"> 
-                                    <a href="/#" class="theme-btn-sm-2 btn">In Progress</a>
-                                     
+                                    <strong class="fsz-20">{{$item->sub_total}} </strong> 
                                 </div>
                             </td>                                       
-                        </tr>      
+                        </tr> 
+                            
+                        @endforeach     
 
                     </tbody>                               
                 </table>
@@ -109,19 +77,19 @@
                         <tr>
                           
                             <td> 
-                                <div class="text-center pt-20"> <b class="fsz-16"> Muneeb Awan </b> </div>
+                                <div class="text-center pt-20"> <b class="fsz-16"> {{$order->customer->name }} </b> </div>
                             </td>  
                             <td> 
-                                <div class="text-center pt-20"> <b class="fsz-16"> muneebrazaawan@gmail.com </b> </div>
+                                <div class="text-center pt-20"> <b class="fsz-16"> {{$order->customer->email }} </b> </div>
                             </td> 
                             <td> 
-                                <div class="text-center pt-20"> <b class="fsz-16"> 03232771266 </b> </div>
+                                <div class="text-center pt-20"> <b class="fsz-16">{{$order->customer->phone}} </b> </div>
                             </td>  
                             <td> 
-                                <div class="text-center pt-20"> <b class="fsz-16"> England </b> </div>
+                                <div class="text-center pt-20"> <b class="fsz-16"> {{$order->customer->address}} </b> </div>
                             </td> 
                             <td> 
-                                <div class="text-center pt-20"> <b class="fsz-16">428332121331 </b> </div>
+                                <div class="text-center pt-20"> <b class="fsz-16">{{$order->reference}}</b> </div>
                             </td> 
                                                            
                         </tr>      
@@ -130,10 +98,9 @@
                 </table>
 
                 <div class="continue-shopping text-center">
-                    <a href="/shop-1" class="theme-btn btn"> Back to shop </a>
+                    <a href="/shop" class="theme-btn btn"> Back to shop </a>
                 </div>
-
-            </form>
+            @endif
         </div>                    
         <!-- / Shopping Cart Ends -->
     </div>

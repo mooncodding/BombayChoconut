@@ -23,7 +23,7 @@
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-12 mb-2">
                                 <label class="" for="mobile">Mobile*</label>
-                                <input name="mobile" type="tel" id="mobile" value=""
+                                <input name="phone" type="tel" id="mobile" value=""
                                     class="form-control  onlyNumerics" placeholder="Mobile Number " pattern="[0-9]*"
                                     required="">
                             </div>

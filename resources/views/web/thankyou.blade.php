@@ -17,7 +17,7 @@
                 <strong>Summary </strong> </h2>
             <ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details">
                 <li class="woocommerce-order-overview__order order">
-                    Order number: <strong>{{ session('data')->bill_no }}</strong>
+                    Order number: <strong>{{ session('data')->reference }}</strong>
                 </li>
                 <li class="woocommerce-order-overview__date date">
                     Date: <strong>{{ session('data')->order_date }}</strong>

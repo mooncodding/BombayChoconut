@@ -372,7 +372,7 @@
                     <span>
                 </div>
                 <div class="col-lg-2 track">
-                    <a href="/tracking">
+                    <a href="{{ route('trackOrders') }}">
                         <p
                             style="
                     border-right: 1px solid white;
@@ -384,15 +384,22 @@
                     </a>
                 </div>
                 <div class="col-lg-1">
-                    <a href="/wishlist">
-                        <p style="
-                            text-align: start;
-                        "><i
-                                class="fa fa-user-plus" aria-hidden="true"></i>
-
-
-                            ACCOUNT</p>
-                    </a>
+                    @if (Auth::user())
+                        <a href="/my-account">
+                            <p style="text-align: start;">
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                {{Auth::user()->name}}
+                            </p>
+                        </a>
+                    @else
+                        <a href="/wishlist">
+                            <p style="text-align: start;">
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                ACCOUNT
+                            </p>
+                        </a>
+                    @endif
+                    
                 </div>
 
 
@@ -562,10 +569,14 @@
                                                 </span> </h2>
                                             @foreach ($category->children as $child)
                                                 <ul class="sub-list">
-                                                    <li> <a href="{{ route('getCategoryByProduct', $category->id) }}">{{ $child->name }}</a></li>
+                                                    <li> <a
+                                                            href="{{ route('getCategoryByProduct', $category->id) }}">{{ $child->name }}</a>
+                                                    </li>
                                                 </ul>
                                             @endforeach
-                                            <h2 class="title"> <a href="{{ route('getCategoryByProduct', $category->id) }}" class="clr-txt"> All
+                                            <h2 class="title"> <a
+                                                    href="{{ route('getCategoryByProduct', $category->id) }}"
+                                                    class="clr-txt"> All
                                                     {{ $category->name }} </a> </h2>
                                         </div>
                                         <div class="menu-img">
@@ -624,12 +635,12 @@
                         </div>
                         <div class="col-lg-4 account">
                             <i class="fa fa-user-plus" aria-hidden="true"></i>
-                            <p style="
-            text-align: start;
-        ">
+                            @if (Auth::user())
+                                <p style="text-align: start;">{{Auth::user()->name}}</p>
+                            @else
+                                <p style="text-align: start;">ACCOUNT</p>
 
-
-                                ACCOUNT</p>
+                            @endif
                         </div>
                     </div>
                     <section id="marzen" class="tab-panel">
@@ -1209,8 +1220,8 @@
                                                 <li class="tags-widget" id="variantsContainer"> 
                                                     <strong>Variants:</strong>
                                                     ${product.product_variants.map(variant => `
-                                                                <span class="weight-option" data-variant="${variant.id}" data-price="${variant.sale_price}"><a href="/#">${variant.weight} </a></span>
-                                                            `).join('')}
+                                                                    <span class="weight-option" data-variant="${variant.id}" data-price="${variant.sale_price}"><a href="/#">${variant.weight} </a></span>
+                                                                `).join('')}
                                                 </li>
                                                 <li> <strong>CATEGORY:</strong><span> ${product.product_category.name}</span> </li>
                                             </ul>

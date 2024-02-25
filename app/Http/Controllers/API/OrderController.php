@@ -65,12 +65,14 @@ class OrderController extends Controller
         $user = new User();
         $user->name=$request->name;
         $user->email=$request->email;
+        $user->phone=$request->phone;
+        $user->address=$request->address;
         $user->password=Hash::make('bombay123');
         $user->photo='profile.png';
         $user->assignRole(4);
         $user->save();
         $order =  new Order();
-        $order->reference =  'C/ORDER/'.(Order::max('id')+001).'/'.date('y');
+        $order->reference =  'BOMBAY/ORDER/'.(Order::max('id')+001).'/'.date('y');
         $order->customer_id = $user->id;
         $order->bill_no = 'C/BILL/NUMBER/'.(Order::max('id')+001).'/'.date('y');
         $order->order_status_id = 1;

@@ -8,6 +8,7 @@ use App\Http\Controllers\Web\CheckoutController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\ShopController;
 use App\Http\Controllers\Web\TrackOrderController;
+use App\Http\Controllers\Web\WishlistController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -81,9 +82,9 @@ Route::get('/myaccount-leftsidebar', function () {
 Route::get('/newsletter', function () {
     return view('web.newsletter');
 });
-Route::get('/order-history', function () {
-    return view('web.order-history');
-});
+// Route::get('/order-history', function () {
+//     return view('web.order-history');
+// });
 Route::get('/return', function () {
     return view('web.return');
 });
@@ -128,9 +129,9 @@ Route::get('/my-account', function () {
     return view('web.my-account');
 });
 
-Route::get('/wishlist-product', function () {
-    return view('web.wishlist-product');
-});
+// Route::get('/wishlist-product', function () {
+//     return view('web.wishlist-product');
+// });
 Route::get('/shopbybrands', function () {
     return view('web.shopbybrands');
 });
@@ -145,7 +146,11 @@ Route::get('/trackOrders', [TrackOrderController::class, 'index'])->name('trackO
 Route::get('/getTrackOrder', [TrackOrderController::class, 'getTrackOrder'])->name('getTrackOrder');
 Route::post('/web/login', [UserAuthController::class, 'login'])->name('web.login');
 Route::post('/my-account/update', [UserAuthController::class, 'updateAccount'])->name('update.account');
+Route::post('/custom-register', [UserAuthController::class, 'customerRegister'])->name('custom.register');
 Route::post('/update-password', [UserAuthController::class, 'updatePassword'])->name('update.password');
+Route::get('/order-history', [OrderController::class, 'orderHistory'])->name('order.history');
+Route::get('/wishlist-product', [WishlistController::class, 'index'])->name('wishlist.product');
+Route::post('/wishlist-product/store', [WishlistController::class, 'store'])->name('wishlist.store');
 Auth::routes(['verify' => true, 'register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -475,4 +475,12 @@ class OrderController extends Controller
     {
         return  OrderHistory::where('order_id',$id)->with(['order','customer','orderStatus','updatedBy'])->get();
     }
+
+    // 
+    public function orderHistory(Request $request)
+    {
+        $orderHistory = Order::where('customer_id',Auth::user()->id)->with(['orderDetails'])->get();
+
+        return view('web.order-history')->with('orderHistory',$orderHistory);
+    }
 }

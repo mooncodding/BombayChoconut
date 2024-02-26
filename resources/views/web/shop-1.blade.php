@@ -235,7 +235,11 @@
                                             <img class="prod-img" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
                                             <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
                                             <div class="prod-icons"> 
-                                                <a href="#" class="fa fa-heart"></a>
+                                                <form action="{{ route('wishlist.store') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="product_id" value="${product.id}" />
+                                                    <button type="submit" class="fa fa-heart"></button>
+                                                </form>
                                                 <a  href="/#product-preview" data-toggle="modal" class="fa fa-shopping-basket view-details-btn" data-product-id="${product.id}"></a>
                                             </div>
                                         </div>
@@ -368,18 +372,18 @@
                     }];
                     addToCart(array);
                 });
-                $('.modal-open').on('click', '.add-to-cart-btn', function() {
-                    // console.log(123)
-                    var productId = $(this).data('product-id');
-                    var quantity = document.getElementById('quatity').value;
-                    var variant_id = variantId;
-                    array = [{
-                        'product_id': parseInt(productId),
-                        'quantity': parseInt(quantity),
-                        'variant_id': parseInt(variant_id),
-                    }];
-                    addToCart(array);
-                });
+                // $('.modal-open').on('click', '.add-to-cart-btn', function() {
+                //     // console.log(123)
+                //     var productId = $(this).data('product-id');
+                //     var quantity = document.getElementById('quatity').value;
+                //     var variant_id = variantId;
+                //     array = [{
+                //         'product_id': parseInt(productId),
+                //         'quantity': parseInt(quantity),
+                //         'variant_id': parseInt(variant_id),
+                //     }];
+                //     addToCart(array);
+                // });
             }
 
             function addToCart(data) {

@@ -288,18 +288,18 @@
                         }];
                         addToCart(array);
                     });
-                    $('.modal-open').on('click', '.add-to-cart-btn', function() {
-                        // console.log(123)
-                        var productId = $(this).data('product-id');
-                        var quantity = document.getElementById('quatity').value;
-                        var variant_id = variantId;
-                        array = [{
-                            'product_id': parseInt(productId),
-                            'quantity': parseInt(quantity),
-                            'variant_id': parseInt(variant_id),
-                        }];
-                        addToCart(array);
-                    });
+                    // $('.modal-open').on('click', '.add-to-cart-btn', function() {
+                    //     // console.log(123)
+                    //     var productId = $(this).data('product-id');
+                    //     var quantity = document.getElementById('quatity').value;
+                    //     var variant_id = variantId;
+                    //     array = [{
+                    //         'product_id': parseInt(productId),
+                    //         'quantity': parseInt(quantity),
+                    //         'variant_id': parseInt(variant_id),
+                    //     }];
+                    //     addToCart(array);
+                    // });
                 }
 
                 function addToCart(data) {

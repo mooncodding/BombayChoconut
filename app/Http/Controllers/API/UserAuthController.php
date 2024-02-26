@@ -41,44 +41,19 @@ class UserAuthController extends Controller
             'name' => 'required|string|max:64',
             'email' => 'required|string|email|max:64|unique:users',
             'password' => 'required|string|min:8',
-            'photo' => 'nullable',
-            'id_card_number' => 'required|string|unique:users',
-            'mobile_number' => 'required|string|unique:users',
-            'mobile_number_2' => 'nullable|string|unique:users',
-            'mobile_number_3' => 'nullable|string|unique:users',
-            'username' => 'required|string|unique:users',
         ]);
         
         $user = new User();
-        $user->reference = 'CUSTOMER/' . (User::max('id') + 001) . '/' . date('y');
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->username = $request->username;
-        $user->password = Hash::make($request->password);
-
-        // If file exists in the request
-        if ($files = $request->file('photo')) {
-            // destination path
-            $destinationPath = 'images/users/'; 
-            $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
-            $files->move($destinationPath, $profileImage);
-            $user->photo = $profileImage;
-        }
-        
-        $user->id_card_number = $request->id_card_number;
-        $user->mobile_number = $request->mobile_number;
-        $user->mobile_number_2 = $request->mobile_number_2;
-        $user->mobile_number_3 = $request->mobile_number_3;
-        $user->address = $request->address;
-        $user->company_name = $request->company_name;
-        $user->nif = $request->nif;
-        $user->stat = $request->stat;
-        $user->cif = $request->cif;
-        $user->rcs = $request->rcs;
-        $user->city_id = $request->city_id;
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->password=Hash::make($request->password);
+        $user->photo='profile.png';
         $user->assignRole(4);
         $user->save();
-        return response()->json("Record created successfully", 200);
+
+
+        return redirect('/wishlist')->with('success','User Register Successfully');
+
     }
     // //Forgot Reset Password Api
     // public function resetPassword(Request $request)

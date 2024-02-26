@@ -419,7 +419,7 @@
             </div>
         </div>
         <!-- Main Header Start -->
-        <header class="main-header">
+        <header class="main-head">
             <div class="container-fluid rel-div">
                 <!-- <div class="pattern">
                         <img alt="" src="assets/img/icons/white-pattern.png" />
@@ -465,7 +465,7 @@
                         </div>
                     </form>
                 </div>
-                <div style=" padding-left: 20px;  padding-top: 10px;   font-size: 20px;" class="col-lg-1 ">
+                <div style=" padding-left: 20px;  padding-top: 10px;   font-size: 20px; text-align: center;" class="col-lg-1 ">
                     @if (Auth::user())
                         <i class="fa fa-list" aria-hidden="true"></i><span style=" padding-left: 33px; "><a
                             href="/wishlist-product"><i class="fa fa-heart-o" aria-hidden="true"></i></a>

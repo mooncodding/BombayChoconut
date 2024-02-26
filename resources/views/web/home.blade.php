@@ -100,7 +100,7 @@
                     <ul class="theme-tabs" id="categories">
                         <div class="container-fluid">
                             <div class="col-md-12">
-                                <div class="tab-content organic-content row">
+                                <div class="tab-content organic-content row width-fly">
                                     <div class="product-slider-1 dots-1">
                                         @foreach ($parentCategories as $category)
                                             <li class="hish"><a href="#" data-toggle="tab" class="category-btn"

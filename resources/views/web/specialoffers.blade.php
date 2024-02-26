@@ -350,13 +350,18 @@
                             dataType: 'json',
                             success: function (response) {
                                 $('#product-preview').hide();
-                                // location.reload();
+                                location.reload();
+                                openCart();
                             },
                             error: function (error) {
                                 console.error('Error adding to cart:', error);
                             }
                         });
                     }
+
+                    $(document).ready(function() {
+                        openCart(); // Call openCart when the document is ready
+                    });
         });
     </script>
     @endsection

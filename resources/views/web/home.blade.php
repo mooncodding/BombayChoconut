@@ -121,16 +121,9 @@
                 <div class="tab-content organic-content row">
                     <div id="" class="tab-pane fade active in">
                         <div class="product-slider-1 dots-1">
-
-                            
-                            <div class="productCards"> 
-                                </div>
-                            </div>
-
-                        
-
+                            <div class="productCards"></div>
+                        </div>
                     </div>
-
                 </div>
                 <a href="/shop" class="theme-btn btn "> <strong> View All Products</strong> </a>
             </div>
@@ -774,12 +767,18 @@
                 dataType: 'json',
                 success: function(response) {
                     $('#product-preview').hide();
-                    // location.reload();
+                    location.reload();
+                    openCart();
                 },
                 error: function(error) {
                     console.error('Error adding to cart:', error);
                 }
             });
+
         }
+        
+        $(document).ready(function() {
+            openCart(); // Call openCart when the document is ready
+        });
     });
 </script>

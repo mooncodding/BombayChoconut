@@ -274,6 +274,19 @@
         .modal-backdrop.fade.in {
             display: none;
         }
+
+        .productCards {
+            display: flex;
+            /* flex-wrap: nowrap; Or change to 'wrap' if you want the cards to wrap to the next line on smaller screens */
+            /* overflow-x: auto; Enable horizontal scrolling for overflowed cards */
+            /* scroll-snap-type: x mandatory; Snap cards to the scroll container */
+        }
+
+        .item {
+            flex: 0 0 auto; /* Don't allow items to grow or shrink */
+            /* margin-right: 15px; Add spacing between items */
+            /* scroll-snap-align: start; Align items to the start of the container when scrolling */
+        }
     </style>
     <script>
         function imageZoom(imgID, resultID) {
@@ -1314,53 +1327,86 @@
     <script>
         imageZoom("myimage", "myresult");
     </script>
-    <script>
-        var cartOpen = false;
-        var numberOfProducts = 0;
+<script>
+    var cartOpen = false;
+    var numberOfProducts = 0;
 
-        $('body').on('click', '.js-toggle-cart', toggleCart);
-        $('body').on('click', '.js-add-product', addProduct);
-        $('body').on('click', '.js-remove-product', removeProduct);
+    
 
-        function toggleCart(e) {
-            e.preventDefault();
-            if (cartOpen) {
-                closeCart();
-                return;
-            }
-            openCart();
+    $('body').on('click', '.js-toggle-cart', toggleCart);
+    $('body').on('click', '.js-add-product', addProduct);
+    $('body').on('click', '.js-remove-product', removeProduct);
+
+    function toggleCart(e) {
+        e.preventDefault();
+        if (cartOpen) {
+            closeCart();
+            return;
         }
+        openCart();
+    }
 
-        function openCart() {
-            cartOpen = true;
-            $('body').addClass('open');
+    function openCart() {
+        cartOpen = true;
+        $('body').addClass('open');
+
+        // Generate and append HTML for cart items
+        var cartItemsHtml = '<article class="js-cart-product">';
+        @foreach (Cart::getContent() as $item)
+            cartItemsHtml += '<li class="cart-list">';
+            cartItemsHtml += '<div class="cart-img"> <img src="{{ asset('web-assets/images/giftbasket/1.png') }}" alt=""> </div>';
+            cartItemsHtml += '<div class="cart-title">';
+            cartItemsHtml += '<div class="fsz-16">';
+            cartItemsHtml += '<a href=""> {{ $item->name }}</a>';
+            cartItemsHtml += '</div>';
+            cartItemsHtml += '<div class="price">';
+            cartItemsHtml += '<strong class="clr-txt">Rs {{ $item->price }} </strong>';
+            cartItemsHtml += '</div>';
+            cartItemsHtml += '</div>';
+            cartItemsHtml += '<div class="quantity-product">';
+            cartItemsHtml += '<p>Quantity </p>';
+            cartItemsHtml += '<p>{{ $item->quantity }}</p>';
+            cartItemsHtml += '</div>';
+            cartItemsHtml += '<div class="close-icon">';
+            cartItemsHtml += '<form action="{{ route('cart.remove') }}" method="POST">';
+            cartItemsHtml += '@csrf';
+            cartItemsHtml += '<input type="hidden" value="{{ $item->id }}" name="id">';
+            cartItemsHtml += '<button type="submit"><i class="fa fa-trash clr-txt"></i></button>';
+            cartItemsHtml += '</form>';
+            cartItemsHtml += '</div>';
+            cartItemsHtml += '</li>';
+        @endforeach
+        cartItemsHtml += '</article>';
+
+        $('.js-cart-products').html(cartItemsHtml);
+    }
+
+    function closeCart() {
+        cartOpen = false;
+        $('body').removeClass('open');
+    }
+
+    function addProduct(e) {
+        e.preventDefault();
+        openCart();
+        $('.js-cart-empty').addClass('hide');
+
+        // You may need to update this part based on how you handle adding products to the cart
+        var product = '<div class="js-cart-product">Product details go here</div>';
+        $('.js-cart-products').prepend(product);
+        numberOfProducts++;
+    }
+
+    function removeProduct(e) {
+        e.preventDefault();
+
+        numberOfProducts--;
+        $(this).closest('.js-cart-product').hide(250);
+        if (numberOfProducts === 0) {
+            $('.js-cart-empty').removeClass('hide');
         }
-
-        function closeCart() {
-            cartOpen = true;
-            $('body').removeClass('open');
-        }
-
-        function addProduct(e) {
-            e.preventDefault();
-            console.log(e)
-            openCart();
-            $('.js-cart-empty').addClass('hide');
-            var product = $('.js-cart-product-template').html();
-            $('.js-cart-products').prepend(product);
-            numberOfProducts++;
-        }
-
-        function removeProduct(e) {
-            e.preventDefault();
-
-            numberOfProducts--;
-            $(this).closest('.js-cart-product').hide(250);
-            if (numberOfProducts == 0) {
-                $('.js-cart-empty').removeClass('hide');
-            }
-        }
-    </script>
+    }
+</script>
 
 
     <aside class="cart js-cart">
@@ -1377,7 +1423,7 @@
                 Add a product to your cart
             </p>
             <div class="cart__product js-cart-product-template">
-                <article class="js-cart-product">
+                {{-- <article class="js-cart-product">
                     @foreach (Cart::getContent() as $item)
                         <li class="cart-list">
                             <div class="cart-img"> <img src="{{ asset('web-assets/images/giftbasket/1.png') }}"
@@ -1407,12 +1453,9 @@
                         </li>
                     @endforeach
 
-                </article>
+                </article> --}}
             </div>
         </div>
-        {{-- <div class="col-lg-2 col-sm-4 cart-megamenu">
-
-        </div>  --}}
         <div class="cart__footer">
             <div class="width-price">
                 <p class="text-left">Total Price: <span class="price"> Rs {{ Cart::getTotal() }}</span></p>

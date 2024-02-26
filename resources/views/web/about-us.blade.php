@@ -36,14 +36,15 @@
                     <div class="ptb-15 icon"> 
                         <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>  <i class="fa fa-star"></i> 
                         <span class="light-font about-con"> A Taste Of </span> <strong class="darkness about-dar">Real Goodness</strong>
-                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>  <i class="fa fa-star"></i> 
+                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>  <i class="fa fa-star"></i>
+                        <p>Whether you're looking for a yummy snack, need a thoughtful gift, or just want to treat yourself, come and check out Bombay Choc n Nuts. We're here to make your day a bit sweeter and more enjoyable!
+                        </p> 
                     </div>
                 </div>
 
                 <div class="container rel-div">
                    <div class="row">
-                            <p class="about-pp">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam  enim ad minim veniam, quis nostrud exerci tation.</p>
-                       <h3 class="abouth3">Good Quality Products</h3>
+                            <p class="about-pp">Step into the sweet world of Bombay Choc n Nuts, a wonderful place for everyone in Pakistan who loves sweets and snacks! Our store is filled with great choices, from tasty chocolates and crunchy biscuits to healthy dry fruits and lots of different candies.</h3>
                        <h5 class="abouth5">ABOUT BOMBAY CHOCO & NUTS</h5>
                         {{-- <div class="col-sm-6 text-left xs-text">
                             <h2 class="section-title"> <span class="light-font">we are </span> <strong>organic farmfood <img src="assets/img/icons/logo-icon.png" alt="" /> </strong> </h2>
@@ -105,7 +106,8 @@
                             <span class="light-font"> WE DO <span class="over-txt light-bg">100% ORGANIC GUARANTEE</span> </span> 
                             <strong>HEALTHY</strong> 
                         </h2>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoree Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+                        <p>We started Bombay Choc n Nuts with a simple idea: to bring together a variety of the best snacks and sweets in one easy-to-find place. Whether you're a fan of chocolate or you like nuts and dry fruits, we have a lot of different options for you.
+                        </p>
                     </div>
 
                     <div class="about-wrap"> 
@@ -160,6 +162,8 @@
             <div class="organic-prod-info">
                 <h4 class="sub-title">  FRESH DRY FRUITS </h4>
                 <h2 class="section-title ptb-15"> <span class="light-font">220+ </span> <strong>chocolates, dry fruites </strong> <br><span class="light-font"> & </span> <strong> lot more</strong> </h2>
+                <p>We're really proud of our focus on natural and farm-grown nuts and dry fruits. We believe that the best snacks are made with the best, most natural ingredients, and we're committed to offering that.
+                </p>
                 
             </div>
         </div>
@@ -172,6 +176,8 @@
             <div class="organic-prod-info">
                 <h4 class="sub-title">  FRESH FROM OUR FARM </h4>
                 <h2 class="section-title ptb-15"> <span class="light-font">115+ </span> <strong>organic juices </strong> <br><span class="light-font"> and </span> <strong> organic tea</strong> </h2>
+                <p>For those who love chocolate, our collection is something to be excited about. We have all the popular brands like Cadbury, Bounty, Mars, Snickers, Twix, and many others. It's really handy for people in Pakistan to be able to buy these well-known imported chocolates easily.
+                </p>
             </div>
         </div>
         <div class="col-lg-6 col-sm-12"> 

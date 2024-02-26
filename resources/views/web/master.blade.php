@@ -548,13 +548,13 @@
                         <li><a href="/my-account"> my account </a></li> 
                     </ul> --}}
                             </li>
-                            <li class="dropdown">
-                                <a href="/blog">Blog</a>
+                            {{-- <li class="dropdown"> --}}
+                                {{-- <a href="/blog">Blog</a> --}}
                                 {{-- <ul class="dropdown-menu">    
                         <li><a href="/blog"> blog </a></li>
                         <li><a href="/blog-single"> blog single </a></li>                  
                     </ul> --}}
-                            </li>
+                            {{-- </li> --}}
                             <li><a href="/contact">Contact Us</a></li>
 
                             <li class="dropdown">
@@ -1037,7 +1037,7 @@
                 <div class="container ptb-10">
                     <div class="row">
                         <div class="col-md-6 col-sm-5">
-                            <p>©2016 <a href="/#"> <strong> bombaychoconnuts.com</strong> </a>,copyright<i
+                            <p>© {{date('Y')}} <a href="/#"> <strong> bombaychoconnuts.com</strong> </a>,copyright<i
                                     class="fa fa-heart red-clr"></i> all right reserved</p>
                         </div>
                         <div class="col-md-6 col-sm-7">

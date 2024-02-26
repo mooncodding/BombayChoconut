@@ -33,7 +33,7 @@
                                 <p>Muhammad Ali Society</p>
 
                                 <ul>
-                                    <li> <strong>Call:  </strong> <i>+7 (100) 2234 999</i> </li>
+                                    <li> <strong>Call:  </strong> <i>03121312312</i> </li>
                                     <li> <strong>Email: </strong> <i> <a href='#'>info@bombaychoconnuts.com</a> </i> </li>
                                     {{-- <li> <strong>Skype: </strong> <i> <a href='#'> Montero.Property </a> </i> </li> --}}
                                     <li> <strong>Facebook: </strong> <i>  <a href='#'> Bombay choconuts </a> </i> </li>

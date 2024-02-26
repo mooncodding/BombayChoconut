@@ -92,14 +92,15 @@
                         <thead>
                             <tr>
                                 <th class="text-uppercase" style="
-                                    width: 40%;
+                                    width: 40%; text-align:center;
                                 ">PRODUCT NAME</th>
                                 <th class="text-uppercase" style="
-                                    width: 23%;
+                                    width: 15%; text-align:center;
                                 ">QTY</th>
-                                <th class="text-uppercase">Price</th>
                                 <th class="text-uppercase" style="
-                                    width: 22%;
+                                width: 23%; text-align:center;">Price</th>
+                                <th class="text-uppercase" style="
+                                    width: 22%; text-align:center;
                                 ">Total Price</th>
                                 <th></th>
                             </tr>
@@ -137,7 +138,7 @@
                                     <form action="{{ route('cart.remove') }}" method="POST">
                                         @csrf
                                         <input type="hidden" value="{{ $item->id }}" name="id">
-                                        <button href="/checkout" class="remove fa fa-close clr-txt"></button>
+                                        <button href="/checkout" class="remove fa fa-trash clr-txt"></button>
                                     </form>
                                 </td>
                             </tr>

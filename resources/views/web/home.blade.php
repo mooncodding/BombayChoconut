@@ -115,17 +115,19 @@
                 </div>
             </div>
         </div>
+        
         <div class="container-fluid">
             <div class="col-md-12 center-btn">
                 <div class="tab-content organic-content row">
-                    <div id="product-tab-1" class="tab-pane fade active in">
+                    <div id="" class="tab-pane fade active in">
                         <div class="product-slider-1 dots-1">
 
-                            <div class="productCards">
-
+                            
+                            <div class="productCards"> 
+                                </div>
                             </div>
 
-                        </div>
+                        
 
                     </div>
 

@@ -1,7 +1,8 @@
 @extends('web.master')
 @section('content')
     <!--Breadcrumb Section Start-->
-    <section class="breadcrumb-bg" style="background-image:url({{ asset('web-assets/images/banner/Syrup.jpg') }})">
+    <section class="breadcrumb-bg" style=" background: linear-gradient(0deg, #333333ad, #000000b0), url(http://127.0.0.1:8000/web-assets/images/banner/Syrup.jpg);
+    background-size: cover;">
         <div class="theme-container container ">
             <div class="site-breadcumb white-clr">
                 <h2 class="section-title"> <strong class="clr-txt">Bombay </strong> <span class="light-font">Shop </span> </h2>

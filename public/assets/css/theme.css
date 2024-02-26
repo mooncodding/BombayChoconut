@@ -1037,7 +1037,7 @@ section.organic-farm.sec-space-top.light-bg h4 {
     }
   }
 .modal{
-    background-color: #0000008a !important;
+    background-color: #000000c7  !important;
 }
 .form-group [type="checkbox"]:checked + span:before {
     content: "\f046";
@@ -1139,13 +1139,19 @@ div#product-tab-12 .product-media {
   /* Extra styles for the cancel button */
   .great .cancelbtn {
     padding: 14px 20px;
-    background-color: #f44336;
+    background-color: #AC2925;
+    line-height: unset !important;
   }
-  
+  .great .modal-content button.signupbtn.theme-btn {
+    width: 20%;
+}
+.great .modal-content button.signupbtn.theme-btn {
+    width: 20%;
+}
   /* Float cancel and signup buttons and add an equal width */
   .great .cancelbtn, .signupbtn {
     float: left;
-    width: 50%;
+
   }
   .new-customers button {
     border: medium none;
@@ -1160,8 +1166,9 @@ div#product-tab-12 .product-media {
     background-color: #EBC54D;
 }
 .modal-content {
-    height: 600px;
+    height: max-content;
 }
+
   /* Add padding to container elements */
   .great .container {
     padding: 16px;
@@ -2070,17 +2077,25 @@ strong.darkness.about-dar {
     background-color: #ebc54d;
     padding: 13px;
 }
-div#openCartButton img {
-    width: 63px;
-    margin-left: -21px;
+.cart-megamenu div#openCartButton a#openCartButton img {
+    width: 27px;
+    margin-left: -7px;
+}
+.cart-title {
+    width: 60%!important;
 }
 i.fa.fa-heart-o {
-    font-size: 38px;
+    font-size: 25px;
     color: indianred;
 }
-
+.product-table .prod-btns button.btn.btn-primary {
+    background-color: #ebc54d;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    color: white !important;
+}
 i.fa.fa-list {
-    font-size: 38px;
+    font-size: 25px;
     color: cadetblue;
 }
 button.btn.btn-default.dropdown-toggle {
@@ -2237,7 +2252,16 @@ ul.primary-navbar {
     display: inline-block;
     margin-top: 12px;
 }
+.site-breadcumb .section-title strong.clr-txt {
+    font-size: 50px !IMPORTANT;
+    font-weight: 900;
+}
 
+.site-breadcumb .section-title span.light-font {
+    font-size: 50px !important;
+    color: white;
+    font-weight: 900;
+}
 .primary-navbar > li a {
     font-weight: 500;
     padding: 10px;
@@ -3331,8 +3355,52 @@ select.btn.btn-default.dropdown-toggle {
 
 @media (max-width: 767px) {
     .pattern {
-        margin-top: -20px;
+        margin-top: -17px;
     }
+    .about h2 {
+        font-size: 25px !important;
+    }
+    
+    strong.darkness {
+        font-size: 25px !important;
+    }
+    
+    section.organic-farm-2.sec-space-bottom span.light-font {
+        font-size: 25px !important;
+    }
+    
+    h3.abouth3 {
+        font-size: 25px !important;
+    }
+    
+    .rel-div.feature-img img {
+        height: 300px !important;
+    }
+    
+    h2.fsz-50.over-txt-title {
+        font-size: 45px;
+    }
+    
+    .over-txt {
+        font-size: 9px !IMPORTANT;
+        height: 13px !IMPORTANT;
+    }
+    
+    section.short-about.sec-space.light-bg {
+        padding-top: unset;
+    }
+    
+    h4.owner-name span.light-font {
+        font-size: 25px !IMPORTANT;
+    }
+    
+
+    
+    .organic-prod-info {
+        padding-top: unset !important;
+    }
+    
+    
 }
 
 @media (max-width: 380px) {
@@ -3386,15 +3454,17 @@ ul.primary-navbar.footer-menu li a {
     /* padding-left: 50px; */
     font-size: 15px;
     font-weight: 400;
+    
 }
 
 ul.primary-navbar.footer-menu {
     padding-left: 80px;
+    display: flex;
 }
 h4.fsz-20 {
     color: black;
 }
-
+i.fa.fa-arrow-circle-o-up {color: #AC2925;font-size: 60px;}
 
 h4.owner-name span.light-font {
     color: white !important;
@@ -4012,9 +4082,28 @@ header.main-header {
     .prod-banner .bottom-img {
         z-index: 0;
     }
-
+    
+    .main-logo{
+        margin-left: unset !important;
+    }
     .banner-content {
         width: 100%;
+    }
+    .main-slide .item img{
+        height: unset !important;
+    }
+    section.mob-menu-header .responsive-toggle.fa.fa-bars{
+        left: unset !important;
+        top: 10px !important;
+    }
+    section.mob-menu-header .cart-hover{
+        margin-top: 23px !important;
+    }
+    section.mob-menu-header {
+        padding-bottom: 28px;
+    }
+    section.mob-menu-header .main-logo img{
+        width: 70px !important;
     }
 }
 
@@ -4605,10 +4694,11 @@ header.main-header {
 }
 
 .prod-btns {
-    border-bottom: 1px dashed #e9e9e9;
+border-bottom: 1px dashed #e9e9e9;
     border-top: 1px dashed #e9e9e9;
     margin: 25px auto;
     padding: 15px 0;
+    display: flex;
 }
 
 .prod-btns .quantity .btn {
@@ -4628,10 +4718,20 @@ header.main-header {
 .prod-btns .quantity .plus {
     right: 10px;
 }
-
+table.table.table-bordered.mb-0.bg-white td {
+    text-align: -webkit-center;
+    display: table-cell;
+    vertical-align: middle;
+}
+.text-right .slide-btn {
+    border-radius: unset !important;
+}
+button.remove.fa.fa-trash.clr-txt {
+font-size: 40px;
+}
 .prod-btns .quantity {
     position: relative;
-    width: 140px;
+    width: 100px;
 }
 
 .prod-btns > div {
@@ -4811,7 +4911,7 @@ section.mob-menu-header .responsive-toggle.fa.fa-close{
 }
 
 section.mob-menu-header .main-logo img {
-    width: 126px !important;
+    width: 126px;
     margin: unset !important;
 }
 
@@ -4979,6 +5079,22 @@ section.mob-menu-header .col-lg-2.col-sm-4.cart-megamenu {
 .product-table .prod-btns {
     border: none;
 }
+td.boxis {
+    text-align: -webkit-center;
+}
+
+td.boxis img {
+    width: 50%;
+    display: flex;
+}
+
+ button.btn.btn-primary {
+    background-color: #ebc54d !important;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    color: white !important;
+}
+
 
 .product-table .prod-btns > div {
     margin: 5px auto;
@@ -4986,12 +5102,13 @@ section.mob-menu-header .col-lg-2.col-sm-4.cart-megamenu {
 
 .product-table .remove {
     background-color: #f7f6f2;
-    border-radius: 15px;
+    border-radius: 22px;
     float: right;
-    font-size: 12px;
-    height: 25px;
+    font-size: 21px;
+    height: 40px;
     line-height: 25px;
-    width: 25px;
+    width: 40px;
+    border: 1px solid black ;
 }
 
 .product-table .remove:hover, .product-table .remove:focus {
@@ -5897,6 +6014,16 @@ span.text-black.font-weight-regular.d-block.font-size14.text-center {
     .tracking .card{
         width: 90%;
     }
+    section.checkout{
+        padding: unset !important;
+    }
+    table.table.table-bordered.mb-0.bg-white {    display: block;
+        overflow-x: auto;
+    }
+    section.wishlist.account {
+        PADDING-LEFT: 20PX;
+        PADDING-RIGHT: 20PX;
+    }
 }
 .tracking .upper{
     padding: 6vh 6vh 3vh 6vh;  
@@ -5985,10 +6112,10 @@ span.show_charges_by_dm.bg-primary.mx-2.border-radius15.px-2.py-1 {
 } */
 button.font16.mbl_btn_checkout.btn.bg-primary.rounded.font-weight-bold.float-right.btn-checkout.text-uppercase.py-md-3.hvr-float-shadow {
     background-color: #ac2925;
-    padding: 15px 50px;
+    padding: 13px 50px;
     color: white;
     font-size: 16px;
-    
+    border-radius: unset !important;
 }
 button.slide-btn.cont {
     border-radius: unset;

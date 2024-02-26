@@ -2370,7 +2370,7 @@ section.mob-top-header {
     position: relative;
     cursor: pointer;
 }
-
+.section-icon p {padding-left: 50px;padding-right: 50px;}
 .cart-hover > .cnt {
     border-radius: 2em;
     color: #fff;
@@ -2845,11 +2845,17 @@ select.btn.btn-default.dropdown-toggle {
         right: auto;
         left: 0;
     }
+    section.shop-wrap.sec-space-bottom .container.rel-div{
+        width: unset !important;
+    }
     .width-fly .owl-item {
         width: unset !IMPORTANT;
     }
     section.organic-farm.sec-space-top.light-bg h2 {
         font-size: 25px;
+    }
+    .section-icon p {
+        font-size: 18px !important;
     }
     .owl-dots{
         display: none !important;
@@ -3799,7 +3805,7 @@ footer.page-footer .text-widget p {
     
 }
 section.shop-wrap.sec-space-bottom .container.rel-div {
-    width: 1470px !IMPORTANT;
+    width: 1470px;
 }
 .deal-icons {
     display: table-cell;
@@ -4104,7 +4110,11 @@ header.main-head {
     .prod-banner .bottom-img {
         z-index: 0;
     }
-    
+    p.about-pp {
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 18px;
+    }
     .main-logo{
         margin-left: unset !important;
     }

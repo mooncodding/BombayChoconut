@@ -427,7 +427,7 @@
 
                 <div class="col-lg-3 col-sm-8">
                     <div class="main-logo">
-                        <img src="{{ asset('web-assets/images/logo/bombaylogo.png') }}" alt="">
+                       <a href="/"> <img src="{{ asset('web-assets/images/logo/bombaylogo.png') }}" alt=""></a>
 
                     </div>
                 </div>
@@ -476,7 +476,7 @@
                 </div>
                 <div class="col-lg-2 col-sm-4 cart-megamenu">
                     <div class="cart-hover modal-open" id="openCartButton">
-                        <a id="openCartButton" href=""> <img src="assets/img/icons/cart-icon.png" /> </a>
+                        <a id="openCartButton" href=""> <img src="{{asset('assets/img/icons/cart-icon.png')}}" /> </a>
                         <span class="cnt crl-bg">{{ Cart::getTotalQuantity() }}</span>
                         @if (Cart::getTotal())
                             <span class="price">Rs {{ Cart::getTotal() }}</span>
@@ -485,8 +485,8 @@
                             <ul class="pop-up-box cart-popup">
                                 @foreach (Cart::getContent() as $item)
                                     <li class="cart-list">
-                                        <div class="cart-img"> <img
-                                                src="{{ asset('web-assets/images/giftbasket/1.png') }}"
+                                        <div class=""> <img
+                                            src="{{asset('images/product-images/'.$item->photo)}}"
                                                 alt=""> </div>
                                         <div class="cart-title">
                                             <div class="fsz-16">
@@ -1330,8 +1330,6 @@
 <script>
     var cartOpen = false;
     var numberOfProducts = 0;
-
-    
 
     $('body').on('click', '.js-toggle-cart', toggleCart);
     $('body').on('click', '.js-add-product', addProduct);

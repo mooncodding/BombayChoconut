@@ -36,7 +36,7 @@
                                     <tr>
                                         <td class="image">
                                             <div class="white-bg">
-                                                <a class="media-link" href="#"><img src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""></a> 
+                                                <a class="media-link" href="#"> <img src="{{asset('images/product-images/'.$item->photo)}}" width="70" alt=""></a> 
                                             </div>
                                         </td>
                                         <td>

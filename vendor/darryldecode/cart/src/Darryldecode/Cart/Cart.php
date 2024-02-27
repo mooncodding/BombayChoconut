@@ -154,7 +154,7 @@ class Cart
      * @return $this
      * @throws InvalidItemException
      */
-    public function add($id, $name = null, $price = null, $quantity = null,$weight = null, $attributes = array(), $conditions = array(), $associatedModel = null)
+    public function add($id, $name = null, $price = null, $quantity = null,$weight = null, $photo = null, $attributes = array(), $conditions = array(), $associatedModel = null)
     {
         // if the first argument is an array,
         // we will need to call add again
@@ -169,6 +169,7 @@ class Cart
                         $item['price'],
                         $item['quantity'],
                         $item['weight'],
+                        $item['photo'],
                         Helpers::issetAndHasValueOrAssignDefault($item['attributes'], array()),
                         Helpers::issetAndHasValueOrAssignDefault($item['conditions'], array()),
                         Helpers::issetAndHasValueOrAssignDefault($item['associatedModel'], null)
@@ -181,6 +182,7 @@ class Cart
                     $id['price'],
                     $id['quantity'],
                     $id['weight'],
+                    $id['photo'],
                     Helpers::issetAndHasValueOrAssignDefault($id['attributes'], array()),
                     Helpers::issetAndHasValueOrAssignDefault($id['conditions'], array()),
                     Helpers::issetAndHasValueOrAssignDefault($id['associatedModel'], null)
@@ -196,6 +198,7 @@ class Cart
             'price' => Helpers::normalizePrice($price),
             'quantity' => $quantity,
             'weight' => $weight,
+            'photo' => $photo,
             'attributes' => new ItemAttributeCollection($attributes),
             'conditions' => $conditions
         );

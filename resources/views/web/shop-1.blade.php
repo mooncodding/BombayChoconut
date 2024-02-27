@@ -230,10 +230,18 @@
                 productsContainer.empty(); // Clear previous products
                 // Loop through the products and generate HTML for each product card
                 $.each(products, function(index, product) {
+                var productId = product.id;
+                // Create a new 'a' (anchor) element
+                var linkElement = document.createElement("a");
+
+                // Set the 'href' attribute using the template string
+                linkElement.href = `/productDetails/${productId}`;
                     let productCard = `<div class="col-lg-3 col-md-4 col-sm-6"> 
                                     <div class="product-box"> 
                                         <div class="product-media"> 
-                                            <img class="prod-img" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
+                                            <a href="${linkElement}">
+                                                    <img class="prod-img drift-demo-trigger " data-zoom="{{ asset('images/product-images/${product.photo}') }}" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
+                                            </a>  
                                             <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
                                             <div class="prod-icons"> 
                                                 <form action="{{ route('wishlist.store') }}" method="POST">

@@ -109,7 +109,7 @@
                             @foreach ($cartItems as $item)
                             <tr class="row_0 row_count_checkout">
                                 <td class="boxis">
-                                    <a class="media-link" href="/#"><img src="{{asset('web-assets/images/giftbasket/1.png')}}" alt=""></a> 
+                                    <a class="media-link" href="/#"><img src="{{asset('images/product-images/'.$item->photo)}}" alt=""></a> 
                                     {{$item->name}} </p>
                                 </td>
                                 <td>

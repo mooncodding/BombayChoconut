@@ -6,6 +6,11 @@
             <div class="col-lg-6">
                 <h3>CUSTOMER LOGIN</h3>
                 <h4>REGISTERED CUSTOMERS</h4>
+                @if(session('success'))
+                    <div class="alert alert-success mt-3">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <form action="{{route('web.login')}}" method="POST">
                     @csrf
                     <label for="uname"><b>Email</b></label>
@@ -31,11 +36,7 @@
                         more.</p>
                     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign
                         Up</button>
-                    @if(session('success'))
-                        <div class="alert alert-success mt-3">
-                            {{ session('success') }}
-                        </div>
-                    @endif
+                    
                     <div id="id01" class="modal great">
                         <span onclick="document.getElementById('id01').style.display='none'" class="close"
                             title="Close Modal">&times;</span>

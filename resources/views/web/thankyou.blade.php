@@ -66,13 +66,13 @@
                                     <p>Rs.<span id="cart_row_price0">{{$item->price*$item->quantity}}</span></p>
                                 </td>
                             </tr>
-                            <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td><h4>Total Amount {{session('data')->sub_total}}</h4></td>
-                            </tr>
                           @endforeach
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><h4>Total Amount {{session('data')->sub_total}}</h4></td>
+                          </tr>
                         </tbody>
                             
                         @endif

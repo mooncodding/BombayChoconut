@@ -70,6 +70,7 @@
                             <th>your phone number</th> 
                             <th>your address</th>
                             <th>your tracking id</th>
+                            <th>Order Status</th>
                                                                     
                         </tr>
                     </thead>
@@ -90,6 +91,9 @@
                             </td> 
                             <td> 
                                 <div class="text-center pt-20"> <b class="fsz-16">{{$order->reference}}</b> </div>
+                            </td>
+                            <td> 
+                                <div class="text-center pt-20"> <b class="fsz-16">{{$order->orderStatus->name}}</b> </div>
                             </td> 
                                                            
                         </tr>      

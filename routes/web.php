@@ -103,9 +103,9 @@ Route::get('/shop-rightsidebar-2', function () {
 Route::get('/shop-single-fullwidth', function () {
     return view('web.shop-single-fullwidth');
 });
-Route::get('/shop-single-rightsidebar', function () {
-    return view('web.shop-single-rightsidebar');
-});
+// Route::get('/shop-single-rightsidebar', function () {
+//     return view('web.shop-single-rightsidebar');
+// });
 Route::get('/shop-single', function () {
     return view('web.shop-single');
 });
@@ -151,6 +151,7 @@ Route::post('/update-password', [UserAuthController::class, 'updatePassword'])->
 Route::get('/order-history', [OrderController::class, 'orderHistory'])->name('order.history');
 Route::get('/wishlist-product', [WishlistController::class, 'index'])->name('wishlist.product');
 Route::post('/wishlist-product/store', [WishlistController::class, 'store'])->name('wishlist.store');
+Route::get('/productDetails/{id}', [ShopController::class, 'productDetails'])->name('productDetails');
 Auth::routes(['verify' => true, 'register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

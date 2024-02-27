@@ -575,27 +575,29 @@
             productsContainer.empty(); // Clear previous products
             // Loop through the products and generate HTML for each product card
             $.each(products, function(index, product) {
+                var productId = product.id;
+                // Create a new 'a' (anchor) element
+                var linkElement = document.createElement("a");
+
+                // Set the 'href' attribute using the template string
+                linkElement.href = `/productDetails/${productId}`;
                 let productCard = `
                     
                                 <div class="item">
                                     <div class="product-box">
-
-                                   
-                                        <div class="product-media "> 
-                                           
-                                            <img class="prod-img drift-demo-trigger " data-zoom="{{ asset('images/product-images/${product.photo}') }}" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
-
-                                         
-                                            <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
-                                            <div class="prod-icons">
-                                                <form action="{{ route('wishlist.store') }}" method="POST">
-                                                    @csrf
-                                                    <input type="hidden" name="product_id" value="${product.id}" />
-                                                    <button type="submit" class="fa fa-heart"></button>
-                                                </form>
-                                                <a  href="javascript:void(0);" data-target="#product-preview" data-toggle="modal" class="fa fa-shopping-basket view-details-btn" data-product-id="${product.id}"></a>
+                                            <div class="product-media "> 
+                                                <a href="${linkElement}">
+                                                    <img class="prod-img drift-demo-trigger " data-zoom="{{ asset('images/product-images/${product.photo}') }}" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
+                                                </a>
+                                                <div class="prod-icons">
+                                                    <form action="{{ route('wishlist.store') }}" method="POST">
+                                                        @csrf
+                                                        <input type="hidden" name="product_id" value="${product.id}" />
+                                                        <button type="submit" class="fa fa-heart"></button>
+                                                    </form>
+                                                    <a  href="javascript:void(0);" data-target="#product-preview" data-toggle="modal" class="fa fa-shopping-basket view-details-btn" data-product-id="${product.id}"></a>
+                                                </div>
                                             </div>
-                                        </div>
                                
                                    
                                    
@@ -766,9 +768,10 @@
                 },
                 dataType: 'json',
                 success: function(response) {
+                    console.log(response.data);
                     $('#product-preview').hide();
                     location.reload();
-                    openCart();
+                    // openCart();
                 },
                 error: function(error) {
                     console.error('Error adding to cart:', error);

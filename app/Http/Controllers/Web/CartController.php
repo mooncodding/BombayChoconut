@@ -44,14 +44,17 @@ class CartController extends Controller
         \Cart::add([
             'id' => $request->product_id,
             'name' => $product->title,
+            'photo' => $product->photo,
             'price' => $productVariants->sale_price,
             'quantity' => $request->quantity,
             'weight' => $productVariants->weight,
         ]);
-
+        $cartItems = \Cart::getContent();
         // session()->flash('success', 'Product is Added to Cart Successfully !');
 
-        return response()->json('Success');
+        return response([
+            'data'=> $cartItems
+        ]);
     }
 
     /**
@@ -141,5 +144,12 @@ class CartController extends Controller
 
         return redirect('/checkout');
         // session()->flash('success', 'All Item Cart Clear Successfully !');
+    }
+
+    public function test()
+    {
+        $cartItems = \Cart::getContent();  
+        
+        return $cartItems;
     }
 }

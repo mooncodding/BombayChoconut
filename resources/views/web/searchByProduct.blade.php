@@ -29,9 +29,7 @@
                                         <div class="col-lg-3 col-md-4 col-sm-6">
                                             <div class="product-box">
                                                 <div class="product-media">
-                                                    <img class="prod-img"
-                                                        src="{{ asset('images/product-images/' . $product->photo) }}"
-                                                        alt="" />
+                                                    <img class="prod-img" data-zoom="{{ asset('images/product-images/'.$product->photo) }}" src="{{ asset('images/product-images/'.$product->photo) }}" alt=""/>     
                                                     <img class="shape" alt=""
                                                         src="assets/img/icons/shap-small.png" />
                                                     <div class="prod-icons">
@@ -48,7 +46,7 @@
 
                                                 <div class="product-caption">
                                                     <h3 class="product-title">
-                                                        <a href="#"> {{ $product->title }}</a>
+                                                        <a href="{{ route('productDetails', ['id' => $product->id]) }}"> {{ $product->title }}</a>
                                                     </h3>
                                                     <div class="price">
                                                         <strong class="clr-txt">Rs

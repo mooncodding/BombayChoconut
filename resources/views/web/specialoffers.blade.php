@@ -30,52 +30,12 @@
                                 <div class="tab-content organic-content row">
                                     <div id="product-tab-1" class="tab-pane fade active in">
                                         <div class="product-slider-1 dots-1">
+                                            @foreach ($parentCategories as $category)
                                             <ul class="theme-tabs" id="categories">
-                                                <li class="active"><a href="#" data-toggle="tab" class="category-btn"
-                                                        data-id="1">Dry fruits</a></li>
+                                                <li class="hish"><a href="#" data-toggle="tab" class="category-btn"
+                                                    data-id="{{ $category->id }}">{{ $category->name }}</a></li>
                                             </ul>
-                                            <ul class="theme-tabs" id="categories">
-                                                <li class=""><a href="#" data-toggle="tab" class="category-btn"
-                                                        data-id="2">Chocolates</a></li>
-                                            </ul>
-                                            <ul class="theme-tabs" id="categories">
-                                                <li class=""><a href="#" data-toggle="tab" class="category-btn"
-                                                        data-id="3">Fresh Biscuit</a></li>
-                                            </ul>
-                                            <ul class="theme-tabs" id="categories">
-                                                <li class=""><a href="#" data-toggle="tab" class="category-btn"
-                                                        data-id="4">Gift Boxes</a></li>
-                                            </ul>
-                                            <ul class="theme-tabs" id="categories">
-                                                <li class=""><a href="#" data-toggle="tab" class="category-btn"
-                                                        data-id="5">Fresh Biscuit</a></li>
-                                            </ul>
-                                            <ul class="theme-tabs" id="categories">
-                                                <li class=""><a href="#" data-toggle="tab" class="category-btn"
-                                                        data-id="6">Gift Boxes</a></li>
-                                            </ul>
-                                            {{-- <li class="active"><a href="#" data-toggle="tab" class="category-btn" data-id="1">Dry fruits</a></li>   
-                                                              --}}
-                                            <ul class="theme-tabs" id="categories">
-                                                <li class=""><a href="#" data-toggle="tab" class="category-btn"
-                                                        data-id="7">Chocolates</a></li>
-                                            </ul>
-                                            <ul class="theme-tabs" id="categories">
-                                                <li class=""><a href="#" data-toggle="tab" class="category-btn"
-                                                        data-id="8">Fresh Biscuit</a></li>
-                                            </ul>
-                                            <ul class="theme-tabs" id="categories">
-                                                <li class=""><a href="#" data-toggle="tab" class="category-btn"
-                                                        data-id="9">Gift Boxes</a></li>
-                                            </ul>
-                                            <ul class="theme-tabs" id="categories">
-                                                <li class=""><a href="#" data-toggle="tab" class="category-btn"
-                                                        data-id="10">Fresh Biscuit</a></li>
-                                            </ul>
-                                            <ul class="theme-tabs" id="categories">
-                                                <li class=""><a href="#" data-toggle="tab" class="category-btn"
-                                                        data-id="11">Gift Boxes</a></li>
-                                            </ul>
+                                            @endforeach 
                                         </div>
                                     </div>
                                     <div class="tab-content shop-content">
@@ -171,23 +131,25 @@
                     let productCard = `<div class="col-lg-3 col-md-4 col-sm-6"> 
                                         <div class="product-box"> 
                                             <div class="product-media"> 
-                                                <a href="${linkElement}">
-                                                    <img class="prod-img drift-demo-trigger " data-zoom="{{ asset('images/product-images/${product.photo}') }}" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
-                                                </a>     
+                                                <img class="prod-img drift-demo-trigger " data-zoom="{{ asset('images/product-images/${product.photo}') }}" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
                                                 <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
                                                 <div class="prod-icons"> 
-                                                    <form action="{{ route('wishlist.store') }}" method="POST">
-                                                        @csrf
-                                                        <input type="hidden" name="product_id" value="${product.id}" />
-                                                        <button type="submit" class="fa fa-heart"></button>
-                                                    </form>
+                                                    @if(Auth::user())
+                                                        <form action="{{ route('wishlist.store') }}" method="POST">
+                                                            @csrf
+                                                            <input type="hidden" name="product_id" value="${product.id}" />
+                                                            <button type="submit" class="fa fa-heart"></button>
+                                                        </form>
+                                                    @else
+                                                        <a href="/wishlist" class="fa fa-heart"></a>
+                                                    @endif
                                                     <a  href="/#product-preview" data-toggle="modal" class="fa fa-shopping-basket view-details-btn" data-product-id="${product.id}"></a>
                                                 </div>
                                             </div>
     
                                             <div class="product-caption"> 
                                                 <h3 class="product-title">
-                                                    <a href="#"> ${product.title}</a>
+                                                    <a href="${linkElement}"> ${product.title}</a>
                                                 </h3>
                                                 <div class="price"> 
                                                     <strong class="clr-txt">Rs ${product.product_variants[0].sale_price}</strong>

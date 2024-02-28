@@ -118,23 +118,26 @@
                 let productCard = `<div class="col-lg-3 col-md-4 col-sm-6"> 
                                     <div class="product-box"> 
                                         <div class="product-media"> 
-                                            <a href="${linkElement}">
-                                                <img class="prod-img drift-demo-trigger " data-zoom="{{ asset('images/product-images/${product.photo}') }}" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
-                                            </a>    
+                                            <img class="prod-img drift-demo-trigger " data-zoom="{{ asset('images/product-images/${product.photo}') }}" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
                                             <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
                                             <div class="prod-icons"> 
-                                                <form action="{{ route('wishlist.store') }}" method="POST">
-                                                    @csrf
-                                                    <input type="hidden" name="product_id" value="${product.id}" />
-                                                    <button type="submit" class="fa fa-heart"></button>
-                                                </form>
-                                                <a  href="/#product-preview" data-toggle="modal" class="fa fa-shopping-basket view-details-btn" data-product-id="${product.id}"></a>
+                                                @if(Auth::user())
+                                                    <form action="{{ route('wishlist.store') }}" method="POST">
+                                                        @csrf
+                                                        <input type="hidden" name="product_id" value="${product.id}" />
+                                                        <button type="submit" class="fa fa-heart"></button>
+                                                    </form>
+                                                @else
+                                                    <a href="/wishlist" class="fa fa-heart"></a>
+                                                @endif
+                                                    <a  href="/#product-preview" data-toggle="modal" class="fa fa-shopping-basket view-details-btn" data-product-id="${product.id}"></a>
+                                               
                                             </div>
                                         </div>
 
                                         <div class="product-caption"> 
                                             <h3 class="product-title">
-                                                <a href="#"> ${product.title}</a>
+                                                <a href="${linkElement}"> ${product.title}</a>
                                             </h3>
                                             <div class="price"> 
                                                 <strong class="clr-txt">Rs ${product.product_variants[0].sale_price}</strong>

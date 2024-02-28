@@ -94,7 +94,13 @@ class CategoryController extends Controller
     // Get Category By Products
     public function getCategoryByProduct($category_id)
     {
-        $category = ProductCategory::where('id',$category_id)->with(['categoryProducts'])->first();
+        $data = ProductCategory::where('parent_id',$category_id)->get();
+        if (count($data) > 0) {
+            $categoryId = ProductCategory::where('parent_id',$category_id)->pluck('id');
+        }else{
+            $categoryId = ProductCategory::where('id',$category_id)->pluck('id');
+        }
+        $category = ProductCategory::whereIn('id',$categoryId)->with(['categoryProducts'])->first();
         return view('web.categoryByProducts')->with('category', $category);
     }
 }

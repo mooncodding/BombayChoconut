@@ -7,6 +7,7 @@ use App\Http\Controllers\Web\CategoryController;
 use App\Http\Controllers\Web\CheckoutController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\ShopController;
+use App\Http\Controllers\Web\SpecialOfferController;
 use App\Http\Controllers\Web\TrackOrderController;
 use App\Http\Controllers\Web\WishlistController;
 use Illuminate\Support\Facades\Route;
@@ -23,11 +24,11 @@ use Illuminate\Support\Facades\Route;
 */
 // Home Page
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/specialoffers', [SpecialOfferController::class, 'index'])->name('specialoffers');
 Route::get('/products/filter/{category}', [HomeController::class, 'filterByCategory']);
 Route::get('/searchByProduct', [HomeController::class, 'searchByProduct'])->name('searchByProduct');
 Route::get('/category', [CategoryController::class, 'index']);
 Route::get('/shop', [ShopController::class, 'index']);
-Route::get('/getCategoryByProduct/{category}', [CategoryController::class, 'getCategoryByProduct'])->name('getCategoryByProduct');
 Route::get('/getCategoryByProduct/{category}', [CategoryController::class, 'getCategoryByProduct'])->name('getCategoryByProduct');
 
 Route::get('/404', function () {
@@ -112,9 +113,9 @@ Route::get('/shop-single', function () {
 Route::get('/giftbundle', function () {
     return view('web.giftbundle');
 });
-Route::get('/specialoffers', function () {
-    return view('web.specialoffers');
-});
+// Route::get('/specialoffers', function () {
+//     return view('web.specialoffers');
+// });
 Route::get('/thankyou', function () {
     return view('web.thankyou');
 });

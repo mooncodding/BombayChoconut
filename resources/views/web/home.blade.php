@@ -590,11 +590,15 @@
                                                     <img class="prod-img drift-demo-trigger " data-zoom="{{ asset('images/product-images/${product.photo}') }}" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
                                                 </a>
                                                 <div class="prod-icons">
+                                                    @if(Auth::user())
                                                     <form action="{{ route('wishlist.store') }}" method="POST">
                                                         @csrf
                                                         <input type="hidden" name="product_id" value="${product.id}" />
                                                         <button type="submit" class="fa fa-heart"></button>
                                                     </form>
+                                                    @else
+                                                        <a href="/wishlist" class="fa fa-heart"></a>
+                                                    @endif
                                                     <a  href="javascript:void(0);" data-target="#product-preview" data-toggle="modal" class="fa fa-shopping-basket view-details-btn" data-product-id="${product.id}"></a>
                                                 </div>
                                             </div>
@@ -768,7 +772,6 @@
                 },
                 dataType: 'json',
                 success: function(response) {
-                    console.log(response.data);
                     $('#product-preview').hide();
                     location.reload();
                     // openCart();
@@ -780,8 +783,8 @@
 
         }
         
-        $(document).ready(function() {
-            openCart(); // Call openCart when the document is ready
-        });
+        // $(document).ready(function() {
+        //     openCart(); // Call openCart when the document is ready
+        // });
     });
 </script>

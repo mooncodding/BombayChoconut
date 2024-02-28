@@ -33,11 +33,15 @@
                                                     <img class="shape" alt=""
                                                         src="assets/img/icons/shap-small.png" />
                                                     <div class="prod-icons">
-                                                        <form action="{{ route('wishlist.store') }}" method="POST">
-                                                            @csrf
-                                                            <input type="hidden" name="product_id" value="{{  $product->id }}" />
-                                                            <button type="submit" class="fa fa-heart"></button>
-                                                        </form>
+                                                        @if(Auth::user())
+                                                            <form action="{{ route('wishlist.store') }}" method="POST">
+                                                                @csrf
+                                                                <input type="hidden" name="product_id" value="{{  $product->id }}" />
+                                                                <button type="submit" class="fa fa-heart"></button>
+                                                            </form>
+                                                        @else
+                                                            <a href="/wishlist" class="fa fa-heart"></a>
+                                                        @endif
                                                         <a href="/#product-preview" data-toggle="modal"
                                                             class="fa fa-shopping-basket view-details-btn"
                                                             data-product-id="{{ $product->id }}"></a>

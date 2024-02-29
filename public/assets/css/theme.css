@@ -1049,6 +1049,7 @@ section.organic-farm.sec-space-top.light-bg h4 {
 .modal{
     background-color: #000000c7  !important;
 }
+
 .form-group [type="checkbox"]:checked + span:before {
     content: "\f046";
     font-family: FontAwesome;
@@ -2844,6 +2845,9 @@ select.btn.btn-default.dropdown-toggle {
         width: 280px;
         right: auto;
         left: 0;
+    }
+    header.main-head {
+        display: none !important;
     }
     section.shop-wrap.sec-space-bottom .container.rel-div{
         width: unset !important;

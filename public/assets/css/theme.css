@@ -1054,8 +1054,8 @@ section.organic-farm.sec-space-top.light-bg h4 {
     font-family: FontAwesome;
 }
 .modal-open .modal{
-    overflow-x: unset !important;
-    overflow-y: unset !important;
+    overflow-x: unset ;
+    overflow-y: unset ;
 }
 .col-md-12.center-btn {
     text-align: center;
@@ -4114,6 +4114,18 @@ header.main-head {
         padding-left: 20px;
         padding-right: 20px;
         font-size: 18px;
+    }
+    div#myresult {
+        display: none;
+    }
+    
+    .product-content.block-inline {
+        padding-left: 20px;
+    }
+    
+    .modal-open .modal {
+        overflow-x: unset !important;
+        overflow-y: unset !important;
     }
     .main-logo{
         margin-left: unset !important;

@@ -439,10 +439,9 @@
                     <form action="{{ route('searchByProduct') }}" method="GET">
                         <div class="input-group">
                             <div class="input-group-btn search-panel">
-                                <select name="category_id" class="btn btn-default dropdown-toggle"
-                                    data-toggle="dropdown">
+                                <select id="categorySelect" name="category_id" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                     <ul class="dropdown-menu scrollable-dropdown" role="menu" id="categories">
-                                        <option value="all"class="caret">All Categories</option>
+                                        <option value="all" class="caret">All Categories</option>
                                         @foreach ($parentCategories as $category)
                                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
@@ -455,8 +454,8 @@
                                         <option value="{{$product->id}}">{{$product->title}}</option>
                                     @endforeach
                                 </select> --}}
-                            <input type="text" class="form-control" name="name"
-                                placeholder="Search  For Products...">
+                            <input type="text" class="form-control" name="name" 
+                                placeholder="Search  For Products..." value="{{ isset($searchValue) ? $searchValue : old('name') }}">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="submit">
                                     <span class="glyphicon glyphicon-search"></span>
@@ -1082,6 +1081,31 @@
 
     <!-- Custom JS -->
     <script src="assets/js/theme.js"></script>
+    <script>
+         // Function to save selected category to local storage
+    function saveSelectedCategory() {
+        var selectedCategory = document.getElementById("categorySelect").value;
+        localStorage.setItem("selectedCategory", selectedCategory);
+    }
+
+    // Function to load selected category from local storage
+    function loadSelectedCategory() {
+        var selectedCategory = localStorage.getItem("selectedCategory");
+        if (selectedCategory) {
+            document.getElementById("categorySelect").value = selectedCategory;
+        }
+    }
+
+    // Call the loadSelectedCategory function when the page loads
+    window.onload = function () {
+        loadSelectedCategory();
+    };
+
+    // Attach an event listener to the dropdown to save the selected category when it changes
+    document.getElementById("categorySelect").addEventListener("change", function () {
+        saveSelectedCategory();
+    });
+    </script>
     {{-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
         $(document).ready(function() {

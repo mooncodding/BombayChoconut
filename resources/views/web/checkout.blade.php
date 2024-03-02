@@ -56,19 +56,31 @@
                             <div class="container ">
                                 <div class="row">
                                     <div class="col-md-12 my-2">
-                                        <div class="row"><input type="hidden" id="pm_type" value="2">
+                                        <div class="row">
                                             <div id="payment_box" class="col-lg-3 col-md-6 col-sm-6 col-6 my-2 pr-1 pl-0">
                                                 <label
                                                     class=" cursor-pointer text-center rounded mx-1 py-2 border w-100 border-primary"
-                                                    for="payment_methods4"><input checked="" class="d-none"
+                                                    for="payment_methods4"><input  class="d-none"
                                                         type="radio" onchange="show_payment_description(this.value);"
-                                                        id="payment_methods4" name="payment_methods" value="4"
+                                                        id="payment_methods4" name="payment_method_id" value="1"
                                                         required="required"><img
                                                         src="https://www.bombaydryfruits.com/images/COD.webp" width="50"
                                                         height="50" alt=""><span
                                                         class="d-block text-capitalize font-weight-medium text-black font-size11"
-                                                        checked="" value="4">Cash On Delivery</span> </label>
-                                            </div><input type="hidden" id="pm_type" value="2">
+                                                        >Cash On Delivery</span> </label>
+                                            </div>
+                                            <div id="payment_box" class="col-lg-3 col-md-6 col-sm-6 col-6 my-2 pr-1 pl-0">
+                                                <label
+                                                    class=" cursor-pointer text-center rounded mx-1 py-2 border w-100 border-primary"
+                                                    for="payment_methods4"><input  class="d-none"
+                                                        type="radio" onchange="show_payment_description(this.value);"
+                                                        id="payment_methods4" name="payment_method_id" value="2"
+                                                        required="required"><img
+                                                        src="https://www.bombaydryfruits.com/images/COD.webp" width="50"
+                                                        height="50" alt=""><span
+                                                        class="d-block text-capitalize font-weight-medium text-black font-size11"
+                                                        >Self Pick Up</span> </label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -157,6 +169,11 @@
                             <input type="hidden" id="checkout_items" value="1626,201,1022,1189">
                         </tbody>
                     </table>
+                    <div class="d-flex align-items-end justify-content-between mb-30">
+                        <h4>Delivery</h4>
+                        <h4 class="text-danger">Free
+                        </h4>
+                    </div>
                     <div class="d-flex align-items-end justify-content-between mb-30">
                         <h4>Your Order</h4>
                         <h4 class="text-muted">Subtotal

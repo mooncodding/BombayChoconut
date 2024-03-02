@@ -62,21 +62,25 @@ class OrderController extends Controller
         ]);
 
         $orderSubtotal = 0;
-        $user = new User();
-        $user->name=$request->name;
-        $user->email=$request->email;
-        $user->phone=$request->phone;
-        $user->address=$request->address;
-        $user->password=Hash::make('bombay123');
-        $user->photo='profile.png';
-        $user->assignRole(4);
-        $user->save();
+        $user = User::where('email',$request->email)->first();
+        if ($user == null) {
+            $user = new User();
+            $user->name=$request->name;
+            $user->email=$request->email;
+            $user->phone=$request->phone;
+            $user->address=$request->address;
+            $user->password=Hash::make('bombay123');
+            $user->photo='profile.png';
+            $user->assignRole(4);
+            $user->save();
+        }
+        
         $order =  new Order();
         $order->reference =  'BOMBAY/ORDER/'.(Order::max('id')+001).'/'.date('y');
         $order->customer_id = $user->id;
         $order->bill_no = 'C/BILL/NUMBER/'.(Order::max('id')+001).'/'.date('y');
         $order->order_status_id = 1;
-        $order->payment_method_id = 1;
+        $order->payment_method_id = $request->payment_method_id;
         $order->payment_status = "unpaid";
         $order->order_date = Carbon::now();
         $order->notes = "testing";

@@ -53,6 +53,6 @@ class HomeController extends Controller
         }else{
             $products = Product::where('title','LIKE', '%' . $request->name . '%')->with(['productVariants'])->get();
         }
-        return view('web.searchByProduct')->with('products',$products);        
+        return view('web.searchByProduct')->with(['products'=>$products, 'searchValue'=>$request->name]);        
     }
 }

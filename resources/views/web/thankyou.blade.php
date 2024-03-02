@@ -27,7 +27,7 @@
                                 class="woocommerce-Price-currencySymbol"></span>{{ session('data')->sub_total }}</span></strong>
                 </li>
                 <li class="woocommerce-order-overview__payment-method method">
-                    Payment method: <strong>COD</strong>
+                    Payment method: <strong>{{session('data')->paymentMethod->name}}</strong>
                 </li>
             </ul>
             <div class="row">

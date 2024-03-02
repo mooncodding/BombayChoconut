@@ -112,7 +112,7 @@ $(function ($) {
     if ($().countdown) {
         var newYear = new Date();
         newYear = new Date(newYear.getFullYear() + 1, 1 - 1, 1);
-        $('#defaultCountdown').countdown({until: new Date(2024, 1 - 1, 5)});
+        $('#defaultCountdown').countdown({until: new Date(2024, 4 - 1, 5)});
     }
 
     /*------ Page to top  --------*/

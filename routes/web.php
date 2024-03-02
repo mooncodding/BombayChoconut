@@ -30,6 +30,7 @@ Route::get('/searchByProduct', [HomeController::class, 'searchByProduct'])->name
 Route::get('/category', [CategoryController::class, 'index']);
 Route::get('/shop', [ShopController::class, 'index']);
 Route::get('/getCategoryByProduct/{category}', [CategoryController::class, 'getCategoryByProduct'])->name('getCategoryByProduct');
+Route::get('/fetchDataFromApi', [HomeController::class, 'fetchDataFromApi']);
 
 Route::get('/404', function () {
     return view('web.404');

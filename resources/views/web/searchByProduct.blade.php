@@ -67,24 +67,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="rel-div pt-50">
-                    <div class="divider-full-1"></div>
-                    <div class="nav-page">
-                        <a href="/#" class="fa fa-long-arrow-left left"></a>
-                        <a href="/#" class="fa fa-long-arrow-right right"></a>
-                    </div>
-                </div>
-                <div class="pagination-wrap">
-                    <ul class="pagintn">
-                        <li><a href="/#">01</a></li>
-                        <li><a href="/#">02</a></li>
-                        <li><a href="/#">03</a></li>
-                        <li><a href="/#">04</a></li>
-                        <li><a href="/#">05</a></li>
-                        <li><a href="/#">...</a></li>
-                        <li><a href="/#">15</a></li>
-                    </ul>
-                </div>
             </div>
     </div>
     </section>

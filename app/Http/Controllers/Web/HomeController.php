@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\ProductVariant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
@@ -40,7 +42,8 @@ class HomeController extends Controller
     }
 
 
-    public function searchByProduct(Request $request){
+    public function searchByProduct(Request $request)
+    {
 
         if ($request->category_id !="all") {
             $data = ProductCategory::where('parent_id',$request->category_id)->get();
@@ -54,5 +57,29 @@ class HomeController extends Controller
             $products = Product::where('title','LIKE', '%' . $request->name . '%')->with(['productVariants'])->get();
         }
         return view('web.searchByProduct')->with(['products'=>$products, 'searchValue'=>$request->name]);        
+    }
+
+    // Set API 
+    public function fetchDataFromApi()
+    {
+        $url = 'http://137.59.226.195:8085/myapi/locationwiseproductinventory';
+
+        try {
+            $response = Http::get($url);
+
+            // You can handle the response as needed
+            $data = $response->json();
+
+            foreach ($data[0]['locationWiseProductInventoryDetail'] as $key => $value) {
+                ProductVariant::where('bar_code',$value['ProductBarcode'])->update([
+                    'quantity' => $value['LocationStock'],
+                    'sale_price' => $value['ProductSalePrice']
+                ]);
+            }
+
+            return response()->json($data);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 }

@@ -142,9 +142,10 @@ $(function ($) {
     $(".product-slider-1").owlCarousel({
         dots: true,
         loop: false,
-        autoplay: false,
+        autoplay: true,
         autoplayHoverPause: true,
-        smartSpeed: 100,
+        smartSpeed: 1000,
+        autoplayTimeout: 1000, 
         nav: false,
         margin: 0,
         responsive: {

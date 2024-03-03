@@ -6,7 +6,7 @@
                 <div class="theme-container container ">                       
                     <div class="site-breadcumb white-clr">                        
                       <h4>About</h4>
-                      <h2>Bombay Choc & Nuts</h2> 
+                      <h2>Bombay Choc N Nuts</h2> 
                       <ol class="breadcrumb breadcrumb-menubar">
                         <li> <a href="/#"> Home </a> About Us </li>                             
                     </ol>
@@ -112,8 +112,8 @@
 
                     <div class="about-wrap"> 
                      
-                        <h4 class="owner-name">  <span class="light-font"> IBRAHIM</span> </h4> 
-                        <h5 class="clr-txt sub-title-sm">BCN OWNER</h5> 
+                        {{-- <h4 class="owner-name">  <span class="light-font"> IBRAHIM</span> </h4> 
+                        <h5 class="clr-txt sub-title-sm">BCN OWNER</h5>  --}}
                         <div class="icon"> 
                             <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>   
                             <span class="light-font"> A Taste Of </span> <strong class="real">Real Goodness</strong> 
@@ -126,92 +126,92 @@
             <!-- / About Us Ends -->       
 
          <!-- Our Products Starts-->
-<section class="organic-product sec-space">
-    <div class="row sec-space-top"> 
-        <div class="col-lg-6 col-sm-12"> 
-            <div class="row"> 
-                <div class="col-sm-3">
-                </div>
-                <div class="col-sm-3"> 
-                    <div class="organic-prod">
-                        <img src="{{asset('web-assets/images/giftbasket/4.png')}}" alt=""/>
-                        <span class="divider"></span>
-                        <h3 class="title-1"> <a href="/#"> <span class="light-font">organic </span> <strong> Basket</strong> </a> </h3>                                        
-                        <a class="clr-txt font-2" href="/#"> <i> 52 items </i> </a>
+         <section class="organic-product sec-space">
+            <div class="row sec-space-top">
+                <div class="col-lg-7 col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="organic-prod">
+                                <img src="{{ asset('images/product-images/1706105382.png') }}" alt="" />
+                                <span class="divider"></span>
+                                <h3 class="title-1"> <a href="/#"> <span class="light-font">Almond </span> <strong>
+                                    Fry Salted </strong> </a> </h3>
+                                {{-- <a class="clr-txt font-2" href="/#"> <i> 52 items </i> </a> --}}
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="organic-prod">
+                                <img src="{{ asset('images/product-images/1706106169.png') }}" alt="" />
+                                <span class="divider"></span>
+                                <h3 class="title-1"> <a href="/#"> <span class="light-font">Pistachio </span> <strong>
+                                    Salted With Shell </strong> </a> </h3>
+                                {{-- <a class="clr-txt font-2" href="/#"> <i> 35 items </i> </a> --}}
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="organic-prod">
+                                <img src="{{ asset('images/product-images/1706106949.png') }}" alt="" />
+                                <span class="divider"></span>
+                                <h3 class="title-1"> <a href="/#"> <span class="light-font">Pinenuts </span>
+                                        <strong> Without Shell </strong> </a> </h3>
+                                {{-- <a class="clr-txt font-2" href="/#"> <i> 23 items </i> </a> --}}
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-sm-3"> 
-                    <div class="organic-prod">
-                        <img src="{{asset('web-assets/images/giftbasket/3.png')}}" alt=""/>
-                        <span class="divider"></span>
-                        <h3 class="title-1"> <a href="/#"> <span class="light-font">fresh </span> <strong> Chocolates</strong> </a> </h3>
-                        <a class="clr-txt font-2" href="/#"> <i> 35 items </i> </a>
-                    </div>
-                </div>
-                <div class="col-sm-3"> 
-                    <div class="organic-prod">
-                        <img src="{{asset('web-assets/images/giftbasket/2.png')}}" alt=""/>
-                        <span class="divider"></span>
-                        <h3 class="title-1"> <a href="/#"> <span class="light-font">International </span> <strong> brand</strong> </a> </h3>
-                        <a class="clr-txt font-2" href="/#"> <i> 23 items </i> </a>                                        
+                <div class="col-lg-5 col-sm-12">
+                    <div class="organic-prod-info">
+                        <h4 class="sub-title"> FRESH FROM THE STORE </h4>
+                        <h2 class="section-title ptb-15"> <span class="light-font">220+ </span> <strong>chocolates, dry
+                                fruites </strong> <span class="light-font"> & </span> <strong> lot more</strong> </h2>
+                        <p class="fsz-16">Embark on a culinary adventure with our lavish assortment, featuring a stunning selection of over 220 chocolates, luscious dry fruits, and an abundance of gourmet treasures. From rich, velvety chocolates to succulent dried fruits, each item is meticulously curated to tantalize your taste buds and elevate your snacking experience to new heights of opulence and delight. Explore the myriad flavors and textures that await you, promising a journey of unparalleled indulgence and satisfaction.
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-6 col-sm-12"> 
-            <div class="organic-prod-info">
-                <h4 class="sub-title">  FRESH DRY FRUITS </h4>
-                <h2 class="section-title ptb-15"> <span class="light-font">220+ </span> <strong>chocolates, dry fruites </strong> <br><span class="light-font"> & </span> <strong> lot more</strong> </h2>
-                <p>We're really proud of our focus on natural and farm-grown nuts and dry fruits. We believe that the best snacks are made with the best, most natural ingredients, and we're committed to offering that.
-                </p>
-                
-            </div>
-        </div>
-    </div>
-    <div class="row sec-space-top"> 
-        <div class="col-lg-2">
-            
-        </div>
-        <div class="col-lg-4 col-sm-12"> 
-            <div class="organic-prod-info">
-                <h4 class="sub-title">  FRESH FROM OUR FARM </h4>
-                <h2 class="section-title ptb-15"> <span class="light-font">115+ </span> <strong>organic juices </strong> <br><span class="light-font"> and </span> <strong> organic tea</strong> </h2>
-                <p>For those who love chocolate, our collection is something to be excited about. We have all the popular brands like Cadbury, Bounty, Mars, Snickers, Twix, and many others. It's really handy for people in Pakistan to be able to buy these well-known imported chocolates easily.
-                </p>
-            </div>
-        </div>
-        <div class="col-lg-6 col-sm-12"> 
-            <div class="row"> 
-                <div class="col-sm-3"> 
-                    <div class="organic-prod">
-                        <img src="{{asset('web-assets/images/giftboxes/1.png')}}" alt=""/>
-                        <span class="divider"></span>
-                        <h3 class="title-1"> <a href="/#"> <span class="light-font">organic </span> <strong> juices</strong> </a> </h3>
-                        <a class="clr-txt font-2" href="/#"> <i> 26 items </i> </a>
+            <div class="row sec-space-top">
+                <div class="col-lg-5 col-sm-12">
+                    <div class="organic-prod-info">
+                        <h4 class="sub-title"> FRESH FROM THE STORE </h4>
+                        <h2 class="section-title ptb-15"> <span class="light-font">Handpicked  </span> <strong>& Premium Quality</strong>
+                            </h2>
+                        <p class="fsz-16">Delight in the unparalleled quality of our handpicked selection, meticulously curated to offer only the finest ingredients and flavors. Each product is caref…</p>
                     </div>
                 </div>
-                <div class="col-sm-3"> 
-                    <div class="organic-prod">
-                        <img src="{{asset('web-assets/images/giftboxes/2.png')}}" alt=""/>
-                        <span class="divider"></span>
-                        <h3 class="title-1"> <a href="/#"> <span class="light-font">dried </span> <strong> juices</strong> </a> </h3>
-                        <a class="clr-txt font-2" href="/#"> <i> 31 items </i> </a>
+                <div class="col-lg-7 col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="organic-prod">
+                                <img src="{{ asset('images/product-images/1706538478.jpeg') }}" alt="" />
+                                <span class="divider"></span>
+                                <h3 class="title-1"> <a href="/#"> <span class="light-font">Elit Luxury Collection  </span> <strong>
+                                    Chocolate Paralise Red Box</strong> </a> </h3>
+                                {{-- <a class="clr-txt font-2" href="/#"> <i> 26 items </i> </a> --}}
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="organic-prod">
+                                <img src="{{ asset('images/product-images/1706538607.jpeg') }}" alt="" />
+                                <span class="divider"></span>
+                                <h3 class="title-1"> <a href="/#"> <span class="light-font">Elit Luxury Collection </span> <strong>
+                                    Chocolate Paralise Green Box</strong> </a> </h3>
+                                {{-- <a class="clr-txt font-2" href="/#"> <i> 31 items </i> </a> --}}
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="organic-prod">
+                                <img src="{{ asset('images/product-images/1706538708.jpeg') }}" alt="" />
+                                <span class="divider"></span>
+                                <h3 class="title-1"> <a href="/#"> <span class="light-font">Elit Luxury Collection Chocolate Paralise Salmon Box </span> <strong>
+                                    Chocolate Paralise Salmon Box</strong> </a> </h3>
+                                {{-- <a class="clr-txt font-2" href="/#"> <i> 17 items </i> </a> --}}
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-sm-3"> 
-                    <div class="organic-prod">
-                        <img src="{{asset('web-assets/images/giftboxes/3.png')}}" alt=""/>
-                        <span class="divider"></span>
-                        <h3 class="title-1"> <a href="/#"> <span class="light-font">organic </span> <strong> tea</strong> </a> </h3>
-                        <a class="clr-txt font-2" href="/#"> <i> 17 items </i> </a>
-                    </div>
-                </div>
-                <div class="col-sm-3"></div>
             </div>
-        </div>                        
-    </div>
-
-</section>
+    
+        </section>
 <!-- / Our Products Ends -->       
 
             <!-- / CONTENT AREA -->

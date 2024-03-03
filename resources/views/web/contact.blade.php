@@ -27,17 +27,17 @@
                         <div class="col-md-4">
                             <div class="contact-details">
                                 <h3 class="fsz-25"><span class="light-font">Bombay Choc N Nuts </span> <strong>Address </strong>  </h3> 
-                                <h6 class="sub-title-1 pb-15">ORGANIC STORE</h6>
+                                
 
                                 <h5 class="clr-txt fsz-12 pt-15">Bombay Choc N Nuts STORE</h5>
                                 <p>Muhammad Ali Society</p>
 
                                 <ul>
-                                    <li> <strong>Call:  </strong> <i>03121312312</i> </li>
-                                    <li> <strong>Email: </strong> <i> <a href='#'>info@bombaychoconnuts.com</a> </i> </li>
+                                    <li> <strong>Call:  </strong> <i><a href='tel: 03121312312'>03121312312</a></i> </li>
+                                    <li> <strong>Email: </strong> <i> <a href='mailto: info@bombaychoconnuts.com'>info@bombaychoconnuts.com</a> </i> </li>
                                     {{-- <li> <strong>Skype: </strong> <i> <a href='#'> Montero.Property </a> </i> </li> --}}
-                                    <li> <strong>Facebook: </strong> <i>  <a href='#'> Bombay choconuts </a> </i> </li>
-                                    <li> <strong>Twitter: </strong> <i>  <a href='#'>Bombay choconuts  </a> </i> </li>
+                                    <li> <strong>Facebook: </strong> <i>  <a href='https://web.facebook.com/bombaychocnnuts/?_rdc=1&_rdr'> Explore Bombay choco n nuts Facebook </a> </i> </li>
+                                    <li> <strong>Instagram: </strong> <i>  <a href='https://www.instagram.com/bombaychocnnuts/'>Explore Bombay choco n nuts Instagram </a> </i> </li>
                                 </ul>
 
                             </div>

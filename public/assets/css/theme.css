@@ -642,6 +642,8 @@ section.naturix-goods.sec-space-bottom .organic-content .item {
 .title-1 {
     font-size: 18px;
     color: white;
+    padding-top: 10px;
+    padding-bottom: 5px;
 }
 
 .title-2, .widget-title {
@@ -671,7 +673,11 @@ section.naturix-goods.sec-space-bottom .organic-content .item {
     top: 0;
     width: 100%;
 }
-
+.tab-pane.fade.active.in.productShopCards.giftbundles .product-media img.prod-img.drift-demo-trigger {
+    height: 200px !important;
+    top: -75px !important;
+    object-fit: cover !important;
+}
 strong {
     font-weight: 900;
 }
@@ -1498,7 +1504,7 @@ blockquote {
 }
 
 .owl-carousel .product-box {
-    margin: 40px auto;
+  
     background-color: #eee;
     padding: 10px;
     margin-left: 10px !important;
@@ -1571,11 +1577,25 @@ blockquote {
     font-size: 20px;
 }
 
-.product-caption {
-    text-align: center;
-    padding: 10px 0 30px;
+
+.tabs-box .owl-controls {
+    DISPLAY: NONE !IMPORTANT;
 }
 
+li.hish a {background-color: #243f85;color: white !important;border: 1px solid white;}
+.product-caption {
+    text-align: center;
+    padding: 10px 0 10px;
+}
+.product-media img.prod-img.drift-demo-trigger {
+   
+    aspect-ratio: 3/3;
+    object-fit: cover;
+    width: 90%;
+    padding-top: 10px;
+  
+    /* border-radius: 50px; */
+}
 .prod-icons {
     border-radius: 2em;
     display: flex;
@@ -2021,7 +2041,7 @@ h4.owner-name span.light-font {
 .rel-div.feature-img img {
     object-fit: cover;
     width: 100%;
-    height: 950px;
+    height: 600px;
     object-position: initial;
 }
 .rel-div.feature-img {
@@ -2044,7 +2064,9 @@ h5.clr-txt.sub-title-sm {
 .about-wrap .icon {
     padding-top: 30px;
 }
-
+section.category-all h3.product-title .light-font {
+    font-weight: 600;
+}
 
 .about-wrap .icon span.light-font {
     font-size: 30px;
@@ -2098,8 +2120,22 @@ strong.darkness.about-dar {
     width: 60%!important;
 }
 i.fa.fa-heart-o {
-    font-size: 25px;
+    font-size: 20px;
     color: indianred;
+}
+section.category-all .product-media.category-media img.prod-img {
+    max-width: 75%;
+    object-fit: cover;
+    aspect-ratio: 3/3;
+    padding-bottom: 60px;
+    border-radius: 10px;
+}
+section.category-all .product-caption {
+    margin-top: -20px !important;
+}
+
+section.category-all h3.product-title {
+    font-size: 17px !important;
 }
 .product-table .prod-btns button.btn.btn-primary {
     background-color: #ebc54d;
@@ -2108,7 +2144,7 @@ i.fa.fa-heart-o {
     color: white !important;
 }
 i.fa.fa-list {
-    font-size: 25px;
+    font-size: 20px;
     color: cadetblue;
 }
 button.btn.btn-default.dropdown-toggle {
@@ -2256,10 +2292,12 @@ ul.primary-navbar li a {
     color: black;
     font-size: 18px;
     font-weight: 300;
+    font-weight: 400;
     padding-left: 75px;
 }
 ul.primary-navbar {
     padding-left: 35px;
+    text-align: center !important   ;
 }
 .primary-navbar > li {
     display: inline-block;
@@ -2288,21 +2326,6 @@ ul.primary-navbar {
     text-transform: capitalize;
 }
 
-.primary-navbar > li > a:after {
-    content: "";
-    height: 5px;
-    width: 5px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    opacity: 0;
-    transition: .4s;
-    -moz-transition: .4s;
-    -webkit-transition: .4s;
-    margin: 0 auto;
-    border-radius: 50%;
-}
 
 .primary-navbar > li.active a::after, .primary-navbar > li a:hover::after, .primary-navbar > li a:focus::after {
     bottom: -5px;
@@ -2846,6 +2869,15 @@ select.btn.btn-default.dropdown-toggle {
         right: auto;
         left: 0;
     }
+    ul.checkbox-widget {
+        display: none !important;
+    }
+    .subscribe-wrap .right-bg-img{
+        position: unset !important;
+    }
+    section.organic-product{
+        padding: 20px  !important;
+    }
     header.main-head {
         display: none !important;
     }
@@ -2858,6 +2890,15 @@ select.btn.btn-default.dropdown-toggle {
     section.organic-farm.sec-space-top.light-bg h2 {
         font-size: 25px;
     }
+    .site-breadcumb .section-title strong.clr-txt{
+        font-size: 35px !important;
+        color: white !important;
+    }
+    .contact-map iframe {
+        height: 345px;
+        width: 379px;
+    }
+    
     .section-icon p {
         font-size: 18px !important;
     }
@@ -3107,6 +3148,9 @@ select.btn.btn-default.dropdown-toggle {
     .slide-1 .slide-title2 .sub-title {
         font-size: 12px;
     }
+    ul.primary-navbar li a{
+        padding: unset !important;
+    }
 }
 
 @media (max-width: 767px) {
@@ -3306,7 +3350,11 @@ select.btn.btn-default.dropdown-toggle {
     padding: 15px;
     margin-bottom: 30px;
 }
-
+@media (max-width: 1100px) {
+    ul.primary-navbar li a{
+        padding-left: unset !important;
+    }
+}
 @media (max-width: 991px) {
     .slide-4 .slide-title2 {
         padding-bottom: 0;
@@ -3316,7 +3364,9 @@ select.btn.btn-default.dropdown-toggle {
         font-size: 12px;
     }
 }
-
+.contact-details {
+    margin-top: 50px !important;
+}
 @media (max-width: 767px) {
     .slide-4 .slide-title2 {
         padding-bottom: 25px;
@@ -3462,13 +3512,33 @@ select.btn.btn-default.dropdown-toggle {
 .organic-farm-2 {
     position: relative;
 }
-
+ul.checkbox-widget :hover {
+    background-color: #243f85;
+    color: white;
+}
 .organic-farm-2 .left-bottom-img {
     left: 0;
     bottom: 25%;
     position: absolute;
 }
+.category-frop {
+    display: flex;
+    gap: 20px;
+}
+.container.rel-div.shop-width {
+    width: 1660px !IMPORTANT;
+}
+.category-list {
+    width: 25% !important;
+}
 
+.product-list {
+    width: 100%;
+}
+ul.checkbox-widget :focus {
+    background-color: #243f85 !important;
+    color: white !important;
+}
 .organic-farm-2 .right-top-img {
     position: absolute;
     right: 0;
@@ -3479,12 +3549,21 @@ h2.fsz-50.over-txt-title {
 }
 ul.primary-navbar.footer-menu li a {
     color: black;
-    /* padding-left: 50px; */
+    padding-left: 50px;
     font-size: 15px;
     font-weight: 400;
     
 }
-
+.product-box {
+    border: 1px solid #243f85;
+    border-radius: 16px;
+}
+ul.checkbox-widget {
+    border: 1px solid #eee;
+}
+.tab-content.shop-content .product-caption {
+    margin-top: -23px;
+}
 ul.primary-navbar.footer-menu {
     padding-left: 80px;
     display: flex;
@@ -3599,14 +3678,18 @@ h4.sub-title {
     letter-spacing: unset !important;
 }
 
-.organic-prod-info {
-    padding-top: 80px;
-}
 .organic-prod img {
     background-color: #eb5253;
     border-radius: 10px;
-    padding-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 200px;
+    width: 100%;
+    OBJECT-FIT: COVER;
+    PADDING-LEFT: 40PX;
+    PADDING-RIGHT: 40PX;
 }
+section.deals.sec-space.light-bg {margin-top: 100px !important;}
 section.deals.sec-space.light-bg h4 {
     color: white;
 }
@@ -3681,12 +3764,9 @@ footer.page-footer .text-widget p {
     border-color: transparent;
 }
 
-.organic-prod .divider {
-    background-color: #eee;
-    display: block;
-    height: 2px;
-    margin: 30px auto 15px;
-    width: 40px;
+section.organic-product {
+    padding-right: 100px;
+    padding-left: 100px;
 }
 
 @media (max-width: 1199px) {
@@ -3708,6 +3788,14 @@ footer.page-footer .text-widget p {
 @media (max-width: 767px) {
     .organic-farm-2 .xs-text {
         text-align: center;
+    }
+    .category-frop {
+        display: unset !important;
+        gap: unset !important;
+    }
+    
+    .category-list {
+        width: unset !important;
     }
 }
 
@@ -3827,7 +3915,9 @@ section.shop-wrap.sec-space-bottom .container.rel-div {
     text-align: center;
     width: 100%;
 }
-
+.category-frop .tabs-box {
+    display: none !important;
+}
 .deal-icons > a::before {
     bottom: 0;
     height: 25px;
@@ -4113,6 +4203,9 @@ header.main-head {
 @media (max-width: 767px) {
     .prod-banner .bottom-img {
         z-index: 0;
+    }
+    .category-frop .tabs-box {
+        display: unset !important;
     }
     p.about-pp {
         padding-left: 20px;
@@ -4562,10 +4655,16 @@ header.main-head {
     z-index: 1;
 }
 
+
+section.organic-all.sec-space-bottom a.theme-btn.btn {
+    margin-top: 50px;
+}
 .price-range-max.value {
     right: 0;
 }
-
+.price{
+    font-size: 20px !important;
+}
 .price-range-both {
     display: none !important;
 }
@@ -5489,9 +5588,9 @@ blockquote {
     height: 530px;
 }
 
-.contact-details {
+/* .contact-details {
     margin: 50px auto auto 25px;
-}
+} */
 
 .contact-details li {
     padding-top: 10px;

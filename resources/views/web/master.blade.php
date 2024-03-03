@@ -464,7 +464,7 @@
                         </div>
                     </form>
                 </div>
-                <div style=" padding-left: 20px;  padding-top: 10px;   font-size: 20px; text-align: center;" class="col-lg-1 ">
+                <div style="   padding-top: 10px;   font-size: 20px; text-align: center;" class="col-lg-1 ">
                     @if (Auth::user())
                         <i class="fa fa-list" aria-hidden="true"></i><span style=" padding-left: 33px; "><a
                             href="/wishlist-product"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
@@ -975,13 +975,11 @@
                         <div class="col-md-4 col-sm-12 footer-widget">
                             {{-- <div class="main-logo"> --}}
                             {{-- <a href="/"><img src="{{asset('web-assets/images/logo/bombaylogo.png')}}" alt="">  </a> --}}
-                            <span class="medium-font">Bombay Choconuts</span>
+                            <span class="medium-font">Bombay Choco N Nuts</span>
                             {{-- </div> --}}
 
                             <div class="text-widget">
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                                    euismod tincidunt ut laoreet dolore magna.Lorem ipsum dolor sit amet, consectetuer
-                                    adipiscing elit, sed diam nonummy nibh</p>
+                                <p>At Bombay Choco n Nuts, we offer a tantalizing array of the finest dry fruits, chocolates, and much more. Indulge in our premium selection and elevate your snacking experience to new heights of delight and satisfaction.</p>
 
                             </div>
                         </div>
@@ -1036,8 +1034,7 @@
                 <div class="container ptb-10">
                     <div class="row">
                         <div class="col-md-6 col-sm-5">
-                            <p>© {{date('Y')}} <a href="/#"> <strong> bombaychoconnuts.com</strong> </a>,copyright<i
-                                    class="fa fa-heart red-clr"></i> all right reserved</p>
+                            <p>© {{date('Y')}} <a href="/#"> <strong> bombaychoconnuts.com</strong> </a>,copyright all right reserved</p>
                         </div>
                         <div class="col-md-6 col-sm-7">
                             <ul class="primary-navbar footer-menu">

@@ -21,7 +21,7 @@
             <img alt="" src="assets/img/icons/white-pattern.png">
         </div>
 
-        <div class="container rel-div">
+        <div class="container rel-div shop-width">
             <div class="row sort-bar">
                 <div class="col-lg-6">
                     <div class="sort-dropdown left">
@@ -57,11 +57,28 @@
 
             <div class="divider-full-1"></div>
 
-            <div class="row">
-                <div class="col-md-3 pt-15">
+            <div class="category-frop"> 
+                <div class="category-list">
                     <div class="widget-wrap">
                         <h2 class="widget-title"> <span class="light-font">Refine by</span> <strong>category</strong> </h2>
                         <div class="divider-full-1"></div>
+                        <div class="tabs-box">
+                            <ul class="theme-tabs" id="categories">
+                                <div class="container-fluid">
+                                    <div class="col-md-12">
+                                        <div class="tab-content organic-content row width-fly">
+                                            <div class="product-slider-1 dots-1">
+                                                @foreach ($productCategory as $category)
+                                                    <li class="hish"><a href="#" data-toggle="tab" class="category-btn"
+                                                            data-id="{{ $category->id }}">{{ $category->name }}</a></li>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+        
+                        </div>
                         <ul class="checkbox-widget">
                             @foreach ($productCategory as $category)
                                 <ul class="checkbox-widget">
@@ -74,15 +91,17 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-9">
+                <div class="product-list">
                     <div class="tab-content shop-content">
-                        <div class="tab-pane fade active in productShopCards" role="tabpanel">
-                            <div class="row">
+                        <div class="products-content grid tab-pane fade active in " role="tabpanel"> 
+                            <div class="row productShopCards">
+                               
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                 </div>
+                            
                             </div>
                         </div>
-                    </div>
+                    </div> 
                     {{-- <div class="rel-div pt-50">
                         <div class="divider-full-1"></div>
                         <div class="nav-page">
@@ -102,7 +121,6 @@
                         </ul>
                     </div> --}}
                 </div>
-
             </div>
         </div>
     </section>
@@ -236,7 +254,8 @@
 
                 // Set the 'href' attribute using the template string
                 linkElement.href = `/productDetails/${productId}`;
-                    let productCard = `<div class="col-lg-3 col-md-4 col-sm-6"> 
+                    let productCard = `
+                    <div class="col-lg-3 col-md-4 col-sm-6"> 
                                     <div class="product-box"> 
                                         <div class="product-media"> 
                                             <a href="${linkElement}">

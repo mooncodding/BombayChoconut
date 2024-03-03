@@ -41,7 +41,7 @@
                                     <div class="tab-content shop-content">
                                         <div class="row">
                                             <div class="col-lg-12 col-md-12 col-sm-12">
-                                                <div class="tab-pane fade active in productShopCards" role="tabpanel">
+                                                <div class="tab-pane fade active in productShopCards giftbundles" role="tabpanel">
 
 
                                                 </div>

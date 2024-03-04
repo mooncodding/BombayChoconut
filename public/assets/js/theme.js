@@ -141,7 +141,7 @@ $(function ($) {
     /*------ Product Sliders --------*/
     $(".product-slider-1").owlCarousel({
         dots: true,
-        loop: false,
+        loop: true,
         autoplay: true,
         autoplayHoverPause: true,
         smartSpeed: 1000,

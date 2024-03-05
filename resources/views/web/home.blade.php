@@ -120,9 +120,18 @@
             <div class="tab-content shop-content">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="tab-pane fade active in productShopCards giftbundles" role="tabpanel">
-
-
+                        <div class="hidden-xs hidden-sm">
+                            <!-- Content specific to screens larger than mobile -->
+                            <div class="tab-pane fade active in productShopCards giftbundles" role="tabpanel">
+                                <!-- Larger screen-specific content goes here -->
+                            </div>
+                        </div>
+                        
+                        <div class="hidden-md hidden-lg">
+                            <!-- Content specific to mobile screens -->
+                            <div class="tab-pane fade active in productMobileShopCards giftbundles" role="tabpanel">
+                                <!-- Mobile-specific content goes here -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -602,6 +611,7 @@
                 dataType: 'json',
                 success: function(data) {
                     displayProductCards(data.products);
+                    displayMobileProductCards(data.products);
                 },
                 error: function(error) {
                     console.error('Error fetching data:', error);
@@ -629,56 +639,113 @@
                 const productId = $(this).data('product-id');
                 fetchProductDetails(productId);
             });
+            // Set up click event for "View Details" buttons
+            $('.productMobileShopCards').on('click', '.view-details-btn', function() {
+                const productId = $(this).data('product-id');
+                fetchProductDetails(productId);
+            });
         });
 
         function displayProductCards(products) {
             let productsContainer = $(".productShopCards");
             productsContainer.empty(); // Clear previous products
             // Loop through the products and generate HTML for each product card
+            $.each(products.slice(0, 8), function(index, product) {
+                var productId = product.id;
+                // Create a new 'a' (anchor) element
+                var linkElement = document.createElement("a");
+
+                // Set the 'href' attribute using the template string
+                linkElement.href = `/productDetails/${productId}`;
+                let productCard = `<div class="col-lg-3 col-md-4 col-sm-6"> 
+                        <div class="product-box"> 
+                            <div class="product-media"> 
+                                <img class="prod-img drift-demo-trigger " data-zoom="{{ asset('images/product-images/${product.photo}') }}" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
+                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
+                                <div class="prod-icons"> 
+                                    @if(Auth::user())
+                                        <form action="{{ route('wishlist.store') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="product_id" value="${product.id}" />
+                                            <button type="submit" class="fa fa-heart"></button>
+                                        </form>
+                                    @else
+                                        <a href="/wishlist" class="fa fa-heart"></a>
+                                    @endif
+                                    <a  href="/#product-preview" data-toggle="modal" class="fa fa-shopping-basket view-details-btn" data-product-id="${product.id}"></a>
+                                </div>
+                            </div>
+
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="${linkElement}"> ${product.title}</a>
+                                </h3>
+                                <div class="price"> 
+                                    <strong class="clr-txt">Rs ${product.product_variants[0].sale_price}</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+                // Append the product card HTML to the products container
+                productsContainer.append(productCard);
+
+                // Break out of the loop after processing 5 products
+                if (index === 9) {
+                    return false;
+                }
+            });
+            // Implement the logic to display the filtered products in the 'products' section
+            // For example, you can loop through the products and update the HTML
+        }
+
+        function displayMobileProductCards(products) {
+            let productsContainer = $(".productMobileShopCards");
+            productsContainer.empty(); // Clear previous products
+            // Loop through the products and generate HTML for each product card
             $.each(products.slice(0, 4), function(index, product) {
-    var productId = product.id;
-    // Create a new 'a' (anchor) element
-    var linkElement = document.createElement("a");
+                var productId = product.id;
+                // Create a new 'a' (anchor) element
+                var linkElement = document.createElement("a");
 
-    // Set the 'href' attribute using the template string
-    linkElement.href = `/productDetails/${productId}`;
-    let productCard = `<div class="col-lg-3 col-md-4 col-sm-6"> 
-                                        <div class="product-box"> 
-                                            <div class="product-media"> 
-                                                <img class="prod-img drift-demo-trigger " data-zoom="{{ asset('images/product-images/${product.photo}') }}" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
-                                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
-                                                <div class="prod-icons"> 
-                                                    @if(Auth::user())
-                                                        <form action="{{ route('wishlist.store') }}" method="POST">
-                                                            @csrf
-                                                            <input type="hidden" name="product_id" value="${product.id}" />
-                                                            <button type="submit" class="fa fa-heart"></button>
-                                                        </form>
-                                                    @else
-                                                        <a href="/wishlist" class="fa fa-heart"></a>
-                                                    @endif
-                                                    <a  href="/#product-preview" data-toggle="modal" class="fa fa-shopping-basket view-details-btn" data-product-id="${product.id}"></a>
-                                                </div>
-                                            </div>
-    
-                                            <div class="product-caption"> 
-                                                <h3 class="product-title">
-                                                    <a href="${linkElement}"> ${product.title}</a>
-                                                </h3>
-                                                <div class="price"> 
-                                                    <strong class="clr-txt">Rs ${product.product_variants[0].sale_price}</strong>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>`;
-    // Append the product card HTML to the products container
-    productsContainer.append(productCard);
+                // Set the 'href' attribute using the template string
+                linkElement.href = `/productDetails/${productId}`;
+                let productCard = `<div class="col-lg-3 col-md-4 col-sm-6"> 
+                        <div class="product-box"> 
+                            <div class="product-media"> 
+                                <img class="prod-img drift-demo-trigger " data-zoom="{{ asset('images/product-images/${product.photo}') }}" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
+                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
+                                <div class="prod-icons"> 
+                                    @if(Auth::user())
+                                        <form action="{{ route('wishlist.store') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="product_id" value="${product.id}" />
+                                            <button type="submit" class="fa fa-heart"></button>
+                                        </form>
+                                    @else
+                                        <a href="/wishlist" class="fa fa-heart"></a>
+                                    @endif
+                                    <a  href="/#product-preview" data-toggle="modal" class="fa fa-shopping-basket view-details-btn" data-product-id="${product.id}"></a>
+                                </div>
+                            </div>
 
-    // Break out of the loop after processing 5 products
-    if (index === 3) {
-        return false;
-    }
-});
+                            <div class="product-caption"> 
+                                <h3 class="product-title">
+                                    <a href="${linkElement}"> ${product.title}</a>
+                                </h3>
+                                <div class="price"> 
+                                    <strong class="clr-txt">Rs ${product.product_variants[0].sale_price}</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+                // Append the product card HTML to the products container
+                productsContainer.append(productCard);
+
+                // Break out of the loop after processing 5 products
+                if (index === 3) {
+                    return false;
+                }
+            });
             // Implement the logic to display the filtered products in the 'products' section
             // For example, you can loop through the products and update the HTML
         }

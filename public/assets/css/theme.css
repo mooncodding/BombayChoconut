@@ -678,6 +678,11 @@ section.naturix-goods.sec-space-bottom .organic-content .item {
     top: -75px !important;
     object-fit: cover !important;
 }
+.tab-pane.fade.active.in.productMobileShopCards.giftbundles .product-media img.prod-img.drift-demo-trigger {
+    height: 200px !important;
+    top: -75px !important;
+    object-fit: cover !important;
+}
 strong {
     font-weight: 900;
 }

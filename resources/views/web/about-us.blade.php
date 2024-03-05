@@ -45,7 +45,7 @@
                 <div class="container rel-div">
                    <div class="row">
                             <p class="about-pp">Step into the sweet world of Bombay Choc n Nuts, a wonderful place for everyone in Pakistan who loves sweets and snacks! Our store is filled with great choices, from tasty chocolates and crunchy biscuits to healthy dry fruits and lots of different candies.</h3>
-                       <h5 class="abouth5">ABOUT BOMBAY CHOCO & NUTS</h5>
+                       <h5 class="abouth5">ABOUT BOMBAY CHOCO N NUTS</h5>
                         {{-- <div class="col-sm-6 text-left xs-text">
                             <h2 class="section-title"> <span class="light-font">we are </span> <strong>organic farmfood <img src="assets/img/icons/logo-icon.png" alt="" /> </strong> </h2>
                             <h4 class="sub-title"> ABOUT Bombay Choco N nuts Products</h4>

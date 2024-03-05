@@ -567,6 +567,12 @@ h2, h3, h4, h5, h6 {
     margin-top: 15px;
     padding: 5px 30px 8px;
 }
+div#product-tab-1 .owl-controls {
+    padding-top: 50px;
+}
+.deal-item .deal-icons {
+    display: none !important;
+}
 
 .section-title .round-shape {
     position: relative;
@@ -2185,9 +2191,13 @@ header.main-header .pattern {
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #243f85 !important;
-    height:330px;
+    height:270px;
 }
-
+.product-box.category-box.category-views1 h3.product-title {
+    background-color: #EB5253 !important;
+    border-radius: 10px !important;
+    
+}
 .product-media.category-media.category-all {
     background-color: unset;
 }
@@ -2873,6 +2883,10 @@ select.btn.btn-default.dropdown-toggle {
         width: 280px;
         right: auto;
         left: 0;
+    }
+    .modal-open .modal {
+        overflow-x: auto !important;
+        overflow-y: auto !important;
     }
     ul.checkbox-widget {
         display: none !important;
@@ -4225,10 +4239,6 @@ header.main-head {
         padding-left: 20px;
     }
     
-    .modal-open .modal {
-        overflow-x: unset !important;
-        overflow-y: unset !important;
-    }
     .main-logo{
         margin-left: unset !important;
     }

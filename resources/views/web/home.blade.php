@@ -371,7 +371,7 @@
                             </div>
                             <div class="deal-img">
                                 <img src="{{ asset('web-assets/images/product/almondinn.png') }}" alt
-                                style=" width: 350px;" />
+                                style=" width: 270px; margin-top: -13pc;" />
                             </div>
                         </div>
                     </div>
@@ -650,14 +650,14 @@
             let productsContainer = $(".productShopCards");
             productsContainer.empty(); // Clear previous products
             // Loop through the products and generate HTML for each product card
-            $.each(products.slice(0, 8), function(index, product) {
+            $.each(products.slice(0, 12), function(index, product) {
                 var productId = product.id;
                 // Create a new 'a' (anchor) element
                 var linkElement = document.createElement("a");
 
                 // Set the 'href' attribute using the template string
                 linkElement.href = `/productDetails/${productId}`;
-                let productCard = `<div class="col-lg-3 col-md-4 col-sm-6"> 
+                let productCard = `<div class="col-lg-2 col-md-4 col-sm-6"> 
                         <div class="product-box"> 
                             <div class="product-media"> 
                                 <img class="prod-img drift-demo-trigger " data-zoom="{{ asset('images/product-images/${product.photo}') }}" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
@@ -690,7 +690,7 @@
                 productsContainer.append(productCard);
 
                 // Break out of the loop after processing 5 products
-                if (index === 9) {
+                if (index === 13) {
                     return false;
                 }
             });

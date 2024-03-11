@@ -28,6 +28,16 @@
 
     <!-- Color CSS -->
     <style>
+        #overlay {
+            z-index: 1;
+            border: 1px solid black;
+            width: 200px;
+            height: 300px;
+            display: none; /* Set initial display to none */
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: 600px 600px; /* Adjust the background size according to your needs */
+        }
         .details {
             position: relative;
             width: 100%;
@@ -289,75 +299,75 @@
         }
     </style>
     <script>
-        function imageZoom(imgID, resultID) {
-            var img, lens, result, cx, cy;
-            img = document.getElementById(imgID);
-            result = document.getElementById(resultID);
-            /* Create lens: */
-            lens = document.createElement("DIV");
-            lens.setAttribute("class", "img-zoom-lens");
-            /* Insert lens: */
-            img.parentElement.insertBefore(lens, img);
-            /* Calculate the ratio between result DIV and lens: */
-            cx = result.offsetWidth / lens.offsetWidth;
-            cy = result.offsetHeight / lens.offsetHeight;
-            /* Set background properties for the result DIV */
-            result.style.backgroundImage = "url('" + img.src + "')";
-            result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
-            /* Execute a function when someone moves the cursor over the image, or the lens: */
-            lens.addEventListener("mousemove", moveLens);
-            img.addEventListener("mousemove", moveLens);
-            /* And also for touch screens: */
-            lens.addEventListener("touchmove", moveLens);
-            img.addEventListener("touchmove", moveLens);
+        // function imageZoom(imgID, resultID) {
+        //     var img, lens, result, cx, cy;
+        //     img = document.getElementById(imgID);
+        //     result = document.getElementById(resultID);
+        //     /* Create lens: */
+        //     lens = document.createElement("DIV");
+        //     lens.setAttribute("class", "img-zoom-lens");
+        //     /* Insert lens: */
+        //     img.parentElement.insertBefore(lens, img);
+        //     /* Calculate the ratio between result DIV and lens: */
+        //     cx = result.offsetWidth / lens.offsetWidth;
+        //     cy = result.offsetHeight / lens.offsetHeight;
+        //     /* Set background properties for the result DIV */
+        //     result.style.backgroundImage = "url('" + img.src + "')";
+        //     result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+        //     /* Execute a function when someone moves the cursor over the image, or the lens: */
+        //     lens.addEventListener("mousemove", moveLens);
+        //     img.addEventListener("mousemove", moveLens);
+        //     /* And also for touch screens: */
+        //     lens.addEventListener("touchmove", moveLens);
+        //     img.addEventListener("touchmove", moveLens);
 
-            function moveLens(e) {
-                var pos, x, y;
-                /* Prevent any other actions that may occur when moving over the image */
-                e.preventDefault();
-                /* Get the cursor's x and y positions: */
-                pos = getCursorPos(e);
-                /* Calculate the position of the lens: */
-                x = pos.x - (lens.offsetWidth / 2);
-                y = pos.y - (lens.offsetHeight / 2);
-                /* Prevent the lens from being positioned outside the image: */
-                if (x > img.width - lens.offsetWidth) {
-                    x = img.width - lens.offsetWidth;
-                }
-                if (x < 0) {
-                    x = 0;
-                }
-                if (y > img.height - lens.offsetHeight) {
-                    y = img.height - lens.offsetHeight;
-                }
-                if (y < 0) {
-                    y = 0;
-                }
-                /* Set the position of the lens: */
-                lens.style.left = x + "px";
-                lens.style.top = y + "px";
-                /* Display what the lens "sees": */
-                result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
-            }
+        //     function moveLens(e) {
+        //         var pos, x, y;
+        //         /* Prevent any other actions that may occur when moving over the image */
+        //         e.preventDefault();
+        //         /* Get the cursor's x and y positions: */
+        //         pos = getCursorPos(e);
+        //         /* Calculate the position of the lens: */
+        //         x = pos.x - (lens.offsetWidth / 2);
+        //         y = pos.y - (lens.offsetHeight / 2);
+        //         /* Prevent the lens from being positioned outside the image: */
+        //         if (x > img.width - lens.offsetWidth) {
+        //             x = img.width - lens.offsetWidth;
+        //         }
+        //         if (x < 0) {
+        //             x = 0;
+        //         }
+        //         if (y > img.height - lens.offsetHeight) {
+        //             y = img.height - lens.offsetHeight;
+        //         }
+        //         if (y < 0) {
+        //             y = 0;
+        //         }
+        //         /* Set the position of the lens: */
+        //         lens.style.left = x + "px";
+        //         lens.style.top = y + "px";
+        //         /* Display what the lens "sees": */
+        //         result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+        //     }
 
-            function getCursorPos(e) {
-                var a, x = 0,
-                    y = 0;
-                e = e || window.event;
-                /* Get the x and y positions of the image: */
-                a = img.getBoundingClientRect();
-                /* Calculate the cursor's x and y coordinates, relative to the image: */
-                x = e.pageX - a.left;
-                y = e.pageY - a.top;
-                /* Consider any page scrolling: */
-                x = x - window.pageXOffset;
-                y = y - window.pageYOffset;
-                return {
-                    x: x,
-                    y: y
-                };
-            }
-        }
+        //     function getCursorPos(e) {
+        //         var a, x = 0,
+        //             y = 0;
+        //         e = e || window.event;
+        //         /* Get the x and y positions of the image: */
+        //         a = img.getBoundingClientRect();
+        //         /* Calculate the cursor's x and y coordinates, relative to the image: */
+        //         x = e.pageX - a.left;
+        //         y = e.pageY - a.top;
+        //         /* Consider any page scrolling: */
+        //         x = x - window.pageXOffset;
+        //         y = y - window.pageYOffset;
+        //         return {
+        //             x: x,
+        //             y: y
+        //         };
+        //     }
+        // }
     </script>
 
 </head>
@@ -1079,7 +1089,7 @@
     <!-- Custom JS -->
     <script src="assets/js/theme.js"></script>
     <script>
-         // Function to save selected category to local storage
+    // Function to save selected category to local storage
     function saveSelectedCategory() {
         var selectedCategory = document.getElementById("categorySelect").value;
         localStorage.setItem("selectedCategory", selectedCategory);
@@ -1102,249 +1112,48 @@
     document.getElementById("categorySelect").addEventListener("change", function () {
         saveSelectedCategory();
     });
-    </script>
-    {{-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Function to fetch and display products
-            function fetchAndDisplayProducts(id) {
-                $.ajax({
-                    url: '/products/filter/' + id,
-                    method: 'GET',
-                    dataType: 'json',
-                    success: function(data) {
-                        displayProductCards(data.products);
-                    },
-                    error: function(error) {
-                        console.error('Error fetching data:', error);
-                    }
-                });
-            }
 
-            // Display products for the default category on page load
-            $(document).ready(function() {
-                // Replace 'defaultCategory' with your actual default category
-                const defaultCategory = '1';
+    function zoomIn(event) {
+        var element = document.getElementById("overlay");
+        element.style.display = "inline-block";
 
-                fetchAndDisplayProducts(defaultCategory);
+        var img = document.getElementById("imgZoom");
+        var rect = img.getBoundingClientRect();
 
-                // Set up click event for category buttons
-                $('.category-btn').on('click', function() {
-                    const selectedCategory = $(this).data('id');
-                    fetchAndDisplayProducts(selectedCategory);
-                });
+        var posX, posY;
 
+        img.addEventListener("mousemove", function(event) {
+            // Calculate mouse position relative to the image
+            posX = event.clientX - rect.left;
+            posY = event.clientY - rect.top;
 
+            // Ensure posX and posY are within the image boundaries
+            posX = Math.min(Math.max(posX, 0), img.width);
+            posY = Math.min(Math.max(posY, 0), img.height);
 
-                // Set up click event for "View Details" buttons
-                $('.productCards').on('click', '.view-details-btn', function() {
-                    const productId = $(this).data('product-id');
-                    fetchProductDetails(productId);
-                });
-            });
+            // Set the background image and position
+            element.style.backgroundImage = "url('" + img.src + "')";
+            element.style.backgroundPosition = (-posX * 1) + "px " + (-posY * 1) + "px";
 
-            function displayProductCards(products) {
-                let productsContainer = $(".productCards");
-                productsContainer.empty(); // Clear previous products
-                // Loop through the products and generate HTML for each product card
-                $.each(products, function(index, product) {
-                    let productCard = `
-                        
-                                    <div class="item">
-                                        <div class="product-box">
-
-                                       
-                                            <div class="product-media "> 
-                                               
-                                                <img class="prod-img drift-demo-trigger " data-zoom="{{ asset('images/product-images/${product.photo}') }}" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
-
-                                             
-                                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
-                                                <div class="prod-icons"> 
-                                                    <a href="#" class="fa fa-heart"></a>
-                                                    <a  href="javascript:void(0);" data-target="#product-preview" data-toggle="modal" class="fa fa-shopping-basket view-details-btn" data-product-id="${product.id}"></a>
-                                                </div>
-                                            </div>
-                                   
-                                       
-                                       
-                                            <div class="product-caption details"> 
-                                                <h3 class="product-title">
-                                                    <a href="#"> ${product.title}</a>
-                                                </h3>
-                                                <div class="price"> 
-                                                    <strong class="clr-txt">Rs ${product.product_variants[0].sale_price}</strong>
-                                                </div>
-                                            </div>
-                                        </div>
-                                      
-                                  </div>  
-                             
-                    
-                                        `;
-                    // Append the product card HTML to the products container
-                    productsContainer.append(productCard);
-                });
-                // Implement the logic to display the filtered products in the 'products' section
-                // For example, you can loop through the products and update the HTML
-            }
-
-            function fetchProductDetails(productId) {
-                // Assuming you have an API endpoint to fetch product details
-                $.ajax({
-                    url: '/api/getProductById/' + productId,
-                    method: 'GET',
-                    dataType: 'json',
-                    success: function(data) {
-                        displayProductDetails(data);
-                    },
-                    error: function(error) {
-                        console.error('Error fetching product details:', error);
-                    }
-                });
-            }
-
-            function displayProductDetails(product) {
-                const modalBody = $('#product-preview');
-                // Clear existing product details
-                modalBody.empty();
-                // Display product details in the modal
-                modalBody.append(`<div class="modal-dialog modal-lg product-modal">
-                        <div class="modal-content">
-                            <a aria-hidden="true" data-dismiss="modal" class="sb-close-btn close" href="/#"> <i class=" fa fa-close"></i> </a>                 
-
-                            <div class="product-single pb-50 clearfix">
-                                <!-- Single Products Slider Starts --> 
-                                <div class="row">
-                                <div class="col-lg-6 col-sm-6 col-sm-offset-2 col-lg-offset-0 pt-50">
-                                    <div class="prod-slider sync1">
-                                    
-                              <div id='slideshow-items-container'>
-                                        <div class="item slideshow-items img-zoom-container"> 
-                                        <img id="myimage"  src="{{ asset('images/product-images/${product.photo}') }}" data-image="${product.photo}" width="300" alt=""/>
-                                        <div id="myresult" class="img-zoom-result"></div>
-                                            <a href="/assets/img/products/prod-big-1.png" data-gal="prettyPhoto[prettyPhoto]" title="Product" class="caption-link"><i class="arrow_expand"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                                <!-- Single Products Slider Ends --> 
-
-                                <div class="col-lg-6 pt-50">
-                                    <div class="product-content block-inline">
-
-                                        <div class="tag-rate">
-                                            <span class="prod-tag tag-1">new</span> <span class="prod-tag tag-2">sale</span>
-                                        </div>
-
-                                        <div class="single-caption"> 
-                                            <h3 class="section-title">
-                                                <a href="/#"><strong>${product.title}</strong></a>
-                                            </h3>
-                                            <span class="divider-2"></span>
-                                            <p class="price"> 
-                                                <strong class="clr-txt fsz-20 saleprice"></strong>
-                                            </p>
-
-                                            <div class="fsz-16">
-                                                <p>${product.description}</p>
-                                            </div>
-
-                                            <div class="prod-btns">
-                                                <div class="quantity">
-                                                    <input title="Qty" id="quatity" value="1" name="quantity" min="1" class="form-control" type="number">
-                                                </div>
-                                            </div>
-                                            <ul class="meta">
-                                                <li class="tags-widget" id="variantsContainer"> 
-                                                    <strong>Variants:</strong>
-                                                    ${product.product_variants.map(variant => `
-                                                                <span class="weight-option" data-variant="${variant.id}" data-price="${variant.sale_price}"><a href="/#">${variant.weight} </a></span>
-                                                            `).join('')}
-                                                </li>
-                                                <li> <strong>CATEGORY:</strong><span> ${product.product_category.name}</span> </li>
-                                            </ul>
-                                            <div class="divider-full-1"></div>
-                                            <div class="add-cart pt-15">
-                                                <a href="/#" class="theme-btn js-add-product  add-to-cart-btn" data-product-id="${product.id}"> <strong> ADD TO CART </strong> </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> 
-                            </div>  
-                        </div>
-                        </div>
-                    </div>`);
-
-                // Set the default price to be the price of the first variant
-                const defaultPrice = product.product_variants[0].sale_price;
-                updatePrice(defaultPrice);
-
-                // Function to update the displayed price
-                function updatePrice(newPrice) {
-                    $('.saleprice').text('Rs' + newPrice);
-                }
-                var variantId = product.product_variants[0].id;
-                // Add event listener to the weight options
-                $('.weight-option').on('click', function() {
-                    const selectedWeight = $(this).data('price');
-                    variantId = $(this).data('variant');
-                    updatePrice(selectedWeight);
-                });
-
-                // Set up click event for "Add to Cart" buttons
-                $('#product-preview').on('click', '.add-to-cart-btn', function() {
-                    var productId = $(this).data('product-id');
-                    var quantity = document.getElementById('quatity').value;
-                    var variant_id = variantId;
-                    array = [{
-                        'product_id': parseInt(productId),
-                        'quantity': parseInt(quantity),
-                        'variant_id': parseInt(variant_id),
-                    }];
-                    addToCart(array);
-                });
-                $('.modal-open').on('click', '.add-to-cart-btn', function() {
-                    // console.log(123)
-                    var productId = $(this).data('product-id');
-                    var quantity = document.getElementById('quatity').value;
-                    var variant_id = variantId;
-                    array = [{
-                        'product_id': parseInt(productId),
-                        'quantity': parseInt(quantity),
-                        'variant_id': parseInt(variant_id),
-                    }];
-                    addToCart(array);
-                });
-            }
-
-            function addToCart(data) {
-                // Get the CSRF token from the meta tag
-                var csrfToken = $('meta[name="csrf-token"]').attr('content');
-                // Make an AJAX request to add the product to the cart
-                $.ajax({
-                    url: '{{ route('cart.store') }}',
-                    method: 'POST',
-                    data: {
-                        product_id: data[0].product_id,
-                        quantity: data[0].quantity,
-                        variant_id: data[0].variant_id
-                    },
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    dataType: 'json',
-                    success: function(response) {
-                        $('#product-preview').hide();
-                        // location.reload();
-                    },
-                    error: function(error) {
-                        console.error('Error adding to cart:', error);
-                    }
-                });
-            }
+            // Zoom effect
+            element.style.transform = "scale(1)"; // Adjust the scale factor as needed
         });
-    </script> --}}
+
+        img.addEventListener("mouseout", function() {
+            // Reset the zoom effect when the mouse leaves the image
+            element.style.transform = "scale(0)";
+            element.style.display = "none";
+            element.style.border = "unset";
+        });
+    }
+
+    function zoomOut() {
+        var element = document.getElementById("overlay");
+        element.style.display = "none";
+        element.style.border = "unset";
+    }
+    </script>
+
     <div class="lightbox js-lightbox js-toggle-cart"></div>
 </body>
 

@@ -149,7 +149,8 @@
                                     
                               <div id='slideshow-items-container'>
                                         <div class="item slideshow-items img-zoom-container"> 
-                                        <img id="myimage"  src="{{ asset('images/product-images/${product.photo}') }}" data-image="${product.photo}" width="300" alt=""/>
+                                        <img id="imgZoom" onmousemove="zoomIn(event)" onmouseout="zoomOut()" src="{{ asset('images/product-images/${product.photo}') }}" data-image="${product.photo}" width="300" alt=""/>
+                                        <div id="overlay" onmousemove="zoomIn(event)"></div>
                                         <div id="myresult" class="img-zoom-result"></div>
                                             <a href="/assets/img/products/prod-big-1.png" data-gal="prettyPhoto[prettyPhoto]" title="Product" class="caption-link"><i class="arrow_expand"></i></a>
                                         </div>

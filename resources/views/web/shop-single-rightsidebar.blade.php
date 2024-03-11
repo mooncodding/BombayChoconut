@@ -25,7 +25,8 @@
                         <div class="col-lg-6 pb-50 col-sm-8 col-sm-offset-2 col-lg-offset-0">
                             <div class="prod-slider sync1">
                                 <div class="item">
-                                    <img src="{{asset('images/product-images/'.$product->photo)}}" width="400" alt="">
+                                    <img id="imgZoom" onmousemove="zoomIn(event)" onmouseout="zoomOut()" src="{{asset('images/product-images/'.$product->photo)}}" width="400" alt="">
+                                    <div id="overlay" onmousemove="zoomIn(event)"></div>
                                 </div>
                             </div>
                         </div>

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="agency, ecommerce">
     <meta name="author" content="Md. Siful Islam, Jtheme">
+    <!-- Add the following line to prevent indexing by search engines -->
+    <meta name="robots" content="noindex">
     <title>Bombay Choconuts</title>
 
     <!-- Favicon -->

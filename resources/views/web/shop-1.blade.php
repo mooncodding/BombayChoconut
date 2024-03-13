@@ -51,10 +51,27 @@
                                 <option>Z - A</option>
                             </select>
                         </div>
+                         
+                    </div>
+                    <div  class="tab-content shop-content">
+                        <div id="grid-view" class="tab-pane fade active in "  role="tabpanel">
+                        </div>
+                        <div id="list-view" class="tab-pane fade productShopCards" role="tabpanel">
+                        </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-5 px-md-2 px-0">
+                    <div class="result-count">
+                    <div class="col-switch flex justify-content-end">
+                    <span class="cursor-pointer pr six  mr-2" data-col="2"></span>
+                    <span class="cursor-pointer pr four  mr-2 " data-col="3"></span>
+                    <span class="cursor-pointer pr three  mr-2 active" data-col="4"></span>
+                    <span class="cursor-pointer pr two  mr-2" data-col="6"></span>
+                    </div>
+                    </div>
                     </div>
                 </div>
             </div>
-
+           
             <div class="divider-full-1"></div>
 
             <div class="category-frop"> 
@@ -92,6 +109,34 @@
                     </div>
                 </div>
                 <div class="product-list">
+                    <div class="grid-parent right">
+                        <div class="grid-2">
+                            <i class="fa fa-square" aria-hidden="true"></i>
+                            <span><i class="fa fa-square" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="grid-3">
+                            <i class="fa fa-square" aria-hidden="true"></i>
+                          <span><i class="fa fa-square" aria-hidden="true"></i>
+                            <i class="fa fa-square" aria-hidden="true"></i>
+                            </span> 
+                        </div>
+                        <div class="grid-4">
+                            <i class="fa fa-square" aria-hidden="true"></i>
+                          <span><i class="fa fa-square" aria-hidden="true"></i>
+                            <i class="fa fa-square" aria-hidden="true"></i>
+                            <i class="fa fa-square" aria-hidden="true"></i>
+                            </span> 
+                        </div>
+                        <div class="grid-6">
+                            <i class="fa fa-square" aria-hidden="true"></i>
+                          <span><i class="fa fa-square" aria-hidden="true"></i>
+                            <i class="fa fa-square" aria-hidden="true"></i>
+                            <i class="fa fa-square" aria-hidden="true"></i>
+                            <i class="fa fa-square" aria-hidden="true"></i>
+                            
+                            </span> 
+                        </div>
+                    </div>
                     <div class="tab-content shop-content">
                         <div class="products-content grid tab-pane fade active in " role="tabpanel"> 
                             <div class="row productShopCards">
@@ -255,7 +300,7 @@
                 // Set the 'href' attribute using the template string
                 linkElement.href = `/productDetails/${productId}`;
                     let productCard = `
-                    <div class="col-lg-3 col-md-4 col-sm-6"> 
+                    <div class="col-lg-3 col-md-4 col-sm-6 "> 
                                     <div class="product-box"> 
                                         <div class="product-media"> 
                                             <a href="${linkElement}">

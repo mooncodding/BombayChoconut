@@ -1,7 +1,8 @@
 @extends('web.master')
 @section('content')
     <!--Breadcrumb Section Start-->
-    <section class="breadcrumb-bg" style=" background: linear-gradient(0deg, #333333ad, #000000b0), url(http://127.0.0.1:8000/web-assets/images/banner/Syrup.jpg);
+    <section class="breadcrumb-bg"
+        style=" background: linear-gradient(0deg, #333333ad, #000000b0), url(http://127.0.0.1:8000/web-assets/images/banner/Syrup.jpg);
     background-size: cover;">
         <div class="theme-container container ">
             <div class="site-breadcumb white-clr">
@@ -51,30 +52,30 @@
                                 <option>Z - A</option>
                             </select>
                         </div>
-                         
+
                     </div>
-                    <div  class="tab-content shop-content">
-                        <div id="grid-view" class="tab-pane fade active in "  role="tabpanel">
+                    <div class="tab-content shop-content">
+                        <div id="grid-view" class="tab-pane fade active in " role="tabpanel">
                         </div>
                         <div id="list-view" class="tab-pane fade productShopCards" role="tabpanel">
                         </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-5 px-md-2 px-0">
-                    <div class="result-count">
-                    <div class="col-switch flex justify-content-end">
-                    <span class="cursor-pointer pr six  mr-2" data-col="2"></span>
-                    <span class="cursor-pointer pr four  mr-2 " data-col="3"></span>
-                    <span class="cursor-pointer pr three  mr-2 active" data-col="4"></span>
-                    <span class="cursor-pointer pr two  mr-2" data-col="6"></span>
                     </div>
-                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-5 px-md-2 px-0">
+                        <div class="result-count">
+                            <div class="col-switch flex justify-content-end">
+                                <span class="cursor-pointer pr six  mr-2" data-col="2"></span>
+                                <span class="cursor-pointer pr four  mr-2 " data-col="3"></span>
+                                <span class="cursor-pointer pr three  mr-2 active" data-col="4"></span>
+                                <span class="cursor-pointer pr two  mr-2" data-col="6"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-           
+
             <div class="divider-full-1"></div>
 
-            <div class="category-frop"> 
+            <div class="category-frop">
                 <div class="category-list">
                     <div class="widget-wrap">
                         <h2 class="widget-title"> <span class="light-font">Refine by</span> <strong>category</strong> </h2>
@@ -86,7 +87,8 @@
                                         <div class="tab-content organic-content row width-fly">
                                             <div class="product-slider-1 dots-1">
                                                 @foreach ($productCategory as $category)
-                                                    <li class="hish"><a href="#" data-toggle="tab" class="category-btn"
+                                                    <li class="hish"><a href="#" data-toggle="tab"
+                                                            class="category-btn"
                                                             data-id="{{ $category->id }}">{{ $category->name }}</a></li>
                                                 @endforeach
                                             </div>
@@ -94,7 +96,7 @@
                                     </div>
                                 </div>
                             </ul>
-        
+
                         </div>
                         <ul class="checkbox-widget">
                             @foreach ($productCategory as $category)
@@ -111,42 +113,52 @@
                 <div class="product-list">
                     <div class="grid-parent right">
                         <div class="grid-2">
-                            <i class="fa fa-square" aria-hidden="true"></i>
-                            <span><i class="fa fa-square" aria-hidden="true"></i></span>
+                            <a href="" class="active" data-col="2">
+                                <i class="fa fa-square" aria-hidden="true"></i>
+                                <span><i class="fa fa-square" aria-hidden="true"></i>
+                                    <i class="fa fa-square" aria-hidden="true"></i>
+                                    <i class="fa fa-square" aria-hidden="true"></i>
+                                    <i class="fa fa-square" aria-hidden="true"></i>
+                                    <i class="fa fa-square" aria-hidden="true"></i>
+                                </span>
+                            </a>
                         </div>
                         <div class="grid-3">
-                            <i class="fa fa-square" aria-hidden="true"></i>
-                          <span><i class="fa fa-square" aria-hidden="true"></i>
-                            <i class="fa fa-square" aria-hidden="true"></i>
-                            </span> 
+                            <a href="" data-col="3">
+                                <i class="fa fa-square" aria-hidden="true"></i>
+                                <span><i class="fa fa-square" aria-hidden="true"></i>
+                                    <i class="fa fa-square" aria-hidden="true"></i>
+                                    <i class="fa fa-square" aria-hidden="true"></i>
+                                </span>
+                            </a>
                         </div>
                         <div class="grid-4">
-                            <i class="fa fa-square" aria-hidden="true"></i>
-                          <span><i class="fa fa-square" aria-hidden="true"></i>
-                            <i class="fa fa-square" aria-hidden="true"></i>
-                            <i class="fa fa-square" aria-hidden="true"></i>
-                            </span> 
+                            <a href="" data-col="4">
+                                <i class="fa fa-square" aria-hidden="true"></i>
+                                <span><i class="fa fa-square" aria-hidden="true"></i>
+                                    <i class="fa fa-square" aria-hidden="true"></i>
+                                </span>
+                            </a>
                         </div>
                         <div class="grid-6">
-                            <i class="fa fa-square" aria-hidden="true"></i>
-                          <span><i class="fa fa-square" aria-hidden="true"></i>
-                            <i class="fa fa-square" aria-hidden="true"></i>
-                            <i class="fa fa-square" aria-hidden="true"></i>
-                            <i class="fa fa-square" aria-hidden="true"></i>
-                            
-                            </span> 
+                            <a href="" data-col="6">
+                                <i class="fa fa-square" aria-hidden="true"></i>
+                                <span><i class="fa fa-square" aria-hidden="true"></i>
+                                    <i class="fa fa-square" aria-hidden="true"></i>
+                                </span>
+                            </a>
                         </div>
                     </div>
                     <div class="tab-content shop-content">
-                        <div class="products-content grid tab-pane fade active in " role="tabpanel"> 
+                        <div class="products-content grid tab-pane fade active in " role="tabpanel">
                             <div class="row productShopCards">
-                               
+
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                 </div>
-                            
+
                             </div>
                         </div>
-                    </div> 
+                    </div>
                     {{-- <div class="rel-div pt-50">
                         <div class="divider-full-1"></div>
                         <div class="nav-page">
@@ -179,6 +191,7 @@
 @section('scripts')
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
+        var productArray = [];
         $(document).ready(function() {
             // Function to fetch and display products
             function fetchAndDisplayProducts(id) {
@@ -188,6 +201,7 @@
                     dataType: 'json',
                     success: function(data) {
                         products = data.products;
+                        productArray = products;
                         displayProductCards(data.products);
                     },
                     error: function(error) {
@@ -288,19 +302,19 @@
                 }
             }
 
-            function displayProductCards(products) {
+            function displayProductCards(products, columns=3) {
                 let productsContainer = $(".productShopCards");
                 productsContainer.empty(); // Clear previous products
                 // Loop through the products and generate HTML for each product card
                 $.each(products, function(index, product) {
-                var productId = product.id;
-                // Create a new 'a' (anchor) element
-                var linkElement = document.createElement("a");
+                    var productId = product.id;
+                    // Create a new 'a' (anchor) element
+                    var linkElement = document.createElement("a");
 
-                // Set the 'href' attribute using the template string
-                linkElement.href = `/productDetails/${productId}`;
+                    // Set the 'href' attribute using the template string
+                    linkElement.href = `/productDetails/${productId}`;
                     let productCard = `
-                    <div class="col-lg-3 col-md-4 col-sm-6 "> 
+                    <div class="col-lg-${columns} col-md-${columns + 1} col-sm-${columns + 3}"> 
                                     <div class="product-box"> 
                                         <div class="product-media"> 
                                             <a href="${linkElement}">
@@ -308,7 +322,7 @@
                                             </a>  
                                             <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
                                             <div class="prod-icons"> 
-                                                @if(Auth::user())
+                                                @if (Auth::user())
                                                     <form action="{{ route('wishlist.store') }}" method="POST">
                                                         @csrf
                                                         <input type="hidden" name="product_id" value="${product.id}" />
@@ -323,7 +337,7 @@
 
                                         <div class="product-caption"> 
                                             <h3 class="product-title">
-                                                <a href="#"> ${product.title}</a>
+                                                <a href="${linkElement}"> ${product.title}</a>
                                             </h3>
                                             <div class="price"> 
                                                 <strong class="clr-txt">Rs ${product.product_variants[0].sale_price}</strong>
@@ -338,6 +352,20 @@
                 // Implement the logic to display the filtered products in the 'products' section
                 // For example, you can loop through the products and update the HTML
             }
+
+            // Function to handle click event on layout change buttons
+            $(".grid-2 a, .grid-3 a, .grid-4 a, .grid-6 a").on("click", function(e) {
+                e.preventDefault();
+
+                // Remove active class from all buttons
+                $(".grid-2 a, .grid-3 a, .grid-4 a, .grid-6 a").removeClass("active");
+
+                // Add active class to the clicked button
+                $(this).addClass("active");
+
+                let columns = parseInt($(this).attr("data-col"));
+                displayProductCards(productArray, columns);
+            });
 
             function fetchProductDetails(productId) {
                 // Assuming you have an API endpoint to fetch product details
@@ -405,8 +433,8 @@
                                                 <li class="tags-widget" id="variantsContainer"> 
                                                     <strong>Variants:</strong>
                                                     ${product.product_variants.map(variant => `
-                                                                        <span class="weight-option" data-variant="${variant.id}" data-price="${variant.sale_price}"><a href="javascript: void(0)">${variant.weight} </a></span>
-                                                                    `).join('')}
+                                                                            <span class="weight-option" data-variant="${variant.id}" data-price="${variant.sale_price}"><a href="javascript: void(0)">${variant.weight} </a></span>
+                                                                        `).join('')}
                                                 </li>
                                                 <li> <strong>CATEGORY:</strong><span> ${product.product_category.name}</span> </li>
                                             </ul>
@@ -491,7 +519,7 @@
                 });
             }
 
-            
+
             $(document).ready(function() {
                 openCart(); // Call openCart when the document is ready
             });

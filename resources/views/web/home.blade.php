@@ -660,7 +660,9 @@
                 let productCard = `<div class="col-lg-2 col-md-4 col-sm-6"> 
                         <div class="product-box"> 
                             <div class="product-media"> 
-                                <img class="prod-img drift-demo-trigger " data-zoom="{{ asset('images/product-images/${product.photo}') }}" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
+                                <a href="${linkElement}">
+                                    <img class="prod-img drift-demo-trigger " data-zoom="{{ asset('images/product-images/${product.photo}') }}" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
+                                </a>  
                                 <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
                                 <div class="prod-icons"> 
                                     @if(Auth::user())
@@ -712,7 +714,9 @@
                 let productCard = `<div class="col-lg-3 col-md-4 col-sm-6"> 
                         <div class="product-box"> 
                             <div class="product-media"> 
-                                <img class="prod-img drift-demo-trigger " data-zoom="{{ asset('images/product-images/${product.photo}') }}" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
+                                <a href="${linkElement}">
+                                    <img class="prod-img drift-demo-trigger " data-zoom="{{ asset('images/product-images/${product.photo}') }}" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
+                                </a>     
                                 <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
                                 <div class="prod-icons"> 
                                     @if(Auth::user())

@@ -18,8 +18,8 @@ class ShopController extends Controller
 
     public function productDetails($id)
     {
-        $product = Product::find($id);
+        $data = Product::find($id);
         
-        return view('web.shop-single-rightsidebar')->with('product',$product);
+        return view('web.shop-single-rightsidebar',compact('data'));
     }
 }

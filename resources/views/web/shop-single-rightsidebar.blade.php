@@ -25,7 +25,7 @@
                         <div class="col-lg-6 pb-50 col-sm-8 col-sm-offset-2 col-lg-offset-0">
                             <div class="prod-slider sync1">
                                 <div class="item">
-                                    <img id="imgZoom" onmousemove="zoomIn(event)" onmouseout="zoomOut()" src="{{asset('images/product-images/'.$product->photo)}}" width="400" alt="">
+                                    <img id="imgZoom" onmousemove="zoomIn(event)" onmouseout="zoomOut()" src="{{asset('images/product-images/'.$data->photo)}}" width="400" alt="">
                                     <div id="overlay" onmousemove="zoomIn(event)"></div>
                                 </div>
                             </div>
@@ -37,7 +37,7 @@
 
                                 <div class="single-caption">
                                     <h3 class="section-title">
-                                        <strong>{{$product->title}}</strong>
+                                        <strong>{{$data->title}}</strong>
                                     </h3>
                                     <span class="divider-2"></span>
                                     <p class="price"> 
@@ -45,7 +45,7 @@
                                     </p>
 
                                     <div class="fsz-16">
-                                        <p>{{$product->description}}</p>
+                                        <p>{{$data->description}}</p>
                                     </div>
 
                                     <div class="prod-btns">
@@ -56,19 +56,19 @@
                                     <ul class="meta">
                                         <li class="tags-widget" id="variantsContainer"> 
                                             <strong>Variants:</strong>
-                                            @foreach($product->productVariants as $variant)
+                                            @foreach($data->productVariants as $variant)
                                                 <span class="weight-option" data-variant="{{ $variant->id }}" data-price="{{ $variant->sale_price }}">
                                                     <a href="javascript:void(0);">{{ $variant->weight }}</a>
                                                 </span>
                                             @endforeach
                                         </li>
                                         <li>
-                                            <strong>CATEGORY:</strong><span>{{ $product->productCategory->name }}</span>
+                                            <strong>CATEGORY:</strong><span>{{ $data->productCategory->name }}</span>
                                         </li>
                                     </ul>
                                     <div class="divider-full-1"></div>
                                     <div class="add-cart pt-15">
-                                        <a href="/#" class="theme-btn js-add-product  add-to-cart-btn" data-product-id="{{$product->id}}"> <strong> ADD TO CART </strong> </a>
+                                        <a href="/#" class="theme-btn js-add-product  add-to-cart-btn" data-product-id="{{$data->id}}"> <strong> ADD TO CART </strong> </a>
                                     </div>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@
                                 <span class="divider-2 crl-bg"></span>
 
                                 <div class="block-inline pera">
-                                    {{$product->description}}
+                                    {{$data->description}}
                                 </div>
 
                             </div>
@@ -105,8 +105,8 @@
 <script>
     $(document).ready(function () {
         // Initialize the price with the default value
-        var defaultPrice = {!! $product->productVariants->first()->sale_price !!};
-        var variantId = {!! $product->productVariants->first()->id !!};
+        var defaultPrice = {!! $data->productVariants->first()->sale_price !!};
+        var variantId = {!! $data->productVariants->first()->id !!};
         updatePrice(defaultPrice);
 
         // Handle variant click

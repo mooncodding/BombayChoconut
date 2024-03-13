@@ -105,9 +105,7 @@ Route::get('/shop-rightsidebar-2', function () {
 Route::get('/shop-single-fullwidth', function () {
     return view('web.shop-single-fullwidth');
 });
-// Route::get('/shop-single-rightsidebar', function () {
-//     return view('web.shop-single-rightsidebar');
-// });
+
 Route::get('/shop-single', function () {
     return view('web.shop-single');
 });

@@ -32,9 +32,9 @@
     <style>
         #overlay {
             z-index: 1;
-            border: 1px solid black;
-            width: 200px;
-            height: 300px;
+            width: 500px !important;
+        margin-left: 30px;
+            height: 400px;
             display: none; /* Set initial display to none */
             position: absolute;
             background-repeat: no-repeat;
@@ -374,9 +374,7 @@
 
 </head>
 
-<body id="home" class="wide">
-    <!-- WRAPPER -->
-    <main class="wrapper home-wrap">
+
         <!-- CONTENT AREA -->
         <div class="top-header">
             <div class="row">
@@ -640,7 +638,9 @@
                 </div>
             </div>
         </section>
-        <section class="mob-top-search">
+        <section class="mob-top-search"   style="
+        text-align: center !important;
+    ">
             <div class="search-wrap">
                 <input class="form-control" placeholder="">
                 <button class="btn" type="submit"> <i class="fa fa-search"></i> </button>
@@ -1062,7 +1062,7 @@
         </footer>
         <!-- /FOOTER -->
         <div id="to-top-mb" class="to-top mb"> <i class="fa fa-arrow-circle-o-up"></i> </div>
-    </main>
+    
     <!-- /WRAPPER -->
 
     <!-- Product Preview Popup -->

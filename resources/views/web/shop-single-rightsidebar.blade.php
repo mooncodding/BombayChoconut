@@ -1,5 +1,11 @@
+
 @extends('web.master')
 @section('content')
+<style>
+    .col-lg-2.cart-megamenu {
+    DISPLAY: NONE;
+}
+</style>
     <!--Breadcrumb Section Start-->
     <section class="breadcrumb-bg">
         <div class="theme-container container ">
@@ -100,6 +106,7 @@
     </section>
     <!-- / Shop Ends -->
 @endsection
+
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>

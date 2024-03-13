@@ -144,7 +144,7 @@
                             <a href="" data-col="6">
                                 <i class="fa fa-square" aria-hidden="true"></i>
                                 <span><i class="fa fa-square" aria-hidden="true"></i>
-                                    <i class="fa fa-square" aria-hidden="true"></i>
+                                    
                                 </span>
                             </a>
                         </div>

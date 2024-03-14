@@ -16,7 +16,7 @@
           <div class="modal-header">
             <h5 class="modal-title" id="viewOrderModal">
               {{ $t("message.VIEW_ORDER") }}:
-              {{ orderData.order_number }}
+              {{ orderData.reference }}
             </h5>
             <button
               type="button"
@@ -34,7 +34,7 @@
                 <printHeader></printHeader>
                 <div class="printHeading">
                   {{ $t("message.VIEW_ORDER") }}:
-                  {{ orderData.order_number }}
+                  {{ orderData.reference }}
                 </div>
               </div>
               <table class="table table-hover table-bordered">
@@ -97,7 +97,7 @@
                     </td>
                     <td v-else>-</td>
                   </tr>
-                  <tr>
+                  <!-- <tr>
                     <th>{{$t('message.PAYMENT_STATUS')}}</th>
                     <td>
                       <span
@@ -114,7 +114,7 @@
                         $t("message.PARTIAL_PAYMENT")
                       }}</span>
                     </td>
-                  </tr>
+                  </tr> -->
                   <tr>
                     <th>{{ $t("message.PAYMENT_METHOD") }}</th>
                     <td v-if="orderData.payment_method">

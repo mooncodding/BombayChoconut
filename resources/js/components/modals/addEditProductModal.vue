@@ -654,6 +654,20 @@ export default {
             image.push(item);
         })
         that.image = image
+
+        // work for child and parent category
+        if(e.relatedTarget.product_category.parent_category)
+        {
+          that.getChildCategories(e.relatedTarget.product_category.parent_id);
+          that.form.child_category_id = e.relatedTarget.product_category_id;
+          that.form.product_category_id = e.relatedTarget.product_category.parent_id;
+        }
+        else
+        {
+          that.getChildCategories(e.relatedTarget.product_category_id);
+          that.form.child_category_id = '';
+          that.childCategories = [];
+        }
       } else {
         form.reset();
         that.editMode = false;

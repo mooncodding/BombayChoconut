@@ -43,7 +43,7 @@
                           class="m-0 p-0"
                           v-model="search"
                           append-icon="mdi-magnify"
-                          label="Rechercher"
+                          label="Search"
                           single-line
                           hide-details
                         ></v-text-field>

@@ -75,13 +75,13 @@
                <h1 class="card-title">You have received an order.</h1>
               @else
               @if($order_status_id == 1)
-              <h1 class="card-title">Nous vous remercions de votre commande.</h1>
+              <h1 class="card-title">Thank you for your order.</h1>
               @elseif($order_status_id == 2)
               <h1 class="card-title">{{$order_status['name']}}.</h1>
               @elseif($order_status_id == 5)
               <h1 class="card-title">{{$order_status['name']}}.</h1>
               @else
-              <h1 class="card-title">Le statut de votre commande a été mis à jour.</h1>
+              <h1 class="card-title">Your order status has been updated.</h1>
               @endif
               @endif
            </div>
@@ -93,68 +93,47 @@
                 @endif
                 @if ($role == 'Admin')
                 <p>You have received an order.</p>
-                <span class="order-number">N ° de commande: {{$order['order_number']}}</span><br>
-                <span>Cliente: {{$user->name}}</span><br>
+                <span class="order-number">Bill number: {{$order['bill_no']}}</span><br>
+                <span>Customer: {{$user->name}}</span><br>
                 <span>Date:{{ date('d-m-Y', strtotime($order['order_date'])) }}</span><br>
                 @else
                   @if($order_status_id == 1)
-                  <p>Ton<span class="order-number"><b>N ° de commande. {{ $order['order_number'] }} ({{ date('d-m-Y', strtotime($order['order_date'])) }})</b></span> a été reçu. Les détails de votre commande sont les suivants :</p>
+                  <p>Your<span class="order-number"><b>Bill number. {{ $order['bill_no'] }} ({{ date('d-m-Y', strtotime($order['order_date'])) }})</b></span> was received. Your order details are as follows :</p>
                   @elseif($order_status_id == 5)
-                  <p>Ton<span class="order-number"><b>N ° de commande. {{ $order['order_number'] }} ({{ date('d-m-Y', strtotime($order['order_date'])) }})</b></span> a été annulé pour certaines raisons. Veuillez contacter l'équipe K2 pour plus d'informations. Les détails de votre commande étaient les suivants :</p>
+                  <p>Your<span class="order-number"><b>Bill number. {{ $order['bill_no'] }} ({{ date('d-m-Y', strtotime($order['order_date'])) }})</b></span> was canceled for some reasons. Please contact the Bombay Choconuts team for more information. Your order details were as follows :</p>
                   @else
-                  <p>Ton<span class="order-number"><b>N ° de commande. {{ $order['order_number'] }} ({{ date('d-m-Y', strtotime($order['order_date'])) }})</b></span> a été {{$order_status['name']}}. Les détails de votre commande sont les suivants :</p>
+                  <p>Your<span class="order-number"><b>Bill number. {{ $order['bill_no'] }} ({{ date('d-m-Y', strtotime($order['order_date'])) }})</b></span> has been {{$order_status['name']}}. Your order details are as follows :</p>
                   @endif
                 @endif
                
                 <table class="table table-border">
                   <tbody>
                       <tr>
-                        <th style=" line-height: 2.428571; padding:5px">Produit</th>
-                        <th style=" line-height: 2.428571; padding:5px">Quantité</th>
-                        <th style=" line-height: 2.428571; padding:5px">Prix</th>
-                        <th style=" line-height: 2.428571; padding:5px">Sous-total</th>
-                        <th style=" line-height: 2.428571; padding:5px">Rabais</th>
-                        <th style=" line-height: 2.428571; padding:5px">Taxe sur les produits</th>
+                        <th style=" line-height: 2.428571; padding:5px">Product</th>
+                        <th style=" line-height: 2.428571; padding:5px">Weight</th>
+                        <th style=" line-height: 2.428571; padding:5px">Quantity</th>
+                        <th style=" line-height: 2.428571; padding:5px">Price</th>
                         <th style=" line-height: 2.428571; padding:5px">Total</th>
                     </tr>
                     @foreach ($order_details as $key => $value)
                     <tr>
-                        <td style=" line-height: 2.428571; padding:5px">{{ $value['product']['name'] }}</td>
+                        <td style=" line-height: 2.428571; padding:5px">{{ $value->product['title'] }}</td>
+                        <td style=" line-height: 2.428571; padding:5px">{{ $value['weight'] }}</td>
                         <td style=" line-height: 2.428571; padding:5px">{{ number_format($value['quantity']) }}</td>
-                        <td style=" line-height: 2.428571; padding:5px"> {{ ($value['price']) }}</td>
+                        <td style=" line-height: 2.428571; padding:5px"> {{ ($value['sale_price']) }}</td>
                         <td style=" line-height: 2.428571; padding:5px">{{ ($value['sub_total']) }}</td>
-                        <td style=" line-height: 2.428571; padding:5px">{{ ($value['discount']) }}</td>
-                        <td style=" line-height: 2.428571; padding:5px">{{ ($value['tax_amount']) }}</td>
-                        <td style=" line-height: 2.428571; padding:5px"> {{ ($value['grand_total']) }}</td>
                     </tr>
                     @endforeach
                     <hr>
                     <tr>
-                      <th colspan="7" style=" line-height: 2.428571; padding:5px; text-align: right;">Sous-total: {{ $order['sub_total'] }}</th>
-                    </tr>
-                    <tr>
-                      <th colspan="7" style=" line-height: 2.428571; padding:5px; text-align: right;">Rabais: {{ $order['discount'] }}</th>
-                    </tr>
-                    <tr>
-                      <th colspan="7" style=" line-height: 2.428571; padding:5px; text-align: right;">Taxe sur les produits: {{ $order['total_product_tax'] }}</th>
-                    </tr>
-                    <tr>
-                      <th colspan="7" style=" line-height: 2.428571; padding:5px; text-align: right;">Total: {{ $order['grand_total'] }}</th>
+                      <th colspan="7" style=" line-height: 2.428571; padding:5px; text-align: right;">Total: {{ $order['sub_total'] }}</th>
                     </tr>
                   </tbody>
                 </table>
                 <hr>
-                <p>Vous recevrez un e-mail lors de la prochaine mise à jour du statut.</p>
-                <p><b>Salutations,<br>
-                  K2 Team</b></p>
-                {{-- <div class="order-details">
-                  <h2><b>adresse de facturation</b></h2>
-                  <p>Cliente: {{$user->name}}</p>
-                  <p>Adresse: {{$user->address}}</p>
-                  @if($user->city)
-                  <p>Ville: {{$user->city->name}}</p>
-                  @endif
-                </div> --}}
+                <p>You will receive an email at the next status update.</p>
+                <p><b>Greetings,<br>
+                Bombay Choconuts Team</b></p>
            </div>
         </div>
     </div>       

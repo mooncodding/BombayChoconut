@@ -15,10 +15,10 @@
                   {{ $t("message.CREATE_PRODUCT") }}
                   <i class="fas fa-plus fa-fw"></i>
                 </button>
-                <button class="btn btn-info float-right mr-2" @click="importExcelFile" v-if="(is('Super Admin') || can('edit_product'))">
+                <!-- <button class="btn btn-info float-right mr-2" @click="importExcelFile" v-if="(is('Super Admin') || can('edit_product'))">
                   {{ $t("message.IMPORT_EXCEL_SHEET") }}
                   <i class="fas fa-file fa-fw"></i>
-                </button>
+                </button> -->
               </div>
               <!-- /.col -->
             </div>
@@ -63,46 +63,6 @@
                         'items-per-page-options': [10, 50, 100, 500, -1],
                       }"
                     >
-                      <!-- Retail Price with tax -->
-                      <template v-slot:item.retail_price="{ item }">
-                        <span>{{item.retail_price | currency("Ar", 2, {
-                                thousandsSeparator: ".",
-                                decimalSeparator: ",",
-                                symbolOnLeft: false,
-                                spaceBetweenAmountAndSymbol: true,
-                              })}}</span>
-                      </template>
-                      
-                      <!-- wholesale Price with tax -->
-                      <template v-slot:item.wholesale_price="{ item }">
-                        <span>{{item.wholesale_price | currency("Ar", 2, {
-                                thousandsSeparator: ".",
-                                decimalSeparator: ",",
-                                symbolOnLeft: false,
-                                spaceBetweenAmountAndSymbol: true,
-                              })}}</span>
-                      </template>
-
-                      <!-- Tax Method -->
-                      <template v-slot:item.tax_method="{ item }">
-                        <span v-if="item.tax_method">
-                          <span v-if="item.tax_method == 'inclusive'" class="badge badge-warning">
-                            {{
-                              $t('message.INCLUSIVE')
-                            }}
-                          </span>
-                          <span v-else-if="item.tax_method == 'exclusive'" class="badge badge-info">
-                            {{
-                              $t('message.EXCLUSIVE')
-                            }}
-                          </span>
-                          <span v-else>
-                            -
-                          </span>
-                        </span>
-                        <span v-else>-</span>
-                      </template>
-                        
                         <!-- Is disabled -->
                       <template v-slot:item.is_disabled="{ item }">
                         <span>

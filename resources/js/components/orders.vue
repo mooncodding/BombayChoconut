@@ -9,16 +9,6 @@
               <div class="col-6">
                 <h1 class="m-0 text-dark">{{ $t("message.ORDERS") }}</h1>
               </div>
-              <!-- /.col -->
-              <div class="col-6">
-                <!-- <button class="btn btn-success float-right" @click="addOrder" v-if="(is('Super Admin') || can('create_order'))">
-                  {{ $t("message.CREATE_ORDER") }}
-                  <i class="fas fa-plus fa-fw"></i>
-                </button> -->
-
-           
-              </div>
-              <!-- /.col -->
             </div>
             <!-- /.row -->
           </div>
@@ -61,24 +51,6 @@
                         'items-per-page-options': [10, 50, 100, 500, -1],
                       }"
                     >
-                    <!-- Payment Status -->
-                    <template v-slot:item.payment_status="{ item }">
-                      <h6>
-                        <span
-                          v-if="item.payment_status == 'paid'"
-                          class="badge badge-success"
-                          >{{ $t("message.PAID") }}</span
-                        >
-                        <span
-                          v-else-if="item.payment_status == 'unpaid'"
-                          class="badge badge-danger"
-                          >{{ $t("message.UNPAID") }}</span
-                        >
-                        <span v-else class="badge badge-warning">{{
-                          $t("message.PARTIAL_PAYMENT")
-                        }}</span>
-                      </h6>
-                    </template>
                      <!-- Grand Total with tax -->
                       <!-- Order Date -->
                       <template v-slot:item.order_date="{ item }">
@@ -118,35 +90,6 @@
                         >
                           mdi-eye
                         </v-icon>
-
-                        <!-- <v-icon
-                          color="blue"
-                          class="edit-icon mr-2"
-                          small
-                          @click="editOrder(item)"
-                          v-if="(is('Super Admin') || can('edit_order')) && item.order_status_id != 4"
-                        >
-                          mdi-pencil
-                        </v-icon> -->
-
-                        <!-- <v-icon
-                          color="red"
-                          class="delete-icon mr-2"
-                          small
-                          @click="deleteOrder(item.id)"
-                          v-if="(is('Super Admin') || can('delete_order'))"
-                        >
-                          mdi-delete
-                        </v-icon> -->
-
-                        <!-- <v-icon
-                          color="orange"
-                          class="edit-icon"
-                          small
-                          @click="viewOrderStatusHistory(item)"
-                        >
-                          mdi-history
-                        </v-icon> -->
                       </template>
                     </v-data-table>
                   </div>
@@ -204,7 +147,6 @@ export default {
         { text: this.$t("message.CUSTOMER"), value: "customer.name" },
         { text: this.$t("message.SUB_TOTAL"), value: "sub_total" },
         { text: this.$t("message.ORDER_STATUS"), value: "order_status.name" },
-        { text: this.$t("message.PAYMENT_STATUS"), value: "payment_status" },
         {
           text: this.$t("message.ACTIONS"),
           value: "actions",

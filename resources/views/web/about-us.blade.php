@@ -101,7 +101,7 @@
 
                 <div class="container rel-div">
                     <div class="title-wrap pt-15">                       
-                        <h4 class="fsz-20"> <strong>Bombay</strong> <span class="light-font">  since 1990 </span> </h4>
+                        <h4 class="fsz-20"> <strong>Bombay</strong> <span class="light-font">  since 1976</span> </h4>
                         <h2 class="fsz-50 over-txt-title"> 
                             <span class="light-font"> WE DO <span class="over-txt light-bg">100% ORGANIC GUARANTEE</span> </span> 
                             <strong>HEALTHY</strong> 

@@ -987,7 +987,7 @@
                         <div class="col-md-4 col-sm-12 footer-widget">
                             {{-- <div class="main-logo"> --}}
                             {{-- <a href="/"><img src="{{asset('web-assets/images/logo/bombaylogo.png')}}" alt="">  </a> --}}
-                            <span class="medium-font">Bombay Choco N Nuts</span>
+                            <h2 class="title-1"> <span class="light-font">BOMBAY CHOCO N NUTS</span> <strong> </strong> </h2>
                             {{-- </div> --}}
 
                             <div class="text-widget">
@@ -1028,8 +1028,7 @@
                             <ul>
                                 <li> <i class="fa fa-phone"></i> <span>Phone Number<br><a
                                             href="/#">03121312312</a> </span> </li>
-                                <li> <i class="fa fa-map-marker"></i> <span> Location<br><strong>Muhammad Ali
-                                            Society</strong> Sindh, Karachi </span> </li>
+                                <li> <i class="fa fa-map-marker"></i> Showroom # 2, 34 F, Muhammad Ali Cooperative Housing Society, Karachi </li>
                                 <li> <i class="fa fa-envelope"></i> <span>Email<br><a
                                             href="/#">contact@bombaychoconuts.com</a> </span> </li>
 

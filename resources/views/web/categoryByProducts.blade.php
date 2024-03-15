@@ -1,5 +1,10 @@
 @extends('web.master')
 @section('content')
+<style>
+    .col-lg-2.cart-megamenu {
+    DISPLAY: NONE;
+}
+</style>
     <div class="main-page-about">
         <!--Breadcrumb Section Start-->
         <section class="breadcrumb-bg" style="background-image:url({{ asset('images/product-images/'.$category->banner_image) }})">
@@ -19,13 +24,13 @@
             <div class="container rel-div">
                 <div class="organic-wrap">
                 </div>
-                <div class="tab-content shop-content">
+                <div class="tab-content shop-content category-prod">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
-                            <div class="tab-pane fade active in productShopCards" role="tabpanel">
+                            <div class="tab-pane fade active in productShopCard grid-inline" role="tabpanel">
                                 @if (count($category->categoryProducts) > 0)
                                     @foreach ($category->categoryProducts as $product)
-                                        <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="col-lg-2 col-md-4 col-sm-6">
                                             <div class="product-box">
                                                 <div class="product-media">
                                                     <a href="{{ route('productDetails', ['id' => $product->id]) }}">

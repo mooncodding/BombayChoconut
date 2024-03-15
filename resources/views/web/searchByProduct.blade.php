@@ -20,10 +20,10 @@
             <div class="container rel-div">
                 <div class="organic-wrap">
                 </div>
-                <div class="tab-content shop-content">
+                <div class="tab-content shop-content search-prod">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
-                            <div class="tab-pane fade active in productShopCards" role="tabpanel">
+                            <div class="tab-pane fade active in productShopCards grid-inline" role="tabpanel">
                                 @if (count($products) > 0)
                                     @foreach ($products as $product)
                                         <div class="col-lg-3 col-md-4 col-sm-6">

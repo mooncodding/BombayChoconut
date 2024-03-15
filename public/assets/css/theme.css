@@ -3460,7 +3460,26 @@ select.btn.btn-default.dropdown-toggle {
     }
     
 }
+.tab-content.shop-content.search-prod .product-media {
+    height: 330px !important;
+}
+.category-prod h3.product-title {
+    white-space: nowrap;
+    text-overflow: ellipsis !important;
+    overflow: hidden;
+    font-size: 16px !important;
+}
+.category-prod .product-media {
+    height: 210px !important;
+}
 
+.category-prod .product-caption {
+    padding: 20px !important;
+}
+
+.category-prod .price {
+    font-size: 16px !important;
+}
 @media (min-width: 992px) and (max-width: 1199px) {
     .pattern {
         margin-top: -35px;
@@ -3745,7 +3764,7 @@ section.deals.sec-space.light-bg p {
     font-size: 13px;
 }
 footer.page-footer h2.title-1 {
-    font-size: 50px;
+    font-size: 3    0px;
     color: #f8bc15 !important;
 }
 .lpc {
@@ -3830,6 +3849,16 @@ section.organic-product {
 @media (max-width: 767px) {
     .organic-farm-2 .xs-text {
         text-align: center;
+    }
+    .category-prod .product-media{
+        height: 152px !important;
+    }
+    .grid-inline {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    .category-prod h3.product-title{
+        white-space: unset !important;
     }
     .category-frop {
         display: unset !important;
@@ -5063,6 +5092,28 @@ and (max-width: 1366px)
     .shop-content .product-box {
         display: table;
     }
+
+    .tab-pane.fade.active.in.productShopCards.grid-inline {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.tab-content.shop-content.search-prod .product-media {
+    height: 170px !important;
+}
+.footer-bottom .to-top{
+    margin-bottom: unset !important;
+}
+section.footer-bottom p {
+    text-align: center;
+}
+
+ul.primary-navbar.footer-menu {
+    justify-content: center;
+    gap: 20px;
+}
+    .row{
+        margin: unset !important;
+    }
     .grid-parent.right {
         display: none;
     }
@@ -5076,7 +5127,7 @@ and (max-width: 1366px)
         margin-top: 30px !important;
     }
     div#overlay {
-        width: 500px !important;
+       
         margin-left: 30px;
     }
     .product-media {

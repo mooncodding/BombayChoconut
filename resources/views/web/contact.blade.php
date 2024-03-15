@@ -30,7 +30,7 @@
                                 
 
                                 <h5 class="clr-txt fsz-12 pt-15">Bombay Choc N Nuts STORE</h5>
-                                <p>Muhammad Ali Society</p>
+                                <p>Showroom # 2, 34 F, Muhammad Ali Cooperative Housing Society, Karachi</p>
 
                                 <ul>
                                     <li> <strong>Call:  </strong> <i><a href='tel: 03121312312'>03121312312</a></i> </li>

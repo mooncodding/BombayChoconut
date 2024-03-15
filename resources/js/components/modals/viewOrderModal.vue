@@ -130,6 +130,20 @@
                     <td v-else>-</td>
                   </tr>
                   <tr>
+                    <th>{{ $t("message.PHONE") }}</th>
+                    <td v-if="orderData.customer">
+                      {{ orderData.customer.phone }}
+                    </td>
+                    <td v-else>-</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t("message.ADDRESS") }}</th>
+                    <td v-if="orderData.customer">
+                      {{ orderData.customer.address }}
+                    </td>
+                    <td v-else>-</td>
+                  </tr>
+                  <tr>
                     <th>{{ $t("message.NOTES") }}</th>
                     <td v-if="orderData.notes">{{ orderData.notes }}</td>
                     <td v-else>-</td>
@@ -278,15 +292,7 @@
                 ><h5 class="text-center mt-3">
                   <b
                     >{{ $t("message.SUB_TOTAL") }}:
-                    <span class="adminOrderTotal">{{
-                      orderData.sub_total
-                        | currency("Ar", 2, {
-                          thousandsSeparator: ".",
-                          decimalSeparator: ",",
-                          symbolOnLeft: false,
-                          spaceBetweenAmountAndSymbol: true,
-                        })
-                    }}</span></b
+                    <span class="adminOrderTotal">{{ orderData.sub_total }}</span></b
                   >
                 </h5></span
               >

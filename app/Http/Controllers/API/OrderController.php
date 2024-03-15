@@ -113,7 +113,7 @@ class OrderController extends Controller
             foreach ($allEmails as $data) {
                 Mail::send('email.orderPlaced', ['order' => $order, 'order_details' => $order->orderDetails,'customer' => $order->customer->name,'user'=>$order->customer,'order_status_id'=>1,'order_status',$order->orderStatus,'role'=>'Admin'],  function ($message) use ($order,$data) {
                     $message->to($data,'')
-                    ->subject('You have received an Bill No.'. $order->bill_no);
+                    ->subject('You have received an Order No.'. $order->reference);
                     $message->from('bombaychocnnuts1976@gmail.com', 'Bombay Choconuts');
                 }); 
             }
@@ -123,7 +123,7 @@ class OrderController extends Controller
                 if ($order->customer->email != null) {
                     Mail::send('email.orderPlaced', ['order' => $order, 'order_details' => $order->orderDetails,'customer' => $order->customer->name,'user'=>$order->customer,'order_status_id'=>1,'order_status',$order->orderStatus,'role'=>'user'],  function ($message) use ($order) {
                         $message->to($order->customer->email,'')
-                        ->subject('Bill No. ' . $order->bill_no.' confirmation');
+                        ->subject('Order No. ' . $order->reference.' confirmation');
                         $message->from('bombaychocnnuts1976@gmail.com', 'Bombay Choconuts');
                     });
                 }
@@ -201,12 +201,15 @@ class OrderController extends Controller
         if ($user->email !=null) {
             // Current Order Status
             $currentStatus = OrderStatus::where('id',$request->order_status_id)->first();
-            // Send Email for User
-            Mail::send('email.orderPlaced', ['order' => $order, 'order_details' => $order->orderDetails,'customer' => $order->customer->name,'user'=> $user,'order_status_id'=>$request->order_status_id,'order_status'=>$currentStatus,'role'=>'user'],  function ($message) use ($order,$user,$currentStatus) {
-                $message->to($user->email,'')
-                ->subject('Update regarding Bill No. ' . $order->bill_no.' '. $currentStatus->name);
-                $message->from('bombaychocnnuts1976@gmail.com', 'Bombay Choconuts');
-            });
+            // when order status is shipped/dispatched or canceled
+            if ($request->order_status_id == 3 || $request->order_status_id == 5) {
+                // Send Email for User
+                Mail::send('email.orderPlaced', ['order' => $order, 'order_details' => $order->orderDetails,'customer' => $order->customer->name,'user'=> $user,'order_status_id'=>$request->order_status_id,'order_status'=>$currentStatus,'role'=>'user'],  function ($message) use ($order,$user,$currentStatus) {
+                    $message->to($user->email,'')
+                    ->subject('Update regarding Order No. ' . $order->reference.' '. $currentStatus->name);
+                    $message->from('bombaychocnnuts1976@gmail.com', 'Bombay Choconuts');
+                });
+            }
         }
         return response()->json("successfully updated order status", 200);
         

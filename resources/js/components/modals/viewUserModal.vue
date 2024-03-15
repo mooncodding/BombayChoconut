@@ -48,6 +48,14 @@
                         <td>{{userData.email}}</td>
                     </tr>
                     <tr>
+                        <th>{{ $t("message.PHONE") }}</th>
+                        <td>{{userData.phone}}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ $t("message.ADDRESS") }}</th>
+                        <td>{{userData.address}}</td>
+                    </tr>
+                    <tr>
                         <th>{{ $t("message.ROLE") }}</th>
                         <td v-if="userData.roles && userData.roles.length>0">{{userData.roles[0].name}}</td>
                     </tr>

@@ -93,16 +93,16 @@
                 @endif
                 @if ($role == 'Admin')
                 <p>You have received an order.</p>
-                <span class="order-number">Bill number: {{$order['bill_no']}}</span><br>
+                <span class="order-number">Order number: {{$order['reference']}}</span><br>
                 <span>Customer: {{$user->name}}</span><br>
                 <span>Date:{{ date('d-m-Y', strtotime($order['order_date'])) }}</span><br>
                 @else
                   @if($order_status_id == 1)
-                  <p>Your<span class="order-number"><b>Bill number. {{ $order['bill_no'] }} ({{ date('d-m-Y', strtotime($order['order_date'])) }})</b></span> was received. Your order details are as follows :</p>
+                  <p>Your<span class="order-number"><b>Order number. {{ $order['reference'] }} ({{ date('d-m-Y', strtotime($order['order_date'])) }})</b></span> was received. Your order details are as follows :</p>
                   @elseif($order_status_id == 5)
-                  <p>Your<span class="order-number"><b>Bill number. {{ $order['bill_no'] }} ({{ date('d-m-Y', strtotime($order['order_date'])) }})</b></span> was canceled for some reasons. Please contact the Bombay Choconuts team for more information. Your order details were as follows :</p>
+                  <p>Your<span class="order-number"><b>Order number. {{ $order['reference'] }} ({{ date('d-m-Y', strtotime($order['order_date'])) }})</b></span> was canceled for some reasons. Please contact the Bombay Choconuts team for more information. Your order details were as follows :</p>
                   @else
-                  <p>Your<span class="order-number"><b>Bill number. {{ $order['bill_no'] }} ({{ date('d-m-Y', strtotime($order['order_date'])) }})</b></span> has been {{$order_status['name']}}. Your order details are as follows :</p>
+                  <p>Your<span class="order-number"><b>Order number. {{ $order['reference'] }} ({{ date('d-m-Y', strtotime($order['order_date'])) }})</b></span> has been {{$order_status['name']}}. Your order details are as follows :</p>
                   @endif
                 @endif
                

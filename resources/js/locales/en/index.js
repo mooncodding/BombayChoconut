@@ -333,6 +333,7 @@ export default {
         PARTIAL_PAYMENT:"Partial Payment",
         UNPAID:"Unpaid",
         PAID:"Paid",
+        PHONE:"Phone",
         // Stock Adjustment Report
         STOCK_ADJUSTMENT_REPORT:"Stock Adjustment Report",
         VIEW_STOCK_ADJUSTMENT_REPORT :"View Stock Adjustment Report",

@@ -144,6 +144,7 @@ export default {
       headers: [
         { text: this.$t("message.DATE"), value: "order_date" },
         { text: this.$t("message.ORDER_NUMBER"), value: "reference" },
+        { text: this.$t("message.BILL_NUMBER"), value: "bill_no" },
         { text: this.$t("message.CUSTOMER"), value: "customer.name" },
         { text: this.$t("message.SUB_TOTAL"), value: "sub_total" },
         { text: this.$t("message.ORDER_STATUS"), value: "order_status.name" },

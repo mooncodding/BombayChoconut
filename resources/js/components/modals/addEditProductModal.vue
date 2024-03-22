@@ -276,14 +276,7 @@
               <!-- Description -->
               <div class="form-group">
                   <label>{{ $t("message.DESCRIPTION") }}<span class="required-star"></span></label>
-                  <textarea
-                    v-model="form.description"
-                    v-bind:placeholder="$t('message.DESCRIPTION')"
-                    type="text"
-                    name="description"
-                    class="form-control"
-                    :class="{ 'is-invalid': form.errors.has('description') }"
-                  ></textarea>
+                  <vue-editor v-model="form.description"></vue-editor>
                   <div
                     class="error-message"
                     v-if="form.errors.has('description')"
@@ -335,6 +328,68 @@
                 </div>
               </div>
               <!-- End -->
+              <div>
+                  <h2 class="text-center">SEO Section</h2>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                          <label>Slug<span class="required-star">*</span></label >
+                          <input
+                            v-model="form.slug"
+                            v-bind:placeholder="'Slug'"
+                            type="text"
+                            name="slug"
+                            class="form-control"
+                            :class="{ 'is-invalid': form.errors.has('slug') }"
+                          />
+                          <div
+                            class="error-message"
+                            v-if="form.errors.has('slug')"
+                            v-html="form.errors.get('slug')"
+                          />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Meta Title</label>
+                          <input
+                            v-model="form.meta_title"
+                            v-bind:placeholder="'Meta Title'"
+                            type="text"
+                            name="meta_title"
+                            class="form-control"
+                            :class="{ 'is-invalid': form.errors.has('meta_title') }"
+                          />
+                          <div
+                            class="error-message"
+                            v-if="form.errors.has('meta_title')"
+                            v-html="form.errors.get('meta_title')"
+                          />
+                        </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Meta Description</label>
+                          <textarea
+                            v-model="form.meta_description"
+                            v-bind:placeholder="'Meta Description'"
+                            type="text"
+                            name="meta_description"
+                            class="form-control"
+                            :class="{ 'is-invalid': form.errors.has('meta_description') }"
+                          ></textarea>
+                          <div
+                            class="error-message"
+                            v-if="form.errors.has('meta_description')"
+                            v-html="form.errors.get('meta_description')"
+                          />
+                        </div>
+                    </div>
+                  </div>
+              </div>
             </div>
             <div class="modal-footer">
               <button
@@ -366,7 +421,8 @@
 </template>
 <script>
 import Vue from 'vue';
-import VueUploadMultipleImage from 'vue-upload-multiple-image'
+import VueUploadMultipleImage from 'vue-upload-multiple-image';
+import { VueEditor } from "vue2-editor";
 export default {
   name: "addEditProductModal",
   props: ["productData"],
@@ -386,6 +442,9 @@ export default {
       form: new form({
         id: "",
         title: "",
+        slug: "",
+        meta_title: "",
+        meta_description: "",
         brand_id:"",
         child_category_id:"",
         product_category_id: "",
@@ -401,6 +460,7 @@ export default {
   components: {
     Vue,
     VueUploadMultipleImage,
+    VueEditor
   },
   methods: {
     addProduct() {

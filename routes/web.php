@@ -151,7 +151,7 @@ Route::post('/update-password', [UserAuthController::class, 'updatePassword'])->
 Route::get('/order-history', [OrderController::class, 'orderHistory'])->name('order.history');
 Route::get('/wishlist-product', [WishlistController::class, 'index'])->name('wishlist.product');
 Route::post('/wishlist-product/store', [WishlistController::class, 'store'])->name('wishlist.store');
-Route::get('/productDetails/{id}', [ShopController::class, 'productDetails'])->name('productDetails');
+Route::get('/{category}/{product}', [ShopController::class, 'productDetails'])->name('productDetails');
 Auth::routes(['verify' => true, 'register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

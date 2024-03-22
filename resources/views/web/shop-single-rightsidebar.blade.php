@@ -51,7 +51,7 @@
                                     </p>
 
                                     <div class="fsz-16">
-                                        <p>{{$data->description}}</p>
+                                        <p>{!! $data->description !!} </p>
                                     </div>
 
                                     <div class="prod-btns">
@@ -93,8 +93,8 @@
                                 <h3 class="fsz-16"><span class="light-font">item </span> <strong>description </strong> </h3>
                                 <span class="divider-2 crl-bg"></span>
 
-                                <div class="block-inline pera">
-                                    {{$data->description}}
+                                <div class="block-inline pera vhtml">
+                                    {!! $data->description !!} 
                                 </div>
 
                             </div>
@@ -106,7 +106,9 @@
     </section>
     <!-- / Shop Ends -->
 @endsection
-
+@section('meta_tags')
+    {!! SEOMeta::generate() !!}
+@endsection
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductVariant;
+use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -16,6 +17,10 @@ class HomeController extends Controller
     public function index()
     {
     
+        SEOMeta::setTitle('Bombay Choco N Nuts | Best Online Dryfruits in Pakistan');
+        SEOMeta::setDescription("Craving Bombay Choco N Nuts? Get Pakistan's best dry fruits & nuts online. Fast delivery, great selection!");
+        SEOMeta::setCanonical('http://127.0.0.1:8000/');
+
         $parentCategories = ProductCategory::parentCategories()->has('categoryProducts')->get();
         $products = Product::with(['productVariants'])->get();
         return view('web.home')->with(['parentCategories'=>$parentCategories,'products'=>$products]);
@@ -26,7 +31,7 @@ class HomeController extends Controller
     {
         if ($id =='all') {
             // Implement your logic to fetch products based on the selected id
-            $products = Product::with(['productVariants'])->get();
+            $products = Product::with(['productVariants','productCategory'])->get();
         }else{
             $data = ProductCategory::where('parent_id',$id)->get();
             if (count($data) > 0) {
@@ -35,7 +40,7 @@ class HomeController extends Controller
                 $categoryId = ProductCategory::where('id',$id)->pluck('id');
             }
             // Implement your logic to fetch products based on the selected id
-            $products = Product::whereIn('product_category_id', $categoryId)->with(['productVariants'])->get();
+            $products = Product::whereIn('product_category_id', $categoryId)->with(['productVariants','productCategory'])->get();
         }
     
         return response()->json(['products' => $products]);

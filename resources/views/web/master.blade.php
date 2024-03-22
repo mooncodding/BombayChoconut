@@ -2,13 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    {{-- <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="agency, ecommerce">
     <meta name="author" content="Md. Siful Islam, Jtheme">
     <!-- Add the following line to prevent indexing by search engines -->
     <meta name="robots" content="noindex">
-    <title>Bombay Choconuts</title>
+    <title>Bombay Choconuts</title> --}}
+    {{-- <title>@yield('title')</title> --}}
+    <!-- Include meta tags -->
+    @yield('meta_tags')
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">

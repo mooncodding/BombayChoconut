@@ -65,7 +65,7 @@
                                         </div>
                                         <div class="product-caption">
                                             <h3 class="product-title">
-                                                <a href="{{ route('getCategoryByProduct', $category->id) }}"> <span class="light-font"> {{ $category->name }}</a>
+                                                <a href="{{ route('getCategoryByProduct', $category->slug) }}"> <span class="light-font"> {{ $category->name }}</a>
                                             </h3>
 
                                         </div>
@@ -600,6 +600,9 @@
     <!-- latest news Ends -->
 @endsection
 
+@section('meta_tags')
+    {!! SEOMeta::generate() !!}
+@endsection
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     $(document).ready(function() {
@@ -645,18 +648,21 @@
                 fetchProductDetails(productId);
             });
         });
-
+        var productDetailsRoute = "{{ route('productDetails', ['category' => ':category','product' => ':product']) }}";
         function displayProductCards(products) {
             let productsContainer = $(".productShopCards");
             productsContainer.empty(); // Clear previous products
             // Loop through the products and generate HTML for each product card
             $.each(products.slice(0, 12), function(index, product) {
                 var productId = product.id;
+                var categoryName = product.product_category.slug;
+                var slug = product.slug;
                 // Create a new 'a' (anchor) element
                 var linkElement = document.createElement("a");
 
                 // Set the 'href' attribute using the template string
-                linkElement.href = `/productDetails/${productId}`;
+                linkElement.href = productDetailsRoute.replace(':category', encodeURIComponent(categoryName))
+                .replace(':product', encodeURIComponent(slug));
                 let productCard = `<div class="col-lg-2 col-md-4 col-sm-6"> 
                         <div class="product-box"> 
                             <div class="product-media"> 
@@ -706,11 +712,14 @@
             // Loop through the products and generate HTML for each product card
             $.each(products.slice(0, 4), function(index, product) {
                 var productId = product.id;
+                var categoryName = product.product_category.slug;
+                var slug = product.slug;
                 // Create a new 'a' (anchor) element
                 var linkElement = document.createElement("a");
 
                 // Set the 'href' attribute using the template string
-                linkElement.href = `/productDetails/${productId}`;
+                linkElement.href = productDetailsRoute.replace(':category', encodeURIComponent(categoryName))
+                .replace(':product', encodeURIComponent(slug));
                 let productCard = `<div class="col-lg-3 col-md-4 col-sm-6"> 
                         <div class="product-box"> 
                             <div class="product-media"> 

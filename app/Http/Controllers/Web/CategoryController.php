@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
 use App\Models\ProductCategory;
+use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -16,6 +16,11 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
+        
+        SEOMeta::setTitle('Bombay Choco N Nuts | Best Online Dryfruits in Pakistan');
+        SEOMeta::setDescription("Craving Bombay Choco N Nuts? Get Pakistan's best dry fruits & nuts online. Fast delivery, great selection!");
+        $currentUrl = url()->current();
+        SEOMeta::setCanonical($currentUrl);
         $categories = ProductCategory::parentCategories();
         // searching
         if (asset($request->search) && $request->search !=null && !empty($request->search)) {
@@ -92,15 +97,26 @@ class CategoryController extends Controller
     }
     
     // Get Category By Products
-    public function getCategoryByProduct($category_id)
+    public function getCategoryByProduct($slug)
     {
-        $data = ProductCategory::where('parent_id',$category_id)->get();
-        if (count($data) > 0) {
-            $categoryId = ProductCategory::where('parent_id',$category_id)->pluck('id');
-        }else{
-            $categoryId = ProductCategory::where('id',$category_id)->pluck('id');
+        // $data = ProductCategory::where('parent_id',$category_id)->get();
+        // if (count($data) > 0) {
+        //     $categoryId = ProductCategory::where('parent_id',$category_id)->pluck('id');
+        // }else{
+        //     dd(3);
+        //     $categoryId = ProductCategory::where('id',$category_id)->pluck('id');
+        // }
+        $category = ProductCategory::where('slug',$slug)->with(['categoryProducts'])->first();
+            
+
+        if ($category) {
+            SEOMeta::setTitle($category->meta_title);
+            SEOMeta::setDescription($category->meta_description);
+            $currentUrl = url()->current();
+            SEOMeta::setCanonical($currentUrl);
+            
+            return view('web.categoryByProducts')->with('category', $category);
         }
-        $category = ProductCategory::whereIn('id',$categoryId)->with(['categoryProducts'])->first();
-        return view('web.categoryByProducts')->with('category', $category);
+        
     }
 }

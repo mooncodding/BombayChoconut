@@ -99,6 +99,9 @@ class ProductController extends Controller
         if(auth()->user()->can('create_product')){
             $this->validate($request, [
                 'title' => 'required',
+                'slug' => 'required',
+                'meta_title' => 'nullable',
+                'meta_description' => 'nullable',
                 'brand_id' => 'required',
                 'product_category_id' => 'required',
                 'product_flavour_id' => 'nullable',
@@ -121,6 +124,9 @@ class ProductController extends Controller
             $product = new Product;
             $product->code = 'C/PRODUCT/'.(Product::max('id')+001).'/'.date('y');
             $product->title = $request->title;
+            $product->slug = $request->slug;
+            $product->meta_title = $request->meta_title;
+            $product->meta_description = $request->meta_description;
             $product->brand_id = $request->brand_id;
             $product->product_category_id = $request->product_category_id;
             $product->product_flavour_id = $request->product_flavour_id;
@@ -195,6 +201,9 @@ class ProductController extends Controller
             $product = Product::findOrfail($id);
                 $this->validate($request, [
                     'title' => 'required',
+                    'slug' => 'required',
+                    'meta_title' => 'nullable',
+                    'meta_description' => 'nullable',
                     'brand_id' => 'required',
                     'product_category_id' => 'required',
                     'product_flavour_id' => 'nullable',
@@ -223,6 +232,9 @@ class ProductController extends Controller
 
             $product->update([
                 "title" => $request->title,
+                "slug" => $request->slug,
+                "meta_title" => $request->meta_title,
+                "meta_description" => $request->meta_description,
                 "brand_id" => $request->brand_id,
                 "product_category_id" => $request->product_category_id,
                 "product_flavour_id" => $request->product_flavour_id,

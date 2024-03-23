@@ -29,7 +29,7 @@
                                         <div class="col-lg-3 col-md-4 col-sm-6">
                                             <div class="product-box">
                                                 <div class="product-media">
-                                                    <a href="{{ route('productDetails', ['id' => $product->id]) }}">
+                                                    <a href="{{ route('productDetails', ['category' => $product->productCategory->slug,'product' => $product->slug]) }}">
                                                         <img class="prod-img" data-zoom="{{ asset('images/product-images/'.$product->photo) }}" src="{{ asset('images/product-images/'.$product->photo) }}" alt=""/> 
                                                     </a>     
                                                     <img class="shape" alt=""
@@ -52,7 +52,7 @@
 
                                                 <div class="product-caption">
                                                     <h3 class="product-title">
-                                                        <a href="{{ route('productDetails', ['id' => $product->id]) }}"> {{ $product->title }}</a>
+                                                        <a href="{{ route('productDetails', ['category' => $product->productCategory->slug,'product' => $product->slug]) }}"> {{ $product->title }}</a>
                                                     </h3>
                                                     <div class="price">
                                                         <strong class="clr-txt">Rs
@@ -75,6 +75,11 @@
 
     <!-- / Shop Ends -->
 @endsection
+
+@section('meta_tags')
+    {!! SEOMeta::generate() !!}
+@endsection
+
 @section('scripts')
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>

@@ -64,6 +64,9 @@ class ProductCategoryController extends Controller
         if(auth()->user()->can('create_product_category')){
             $this->validate($request, [
                 'name'=>'required|string|max:64',
+                'slug' => 'required',
+                'meta_title' => 'nullable',
+                'meta_description' => 'nullable',
                 'image'=>'required',
                 'parent_id'=>'nullable',
                 'banner_image'=>'nullable',
@@ -83,6 +86,9 @@ class ProductCategoryController extends Controller
             }
             $category=ProductCategory::create([
                 'name'=>$request->name,
+                "slug" => $request->slug,
+                "meta_title" => $request->meta_title,
+                "meta_description" => $request->meta_description,
                 'image'=>$name,
                 'banner_image'=>$bannerImage,
                 'description'=>$request->description,
@@ -132,6 +138,9 @@ class ProductCategoryController extends Controller
             $categories = ProductCategory::findOrfail($id);
             $this->validate($request, [
                 'name'=>'required|string|max:64',
+                'slug' => 'required',
+                'meta_title' => 'nullable',
+                'meta_description' => 'nullable',
                 'image'=>'required',
                 'parent_id'=>'nullable',
                 'banner_image'=>'nullable',
@@ -164,6 +173,9 @@ class ProductCategoryController extends Controller
             }
             $categories->update([
                 'name'=>$request->name,
+                "slug" => $request->slug,
+                "meta_title" => $request->meta_title,
+                "meta_description" => $request->meta_description,
                 'image'=>$name,
                 'banner_image'=>$bannerImage,
                 'description'=>$request->description,

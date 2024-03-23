@@ -7,8 +7,8 @@
 </style>
     <div class="main-page-about">
         <!--Breadcrumb Section Start-->
-        <section class="breadcrumb-bg" style="background-image:url({{ asset('images/product-images/'.$category->banner_image) }})">
-            <div class="theme-container container ">
+        <section class="breadcrumb-bg" style="background-image:url({{ asset('images/product-categories/'.$category->banner_image) }})">
+            <div class="theme-container container">
                 <div class="site-breadcumb white-clr">
                     <h2 class="section-title"> <strong class="clr-txt">{{$category->name}} </strong> </h2>
 
@@ -33,7 +33,7 @@
                                         <div class="col-lg-2 col-md-4 col-sm-6">
                                             <div class="product-box">
                                                 <div class="product-media">
-                                                    <a href="{{ route('productDetails', ['id' => $product->id]) }}">
+                                                    <a href="{{  route('productDetails', ['category' => $product->productCategory->slug,'product' => $product->slug]) }}">
                                                     <img class="prod-img" data-zoom="{{ asset('images/product-images/'.$product->photo) }}" src="{{ asset('images/product-images/'.$product->photo) }}" alt=""/> 
                                                     </a>    
                                                     <img class="shape" alt=""
@@ -56,7 +56,7 @@
 
                                                 <div class="product-caption">
                                                     <h3 class="product-title">
-                                                        <a href="{{ route('productDetails', ['id' => $product->id]) }}"> {{ $product->title }}</a>
+                                                        <a href="{{  route('productDetails', ['category' => $product->productCategory->slug,'product' => $product->slug]) }}"> {{ $product->title }}</a>
                                                     </h3>
                                                     <div class="price">
                                                         <strong class="clr-txt">Rs
@@ -79,6 +79,11 @@
 
     <!-- / Shop Ends -->
 @endsection
+
+@section('meta_tags')
+    {!! SEOMeta::generate() !!}
+@endsection
+
 @section('scripts')
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>

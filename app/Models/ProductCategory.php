@@ -14,6 +14,9 @@ class ProductCategory extends Model
 
     protected $fillable =[
         'name',
+        'slug',
+        'meta_title',
+        'meta_description',
         'image',
         'banner_image',
         'description',
@@ -52,5 +55,9 @@ class ProductCategory extends Model
 
     public function updatedBy(){
         return $this->belongsTo('App\Models\User','updated_by');
+    }
+
+    public function getRouteKeyName() {
+        return 'slug';
     }
 }

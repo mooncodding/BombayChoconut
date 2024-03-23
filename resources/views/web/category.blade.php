@@ -36,15 +36,15 @@
                                             <div class="product-media"> 
                                             <img class="prod-img" src="{{asset('images/product-categories/'.$category->image)}}" alt=""/>   
                                                 <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
-                                                <div class="prod-icons"> 
+                                                {{-- <div class="prod-icons"> 
                                                     <a href="/#" class="fa fa-heart"></a>
                                                     <a href="/#" class="fa fa-shopping-basket"></a>
                                                     <a  href="/#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                                </div>
+                                                </div> --}}
                                             </div>                                           
                                             <div class="product-caption"> 
                                                 <h3 class="product-title">
-                                            <a href="/shop-single-fullwidth"> <span class="light-font"> {{$category->name}}</a>
+                                                    <a href="#"> <span class="light-font"> {{$category->name}}</a>
                                                 </h3>
                                             </div>
                                         </div>
@@ -270,4 +270,7 @@
     </div>
 </section>
 
+@endsection
+@section('meta_tags')
+    {!! SEOMeta::generate() !!}
 @endsection

@@ -110,3 +110,8 @@
     </div>
 </section>
 @endsection
+
+
+@section('meta_tags')
+    {!! SEOMeta::generate() !!}
+@endsection

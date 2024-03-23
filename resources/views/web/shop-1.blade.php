@@ -188,6 +188,10 @@
     <!-- / Shop Ends -->
 @endsection
 
+@section('meta_tags')
+    {!! SEOMeta::generate() !!}
+@endsection
+
 @section('scripts')
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
@@ -301,18 +305,21 @@
                     return products;
                 }
             }
-
+            var productDetailsRoute = "{{ route('productDetails', ['category' => ':category','product' => ':product']) }}";
             function displayProductCards(products, columns=3) {
                 let productsContainer = $(".productShopCards");
                 productsContainer.empty(); // Clear previous products
                 // Loop through the products and generate HTML for each product card
                 $.each(products, function(index, product) {
                     var productId = product.id;
+                    var categoryName = product.product_category.slug;
+                    var slug = product.slug;
                     // Create a new 'a' (anchor) element
                     var linkElement = document.createElement("a");
 
                     // Set the 'href' attribute using the template string
-                    linkElement.href = `/productDetails/${productId}`;
+                    linkElement.href = productDetailsRoute.replace(':category', encodeURIComponent(categoryName))
+                    .replace(':product', encodeURIComponent(slug));
                     let productCard = `
                     <div class="col-lg-${columns} col-md-${columns + 1} col-sm-${columns + 3}"> 
                                     <div class="product-box"> 

@@ -12,6 +12,11 @@ class ShopController extends Controller
 {
     public function index(Request $request)
     {
+        SEOMeta::setTitle('Bombay Choco N Nuts | Best Online Dryfruits in Pakistan');
+        SEOMeta::setDescription("Craving Bombay Choco N Nuts? Get Pakistan's best dry fruits & nuts online. Fast delivery, great selection!");
+        $currentUrl = url()->current();
+        SEOMeta::setCanonical($currentUrl);
+        
         $productCategory = ProductCategory::with('parentCategory')->get();
         return view('web.shop-1')->with('productCategory',$productCategory);
         

@@ -10,6 +10,7 @@ use App\Http\Controllers\Web\ShopController;
 use App\Http\Controllers\Web\SpecialOfferController;
 use App\Http\Controllers\Web\TrackOrderController;
 use App\Http\Controllers\Web\WishlistController;
+use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,13 +30,17 @@ Route::get('/products/filter/{category}', [HomeController::class, 'filterByCateg
 Route::get('/searchByProduct', [HomeController::class, 'searchByProduct'])->name('searchByProduct');
 Route::get('/category', [CategoryController::class, 'index']);
 Route::get('/shop', [ShopController::class, 'index']);
-Route::get('/getCategoryByProduct/{category}', [CategoryController::class, 'getCategoryByProduct'])->name('getCategoryByProduct');
+    Route::get('/products/{category}', [CategoryController::class, 'getCategoryByProduct'])->name('getCategoryByProduct');
 Route::get('/fetchDataFromApi', [HomeController::class, 'fetchDataFromApi']);
 
 Route::get('/404', function () {
     return view('web.404');
 });
 Route::get('/about-us', function () {
+    SEOMeta::setTitle('Bombay Choco N Nuts | Best Online Dryfruits in Pakistan');
+    SEOMeta::setDescription("Craving Bombay Choco N Nuts? Get Pakistan's best dry fruits & nuts online. Fast delivery, great selection!");
+    $currentUrl = url()->current();
+    SEOMeta::setCanonical($currentUrl);
     return view('web.about-us');
 });
 Route::get('/account-information', function () {
@@ -69,6 +74,12 @@ Route::get('/coming-soon', function () {
     return view('web.coming-soon');
 });
 Route::get('/contact', function () {
+    
+    SEOMeta::setTitle('Bombay Choco N Nuts | Best Online Dryfruits in Pakistan');
+    SEOMeta::setDescription("Craving Bombay Choco N Nuts? Get Pakistan's best dry fruits & nuts online. Fast delivery, great selection!");
+    $currentUrl = url()->current();
+    SEOMeta::setCanonical($currentUrl);
+
     return view('web.contact');
 });
 Route::get('/forgot-password', function () {
@@ -110,6 +121,12 @@ Route::get('/shop-single', function () {
     return view('web.shop-single');
 });
 Route::get('/giftbundle', function () {
+    
+    SEOMeta::setTitle('Bombay Choco N Nuts | Best Online Dryfruits in Pakistan');
+    SEOMeta::setDescription("Craving Bombay Choco N Nuts? Get Pakistan's best dry fruits & nuts online. Fast delivery, great selection!");
+    $currentUrl = url()->current();
+    SEOMeta::setCanonical($currentUrl);
+
     return view('web.giftbundle');
 });
 // Route::get('/specialoffers', function () {

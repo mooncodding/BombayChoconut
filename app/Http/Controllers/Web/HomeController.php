@@ -19,10 +19,11 @@ class HomeController extends Controller
     
         SEOMeta::setTitle('Bombay Choco N Nuts | Best Online Dryfruits in Pakistan');
         SEOMeta::setDescription("Craving Bombay Choco N Nuts? Get Pakistan's best dry fruits & nuts online. Fast delivery, great selection!");
-        SEOMeta::setCanonical('http://127.0.0.1:8000/');
+        $currentUrl = url()->current();
+        SEOMeta::setCanonical($currentUrl);
 
         $parentCategories = ProductCategory::parentCategories()->has('categoryProducts')->get();
-        $products = Product::with(['productVariants'])->get();
+        $products = Product::with(['productVariants','productCategory'])->get();
         return view('web.home')->with(['parentCategories'=>$parentCategories,'products'=>$products]);
     }
 
@@ -57,9 +58,9 @@ class HomeController extends Controller
             }else{
                 $categoryId = ProductCategory::where('id',$request->category_id)->pluck('id');
             }
-            $products = Product::where('title','LIKE', '%' . $request->name . '%')->whereIn('product_category_id',$categoryId)->with(['productVariants'])->get();
+            $products = Product::where('title','LIKE', '%' . $request->name . '%')->whereIn('product_category_id',$categoryId)->with(['productVariants','productCategory'])->get();
         }else{
-            $products = Product::where('title','LIKE', '%' . $request->name . '%')->with(['productVariants'])->get();
+            $products = Product::where('title','LIKE', '%' . $request->name . '%')->with(['productVariants','productCategory'])->get();
         }
         return view('web.searchByProduct')->with(['products'=>$products, 'searchValue'=>$request->name]);        
     }

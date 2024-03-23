@@ -100,3 +100,7 @@
     </div> <!-- woocommerce-order -->
     </div>
 @endsection
+
+@section('meta_tags')
+    {!! SEOMeta::generate() !!}
+@endsection

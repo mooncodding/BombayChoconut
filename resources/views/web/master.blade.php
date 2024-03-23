@@ -11,6 +11,7 @@
     <title>Bombay Choconuts</title> --}}
     {{-- <title>@yield('title')</title> --}}
     <!-- Include meta tags -->
+    <meta name="robots" content="noindex">
     @yield('meta_tags')
 
     <!-- Favicon -->
@@ -600,17 +601,17 @@
                                             @foreach ($category->children as $child)
                                                 <ul class="sub-list">
                                                     <li> <a
-                                                            href="{{ route('getCategoryByProduct', $category->id) }}">{{ $child->name }}</a>
+                                                            href="{{ route('getCategoryByProduct', $category->slug) }}">{{ $child->name }}</a>
                                                     </li>
                                                 </ul>
                                             @endforeach
                                             <h2 class="title"> <a
-                                                    href="{{ route('getCategoryByProduct', $category->id) }}"
+                                                    href="{{ route('getCategoryByProduct', $category->slug) }}"
                                                     class="clr-txt"> All
                                                     {{ $category->name }} </a> </h2>
                                         </div>
                                         <div class="menu-img">
-                                            <a href="{{ route('getCategoryByProduct', $category->id) }}">
+                                            <a href="{{ route('getCategoryByProduct', $category->slug) }}">
                                                 <img alt=""
                                                     src="{{ asset('images/product-categories/' . $category->image) }}" /></a>
                                         </div>
@@ -737,22 +738,22 @@
                                 </section>
                                 <section id="rauchbier" class="tab-panel">
                                     <ul>
-                                        <li><a href="#">Chocolates</a></li>
-                                        <li><a href="#">Dates</a></li>
-                                        <li><a href="#">Milk</a></li>
-                                        <li><a href="#">Gift Pack</a></li>
-                                        <li><a href="#">Bundles</a></li>
-                                        <li><a href="#">Basket</a></li>
-                                        <li><a href="#">Almond</a></li>
-                                        <li><a href="#">Jelly</a></li>
-                                        <li><a href="#">Juice</a></li>
-                                        <li><a href="#">Fresh</a></li>
-                                        <li><a href="#">Gift Bundle</a></li>
-                                        <li><a href="#">Coconuts</a></li>
-                                        <li><a href="#">Chilies</a></li>
-                                        <li><a href="#">Custard</a></li>
-                                        <li><a href="#">Toffees</a></li>
-                                        <li><a href="#">Health and Personal Care</a></li>
+                                        <li><a href="/category">Chocolates</a></li>
+                                        <li><a href="/category">Dates</a></li>
+                                        <li><a href="/category">Milk</a></li>
+                                        <li><a href="/category">Gift Pack</a></li>
+                                        <li><a href="/category">Bundles</a></li>
+                                        <li><a href="/category">Basket</a></li>
+                                        <li><a href="/category">Almond</a></li>
+                                        <li><a href="/category">Jelly</a></li>
+                                        <li><a href="/category">Juice</a></li>
+                                        <li><a href="/category">Fresh</a></li>
+                                        <li><a href="/category">Gift Bundle</a></li>
+                                        <li><a href="/category">Coconuts</a></li>
+                                        <li><a href="/category">Chilies</a></li>
+                                        <li><a href="/category">Custard</a></li>
+                                        <li><a href="/category">Toffees</a></li>
+                                        <li><a href="/category">Health and Personal Care</a></li>
                                     </ul>
                                 </section>
 

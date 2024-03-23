@@ -15,6 +15,8 @@ class AddColumnToProductCategoriesTable extends Migration
     {
         Schema::table('product_categories', function (Blueprint $table) {
             $table->string('slug')->nullable()->after('name');
+            $table->string('meta_title')->nullable()->after('slug');
+            $table->text('meta_description')->nullable()->after('meta_title');
         });
     }
 

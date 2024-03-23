@@ -78,3 +78,6 @@
             <!-- / CONTENT AREA -->
 
             @endsection
+@section('meta_tags')
+    {!! SEOMeta::generate() !!}
+@endsection

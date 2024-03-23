@@ -16,17 +16,17 @@ class RemoveUnwantedMetaText
      */
     public function handle(Request $request, Closure $next)
     {
-        // Proceed with the request
-        $response = $next($request);
+            // Proceed with the request
+            $response = $next($request);
 
-        // Check if the response content type is HTML
-        if ($response->headers->get('content-type') === 'text/html; charset=UTF-8') {
-            // Modify the content to remove the unwanted text
-            $content = $response->getContent();
-            $content = str_replace("- It's Over 9000!", '', $content); // Replace with your unwanted text
-            $response->setContent($content);
-        }
+            // Check if the response content type is HTML
+            if ($response->headers->get('content-type') === 'text/html; charset=UTF-8') {
+                // Modify the content to remove the unwanted text
+                $content = $response->getContent();
+                $content = str_replace("- It's Over 9000!", '', $content); // Replace with your unwanted text
+                $response->setContent($content);
+            }
 
-        return $response;
+            return $response;
     }
 }

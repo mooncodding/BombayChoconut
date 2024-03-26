@@ -410,7 +410,7 @@
                 type="submit"
                 class="btn btn-primary"
               >
-                {{ $t("message.EDIT_PRODUCT") }}
+                Update
               </button>
 
               <button type="button" class="btn btn-danger" data-dismiss="modal">

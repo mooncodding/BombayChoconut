@@ -193,6 +193,28 @@
                 </tr>
               </tbody>
             </table>
+            <h2>SEO Section</h2>
+            <table class="table table-hover table-bordered dark-border">
+              <tbody>
+                <tr>
+                  <th>Meta Title</th>
+                  <td>{{ productData.meta_title }}</td>
+                </tr>
+                <tr>
+                  <th>Meta Description</th>
+                  <td>{{ productData.meta_description }}</td>
+                </tr>
+                
+                <tr>
+                  <th>Slug</th>
+                  <td v-if="productData.product_category">
+                    <a :href="'https://bombaychocnnuts.com/' + productData.product_category.slug + '/' + productData.slug" target="_blank">
+                      https://bombaychocnnuts.com/{{ productData.product_category.slug }}/{{ productData.slug }}
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
             </div>
             <div class="modal-footer">
               <button @click.prevent="printSale" class="btn btn-primary">

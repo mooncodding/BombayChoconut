@@ -60,6 +60,10 @@
                     <td v-else>-</td>
                   </tr>
                   <tr>
+                    <th>Color Code</th>
+                    <td> {{ productData.color_code }}</td>
+                  </tr>
+                  <tr>
                     <th>{{ $t("message.PRODUCT_FLAVOUR") }}</th>
                     <td v-if="productData.product_flavour">
                       {{ productData.product_flavour.name }}

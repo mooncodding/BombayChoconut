@@ -260,6 +260,10 @@
                 />
               </div>
               <!-- End -->
+              <div class="form-group">
+                <label>Color Code</label>
+                <v-color-picker v-model="form.color_code"></v-color-picker>
+              </div>
               <!-- Disable Checkbox -->
               <div class="form-group">
                 <label>{{ $t("message.IS_DISABLED") }}</label>
@@ -330,7 +334,7 @@
               <!-- End -->
               <div>
                   <h2 class="text-center">SEO Section</h2>
-                  <br>
+                  <br
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
@@ -441,6 +445,7 @@ export default {
       // Create a new form instance
       form: new form({
         id: "",
+        color_code:"",
         title: "",
         slug: "",
         meta_title: "",

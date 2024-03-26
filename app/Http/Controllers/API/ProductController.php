@@ -124,6 +124,7 @@ class ProductController extends Controller
             $product = new Product;
             $product->code = 'C/PRODUCT/'.(Product::max('id')+001).'/'.date('y');
             $product->title = $request->title;
+            $product->color_code = $request->color_code;
             $product->slug = $request->slug;
             $product->meta_title = $request->meta_title;
             $product->meta_description = $request->meta_description;
@@ -232,6 +233,7 @@ class ProductController extends Controller
 
             $product->update([
                 "title" => $request->title,
+                "color_code" => $request->color_code,
                 "slug" => $request->slug,
                 "meta_title" => $request->meta_title,
                 "meta_description" => $request->meta_description,

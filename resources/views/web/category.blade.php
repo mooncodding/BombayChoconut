@@ -6,7 +6,7 @@
 <h1>The Perfect <br>Dry Fruits Store</h1>
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci dolorum natus eaque pariatur maiores quas illum ex temporibus est perspiciatis. Quos nobis doloremque harum voluptate dignissimos quaerat excepturi accusamus ducimus!</p>
 
-<a href="/#" class="slide-btn"> Shop Now</a>  
+<a href="/shop" class="slide-btn"> Shop Now</a>  
 </div>
     <div class="home-banner-image">
     <img  src="{{asset('web-assets/images/product/3-removebg-preview.png')}}" />
@@ -34,17 +34,14 @@
                                     <div class="col-lg-3 col-md-4 col-sm-6"> 
                                         <div class="product-box"> 
                                             <div class="product-media"> 
+                                            <a href="{{ route('getCategoryByProduct', $category->slug) }}">
                                             <img class="prod-img" src="{{asset('images/product-categories/'.$category->image)}}" alt=""/>   
                                                 <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
-                                                {{-- <div class="prod-icons"> 
-                                                    <a href="/#" class="fa fa-heart"></a>
-                                                    <a href="/#" class="fa fa-shopping-basket"></a>
-                                                    <a  href="/#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                                </div> --}}
+                                            </a>
                                             </div>                                           
                                             <div class="product-caption"> 
                                                 <h3 class="product-title">
-                                                    <a href="#"> <span class="light-font"> {{$category->name}}</a>
+                                                    <a href="{{ route('getCategoryByProduct', $category->slug) }}"> <span class="light-font"> {{$category->name}}</a>
                                                 </h3>
                                             </div>
                                         </div>

@@ -101,9 +101,11 @@
                         <ul class="checkbox-widget">
                             @foreach ($productCategory as $category)
                                 <ul class="checkbox-widget">
-                                    <li class="form-group"><label class="checkbox-inline"><input value=""
-                                                type="checkbox" data-id="{{ $category->id }}" class="category-btn">
-                                            <span>{{ $category->name }}</span></label>
+                                    <li class="form-group">
+                                        <label class="checkbox-inline">
+                                            <input value="{{ $category->id }}" type="checkbox" class="category-checkbox">
+                                            <span>{{ $category->name }}</span>
+                                        </label>
                                     </li>
                                 </ul>
                             @endforeach
@@ -221,11 +223,18 @@
 
                 fetchAndDisplayProducts(defaultCategory);
 
-                // Set up click event for category buttons
-                $('.category-btn').on('click', function() {
-                    console.log($(this).data('id'));
-                    const selectedCategory = $(this).data('id');
-                    fetchAndDisplayProducts(selectedCategory);
+                // Set up click event for category checkboxes
+                $('.category-checkbox').on('click', function() {
+                    const clickedCheckbox = $(this);
+                    
+                    // Uncheck all other checkboxes except the clicked one
+                    $('.category-checkbox').not(clickedCheckbox).prop('checked', false);
+                    
+                    // Fetch and display products for the selected category
+                    if (clickedCheckbox.prop('checked')) {
+                        const selectedCategory = clickedCheckbox.val();
+                        fetchAndDisplayProducts(selectedCategory);
+                    }
                 });
 
                 // Set up click event for "Add to Cart" buttons

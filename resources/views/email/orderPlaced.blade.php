@@ -95,6 +95,8 @@
                 <p>You have received an order.</p>
                 <span class="order-number">Order number: {{$order['reference']}}</span><br>
                 <span>Customer: {{$user->name}}</span><br>
+                <span>Phone Number : {{$user->phone}}</span><br>
+                <span>Address: {{$user->address}}</span><br>
                 <span>Date:{{ date('d-m-Y', strtotime($order['order_date'])) }}</span><br>
                 @else
                   @if($order_status_id == 1)

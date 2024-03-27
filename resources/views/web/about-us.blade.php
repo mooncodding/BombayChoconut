@@ -134,7 +134,7 @@
                             <div class="organic-prod">
                                 <img src="{{ asset('images/product-images/1706105382.png') }}" alt="" />
                                 <span class="divider"></span>
-                                <h3 class="title-1"> <a href="/shop"> <span class="light-font">Almond </span> <strong>
+                                <h3 class="title-1"> <a href="#"> <span class="light-font">Almond </span> <strong>
                                     Fry Salted </strong> </a> </h3>
                                 {{-- <a class="clr-txt font-2" href="/#"> <i> 52 items </i> </a> --}}
                             </div>
@@ -143,7 +143,7 @@
                             <div class="organic-prod">
                                 <img src="{{ asset('images/product-images/1706106169.png') }}" alt="" />
                                 <span class="divider"></span>
-                                <h3 class="title-1"> <a href="/shop"> <span class="light-font">Pistachio </span> <strong>
+                                <h3 class="title-1"> <a href="#"> <span class="light-font">Pistachio </span> <strong>
                                     Salted With Shell </strong> </a> </h3>
                                 {{-- <a class="clr-txt font-2" href="/#"> <i> 35 items </i> </a> --}}
                             </div>
@@ -152,7 +152,7 @@
                             <div class="organic-prod">
                                 <img src="{{ asset('images/product-images/1706106949.png') }}" alt="" />
                                 <span class="divider"></span>
-                                <h3 class="title-1"> <a href="/shop"> <span class="light-font">Pinenuts </span>
+                                <h3 class="title-1"> <a href="#"> <span class="light-font">Pinenuts </span>
                                         <strong> Without Shell </strong> </a> </h3>
                                 {{-- <a class="clr-txt font-2" href="/#"> <i> 23 items </i> </a> --}}
                             </div>
@@ -184,7 +184,7 @@
                             <div class="organic-prod">
                                 <img src="{{ asset('images/product-images/1706538478.jpeg') }}" alt="" />
                                 <span class="divider"></span>
-                                <h3 class="title-1"> <a href="/shop"> <span class="light-font">Elit Luxury Collection  </span> <strong>
+                                <h3 class="title-1"> <a href="#"> <span class="light-font">Elit Luxury Collection  </span> <strong>
                                     Chocolate Paralise Red Box</strong> </a> </h3>
                                 {{-- <a class="clr-txt font-2" href="/#"> <i> 26 items </i> </a> --}}
                             </div>
@@ -193,7 +193,7 @@
                             <div class="organic-prod">
                                 <img src="{{ asset('images/product-images/1706538607.jpeg') }}" alt="" />
                                 <span class="divider"></span>
-                                <h3 class="title-1"> <a href="/shop"> <span class="light-font">Elit Luxury Collection </span> <strong>
+                                <h3 class="title-1"> <a href="#"> <span class="light-font">Elit Luxury Collection </span> <strong>
                                     Chocolate Paralise Green Box</strong> </a> </h3>
                                 {{-- <a class="clr-txt font-2" href="/#"> <i> 31 items </i> </a> --}}
                             </div>
@@ -202,7 +202,7 @@
                             <div class="organic-prod">
                                 <img src="{{ asset('images/product-images/1706538708.jpeg') }}" alt="" />
                                 <span class="divider"></span>
-                                <h3 class="title-1"> <a href="/shop"> <span class="light-font">Elit Luxury Collection Chocolate Paralise Salmon Box </span> <strong>
+                                <h3 class="title-1"> <a href="#"> <span class="light-font">Elit Luxury Collection Chocolate Paralise Salmon Box </span> <strong>
                                     Chocolate Paralise Salmon Box</strong> </a> </h3>
                                 {{-- <a class="clr-txt font-2" href="/#"> <i> 17 items </i> </a> --}}
                             </div>

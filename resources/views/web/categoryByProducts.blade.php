@@ -72,6 +72,13 @@
                             </div>
                         </div>
                     </div>
+                    <br>    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>Description</h2>
+                            <p>{!! $category->description !!} </p>
+                        </div>
+                    </div>
                 </div>
             </div>
     </div>

@@ -49,6 +49,10 @@
                     <td v-else>-</td>
                   </tr>
                   <tr>
+                    <th>Color Code</th>
+                    <td> {{ productCategoryData.color_code }}</td>
+                  </tr>
+                  <tr>
                     <th>{{ $t("message.DESCRIPTION") }}</th>
                     <td>{{ productCategoryData.description }}</td>
                   </tr>

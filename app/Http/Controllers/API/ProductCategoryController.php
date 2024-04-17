@@ -86,6 +86,7 @@ class ProductCategoryController extends Controller
             }
             $category=ProductCategory::create([
                 'name'=>$request->name,
+                'color_code'=>$request->color_code,
                 "slug" => $request->slug,
                 "meta_title" => $request->meta_title,
                 "meta_description" => $request->meta_description,
@@ -173,6 +174,7 @@ class ProductCategoryController extends Controller
             }
             $categories->update([
                 'name'=>$request->name,
+                'color_code'=>$request->color_code,
                 "slug" => $request->slug,
                 "meta_title" => $request->meta_title,
                 "meta_description" => $request->meta_description,

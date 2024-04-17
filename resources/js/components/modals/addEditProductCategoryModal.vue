@@ -125,6 +125,10 @@
                   v-html="form.errors.get('banner_image')"
                 />
               </div>
+              <div class="form-group">
+                <label>Color Code</label>
+                <v-color-picker v-model="form.color_code"></v-color-picker>
+              </div>
               <!-- Description -->
               <div class="form-group">
                   <label>{{ $t("message.DESCRIPTION") }}<span class="required-star"></span></label>
@@ -245,6 +249,7 @@ export default {
       form: new form({
         id: "",
         name: "",
+        color_code:"",
         slug: "",
         meta_title: "",
         meta_description: "",

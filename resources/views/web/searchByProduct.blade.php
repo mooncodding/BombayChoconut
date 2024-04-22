@@ -178,9 +178,7 @@
                                                 <strong class="clr-txt fsz-20 saleprice"></strong>
                                             </p>
 
-                                            <div class="fsz-16">
-                                                <p>${product.description}</p>
-                                            </div>
+                                            
 
                                             <div class="prod-btns">
                                                 <div class="quantity">

@@ -33,7 +33,7 @@
                                     @foreach ($categories as $category) 
                                     <div class="col-lg-3 col-md-4 col-sm-6"> 
                                         <div class="product-box"> 
-                                            <div class="product-media"> 
+                                            <div class="product-media category-media"> 
                                             <a href="{{ route('getCategoryByProduct', $category->slug) }}">
                                             <img class="prod-img" src="{{asset('images/product-categories/'.$category->image)}}" alt=""/>   
                                                 <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  

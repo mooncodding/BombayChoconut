@@ -3471,6 +3471,11 @@ i.fa.fa-angle-down.arrow-d {
      }
      
  }
+ .product-media.category-media .prod-img {
+    height: 149px;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+}
  .product-title{
     white-space: nowrap;
     text-overflow: ellipsis !important;

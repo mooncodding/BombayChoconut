@@ -20,7 +20,7 @@
 
     <!-- Font Icon -->
     <link href="/assets/css/plugin/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+    
     <!-- CSS Global -->
     <link href="/assets/css/plugin/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="/assets/css/plugin/bootstrap-select.min.css" rel="stylesheet" type="text/css">
@@ -537,7 +537,7 @@
         </header>
         <div class="down-header">
             <div class="row">
-                <div class="col-lg-10 col-md-6 col-sm-12 responsive-menu">
+                <div class="col-lg-9 col-md-6 col-sm-12 responsive-menu">
 
                     <div class="responsive-toggle fa fa-bars"> </div>
                     <nav class="fix-navbar" id="primary-navigation">
@@ -580,16 +580,17 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="col-lg-2 cart-megamenu">
+                <div class="col-lg-3 cart-megamenu">
                     <div class="mega-submenu">
 
                         <span class="nav-trigger">
-                            <a class="menu-toggle" href="/#"> <img src="assets/img/icons/menu.png"
-                                    alt="" /> </a>
+                            <a class="menu-toggle" href="/#"><i class="fa fa-th-list arrow-t" aria-hidden="true"></i>
+                                Browse Category<i class="fa fa-angle-down arrow-d" aria-hidden="true"></i>
+                            </a>
                         </span>
                         <div class="mega-dropdown-menu">
                             <a class="menu-toggle fa fa-close" href="/#"> </a>
-                            <div class="slider-mega-menu">
+                            {{-- <div class="slider-mega-menu">
                                 @php
                                     $productCategory = App\Models\ProductCategory::with('children')->get();
                                 @endphp
@@ -617,8 +618,34 @@
                                         </div>
                                     </div>
                                 @endforeach
-                            </div>
+                            </div> --}}
+                            <section id="rauchbier" class="tab-panel catee">
+                                <ul>
+                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/2.png') }}" alt="">Chocolates</a></li>
+                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/1.png') }}" alt="">Dates</a></li>
+                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/3.png') }}" alt="">Milk</a></li>
+                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/4.png') }}" alt="">Gift Pack</a></li>
+                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/1.png') }}" alt="">Bundles</a></li>
+                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/2.png') }}" alt="">Basket</a></li>
+                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/3.png') }}" alt="">Almond</a></li>
+                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/4.png') }}" alt="">Jelly</a></li>
+                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/1.png') }}" alt="">Juice</a></li>
+                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/2.png') }}" alt="">Fresh</a></li>
+                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/3.png') }}" alt="">Gift Bundle</a></li>
+                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/4.png') }}" alt="">Coconuts</a></li>
+                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/1.png') }}" alt="">Chilies</a></li>
+                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/2.png') }}" alt="">Custard</a></li>
+                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/3.png') }}" alt="">Toffees</a></li>
+                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/4.png') }}" alt="">Health and Personal Care</a></li>
+
+
+
+
+
+                                </ul>
+                            </section>
                         </div>
+
                     </div>
                     <div class="responsive-toggle fa fa-bars"> </div>
                 </div>
@@ -739,7 +766,7 @@
                                 <section id="rauchbier" class="tab-panel">
                                     <ul>
                                         <li><a href="/category">Chocolates</a></li>
-                                        <li><a href="/category">Dates</a></li>
+                                        <li><a href="/category"><img src="{{ asset('web-assets/images/new/2.png') }}" alt=""></a></li>
                                         <li><a href="/category">Milk</a></li>
                                         <li><a href="/category">Gift Pack</a></li>
                                         <li><a href="/category">Bundles</a></li>
@@ -996,11 +1023,11 @@
                         <div class="col-md-4 col-sm-12 footer-widget">
                             {{-- <div class="main-logo"> --}}
                             {{-- <a href="/"><img src="{{asset('web-assets/images/logo/bombaylogo.png')}}" alt="">  </a> --}}
-                            <h2 class="title-1"> <span class="light-font">BOMBAY CHOCO N NUTS</span> <strong> </strong> </h2>
+                            <h2 class="title-1"> <span class="light-font">BOMBAY CHOC N NUTS</span> <strong> </strong> </h2>
                             {{-- </div> --}}
 
                             <div class="text-widget">
-                                <p>At Bombay Choco n Nuts, we offer a tantalizing array of the finest dry fruits, chocolates, and much more. Indulge in our premium selection and elevate your snacking experience to new heights of delight and satisfaction.</p>
+                                <p>At Bombay Choc N Nuts, we offer a tantalizing array of the finest dry fruits, chocolates, and much more. Indulge in our premium selection and elevate your snacking experience to new heights of delight and satisfaction.</p>
 
                             </div>
                         </div>

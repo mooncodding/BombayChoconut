@@ -25,6 +25,42 @@
                 <div class="organic-wrap">
                 </div>
                 <div class="tab-content shop-content category-prod">
+                    <div class="row sort-bar">
+                        <div class="col-lg-6">
+                            <div class="sort-dropdown left">
+                                <span>Products</span>
+                                <div class="search-wrap">
+                                    <input class="form-control" placeholder="">
+                                    <button class="btn" type="submit"> <i class="fa fa-search"></i> </button>
+                                </div>
+                            </div>
+        
+                        </div>
+                        <div class="col-lg-5 right">
+                            <div class="sort-dropdown">
+                                <span>BY PRICE</span>
+                                <div class="search-selectpicker selectpicker-wrapper">
+                                    <select class="selectpicker input-price" data-width="100%" data-toggle="tooltip">
+                                        <option> Low to High </option>
+                                        <option> High to Low </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="sort-dropdown">
+                                <span>SORT BY</span>
+                                <div class="search-selectpicker selectpicker-wrapper">
+                                    <select class="selectpicker input-price" data-width="100%" data-toggle="tooltip">
+                                        <option>A - Z</option>
+                                        <option>Z - A</option>
+                                        <option>Best Selling</option>
+                                    </select>
+                                </div>
+        
+                            </div>
+                          
+                        </div>
+                    </div>
+        
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="tab-pane fade active in productShopCard grid-inline" role="tabpanel">
@@ -32,7 +68,7 @@
                                     @foreach ($category->categoryProducts as $product)
                                         <div class="col-lg-2 col-md-4 col-sm-6">
                                             <div class="product-box">
-                                                <div class="product-media">
+                                                <div class="product-media" style="background-color: ${product.product_category.color_code} !important; background-image: url({{ asset('web-assets/images/banner/text.png') }})"> 
                                                     <a href="{{  route('productDetails', ['category' => $product->productCategory->slug,'product' => $product->slug]) }}">
                                                     <img class="prod-img" data-zoom="{{ asset('images/product-images/'.$product->photo) }}" src="{{ asset('images/product-images/'.$product->photo) }}" alt=""/> 
                                                     </a>    

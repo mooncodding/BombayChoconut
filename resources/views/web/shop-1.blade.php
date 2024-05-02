@@ -86,10 +86,12 @@
                                     <div class="col-md-12">
                                         <div class="tab-content organic-content row width-fly">
                                             <div class="product-slider-1 dots-1">
+                                             
                                                 @foreach ($productCategory as $category)
-                                                    <li class="hish"><a href="#" data-toggle="tab"
+                                                    <li class="hish collapsible"><a href="#" data-toggle="tab"
                                                             class="category-btn"
                                                             data-id="{{ $category->id }}">{{ $category->name }}</a></li>
+                                                           
                                                 @endforeach
                                             </div>
                                         </div>
@@ -101,11 +103,25 @@
                         <ul class="checkbox-widget">
                             @foreach ($productCategory as $category)
                                 <ul class="checkbox-widget">
-                                    <li class="form-group">
-                                        <label class="checkbox-inline">
-                                            <input value="{{ $category->id }}" type="checkbox" class="category-checkbox">
+                                    <li class="form-group collapsible">
+                                        
+                                        <label class="checkbox-inline ">
+                                            <input value="{{ $category->id }}" type="checkbox" class="category-checkbox ">
                                             <span>{{ $category->name }}</span>
+                                           
                                         </label>
+                                        <i class="fa fa-angle-down arrow-category " aria-hidden="true"></i>
+                                        
+                                    </li>
+                                    <li class="form-group content">
+                                        
+                                        <label class="checkbox-inline ">
+                                            <input value="{{ $category->id }}" type="checkbox" class="category-checkbox ">
+                                            <span>{{ $category->name }}</span>
+                                           
+                                        </label>
+                                        
+                                        
                                     </li>
                                 </ul>
                             @endforeach
@@ -332,7 +348,7 @@
                     let productCard = `
                     <div class="col-lg-${columns} col-md-${columns + 1} col-sm-${columns + 3}"> 
                                     <div class="product-box"> 
-                                        <div class="product-media"> 
+                                        <div class="product-media" style="background-color: ${product.product_category.color_code} !important;                            <div class="product-media" style="background-color: ${product.product_category.color_code} !important; background-image: url({{ asset('web-assets/images/banner/text.png') }})"> "> 
                                             <a href="${linkElement}">
                                                     <img class="prod-img drift-demo-trigger " data-zoom="{{ asset('images/product-images/${product.photo}') }}" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
                                             </a>  
@@ -539,5 +555,19 @@
             });
 
         });
+        var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
     </script>
 @endsection

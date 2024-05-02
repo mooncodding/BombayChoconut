@@ -148,16 +148,16 @@
         style=" background-image: url({{ asset('web-assets/images/product/5-removebg-preview.png') }}) ;">
         <div class="container rel-div">
             <div class="title-wrap">
-                <h2 class="section-title"> <span class="light-font">we are </span> <strong>Bombay Choco N Nuts <img
+                <h2 class="section-title"> <span class="light-font">we are </span> <strong>Bombay Choc N Nuts <img
                             src="assets/img/icons/logo-icon.png" alt="" /> </strong> </h2>
-                <h4 class="sub-title"> <span> ABOUT OUR DRY FRUITES </span> </h4>
-                <p>Bombay Choco N Nuts offers the finest selection of premium dry fruits sourced from around the world. Indulge in our exquisite range of high-quality nuts, dried fruits, and delectable chocolates, crafted to perfection for an unforgettable snacking experience. Discover the ultimate blend of luxury and taste with Bombay Choco N Nuts. </p>
+                <h4 class="sub-title"> <span> ABOUT OUR DRY FRUITS </span> </h4>
+                <p>Bombay Choc N Nuts offers the finest selection of premium dry fruits sourced from around the world. Indulge in our exquisite range of high-quality nuts, dried fruits, and delectable chocolates, crafted to perfection for an unforgettable snacking experience. Discover the ultimate blend of luxury and taste with Bombay Choc N Nuts. </p>
             </div>
             <div class="row">
                 <div class="col-md-3 col-sm-6 text-center">
                     <div class="feature-wrap">
                         <img src="{{ asset('web-assets/images/new/1.png') }}" alt="">
-                        <h3 class="title-1 ptb-15"> <span class="light-font">fresh from </span> <strong> Bombay Choco N
+                        <h3 class="title-1 ptb-15"> <span class="light-font">fresh from </span> <strong> Bombay Choc N
                                 Nuts</strong> </h3>
                         <p>Elevate your snacking game with our handpicked selection of the finest treats, straight from the heart of Bombay.
                         </p>
@@ -299,7 +299,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-5 text-right">
-                    <h4 class="sub-title"> Bombay Choco n Nuts 
+                    <h4 class="sub-title"> Bombay Choc n Nuts 
                    </h4>
                     <h2 class="section-title"> <span class="light-font">   Enjoy Free  </span> <strong>  Delivery </strong> <span
                             class="light-font">off</span> </h2>
@@ -665,7 +665,7 @@
                 .replace(':product', encodeURIComponent(slug));
                 let productCard = `<div class="col-lg-2 col-md-4 col-sm-6"> 
                         <div class="product-box"> 
-                            <div class="product-media"> 
+                            <div class="product-media" style="background-color: ${product.product_category.color_code} !important; background-image: url({{ asset('web-assets/images/banner/text.png') }})"> 
                                 <a href="${linkElement}">
                                     <img class="prod-img drift-demo-trigger " data-zoom="{{ asset('images/product-images/${product.photo}') }}" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
                                 </a>  
@@ -722,7 +722,7 @@
                 .replace(':product', encodeURIComponent(slug));
                 let productCard = `<div class="col-lg-3 col-md-4 col-sm-6"> 
                         <div class="product-box"> 
-                            <div class="product-media"> 
+                            <div class="product-media" style="background-color: ${product.product_category.color_code} !important; background-image: url({{ asset('web-assets/images/banner/text.png') }})"> 
                                 <a href="${linkElement}">
                                     <img class="prod-img drift-demo-trigger " data-zoom="{{ asset('images/product-images/${product.photo}') }}" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
                                 </a>     

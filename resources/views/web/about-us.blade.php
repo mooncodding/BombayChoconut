@@ -6,7 +6,7 @@
                 <div class="theme-container container ">                       
                     <div class="site-breadcumb white-clr">                        
                       <h4>About</h4>
-                      <h2>Bombay Choco N Nuts</h2> 
+                      <h2>Bombay Choc N Nuts</h2> 
                       <ol class="breadcrumb breadcrumb-menubar">
                         <li> <a href="/#"> Home </a> About Us </li>                             
                     </ol>
@@ -37,15 +37,15 @@
                         <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>  <i class="fa fa-star"></i> 
                         <span class="light-font about-con"> A Taste Of </span> <strong class="darkness about-dar">Real Goodness</strong>
                         <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>  <i class="fa fa-star"></i>
-                        <p>Whether you're looking for a yummy snack, need a thoughtful gift, or just want to treat yourself, come and check out Bombay Choco n Nuts. We're here to make your day a bit sweeter and more enjoyable!
+                        <p>Whether you're looking for a yummy snack, need a thoughtful gift, or just want to treat yourself, come and check out Bombay Choc N Nuts. We're here to make your day a bit sweeter and more enjoyable!
                         </p> 
                     </div>
                 </div>
 
                 <div class="container rel-div">
                    <div class="row">
-                            <p class="about-pp">Step into the sweet world of Bombay Choco n Nuts, a wonderful place for everyone in Pakistan who loves sweets and snacks! Our store is filled with great choices, from tasty chocolates and crunchy biscuits to healthy dry fruits and lots of different candies.</h3>
-                       <h5 class="abouth5">ABOUT BOMBAY CHOCO N NUTS</h5>
+                            <p class="about-pp">Step into the sweet world of Bombay Choc N Nuts, a wonderful place for everyone in Pakistan who loves sweets and snacks! Our store is filled with great choices, from tasty chocolates and crunchy biscuits to healthy dry fruits and lots of different candies.</h3>
+                       <h5 class="abouth5">ABOUT BOMBAY CHOC N NUTS</h5>
                         {{-- <div class="col-sm-6 text-left xs-text">
                             <h2 class="section-title"> <span class="light-font">we are </span> <strong>organic farmfood <img src="assets/img/icons/logo-icon.png" alt="" /> </strong> </h2>
                             <h4 class="sub-title"> ABOUT Bombay Choco N nuts Products</h4>
@@ -106,7 +106,7 @@
                             <span class="light-font"> WE DO <span class="over-txt light-bg">100% ORGANIC GUARANTEE</span> </span> 
                             <strong>HEALTHY</strong> 
                         </h2>
-                        <p>We started Bombay Choco n Nuts with a simple idea: to bring together a variety of the best snacks and sweets in one easy-to-find place. Whether you're a fan of chocolate or you like nuts and dry fruits, we have a lot of different options for you.
+                        <p>We started Bombay Choc N Nuts with a simple idea: to bring together a variety of the best snacks and sweets in one easy-to-find place. Whether you're a fan of chocolate or you like nuts and dry fruits, we have a lot of different options for you.
                         </p>
                     </div>
 

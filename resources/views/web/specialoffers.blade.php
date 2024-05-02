@@ -118,7 +118,7 @@
                     .replace(':product', encodeURIComponent(slug));
                     let productCard = `<div class="col-lg-3 col-md-4 col-sm-6"> 
                                         <div class="product-box"> 
-                                            <div class="product-media"> 
+                                            <div class="product-media" style="background-color: ${product.product_category.color_code} !important; background-image: url({{ asset('web-assets/images/banner/text.png') }})"> 
                                                 <a href="${linkElement}">
                                                     <img class="prod-img drift-demo-trigger " data-zoom="{{ asset('images/product-images/${product.photo}') }}" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
                                                 </a>    

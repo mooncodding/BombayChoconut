@@ -36,346 +36,108 @@
         <script src="assets/js/plugin/respond.js"></script>
         <![endif]-->        
     </head>
+<style>
+    .main-btn {
+    display: flex ;
+    justify-content: space-between;
+}
 
-    <body id="home" class="wide">
+.quantity {
+    display: flex !important;
+    width: 28% !important;
+    margin-top: 20px !important;
+}
+tr.cart_item {
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px 0;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+}
+
+td.total {text-align: left;}
+
+table.performance-facts__table {
+    width: 100%;
+}
+
+td {
+text-align: right;
+}
+
+tbody {
+    border-top: 1px solid #ccc !important;
+}
+
+tbody td {
+    color: black;
+    font-weight: 400;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.vorteilspackungdiv {
+    background-color: #ac2925 !important;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 15px !important;
+}
+
+header.performance-facts__header h3 {
+    color: black !important;
+    padding-bottom: 5px;
+}
+
+.nahrwertinfo {
+    padding-top: 30px;
+}
+
+p.small-info {
+    color: black !important;
+    font-weight: 300!important;
+}
+
+article.tab-1 h1, h2, h3,h4 {
+    font-size: 28px !important;
+    color: black;
+    font-family: sans-serif;
+}
+
+button.btn.minus {
+    height: 90%;
+}
+
+button.btn.plus {
+    height: 90%;
+}
+
+input.form-control.qty {
+    height: 90%;
+}
+.add-cart.pt-15 {
+    width: 100% !important;
+}
+
+a.theme-btn.js-add-product.buying.add-to-cart-btn.final {
+    padding-left: 225px !important;
+    padding-right: 225px !important;
+}
+a.theme-btn.js-add-product.add-to-cart-btn.final {
+    margin-left: 5px;
+    padding-left: 155px;
+    padding-right: 155px;
+}
+
+.add-cart.pt-15 {
+    width: 70%;
+}
+</style>
+   
 
         <!-- WRAPPER -->
-        <main class="wrapper"> 
-            <!-- CONTENT AREA -->
-
-            <!-- Main Header Start -->
-            <div class="header-topbar">
-                <div class="container-fluid">
-                    <div class="left">
-                        <ul class="top-nav">
-                            <li>
-                                <span>Email : </span> <a href="/#">contact@naturix.com </a>
-                            </li>
-                            <li> Phone : +100 3434 1057 </li>
-                        </ul>
-                    </div>
-                    <div class="right">
-                        <ul class="top-nav">
-                            <li>
-                                <form action="#" class="currency">
-                                    <div class="search-selectpicker selectpicker-wrapper">
-                                        <select  class="selectpicker input-price" data-width="100%"
-                                                 data-toggle="tooltip">
-                                            <option>USD</option>
-                                            <option>EUR</option>
-                                            <option>ARS</option>
-                                            <option>BRL</option>
-                                            <option>XAF</option>
-                                            <option>HUF</option>
-                                        </select>
-                                    </div>                                                   
-                                </form> 
-                            </li>
-                            <li>
-                                <form action="#" class="currency">
-                                    <div class="search-selectpicker selectpicker-wrapper">
-                                        <select class="selectpicker input-price" data-width="100%"
-                                                data-toggle="tooltip">
-                                            <option>United State</option>
-                                            <option>Argentina</option>
-                                            <option>Germany</option>
-                                            <option>Cameroon</option>
-                                            <option>Hungary</option>
-                                        </select>
-                                    </div>                                                   
-                                </form> 
-                            </li>
-                            <li class="social-icon">
-                                <a href="/#" class="fa fa-facebook"></a>
-                                <a href="/#" class="fa fa-twitter"></a>
-                                <a href="/#" class="fa fa-google-plus"></a>
-                                <a href="/#" class="fa fa-instagram"></a>
-                                <a href="/#" class="fa fa-behance"></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <header class="main-header white-bg">                  
-                <div class="container-fluid rel-div">
-                    <div class="col-lg-4 col-sm-8">
-                        <div class="main-logo">
-                            <a href="/"> <img alt="" src="assets/img/logo/main-logo.png" />  </a>
-                            <span class="medium-font">ORGANIC STORE</span>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 responsive-menu">  
-                        <div class="responsive-toggle fa fa-bars"> </div>
-                        <nav class="fix-navbar" id="primary-navigation">            
-                            <ul class="primary-navbar">                                                
-                                <li class="dropdown active">
-                                    <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" >Home</a>                                            
-                                    <ul class="dropdown-menu">    
-                                        <li><a href="/"> Home 1 </a></li> 
-                                        <li><a href="/index-2"> Home 2 </a></li> 
-                                        <li><a href="/index-3"> Home 3 </a></li>
-                                        <li><a href="/index-4"> Home 4 </a></li>
-                                    </ul>
-                                </li> 
-                                <li><a href="/about-us">About Us</a></li>
-                                <li class="dropdown">
-                                    <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" >Shop</a>                                            
-                                    <ul class="dropdown-menu">    
-                                        <li><a href="/shop-1"> shop </a></li> 
-                                        <li><a href="/shop-2"> shop 2 </a></li> 
-                                        <li><a href="/shop-single"> shop single </a></li>  
-                                        <li><a href="/my-account"> my account </a></li>
-                                    </ul>
-                                </li> 
-                                <li class="dropdown">
-                                    <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" >Blog</a>
-                                    <ul class="dropdown-menu">    
-                                        <li><a href="/blog"> blog </a></li>
-                                        <li><a href="/blog-single"> blog single </a></li>                  
-                                    </ul>
-                                </li>
-                                <li><a href="/contact">Contact Us</a></li>   
-                                <li class="dropdown">
-                                    <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" >Pages</a>
-                                    <ul class="dropdown-menu"> 
-                                        <li><a href="/404"> Error Page </a></li>  
-                                        <li><a href="/coming-soon"> Coming Soon </a></li>  
-                                        <li class="dropdown">
-                                            <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" >Sub Menu</a>
-                                            <ul class="dropdown-menu">  
-                                                <li><a href="/#">Sub Menu 1</a></li>
-                                                <li><a href="/#">Sub Menu 2</a></li>    
-                                                <li class="dropdown">
-                                                    <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" >Sub Menu 3</a>
-                                                    <ul class="dropdown-menu">  
-                                                        <li><a href="/#">Sub Menu 4</a></li>
-                                                        <li><a href="/#">Sub Menu 5</a></li> 
-                                                        <li><a href="/#">Sub Menu 6</a></li> 
-                                                    </ul>
-                                                </li> 
-                                            </ul>
-                                        </li> 
-                                    </ul>
-                                </li>
-                            </ul>                           
-                        </nav>
-                    </div>
-
-                    <div class="col-lg-2 col-sm-4 cart-megamenu">
-                        <div class="cart-hover">
-                            <a href="/#"> <img alt="" src="assets/img/icons/cart-icon.png" /> </a>
-                            <span class="cnt crl-bg">2</span> <span class="price">$2.170.00</span>
-                            <ul class="pop-up-box cart-popup">
-                                <li class="cart-list">
-                                    <div class="cart-img"> <img src="assets/img/extra/cart-sm-1.jpg" alt=""> </div>
-                                    <div class="cart-title">
-                                        <div class="fsz-16">
-                                            <a href="/#"> <span class="light-font"> organic </span>  <strong>almonds</strong></a>
-                                            <h6 class="sub-title-1">DRY FRUITS</h6>
-                                        </div>
-                                        <div class="price"> 
-                                            <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                        </div>
-                                    </div>
-                                    <div class="close-icon"> <i class="fa fa-close clr-txt"></i> </div>
-                                </li>
-
-                                <li class="cart-list">
-                                    <div class="cart-img"> <img src="assets/img/extra/cart-sm-2.jpg" alt=""> </div>
-                                    <div class="cart-title">
-                                        <div class="fsz-16">
-                                            <a href="/#"> <span class="light-font"> organic </span>  <strong>pepper</strong></a>
-                                            <h6 class="sub-title-1">VEGETABLES</h6>
-                                        </div>
-                                        <div class="price"> 
-                                            <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                        </div>
-                                    </div>
-                                    <div class="close-icon"> <i class="fa fa-close clr-txt"></i> </div>
-                                </li>
-
-                                <li class="cart-list">
-                                    <div class="cart-img"> <img src="assets/img/extra/cart-sm-3.jpg" alt=""> </div>
-                                    <div class="cart-title">
-                                        <div class="fsz-16">
-                                            <a href="/#"> <span class="light-font"> organic </span>  <strong>onion</strong></a>
-                                            <h6 class="sub-title-1">VAGETABLES</h6>
-                                        </div>
-                                        <div class="price"> 
-                                            <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                        </div>
-                                    </div>
-                                    <div class="close-icon"> <i class="fa fa-close clr-txt"></i> </div>
-                                </li>
-
-                                <li class="cart-list sub-total">
-                                    <div class="pull-left"> 
-                                        <strong>Subtotal</strong>
-                                    </div>
-                                    <div class="pull-right"> 
-                                        <strong class="clr-txt">$150.00</strong>
-                                    </div>
-                                </li>
-                                <li class="cart-list buttons">
-                                    <div class="pull-left"> 
-                                        <a href="/cart" class="theme-btn-sm-2">View Cart</a>
-                                    </div>
-                                    <div class="pull-right"> 
-                                        <a href="/checkout" class="theme-btn-sm-3"> Checkout </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="mega-submenu">
-
-                            <span class="nav-trigger">
-                                <a class="menu-toggle" href="/#"> <img src="assets/img/icons/menu.png" alt="" /> </a>
-                            </span>
-                            <div class="mega-dropdown-menu">
-                                <a class="menu-toggle fa fa-close" href="/#">  </a>
-                                <div class="slider-mega-menu">
-                                    <div class="menu-block">
-                                        <div class="menu-caption">                                                               
-                                            <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Fruits</strong> </h2>
-                                            <ul class="sub-list">
-                                                <li> <a href="/#">Banana</a> </li>
-                                                <li> <a href="/#">Water Melon </a> </li>
-                                                <li> <a href="/#">Blackberry </a> </li>
-                                                <li> <a href="/#">Plume</a> </li>
-                                                <li> <a href="/#">Orange</a> </li>
-                                                <li> <a href="/#">Lemon</a> </li>
-                                                <li> <a href="/#">Pineapple</a> </li>
-                                                <li> <a href="/#">Apple</a> </li>
-                                                <li> <a href="/#">Kiwi</a> </li>
-                                            </ul>
-                                            <h2 class="title"> <a href="/#" class="clr-txt"> All Fruits </a> </h2>
-                                        </div>
-                                        <div class="menu-img">
-                                            <img alt="" src="assets/img/extra/menu-1.png" />
-                                        </div>
-                                    </div>  
-                                    <div class="menu-block">
-                                        <div class="menu-caption">                                                               
-                                            <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Vegetables</strong> </h2>
-                                            <ul class="sub-list">
-                                                <li> <a href="/#">Cabbage</a> </li>
-                                                <li> <a href="/#">Garlic </a> </li>
-                                                <li> <a href="/#">Onion </a> </li>
-                                                <li> <a href="/#">Plume</a> </li>
-                                                <li> <a href="/#">Carrot</a> </li>
-                                                <li> <a href="/#">Papper</a> </li>
-                                                <li> <a href="/#">Mushrome</a> </li>
-                                                <li> <a href="/#">Apple</a> </li>
-                                                <li> <a href="/#">Kiwi</a> </li>
-                                            </ul>
-                                            <h2 class="title"> <a href="/#" class="clr-txt"> All Vegetables </a> </h2>
-                                        </div>
-                                        <div class="menu-img">
-                                            <img alt="" src="assets/img/extra/menu-2.png" />
-                                        </div>
-                                    </div>  
-                                    <div class="menu-block">
-                                        <div class="menu-caption">                                                               
-                                            <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Dread Juices</strong> </h2>
-                                            <ul class="sub-list">
-                                                <li> <a href="/#">Banana Juice</a> </li>
-                                                <li> <a href="/#">Water Melon Juice</a> </li>
-                                                <li> <a href="/#">Blackberry Juice</a> </li>
-                                                <li> <a href="/#">Plume Juice</a> </li>
-                                                <li> <a href="/#">Orange Juice</a> </li>
-                                                <li> <a href="/#">Lemon Juice</a> </li>
-                                                <li> <a href="/#">Pineapple Juice</a> </li>
-                                                <li> <a href="/#">Apple Juice</a> </li>
-                                                <li> <a href="/#">Kiwi Juice</a> </li>
-                                            </ul>
-                                            <h2 class="title"> <a href="/#" class="clr-txt"> All Dread juices </a> </h2>
-                                        </div>
-                                        <div class="menu-img">
-                                            <img alt="" src="assets/img/extra/menu-3.png" />
-                                        </div>
-                                    </div>  
-                                    <div class="menu-block">
-                                        <div class="menu-caption">                                                               
-                                            <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Juices</strong> </h2>
-                                            <ul class="sub-list">
-                                                <li> <a href="/#">Banana Juice</a> </li>
-                                                <li> <a href="/#">Water Melon Juice</a> </li>
-                                                <li> <a href="/#">Blackberry Juice</a> </li>
-                                                <li> <a href="/#">Plume Juice</a> </li>
-                                                <li> <a href="/#">Orange Juice</a> </li>
-                                                <li> <a href="/#">Lemon Juice</a> </li>
-                                                <li> <a href="/#">Pineapple Juice</a> </li>
-                                                <li> <a href="/#">Apple Juice</a> </li>
-                                                <li> <a href="/#">Kiwi Juice</a> </li>
-                                            </ul>
-                                            <h2 class="title"> <a href="/#" class="clr-txt"> All Fresh Juices </a> </h2>
-                                        </div>
-                                        <div class="menu-img">
-                                            <img alt="" src="assets/img/extra/menu-1.png" />
-                                        </div>
-                                    </div>  
-                                    <div class="menu-block">
-                                        <div class="menu-caption">                                                               
-                                            <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Breads</strong> </h2>
-                                            <ul class="sub-list">
-                                                <li> <a href="/#">Banana</a> </li>
-                                                <li> <a href="/#">Water Melon </a> </li>
-                                                <li> <a href="/#">Blackberry </a> </li>
-                                                <li> <a href="/#">Plume</a> </li>
-                                                <li> <a href="/#">Orange</a> </li>
-                                                <li> <a href="/#">Lemon</a> </li>
-                                                <li> <a href="/#">Pineapple</a> </li>
-                                                <li> <a href="/#">Apple</a> </li>
-                                                <li> <a href="/#">Kiwi</a> </li>
-                                            </ul>
-                                            <h2 class="title"> <a href="/#" class="clr-txt"> All Fresh Bread </a> </h2>
-                                        </div>
-                                        <div class="menu-img">
-                                            <img alt="" src="assets/img/extra/menu-5.png" />
-                                        </div>
-                                    </div>  
-                                    <div class="menu-block">
-                                        <div class="menu-caption">                                                               
-                                            <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Tea</strong> </h2>
-                                            <ul class="sub-list">
-                                                <li> <a href="/#">Cabbage</a> </li>
-                                                <li> <a href="/#">Garlic </a> </li>
-                                                <li> <a href="/#">Onion </a> </li>
-                                                <li> <a href="/#">Plume</a> </li>
-                                                <li> <a href="/#">Carrot</a> </li>
-                                                <li> <a href="/#">Papper</a> </li>
-                                                <li> <a href="/#">Mushrome</a> </li>
-                                                <li> <a href="/#">Apple</a> </li>
-                                                <li> <a href="/#">Kiwi</a> </li>
-                                            </ul>
-                                            <h2 class="title"> <a href="/#" class="clr-txt"> All Freash Tea </a> </h2>
-                                        </div>
-                                        <div class="menu-img">
-                                            <img alt="" src="assets/img/extra/menu-6.png" />
-                                        </div>
-                                    </div> 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="responsive-toggle fa fa-bars"> </div>
-                    </div>
-
-                </div>  
-            </header>
-            <!-- / Main Header Ends -->   
-
-            <!--Breadcrumb Section Start-->
-            <section class="breadcrumb-bg">                
-                <div class="theme-container container ">                       
-                    <div class="site-breadcumb white-clr">                        
-                        <h2 class="section-title"> <strong class="clr-txt">naturix </strong> <span class="light-font">Shop </span> </h2>
-                        <ol class="breadcrumb breadcrumb-menubar">
-                            <li> <a href="/#"> Home </a> SHOP  </li>                             
-                        </ol>
-                    </div>  
-                </div>
-            </section>
+ 
             <!--Breadcrumb Section End-->
 
 
@@ -383,122 +145,9 @@
             <section class="shop-wrap sec-space-bottom">
                 <div class="container rel-div pt-50">
                     <div class="row">
-                        <div class="col-md-3 pt-15">
-                            <div class="widget-wrap">
-                                <h2 class="widget-title"> <span class="light-font">Refine by</span> <strong>category</strong> </h2>
-                                <div class="divider-full-1"></div>
-                                <ul class="cate-widget">
-                                    <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="/#">Fruits</a> 
-                                        <ul class="cate-widget">
-                                            <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="/#">Apple</a> </li>
-                                            <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="/#">Cherry</a> </li>
-                                            <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="/#">Pinapple</a> </li>
-                                        </ul>
-                                    </li>
-                                    <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="/#">Vegetables</a> 
-                                        <ul class="cate-widget">
-                                            <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="/#">Onion</a> </li>
-                                            <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="/#">Cabbage</a> </li>
-                                            <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="/#">Salad</a> </li>
-                                        </ul>
-                                    </li>
-                                    <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="/#">Juices</a> </li>
-                                    <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="/#">Dried Fruits</a> </li>
-                                    <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="/#">Breads</a> </li>
-                                </ul>
-                            </div>
-
-                            <div class="widget-wrap">
-                                <h2 class="widget-title"> <span class="light-font">Natrix</span> <strong>Highlights</strong> </h2>
-                                <div class="divider-full-1"></div>
-                                <ul class="checkbox-widget">
-                                    <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Deals of the day</span></label> </li>
-                                    <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Fresh shipping</span></label> </li>
-                                    <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox" checked=""> <span>Best sellers</span></label> </li>
-                                    <li class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Featured products</span></label> </li>                                    
-                                </ul>
-                            </div>
-
-                            <div class="widget-wrap">
-                                <h2 class="widget-title"> <span class="light-font">Sort by</span> <strong>Price Range</strong> </h2>
-                                <div class="divider-full-1"></div>
-                                <div class="sort-range pt-15">
-                                    <span>PRICE</span> <div id="price-range"></div>
-                                </div>
-                            </div>
-
-                            <div class="widget-wrap">
-                                <h2 class="widget-title"> <span class="light-font">Best</span> <strong>Sellers</strong> </h2>
-                                <div class="divider-full-1"></div>
-                                <div class="widget-post pt-15">
-                                    <div class="random-prod"> 
-                                        <div class="random-img"> 
-                                            <img alt="" src="assets/img/extra/post-xs-1.png">
-                                        </div>
-                                        <div class="random-text"> 
-                                            <h3 class="title-1 no-margin"> <a href="/#"> <span class="light-font">organic </span> <strong>blackberry </strong> </a> </h3>
-                                            <span class="divider"></span>
-                                            <div class="price"> 
-                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="random-prod"> 
-                                        <div class="random-img"> 
-                                            <img alt="" src="assets/img/extra/post-xs-2.png">
-                                        </div>
-                                        <div class="random-text"> 
-                                            <h3 class="title-1 no-margin"> <a href="/#"> <span class="light-font">organic </span> <strong>peach </strong> </a> </h3>
-                                            <span class="divider"></span>
-                                            <div class="price"> 
-                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="random-prod"> 
-                                        <div class="random-img"> 
-                                            <img alt="" src="assets/img/extra/post-xs-3.png">
-                                        </div>
-                                        <div class="random-text"> 
-                                            <h3 class="title-1 no-margin"> <a href="/#"> <span class="light-font">organic </span> <strong>redberry </strong> </a> </h3>
-                                            <span class="divider"></span>
-                                            <div class="price"> 
-                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="random-prod"> 
-                                        <div class="random-img"> 
-                                            <img alt="" src="assets/img/extra/post-xs-4.png">
-                                        </div>
-                                        <div class="random-text"> 
-                                            <h3 class="title-1 no-margin"> <a href="/#"> <span class="light-font">organic </span> <strong>grapes </strong> </a> </h3>
-                                            <span class="divider"></span>
-                                            <div class="price"> 
-                                                <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="widget-wrap">
-                                <h2 class="widget-title"> <span class="light-font">Sort by</span> <strong>Tags</strong> </h2>
-                                <div class="divider-full-1"></div>
-                                <ul class="tags-widget">
-                                    <li> <a href="/#">fruits</a> </li>
-                                    <li> <a href="/#">vegetables</a> </li>
-                                    <li> <a href="/#">juices</a> </li>
-                                    <li> <a href="/#">natural food</a> </li>
-                                    <li> <a href="/#">food</a> </li>
-                                    <li> <a href="/#">Breads</a> </li>
-                                    <li> <a href="/#">natural</a> </li>
-                                    <li> <a href="/#">healthy</a> </li>
-                                </ul>
-                            </div>
+                        <div class="col-md-1 pt-15">
                         </div>
-
-                        <div class="col-md-9 pt-15">
+                        <div class="col-md-10 pt-15">
                             <div class="product-single sec-space-bottom  clearfix">
                                 <!-- Single Products Slider Starts --> 
                                 <div class="col-lg-6 pb-50 col-sm-8 col-sm-offset-2 col-lg-offset-0">
@@ -555,11 +204,7 @@
                                             </div>
 
                                             <div class="prod-btns">
-                                                <div class="quantity">
-                                                    <button class="btn minus"><i class="fa fa-minus-circle"></i></button>
-                                                    <input title="Qty" placeholder="03" class="form-control qty" type="text">
-                                                    <button class="btn plus"><i class="fa fa-plus-circle"></i></button>
-                                                </div>
+                                               
                                                 <div class="sort-dropdown">
                                                     <div class="search-selectpicker selectpicker-wrapper">
                                                         <select class="selectpicker input-price"  data-width="100%"
@@ -580,119 +225,296 @@
                                                 <li class="tags-widget"> <strong> TAGS </strong> <span>: &nbsp; <a href="/#">fruits</a> <a href="/#">vegetables</a> <a href="/#">juices</a></span> </li>
                                             </ul>
                                             <div class="divider-full-1"></div>
+                                            <div class="main-btn">
+                                            <div class="quantity">
+                                                <button class="btn minus"><i class="fa fa-minus-circle"></i></button>
+                                                <input title="Qty" placeholder="03" class="form-control qty" type="text">
+                                                <button class="btn plus"><i class="fa fa-plus-circle"></i></button>
+                                            </div>
                                             <div class="add-cart pt-15">
-                                                <a href="/#" class="theme-btn btn"> <strong> ADD TO CART </strong> </a>
+                                                <a href="/#" class="theme-btn js-add-product  add-to-cart-btn final" > <strong> ADD TO CART </strong> </a><span></span>
                                             </div>
                                         </div>
-                                    </div>
-                                </div> 
-                            </div>  
-
-                            <div class="prod-tabs pb-50">
-                                <ul class="tabs fsz-20">
-                                    <li class=""><a href="/#prod-tab-1" data-toggle="tab"> <span class="light-font">item </span> <strong>description </strong> </a></li>
-                                    <li class=""><a href="/#prod-tab-2" data-toggle="tab"> <span class="light-font">additional </span> <strong>info </strong> </a></li>
-                                    <li class="active"><a href="/#prod-tab-3" data-toggle="tab"> <span class="light-font">item </span> <strong>reviews (3)</strong> </a></li>
-                                </ul>
-                                <div class="divider-full-1"></div>
-
-                                <div class="tab-content prod-tab-content">
-                                    <div id="prod-tab-1" class="tab-pane fade">
-                                        <h3 class="fsz-16"><span class="light-font">item </span> <strong>description </strong>  </h3>
-                                        <span class="divider-2 crl-bg"></span>
-
-                                        <div class="block-inline pera">
-                                            <p>Lorem ipsum dolor sit amet, consectetuer adiping elit food sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat adiping elit food sed diam nonummy nibh euismod tincidunt ut laoreet dolore. </p>
                                         </div>
-
-                                    </div>
-                                    <div id="prod-tab-2" class="tab-pane fade">
-                                        <h3 class="fsz-16"><span class="light-font">additional </span> <strong>info </strong> </h3>
-                                        <span class="divider-2 crl-bg"></span>
-
-                                        <div class="block-inline pera">
-                                            <p>Lorem ipsum dolor sit amet, consectetuer adiping elit food sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat adiping elit food sed diam nonummy nibh euismod tincidunt ut laoreet dolore. </p>
-                                        </div>
-                                    </div>
-                                    <div id="prod-tab-3" class="tab-pane fade in active">
-                                        <h3 class="fsz-16"><span class="light-font">customers </span> <strong>reviews </strong> <span class="clr-txt">(3)</span> </h3>
-                                        <span class="divider-2 crl-bg"></span>
-
-                                        <div class="review-wrap">
-                                            <div class="review-img">
-                                                <a href="/#"> <img alt="" src="assets/img/extra/review-1.png" /> </a>
-                                            </div>
-                                            <div class="review-caption">
-                                                <h4 class="title fsz-16">
-                                                    <a href="/#">Luis Nazario Garcia</a>
-                                                    <span class="fsz-10 gray-color">26 JUNE 2016</span>
-                                                </h4>
-                                                <div class="rating">
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="fsz-12 gray-color"> Rating : 5/5 </span>
-                                                </div>
-
-                                                <div class="block-inline pera">
-                                                    <p>Lorem ipsum dolor sit amet, consectetuer adiping elit food sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat adiping elit food sed diam nonummy nibh euismod tincidunt ut laoreet dolore. </p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="review-wrap">
-                                            <div class="review-img">
-                                                <a href="/#"> <img alt="" src="assets/img/extra/review-1.png" /> </a>
-                                            </div>
-                                            <div class="review-caption">
-                                                <h4 class="title fsz-16">
-                                                    <a href="/#">Luis Nazario Garcia</a>
-                                                    <span class="fsz-10 gray-color">26 JUNE 2016</span>
-                                                </h4>
-                                                <div class="rating">
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="fsz-12 gray-color"> Rating : 5/5 </span>
-                                                </div>
-
-                                                <div class="block-inline pera">
-                                                    <p>Lorem ipsum dolor sit amet, consectetuer adiping elit food sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat adiping elit food sed diam nonummy nibh euismod tincidunt ut laoreet dolore. </p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="review-wrap">
-                                            <div class="review-img">
-                                                <a href="/#"> <img alt="" src="assets/img/extra/review-1.png" /> </a>
-                                            </div>
-                                            <div class="review-caption">
-                                                <h4 class="title fsz-16">
-                                                    <a href="/#">Luis Nazario Garcia</a>
-                                                    <span class="fsz-10 gray-color">26 JUNE 2016</span>
-                                                </h4>
-                                                <div class="rating">
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="fsz-12 gray-color"> Rating : 5/5 </span>
-                                                </div>
-
-                                                <div class="block-inline pera">
-                                                    <p>Lorem ipsum dolor sit amet, consectetuer adiping elit food sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat adiping elit food sed diam nonummy nibh euismod tincidunt ut laoreet dolore. </p>
-                                                </div>
-                                            </div>
-                                        </div>
-
+                                        <div class="add-cart pt-15">
+                                        <a href="/#" class="theme-btn js-add-product buying add-to-cart-btn final" > <strong> BUY NOW </strong> </a>
                                     </div>
                                 </div>
-                            </div>
+                                </div> 
+                            </div>  
+                            <h3 class="fsz-16"><span class="light-font">customers </span> <strong>reviews </strong> <span class="clr-txt">(3)</span> </h3>
+                                        <span class="divider-2 crl-bg"></span>
+        
+                                        <div class="review-wrap">
+                                            <div class="review-img">
+                                                <a href="/#"> <img alt="" src="assets/img/extra/review-1.png" /> </a>
+                                            </div>
+                                            <div class="review-caption">
+                                                <h4 class="title fsz-16">
+                                                    <a href="/#">Luis Nazario Garcia</a>
+                                                    <span class="fsz-10 gray-color">26 JUNE 2016</span>
+                                                </h4>
+                                                <div class="rating">
+                                                    <span class="star active"></span>
+                                                    <span class="star active"></span>
+                                                    <span class="star active"></span>
+                                                    <span class="star active"></span>
+                                                    <span class="star active"></span>
+                                                    <span class="fsz-12 gray-color"> Rating : 5/5 </span>
+                                                </div>
+        
+                                                <div class="block-inline pera">
+                                                    <p>Lorem ipsum dolor sit amet, consectetuer adiping elit food sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat adiping elit food sed diam nonummy nibh euismod tincidunt ut laoreet dolore. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+        
+                                        <div class="review-wrap">
+                                            <div class="review-img">
+                                                <a href="/#"> <img alt="" src="assets/img/extra/review-1.png" /> </a>
+                                            </div>
+                                            <div class="review-caption">
+                                                <h4 class="title fsz-16">
+                                                    <a href="/#">Luis Nazario Garcia</a>
+                                                    <span class="fsz-10 gray-color">26 JUNE 2016</span>
+                                                </h4>
+                                                <div class="rating">
+                                                    <span class="star active"></span>
+                                                    <span class="star active"></span>
+                                                    <span class="star active"></span>
+                                                    <span class="star active"></span>
+                                                    <span class="star active"></span>
+                                                    <span class="fsz-12 gray-color"> Rating : 5/5 </span>
+                                                </div>
+        
+                                                <div class="block-inline pera">
+                                                    <p>Lorem ipsum dolor sit amet, consectetuer adiping elit food sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat adiping elit food sed diam nonummy nibh euismod tincidunt ut laoreet dolore. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+        
+                                        <div class="review-wrap">
+                                            <div class="review-img">
+                                                <a href="/#"> <img alt="" src="assets/img/extra/review-1.png" /> </a>
+                                            </div>
+                                            <div class="review-caption">
+                                                <h4 class="title fsz-16">
+                                                    <a href="/#">Luis Nazario Garcia</a>
+                                                    <span class="fsz-10 gray-color">26 JUNE 2016</span>
+                                                </h4>
+                                                <div class="rating">
+                                                    <span class="star active"></span>
+                                                    <span class="star active"></span>
+                                                    <span class="star active"></span>
+                                                    <span class="star active"></span>
+                                                    <span class="star active"></span>
+                                                    <span class="fsz-12 gray-color"> Rating : 5/5 </span>
+                                                </div>
+        
+                                                <div class="block-inline pera">
+                                                    <p>Lorem ipsum dolor sit amet, consectetuer adiping elit food sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat adiping elit food sed diam nonummy nibh euismod tincidunt ut laoreet dolore. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                            <div class="wrapper main-int">
+                                <input type="radio" name="tab" id="tab-1" checked>
+                                <label for="tab-1">Description</label>
+                                <input type="radio" name="tab" id="tab-2">
+                                <label for="tab-2">Item Size</label>
+                                <input type="radio" name="tab" id="tab-3">
+                                <label for="tab-3">More Info</label>
+                                <input type="radio" name="tab" id="tab-4">
+                                <label for="tab-4">Faq</label>
+                                
+                                
+                                <div class="content">
+                                    <article class="tab-1">
+                                        <h1>Herkunftsland: Ghana, Peru und Mexico</h1>
+        
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore numquam, itaque laboriosam debitis temporibus incidunt, dicta dignissimos sapiente voluptatibus iusto. Voluptate, laborum libero odio nostrum consequuntur aliquid molestiae soluta optio.
+                                </p>
+                                <h1>Herkunftsland: Ghana, Peru und Mexico</h1>
+        
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore numquam, itaque laboriosam debitis temporibus incidunt, dicta dignissimos sapiente voluptatibus iusto. Voluptate, laborum libero odio nostrum consequuntur aliquid molestiae soluta optio.
+                                </p>
+                                <h2>Herkunftsland: Ghana, Peru und Mexico</h2>
+        
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore numquam, itaque laboriosam debitis temporibus incidunt, dicta dignissimos sapiente voluptatibus iusto. Voluptate, laborum libero odio nostrum consequuntur aliquid molestiae soluta optio.
+                          </p>
+                                <h3>Herkunftsland: Ghana, Peru und Mexico</h3>
+        
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore numquam, itaque laboriosam debitis temporibus incidunt, dicta dignissimos sapiente voluptatibus iusto. Voluptate, laborum libero odio nostrum consequuntur aliquid molestiae soluta optio.
+                                </p>
+                                <h4>Herkunftsland: Ghana, Peru und Mexico</h4>
+        
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore numquam, itaque laboriosam debitis temporibus incidunt, dicta dignissimos sapiente voluptatibus iusto. Voluptate, laborum libero odio nostrum consequuntur aliquid molestiae soluta optio.
+                                </p>
+        
+        
+                                    </article>
+                                    <article class="tab-2">
+                                        <section class="performance-facts">
+                                            <header class="performance-facts__header">
+                                                <h3 style="margin: 0px;">Enthält von Natur aus Fruchtzucker &amp; Kalorien</h3>
+                                            </header>
+                                    
+                                            <div class="vorteilspackungdiv">            	
+                                                    <span class="vorteilspackung">Nährwerte für 100g</span>
+                                                </div><table class="performance-facts__table">
+                                                
+                                                <tbody>
+                                                    
+                                                    <tr class="cart_item">
+                                                        <td class="total">
+                                                            Energie
+                                                        </td>
+                                                        <td>
+                                                            323 kcal/1352 kJ
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                    
+                                                    <tr class="cart_item">
+                                                        <td class="total">
+                                                            Fett
+                                                        </td>
+                                                        <td>
+                                                            2,4 g
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                    
+                                                    <tr class="cart_item">
+                                                        <td class="total">
+                                                            davon ges. Fettsäuren
+                                                        </td>
+                                                        <td>
+                                                            0,5 g
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                    
+                                                    <tr class="cart_item">
+                                                        <td class="total">
+                                                            Kohlenhydrate
+                                                        </td>
+                                                        <td>
+                                                            67,1 g
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                    
+                                                    <tr class="cart_item">
+                                                        <td class="total">
+                                                            davon Zucker*
+                                                        </td>
+                                                        <td>
+                                                            67,1 g
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                    
+                                                    <tr class="cart_item">
+                                                        <td class="total">
+                                                            Ballaststoffe
+                                                        </td>
+                                                        <td>
+                                                            9,2 g
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                    
+                                                    <tr class="cart_item">
+                                                        <td class="total">
+                                                            Eiweiß
+                                                        </td>
+                                                        <td>
+                                                            3,2 g
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                    
+                                                    <tr class="cart_item">
+                                                        <td class="total">
+                                                            Salz
+                                                        </td>
+                                                        <td>
+                                                            0,07 g
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                </tbody>
+                                            </table>
+                                    
+                                            
+                                    
+                                            <div style="border-top: 1px solid #e2e2e2;">
+                                                <div class="nahrwertinfo">
+                                                    
+                                                    <p class="small-info">- 100% Mango</p>
+                                                    
+                                                    
+                                                    <p class="small-info">- Herkunftsland: Ghana, Peru und Mexico</p>
+                                                    
+                                                    
+                                                    <p class="small-info">- Kühl (10-15 Grad), luftdicht verschlossen und trocken aufbewahren.</p>
+                                                    
+                                                    
+                                                    <p class="small-info">- Keine Allergene enthalten gemäß EU-Verordnung 1169/2011.</p>
+                                                    
+                                                    
+                                                    <p class="small-info">* Fruchtzucker</p>
+                                                    
+                                                    
+                                                    <p class="small-info">** Alle Angaben ohne Gewähr.</p>
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+                                    
+                                        </section></article>
+                                    <article class="tab-3">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore numquam, itaque laboriosam debitis temporibus incidunt, dicta dignissimos sapiente voluptatibus iusto. Voluptate, laborum libero odio nostrum consequuntur aliquid molestiae soluta optio.
+                                    </article>
+                                    <article class="tab-4">
+                                        <div class="accordion">
+                                            <h1>Frequently Asked Questions</h1>
+                                            <div class="accordion-item">
+                                                <input type="checkbox" id="accordion1">
+                                                <label for="accordion1" class="accordion-item-title"><span class="icon"></span>What is SEO, and why is it important for online businesses?</label>
+                                                <div class="accordion-item-desc">SEO, or Search Engine Optimization, is the practice of optimizing a website to improve its visibility on search engines like Google. It involves various techniques to enhance a site's ranking in search results. SEO is crucial for online businesses as it helps drive organic traffic, increases visibility, and ultimately leads to higher conversions.</div>
+                                            </div>
+                                        
+                                            <div class="accordion-item">
+                                                <input type="checkbox" id="accordion2">
+                                                <label for="accordion2" class="accordion-item-title"><span class="icon"></span>How long does it take to see results from SEO efforts?</label>
+                                                <div class="accordion-item-desc">The timeline for seeing results from SEO can vary based on several factors, such as the competitiveness of keywords, the current state of the website, and the effectiveness of the SEO strategy. Generally, it may take several weeks to months before noticeable improvements occur. However, long-term commitment to SEO is essential for sustained success.</div>
+                                            </div>
+                                        
+                                            <div class="accordion-item">
+                                                <input type="checkbox" id="accordion3">
+                                                <label for="accordion3" class="accordion-item-title"><span class="icon"></span>What are the key components of a successful SEO strategy?</label>
+                                                <div class="accordion-item-desc">A successful SEO strategy involves various components, including keyword research, on-page optimization, quality content creation, link building, technical SEO, and user experience optimization. These elements work together to improve a website's relevance and authority in the eyes of search engines.</div>
+                                            </div>
+                                        
+                                            <div class="accordion-item">
+                                                <input type="checkbox" id="accordion4">
+                                                <label for="accordion4" class="accordion-item-title"><span class="icon"></span>How does mobile optimization impact SEO?</label>
+                                                <div class="accordion-item-desc">Mobile optimization is crucial for SEO because search engines prioritize mobile-friendly websites. With the increasing use of smartphones, search engines like Google consider mobile responsiveness as a ranking factor. Websites that provide a seamless experience on mobile devices are more likely to rank higher in search results.</div>
+                                            </div>
+                                        
+                                            <div class="accordion-item">
+                                                <input type="checkbox" id="accordion5">
+                                                <label for="accordion5" class="accordion-item-title"><span class="icon"></span>What is the role of backlinks in SEO, and how can they be acquired?</label>
+                                                <div class="accordion-item-desc">Backlinks, or inbound links from other websites to yours, play a significant role in SEO. They are considered a vote of confidence and can improve a site's authority. Quality over quantity is crucial when acquiring backlinks. Strategies for obtaining backlinks include creating high-quality content, guest posting, reaching out to industry influencers, and participating in community activities. It's important to focus on natural and ethical link-building practices.</div>
+                                            </div>
+                                        
+                                        </div>
+                                    </article>
+                                    
+                                </div>
+                                <br class="clear:both" />
+                            </div><!-- //wrapper -->
 
                             <div class="you-like organic-content pb-50">
                                 <h3 class="fsz-20 pb-15 text-center"><span class="light-font">Related  </span> <strong>Products </strong>  </h3>
@@ -859,6 +681,33 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-1 pt-15">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="subscribe-wrap sec-space light-bg">
+                <img alt="" src="assets/img/extra/sec-img-5.png" class="right-bg-img" />
+                <!-- <img src="{{ asset('web-assets/images/product/chocolate.png') }}"  class="leftphp-bg-img" alt=""> -->
+                <h4 class="sub-title"> JOIN OUR NEWSLETTER </h4>
+                <h2 class="fsz-35"> <span class="light-font">subscribe </span> <strong> newsletter</strong> </h2>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2">
+        
+                        </div>
+                        <div class="col-md-8">
+                            <form class="newsletter-form row">
+                                <div class="form-group col-sm-8">
+                                    <input class="form-control" placeholder="enter your email address" required=""
+                                        type="text">
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <button class="theme-btn btn-block" type="submit"> subscribe <i
+                                            class="fa fa-long-arrow-right"></i> </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -867,86 +716,7 @@
             <!-- / CONTENT AREA -->
 
             <!-- FOOTER -->
-            <footer class="page-footer"> 
-                <section class="sec-space light-bg">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-3 col-sm-12 footer-widget">
-                                <div class="main-logo">
-                                    <a href="/"> <img alt="" src="assets/img/logo/main-logo.png" />  </a>
-                                    <span class="medium-font">ORGANIC STORE</span>
-                                </div>
-                                <span class="divider-2"></span>
-                                <div class="text-widget">
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
-                                    <ul>
-                                        <li> <i class="fa fa-map-marker"></i> <span> <strong>100 highland ave,</strong> california, united state </span> </li>
-                                        <li> <i class="fa fa-envelope-square"></i> <span><a href="/#">contact@naturix.com</a> </span> </li>
-                                        <li> <i class="fa fa-phone-square"></i> <span><a href="/#">www.naturix.com</a> </span> </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-4 footer-widget">
-                                <h2 class="title-1">  <span class="light-font">naturix  </span> <strong>information </strong> </h2>
-                                <span class="divider-2"></span>
-                                <ul class="list">
-                                    <li> <a href="/#"> about our shop </a> </li>
-                                    <li> <a href="/#"> top sellers </a> </li>
-                                    <li> <a href="/#"> our blog </a> </li>
-                                    <li> <a href="/#"> new products </a> </li>
-                                    <li> <a href="/#"> secure shopping </a> </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-3 col-sm-4 footer-widget">
-                                <h2 class="title-1">  <span class="light-font">my  </span> <strong>account </strong> </h2>
-                                <span class="divider-2"></span>
-                                <ul class="list">
-                                    <li> <a href="/my-account"> my account </a> </li>
-                                    <li><a href="/account-information"> Account Information </a></li>
-                                    <li><a href="/address-book"> Address Books</a></li>
-                                    <li><a href="/order-history"> Order History</a></li>
-                                    <li><a href="/review-rating"> Reviews and Ratings</a></li>
-                                    <li><a href="/return"> Returns Requests</a></li>
-                                    <li><a href="/newsletter"> Newsletter</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-3 col-sm-4 footer-widget">
-                                <h2 class="title-1">  <span class="light-font">photo  </span> <strong>instagram </strong> </h2>
-                                <span class="divider-2"></span>
-                                <ul class="instagram-widget">
-                                    <li> <a href="/#"> <img src="assets/img/extra/80x80-1.jpg" alt="" /> </a> </li>
-                                    <li> <a href="/#"> <img src="assets/img/extra/80x80-2.jpg" alt="" /> </a> </li>
-                                    <li> <a href="/#"> <img src="assets/img/extra/80x80-3.jpg" alt="" /> </a> </li>
-                                    <li> <a href="/#"> <img src="assets/img/extra/80x80-4.jpg" alt="" /> </a> </li>
-                                    <li> <a href="/#"> <img src="assets/img/extra/80x80-5.jpg" alt="" /> </a> </li>
-                                    <li> <a href="/#"> <img src="assets/img/extra/80x80-6.jpg" alt="" /> </a> </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="footer-bottom">
-                    <div class="pattern"> 
-                        <img alt="" src="assets/img/icons/white-pattern.png">
-                    </div>
-                    <div id="to-top" class="to-top"> <i class="fa fa-arrow-circle-o-up"></i> </div>
-                    <div class="container ptb-50">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-5">
-                                <p>©2016 <a href="/#"> <strong> naturix.com</strong> </a>, made with <i class="fa fa-heart red-clr"></i> by jThemes Studio, all right reserved</p>
-                            </div>
-                            <div class="col-md-6 col-sm-7">
-                                <ul class="primary-navbar footer-menu">
-                                    <li> <a href="/#">contact us </a> </li>
-                                    <li> <a href="/#">term of use  </a> </li>
-                                    <li> <a href="/#">site map  </a> </li>
-                                    <li> <a href="/#">privacy policy</a> </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </footer>
+          
             <!-- /FOOTER -->
 
 <div id="to-top-mb" class="to-top mb"> <i class="fa fa-arrow-circle-o-up"></i> </div>

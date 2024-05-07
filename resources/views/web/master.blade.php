@@ -480,10 +480,10 @@
                 </div>
                 <div style="   padding-top: 10px;   font-size: 20px; text-align: center;" class="col-lg-1 ">
                     @if (Auth::user())
-                        <i class="fa fa-list" aria-hidden="true"></i><span style=" padding-left: 33px; "><a
+                        <a
                             href="/wishlist-product"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                     @else
-                        <i class="fa fa-list" aria-hidden="true"></i><span style=" padding-left: 33px; "><a
+                        <a
                             href="/wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                     @endif
                 </div>

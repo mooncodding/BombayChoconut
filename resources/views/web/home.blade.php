@@ -161,7 +161,7 @@
                                 Nuts</strong> </h3>
                         <p>Elevate your snacking game with our handpicked selection of the finest treats, straight from the heart of Bombay.
                         </p>
-                        <a href="/#" class="sm-bnt-wht">Read More</a>
+                       
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 text-center">
@@ -171,7 +171,7 @@
                         </h3>
                         <p>Taste the difference with our premium selection of naturally grown delights, crafted with care for your health and satisfaction.
                         </p>
-                        <a href="/#" class="sm-bnt-wht">Read More</a>
+                       
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 text-center">
@@ -181,7 +181,7 @@
                         </h3>
                         <p>Immerse yourself in the epitome of luxury with our premium selection. Each product is meticulously sourced from the finest sources, ensuring unrivaled quality and flavor.
                         </p>
-                        <a href="/#" class="sm-bnt-wht">Read More</a>
+                       
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 text-center">
@@ -189,7 +189,7 @@
                         <img src="{{ asset('web-assets/images/new/4.png') }}" alt="">
                         <h3 class="title-1 ptb-15"> <span class="light-font">100% </span> <strong>natural</strong> </h3>
                         <p>Experience the purity of nature with our 100% natural products. Sourced from the finest ingredients, our offerings are free from artificial additives and preservatives, allowing you to savor the true essence of wholesome goodness in every bite. </p>
-                        <a href="/#" class="sm-bnt-wht">Read More</a>
+                       
                     </div>
                 </div>
             </div>
@@ -557,7 +557,7 @@
     <!-- Testimonials Ends -->
 
     <!-- latest news Starts-->
-    <section class="sec-space">
+    {{-- <section class="sec-space">
         <div class="container">
             <div class="title-wrap">
                 <h4 class="sub-title"> BOMBAY CHOCO N NUTS BLOG </h4>
@@ -596,7 +596,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- latest news Ends -->
 @endsection
 

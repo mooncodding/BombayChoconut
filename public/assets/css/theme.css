@@ -1553,12 +1553,13 @@
      transform: translateX(0px);
      -webkit-transform: translateX(0px);
  }
- 
+ img.shape {
+    display: none;
+}
  .product-media {
      background-color: #243f85;
-     height: 270px;
+    margin-bottom: 15px !important;
      position: relative;
-     border-radius: 15px;
  }
  
  .product-media > .prod-img {
@@ -2146,10 +2147,11 @@ i.fa.fa-angle-down.arrow-d {
      color: indianred;
  }
  section.category-all .product-media.category-media img.prod-img {
-     max-width: 75%;
+    width: 100% !important;
+    height: 100% !important;
      object-fit: cover;
      aspect-ratio: 3/3;
-     padding-bottom: 60px;
+     padding-bottom: 10px;
      border-radius: 10px;
  }
  section.category-all .product-caption {

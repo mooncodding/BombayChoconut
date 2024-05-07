@@ -110,10 +110,10 @@
                                             <span>{{ $category->name }}</span>
                                            
                                         </label>
-                                        <i class="fa fa-angle-down arrow-category " aria-hidden="true"></i>
+                                        {{-- <i class="fa fa-angle-down arrow-category " aria-hidden="true"></i> --}}
                                         
                                     </li>
-                                    <li class="form-group content">
+                                    {{-- <li class="form-group content">
                                         
                                         <label class="checkbox-inline ">
                                             <input value="{{ $category->id }}" type="checkbox" class="category-checkbox ">
@@ -122,7 +122,7 @@
                                         </label>
                                         
                                         
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             @endforeach
                         </ul>

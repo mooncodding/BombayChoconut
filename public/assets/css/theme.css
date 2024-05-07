@@ -1546,7 +1546,12 @@
      transition: all 0.4s ease-in-out 0s;
      -webkit-transition: all 0.4s ease-in-out 0s;
  }
- 
+ .product-media.category-media {
+    background-color: unset !important;
+}
+img.prod-img.drift-demo-trigger {
+    height: 200px !important;
+}
  .product-box:hover:after {
      opacity: 1;
      visibility: visible;
@@ -2116,14 +2121,14 @@
  }
  a.menu-toggle {
     color: white !important;
-    font-size: 19px;
+    font-size: 25px;
     font-weight: 400;
 }
 i.fa.fa-th-list.arrow-t {
     padding-right: 15px;
 }
 i.fa.fa-angle-down.arrow-d {
-    padding-left: 82px;
+    padding-left: 50px;
     padding-right: 10px;
     font-size: 25px;
 }
@@ -2136,14 +2141,14 @@ i.fa.fa-angle-down.arrow-d {
      padding: 13px;
  }
  .cart-megamenu div#openCartButton a#openCartButton img {
-     width: 27px;
-     margin-left: -7px;
+     width: 72px;
+     margin-left: -26px;
  }
  .cart-title {
      width: 60%!important;
  }
  i.fa.fa-heart-o {
-     font-size: 20px;
+     font-size: 40px;
      color: indianred;
  }
  section.category-all .product-media.category-media img.prod-img {
@@ -3473,10 +3478,25 @@ i.fa.fa-angle-down.arrow-d {
      }
      
  }
+ .product-media.category-media {
+    background-color: unset!important;
+}
+.tab-content.shop-content.search-prod .product-media img.prod-img {
+
+    width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  aspect-ratio: 3/3;
+  padding-bottom: 10px;
+  border-radius: 10px;
+}
  .product-media.category-media .prod-img {
-    height: 149px;
-    aspect-ratio: 3/2;
-    object-fit: contain;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    aspect-ratio: 3/3;
+    padding-bottom: 10px;
+    border-radius: 10px;
 }
  .product-title{
     white-space: nowrap;
@@ -3484,7 +3504,7 @@ i.fa.fa-angle-down.arrow-d {
     overflow: hidden;
  }
  .tab-content.shop-content.search-prod .product-media {
-     height: 330px !important;
+     height: 200px !important;
  }
  .category-prod h3.product-title {
      white-space: nowrap;

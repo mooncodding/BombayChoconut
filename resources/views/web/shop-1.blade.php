@@ -348,7 +348,7 @@
                     let productCard = `
                     <div class="col-lg-${columns} col-md-${columns + 1} col-sm-${columns + 3}"> 
                                     <div class="product-box"> 
-                                        <div class="product-media" style="background-color: ${product.product_category.color_code} !important;                            <div class="product-media" style="background-color: ${product.product_category.color_code} !important; background-image: url({{ asset('web-assets/images/banner/text.png') }})"> "> 
+                                        <div class="product-media" style="background-color: ${product.product_category.color_code} !important; background-image: url({{ asset('web-assets/images/banner/text.png') }})"> 
                                             <a href="${linkElement}">
                                                     <img class="prod-img drift-demo-trigger " data-zoom="{{ asset('images/product-images/${product.photo}') }}" src="{{ asset('images/product-images/${product.photo}') }}" alt=""/>     
                                             </a>  

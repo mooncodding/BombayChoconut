@@ -23,7 +23,7 @@ class HomeController extends Controller
         SEOMeta::setCanonical($currentUrl);
 
         $parentCategories = ProductCategory::parentCategories()->has('categoryProducts')->get();
-        $products = Product::with(['productVariants','productCategory'])->get();
+        $products = Product::where('is_disabled',0)->where('is_disabled',0)->with(['productVariants','productCategory'])->get();
         return view('web.home')->with(['parentCategories'=>$parentCategories,'products'=>$products]);
     }
 
@@ -32,7 +32,7 @@ class HomeController extends Controller
     {
         if ($id =='all') {
             // Implement your logic to fetch products based on the selected id
-            $products = Product::with(['productVariants','productCategory'])->get();
+            $products = Product::where('is_disabled',0)->with(['productVariants','productCategory'])->get();
         }else{
             $data = ProductCategory::where('parent_id',$id)->get();
             if (count($data) > 0) {
@@ -41,7 +41,7 @@ class HomeController extends Controller
                 $categoryId = ProductCategory::where('id',$id)->pluck('id');
             }
             // Implement your logic to fetch products based on the selected id
-            $products = Product::whereIn('product_category_id', $categoryId)->with(['productVariants','productCategory'])->get();
+            $products = Product::where('is_disabled',0)->whereIn('product_category_id', $categoryId)->with(['productVariants','productCategory'])->get();
         }
     
         return response()->json(['products' => $products]);
@@ -58,9 +58,9 @@ class HomeController extends Controller
             }else{
                 $categoryId = ProductCategory::where('id',$request->category_id)->pluck('id');
             }
-            $products = Product::where('title','LIKE', '%' . $request->name . '%')->whereIn('product_category_id',$categoryId)->with(['productVariants','productCategory'])->get();
+            $products = Product::where('is_disabled',0)->where('title','LIKE', '%' . $request->name . '%')->whereIn('product_category_id',$categoryId)->with(['productVariants','productCategory'])->get();
         }else{
-            $products = Product::where('title','LIKE', '%' . $request->name . '%')->with(['productVariants','productCategory'])->get();
+            $products = Product::where('is_disabled',0)->where('title','LIKE', '%' . $request->name . '%')->with(['productVariants','productCategory'])->get();
         }
         return view('web.searchByProduct')->with(['products'=>$products, 'searchValue'=>$request->name]);        
     }

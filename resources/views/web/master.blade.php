@@ -1020,11 +1020,10 @@
                             <h2 class="title-1"> <span class="light-font">Services</span> <strong> </strong> </h2>
 
                             <ul class="list">
-                                <li> <a href="/about-us"> about our shop </a> </li>
-                                <li> <a href="/specialoffers"> top sellers </a> </li>
-                                <li> <a href="/#"> our blog </a> </li>
-                                <li> <a href="/shop"> new products </a> </li>
-                                <li> <a href="/wishlist"> secure shopping </a> </li>
+                                <li> <a href="/about-us"> About Our Shop </a> </li>
+                                <li> <a href="/specialoffers"> Top Sellers </a> </li>
+                                <li> <a href="/shop"> New Products </a> </li>
+                                <li> <a href="/wishlist"> Secure Shopping </a> </li>
                             </ul>
                         </div>
                         <!-- <div class="col-md-2 col-sm-4 footer-widget">

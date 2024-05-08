@@ -28,7 +28,7 @@
                                     @foreach ($products as $product)
                                         <div class="col-lg-3 col-md-4 col-sm-6">
                                             <div class="product-box">
-                                                <div class="product-media" style="background-color: ${product.product_category.color_code} !important; background-image: url({{ asset('web-assets/images/banner/text.png') }})"> 
+                                                <div class="product-media" style="background-color: {{$product->productCategory->color_code}} !important; background-image: url({{ asset('web-assets/images/banner/text.png') }})"> 
                                                     <a href="{{ route('productDetails', ['category' => $product->productCategory->slug,'product' => $product->slug]) }}">
                                                         <img class="prod-img" data-zoom="{{ asset('images/product-images/'.$product->photo) }}" src="{{ asset('images/product-images/'.$product->photo) }}" alt=""/> 
                                                     </a>     

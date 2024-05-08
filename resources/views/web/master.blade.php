@@ -584,12 +584,12 @@
                     <div class="mega-submenu">
 
                         <span class="nav-trigger">
-                            <a class="menu-toggle" href="/#"><i class="fa fa-th-list arrow-t" aria-hidden="true"></i>
+                            <a class="menu-toggle" href="#"><i class="fa fa-th-list arrow-t" aria-hidden="true"></i>
                                 Browse Category<i class="fa fa-angle-down arrow-d" aria-hidden="true"></i>
                             </a>
                         </span>
                         <div class="mega-dropdown-menu">
-                            <a class="menu-toggle fa fa-close" href="/#"> </a>
+                            <a class="menu-toggle fa fa-close" href="#"> </a>
                             {{-- <div class="slider-mega-menu">
                                 @php
                                     $productCategory = App\Models\ProductCategory::with('children')->get();
@@ -619,29 +619,14 @@
                                     </div>
                                 @endforeach
                             </div> --}}
+                            @php
+                                $productCategory = App\Models\ProductCategory::parentCategories()->get();
+                            @endphp
                             <section id="rauchbier" class="tab-panel catee">
                                 <ul>
-                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/2.png') }}" alt="">Chocolates</a></li>
-                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/1.png') }}" alt="">Dates</a></li>
-                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/3.png') }}" alt="">Milk</a></li>
-                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/4.png') }}" alt="">Gift Pack</a></li>
-                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/1.png') }}" alt="">Bundles</a></li>
-                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/2.png') }}" alt="">Basket</a></li>
-                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/3.png') }}" alt="">Almond</a></li>
-                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/4.png') }}" alt="">Jelly</a></li>
-                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/1.png') }}" alt="">Juice</a></li>
-                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/2.png') }}" alt="">Fresh</a></li>
-                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/3.png') }}" alt="">Gift Bundle</a></li>
-                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/4.png') }}" alt="">Coconuts</a></li>
-                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/1.png') }}" alt="">Chilies</a></li>
-                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/2.png') }}" alt="">Custard</a></li>
-                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/3.png') }}" alt="">Toffees</a></li>
-                                    <li><a href="/category"><img src="{{ asset('web-assets/images/new/4.png') }}" alt="">Health and Personal Care</a></li>
-
-
-
-
-
+                                    @foreach ($productCategory as $category)
+                                    <li><a href="{{ route('getCategoryByProduct', $category->slug) }}"><img src="{{ asset('images/product-categories/' . $category->image) }}" alt="">{{ $category->name }}</a></li>
+                                    @endforeach
                                 </ul>
                             </section>
                         </div>

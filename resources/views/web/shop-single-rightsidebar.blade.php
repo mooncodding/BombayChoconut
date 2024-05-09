@@ -74,7 +74,7 @@
                                     </ul>
                                     <div class="divider-full-1"></div>
                                     <div class="add-cart pt-15">
-                                        <a href="/#" class="theme-btn js-add-product  add-to-cart-btn" data-product-id="{{$data->id}}"> <strong> ADD TO CART </strong> </a>
+                                        <a href="javascript:void(0);" class="theme-btn js-add-product  add-to-cart-btn" data-product-id="{{$data->id}}"> <strong> ADD TO CART </strong> </a>
                                     </div>
                                 </div>
                             </div>
@@ -165,7 +165,8 @@
                 },
                 dataType: 'json',
                 success: function(response) {
-                    location.reload();
+                    // Redirect to another page
+                    window.location.href = "{{ route('checkout') }}";
                     openCart();
                 },
                 error: function(error) {

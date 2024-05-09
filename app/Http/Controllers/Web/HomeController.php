@@ -23,26 +23,39 @@ class HomeController extends Controller
         SEOMeta::setCanonical($currentUrl);
 
         $parentCategories = ProductCategory::parentCategories()->has('categoryProducts')->get();
-        $products = Product::where('is_disabled',0)->where('is_disabled',0)->with(['productVariants','productCategory'])->get();
+        $products = Product::where('is_disabled',0)->with(['productVariants','productCategory'])->get();
         return view('web.home')->with(['parentCategories'=>$parentCategories,'products'=>$products]);
     }
 
 
     public function filterByCategory($id)
     {
-        if ($id =='all') {
-            // Implement your logic to fetch products based on the selected id
-            $products = Product::where('is_disabled',0)->with(['productVariants','productCategory'])->get();
-        }else{
-            $data = ProductCategory::where('parent_id',$id)->get();
-            if (count($data) > 0) {
-                $categoryId = ProductCategory::where('parent_id',$id)->pluck('id');
-            }else{
-                $categoryId = ProductCategory::where('id',$id)->pluck('id');
-            }
-            // Implement your logic to fetch products based on the selected id
-            $products = Product::where('is_disabled',0)->whereIn('product_category_id', $categoryId)->with(['productVariants','productCategory'])->get();
-        }
+        // if ($id =='all') {
+        //     // Implement your logic to fetch products based on the selected id
+        //     $products = Product::where('is_disabled',0)->with(['productVariants','productCategory'])->get();
+        // }else{
+        //     $data = ProductCategory::where('parent_id',$id)->get();
+        //     if (count($data) > 0) {
+        //         $categoryId = ProductCategory::where('parent_id',$id)->pluck('id');
+        //     }else{
+        //         $categoryId = ProductCategory::where('id',$id)->pluck('id');
+        //     }
+        //     // Implement your logic to fetch products based on the selected id
+        //     $products = Product::where('is_disabled',0)->whereIn('product_category_id', $categoryId)->with(['productVariants','productCategory'])->get();
+        // }
+        if ($id !="all") {
+            // Fetch the category and its children if $id is a parent category
+             $categories = ProductCategory::where('id', $id)
+             ->orWhere('parent_id', $id)
+             ->pluck('id')->toArray();
+             // Fetch products based on the obtained category IDs
+             $products = Product::where('is_disabled', 0)
+             ->whereIn('product_category_id', $categories)
+             ->with(['productVariants', 'productCategory'])
+             ->get();
+         }else{
+            $products = Product::where('is_disabled',0)->whereIn('product_category_id', $id)->with(['productVariants','productCategory'])->get();
+         }
     
         return response()->json(['products' => $products]);
     }
@@ -52,13 +65,16 @@ class HomeController extends Controller
     {
 
         if ($request->category_id !="all") {
-            $data = ProductCategory::where('parent_id',$request->category_id)->get();
-            if (count($data) > 0) {
-                $categoryId = ProductCategory::where('parent_id',$request->category_id)->pluck('id');
-            }else{
-                $categoryId = ProductCategory::where('id',$request->category_id)->pluck('id');
-            }
-            $products = Product::where('is_disabled',0)->where('title','LIKE', '%' . $request->name . '%')->whereIn('product_category_id',$categoryId)->with(['productVariants','productCategory'])->get();
+           // Fetch the category and its children if $request->category_id is a parent category
+            $categories = ProductCategory::where('id', $request->category_id)
+            ->orWhere('parent_id', $request->category_id)
+            ->pluck('id')->toArray();
+            // Fetch products based on the obtained category IDs
+            $products = Product::where('is_disabled', 0)
+            ->where('title', 'LIKE', '%' . $request->name . '%')
+            ->whereIn('product_category_id', $categories)
+            ->with(['productVariants', 'productCategory'])
+            ->get();
         }else{
             $products = Product::where('is_disabled',0)->where('title','LIKE', '%' . $request->name . '%')->with(['productVariants','productCategory'])->get();
         }

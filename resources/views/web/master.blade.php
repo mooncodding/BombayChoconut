@@ -1047,7 +1047,7 @@
 
                             <ul>
                                 <li> <i class="fa fa-phone"></i> <span>Phone Number<br><a
-                                            href="/#">03121312312</a> </span> </li>
+                                            href="/#">0335 2335552</a> </span> </li>
                                 <li> <i class="fa fa-map-marker"></i> Showroom # 2, 34 F, Muhammad Ali Cooperative Housing Society, Karachi </li>
                                 <li> <i class="fa fa-envelope"></i> <span>Email<br><a
                                             href="/#">contact@bombaychoconuts.com</a> </span> </li>

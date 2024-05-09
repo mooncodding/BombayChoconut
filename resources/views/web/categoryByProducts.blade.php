@@ -64,47 +64,48 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="tab-pane fade active in productShopCard grid-inline" role="tabpanel">
-                                @if (count($category->categoryProducts) > 0)
-                                    @foreach ($category->categoryProducts as $product)
-                                        <div class="col-lg-2 col-md-4 col-sm-6">
-                                            <div class="product-box">
-                                                <div class="product-media" style="background-color: ${product.product_category.color_code} !important; background-image: url({{ asset('web-assets/images/banner/text.png') }})"> 
-                                                    <a href="{{  route('productDetails', ['category' => $product->productCategory->slug,'product' => $product->slug]) }}">
-                                                    <img class="prod-img" data-zoom="{{ asset('images/product-images/'.$product->photo) }}" src="{{ asset('images/product-images/'.$product->photo) }}" alt=""/> 
-                                                    </a>    
-                                                    <img class="shape" alt=""
-                                                        src="assets/img/icons/shap-small.png" />
-                                                    <div class="prod-icons">
-                                                        @if(Auth::user())
-                                                            <form action="{{ route('wishlist.store') }}" method="POST">
-                                                                @csrf
-                                                                <input type="hidden" name="product_id" value="{{  $product->id }}" />
-                                                                <button type="submit" class="fa fa-heart"></button>
-                                                            </form>
-                                                        @else
-                                                            <a href="/wishlist" class="fa fa-heart"></a>
-                                                        @endif
-                                                        <a href="javascript: void(0)" data-target="product-preview" data-toggle="modal"
-                                                            class="fa fa-shopping-basket view-details-btn"
-                                                            data-product-id="{{ $product->id }}"></a>
-                                                    </div>
-                                                </div>
+                                @if ($allProducts->isNotEmpty())
+                                    @foreach ($allProducts as $cat)
+                                        @if ($cat->categoryProducts->isNotEmpty())
+                                            @foreach ($cat->categoryProducts as $product)
+                                                <div class="col-lg-2 col-md-4 col-sm-6">
+                                                    <div class="product-box">
+                                                        <div class="product-media" style="background-color: {{ $product->productCategory->color_code }} !important; background-image: url({{ asset('web-assets/images/banner/text.png') }})"> 
+                                                            <a href="{{  route('productDetails', ['category' => $product->productCategory->slug,'product' => $product->slug]) }}">
+                                                            <img class="prod-img" data-zoom="{{ asset('images/product-images/'.$product->photo) }}" src="{{ asset('images/product-images/'.$product->photo) }}" alt=""/> 
+                                                            </a>    
+                                                            <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
+                                                            <div class="prod-icons">
+                                                                @if(Auth::user())
+                                                                    <form action="{{ route('wishlist.store') }}" method="POST">
+                                                                        @csrf
+                                                                        <input type="hidden" name="product_id" value="{{  $product->id }}" />
+                                                                        <button type="submit" class="fa fa-heart"></button>
+                                                                    </form>
+                                                                @else
+                                                                    <a href="/wishlist" class="fa fa-heart"></a>
+                                                                @endif
+                                                                <a href="javascript: void(0)" data-target="product-preview" data-toggle="modal" class="fa fa-shopping-basket view-details-btn" data-product-id="{{ $product->id }}"></a>
+                                                            </div>
+                                                        </div>
 
-                                                <div class="product-caption">
-                                                    <h3 class="product-title">
-                                                        <a href="{{  route('productDetails', ['category' => $product->productCategory->slug,'product' => $product->slug]) }}"> {{ $product->title }}</a>
-                                                    </h3>
-                                                    <div class="price">
-                                                        <strong class="clr-txt">Rs
-                                                            {{ $product->productVariants[0]->sale_price }}</strong>
+                                                        <div class="product-caption">
+                                                            <h3 class="product-title">
+                                                                <a href="{{  route('productDetails', ['category' => $product->productCategory->slug,'product' => $product->slug]) }}">{{ $product->title }}</a>
+                                                            </h3>
+                                                            <div class="price">
+                                                                <strong class="clr-txt">Rs {{ $product->productVariants[0]->sale_price }}</strong>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
+                                            @endforeach
+                                        @else
+                                        @endif
                                     @endforeach
                                 @else
-                                    <h2 class="text-danger">No Result Found</h2>
                                 @endif
+
                             </div>
                         </div>
                     </div>

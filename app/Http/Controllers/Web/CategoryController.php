@@ -99,14 +99,20 @@ class CategoryController extends Controller
     // Get Category By Products
     public function getCategoryByProduct($slug)
     {
-        // $data = ProductCategory::where('parent_id',$category_id)->get();
-        // if (count($data) > 0) {
-        //     $categoryId = ProductCategory::where('parent_id',$category_id)->pluck('id');
-        // }else{
-        //     dd(3);
-        //     $categoryId = ProductCategory::where('id',$category_id)->pluck('id');
-        // }
-        $category = ProductCategory::where('slug',$slug)->with(['categoryProducts'])->first();
+        $category = ProductCategory::where('slug', $slug)->first();
+        $data = ProductCategory::where('slug', $slug)->whereNull('parent_id')->get();
+        $categoryId = [];
+        
+        if ($data->isNotEmpty()) {
+            $categoryId[] = $data->first()->id;
+            $childIds = ProductCategory::where('parent_id', $data->first()->id)->pluck('id')->toArray();
+            $categoryId = array_merge($categoryId, $childIds);
+        } else {
+            $categoryId = ProductCategory::where('slug', $slug)->pluck('id')->toArray();
+        }
+        
+        $allProducts = ProductCategory::whereIn('id', $categoryId)->with(['categoryProducts'])->get();
+        
             
 
         if ($category) {
@@ -115,7 +121,7 @@ class CategoryController extends Controller
             $currentUrl = url()->current();
             SEOMeta::setCanonical($currentUrl);
             
-            return view('web.categoryByProducts')->with('category', $category);
+            return view('web.categoryByProducts')->with('category', $category)->with('allProducts',$allProducts);
         }
         
     }

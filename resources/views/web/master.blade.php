@@ -1065,8 +1065,9 @@
                 <div class="container ptb-10">
                     <div class="row">
                         <div class="col-md-6 col-sm-5">
-                            <p>© {{date('Y')}} <a href="/#"> <strong> bombaychoconnuts.com</strong> </a>,copyright all right reserved</p>
+                            <p>© {{date('Y')}} <a href="/#"> <strong> bombaychoconnuts.com</strong> </a>,copyright all rights reserved</p>
                         </div>
+                       
                         <div class="col-md-6 col-sm-7">
                             <ul class="primary-navbar footer-menu">
                                 <li> <a href="/contact">contact us </a> </li>

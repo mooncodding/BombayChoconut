@@ -62,7 +62,7 @@
                         <div class="col-md-4 col-sm-6 text-center">
                             <div class="feature-wrap">
                                 <img src="{{asset('web-assets/images/product/Premium.png')}}" alt=""/>
-                                <h3 class="title-1 ptb-15" style="color: black"> <span >premium </span>  quality </h3>
+                                <h3 class="title-1 ptb-15" style="color: black"> <span >premium </span>  Quality </h3>
                                
                                
                             </div>

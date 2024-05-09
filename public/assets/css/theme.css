@@ -2083,6 +2083,7 @@ img.prod-img.drift-demo-trigger {
  }
  section.category-all h3.product-title .light-font {
      font-weight: 600;
+     text-transform: uppercase !important;
  }
  
  .about-wrap .icon span.light-font {
@@ -2221,7 +2222,7 @@ i.fa.fa-angle-down.arrow-d {
  }
  
  .category-views1 h3.product-title a {
-     font-size:25px !important;
+     font-size:18px !important;
      font-weight:800px !important;
      color: white;
      

@@ -95,7 +95,7 @@
     <section class="organic-all sec-space-bottom">
         <div class="container">
             <div class="organic-wrap">
-                <h2 class="section-title ptb-15"> <span class="light-font">Shop By </span> <strong>Categories </strong></h2>
+                <h2 class="section-title ptb-15"> <span class="light-font">Shop by </span> <strong>Categories </strong></h2>
                 <div class="tabs-box">
                     <ul class="theme-tabs" id="categories">
                         <div class="container-fluid">
@@ -239,8 +239,8 @@
             <div class="col-lg-5 col-sm-12">
                 <div class="organic-prod-info">
                     <h4 class="sub-title"> FRESH FROM THE STORE </h4>
-                    <h2 class="section-title ptb-15"> <span class="light-font">220+ </span> <strong>chocolates, dry
-                            fruites </strong> <span class="light-font"> & </span> <strong> lot more</strong> </h2>
+                    <h2 class="section-title ptb-15"> <span class="light-font">220+ </span> <strong>Chocolates, Dry Fruits 
+                            </strong> <span class="light-font"> & </span> <strong> A Lot More</strong> </h2>
                     <p class="fsz-16">Embark on a culinary adventure with our lavish assortment, featuring a stunning selection of over 220 chocolates, luscious dry fruits, and an abundance of gourmet treasures. From rich, velvety chocolates to succulent dried fruits, each item is meticulously curated to tantalize your taste buds and elevate your snacking experience to new heights of opulence and delight. Explore the myriad flavors and textures that await you, promising a journey of unparalleled indulgence and satisfaction.
                     </p>
                 </div>
@@ -302,7 +302,7 @@
                     <h4 class="sub-title"> Bombay Choc n Nuts 
                    </h4>
                     <h2 class="section-title"> <span class="light-font">   Enjoy Free  </span> <strong>  Delivery </strong> <span
-                            class="light-font">off</span> </h2>
+                            class="light-font"></span> </h2>
                 </div>
                 <div class="col-sm-2 text-center no-padding">
 

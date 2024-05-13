@@ -25,6 +25,9 @@ class Product extends Model
         'photo',
         'is_disabled',
         'description',
+        'stock',
+        'more_info',
+        'one_line_description',
         'created_by',
         'updated_by',
     ];

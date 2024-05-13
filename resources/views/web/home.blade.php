@@ -136,9 +136,6 @@
                     </div>
                 </div>
             </div>
-                <div class="text-center">
-                    <a href="/shop" class="theme-btn btn"> <strong> View All Products</strong> </a>
-                </div>
             </div>
 
         </div>

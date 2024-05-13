@@ -304,77 +304,6 @@
             /* scroll-snap-align: start; Align items to the start of the container when scrolling */
         }
     </style>
-    <script>
-        // function imageZoom(imgID, resultID) {
-        //     var img, lens, result, cx, cy;
-        //     img = document.getElementById(imgID);
-        //     result = document.getElementById(resultID);
-        //     /* Create lens: */
-        //     lens = document.createElement("DIV");
-        //     lens.setAttribute("class", "img-zoom-lens");
-        //     /* Insert lens: */
-        //     img.parentElement.insertBefore(lens, img);
-        //     /* Calculate the ratio between result DIV and lens: */
-        //     cx = result.offsetWidth / lens.offsetWidth;
-        //     cy = result.offsetHeight / lens.offsetHeight;
-        //     /* Set background properties for the result DIV */
-        //     result.style.backgroundImage = "url('" + img.src + "')";
-        //     result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
-        //     /* Execute a function when someone moves the cursor over the image, or the lens: */
-        //     lens.addEventListener("mousemove", moveLens);
-        //     img.addEventListener("mousemove", moveLens);
-        //     /* And also for touch screens: */
-        //     lens.addEventListener("touchmove", moveLens);
-        //     img.addEventListener("touchmove", moveLens);
-
-        //     function moveLens(e) {
-        //         var pos, x, y;
-        //         /* Prevent any other actions that may occur when moving over the image */
-        //         e.preventDefault();
-        //         /* Get the cursor's x and y positions: */
-        //         pos = getCursorPos(e);
-        //         /* Calculate the position of the lens: */
-        //         x = pos.x - (lens.offsetWidth / 2);
-        //         y = pos.y - (lens.offsetHeight / 2);
-        //         /* Prevent the lens from being positioned outside the image: */
-        //         if (x > img.width - lens.offsetWidth) {
-        //             x = img.width - lens.offsetWidth;
-        //         }
-        //         if (x < 0) {
-        //             x = 0;
-        //         }
-        //         if (y > img.height - lens.offsetHeight) {
-        //             y = img.height - lens.offsetHeight;
-        //         }
-        //         if (y < 0) {
-        //             y = 0;
-        //         }
-        //         /* Set the position of the lens: */
-        //         lens.style.left = x + "px";
-        //         lens.style.top = y + "px";
-        //         /* Display what the lens "sees": */
-        //         result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
-        //     }
-
-        //     function getCursorPos(e) {
-        //         var a, x = 0,
-        //             y = 0;
-        //         e = e || window.event;
-        //         /* Get the x and y positions of the image: */
-        //         a = img.getBoundingClientRect();
-        //         /* Calculate the cursor's x and y coordinates, relative to the image: */
-        //         x = e.pageX - a.left;
-        //         y = e.pageY - a.top;
-        //         /* Consider any page scrolling: */
-        //         x = x - window.pageXOffset;
-        //         y = y - window.pageYOffset;
-        //         return {
-        //             x: x,
-        //             y: y
-        //         };
-        //     }
-        // }
-    </script>
 
 </head>
 
@@ -658,8 +587,11 @@
         text-align: center !important;
     ">
             <div class="search-wrap">
-                <input class="form-control" placeholder="">
+            <form action="{{ route('searchByProduct') }}" method="GET">
+                <input type="hidden" name="category_id" value="all">
+                <input class="form-control" name="name" placeholder="Search" value="{{ isset($searchValue) ? $searchValue : old('name') }}">
                 <button class="btn" type="submit"> <i class="fa fa-search"></i> </button>
+            </form>
             </div>
         </section>
         <section class="mob-menu-header">
@@ -728,14 +660,14 @@
                                     <li><a href="/my-account"> my account </a></li> 
                                 </ul> --}}
                                             </li>
-                                            <li class="dropdown">
+                                            {{-- <li class="dropdown">
                                                 <a href="/#" class="dropdown-toggle" data-toggle="dropdown"
-                                                    role="button" aria-haspopup="true">Blog</a>
+                                                    role="button" aria-haspopup="true">Blog</a> --}}
                                                 {{-- <ul class="dropdown-menu">    
                                     <li><a href="/blog"> blog </a></li>
                                     <li><a href="/blog-single"> blog single </a></li>                  
                                 </ul> --}}
-                                            </li>
+                                            {{-- </li> --}}
                                             <li><a href="/contact">Contact Us</a></li>
 
                                             <li class="dropdown">
@@ -750,32 +682,12 @@
                                 </section>
                                 <section id="rauchbier" class="tab-panel">
                                     <ul>
-                                        <li><a href="/category">Chocolates</a></li>
-                                        <li><a href="/category"><img src="{{ asset('web-assets/images/new/2.png') }}" alt=""></a></li>
-                                        <li><a href="/category">Milk</a></li>
-                                        <li><a href="/category">Gift Pack</a></li>
-                                        <li><a href="/category">Bundles</a></li>
-                                        <li><a href="/category">Basket</a></li>
-                                        <li><a href="/category">Almond</a></li>
-                                        <li><a href="/category">Jelly</a></li>
-                                        <li><a href="/category">Juice</a></li>
-                                        <li><a href="/category">Fresh</a></li>
-                                        <li><a href="/category">Gift Bundle</a></li>
-                                        <li><a href="/category">Coconuts</a></li>
-                                        <li><a href="/category">Chilies</a></li>
-                                        <li><a href="/category">Custard</a></li>
-                                        <li><a href="/category">Toffees</a></li>
-                                        <li><a href="/category">Health and Personal Care</a></li>
-
-
-
-
-
+                                        @foreach ($productCategory as $category)
+                                        <li><a href="{{ route('getCategoryByProduct', $category->slug) }}">{{$category->name}}</a></li>
+                                        @endforeach
                                     </ul>
                                 </section>
-
                             </div>
-
                         </div>
 
 
@@ -1046,8 +958,10 @@
                             </a>
 
                             <ul>
-                                <li> <i class="fa fa-phone"></i> <span>Phone Number<br><a
-                                            href="/#">0335 2335552</a> </span> </li>
+                                <li> <i class="fa fa-whatsapp"></i> <span>Whatsapp Number<br><a
+                                    href="https://api.whatsapp.com/send?phone=03300266229" 
+                                    target="_blank" data-target="html"
+                                    >0330 0266229</a> </span> </li>
                                 <li> <i class="fa fa-map-marker"></i> Showroom # 2, 34 F, Muhammad Ali Cooperative Housing Society, Karachi </li>
                                 <li> <i class="fa fa-envelope"></i> <span>Email<br><a
                                             href="/#">contact@bombaychoconuts.com</a> </span> </li>
@@ -1100,16 +1014,16 @@
 
     @yield('scripts')
     <!-- JS Global -->
-    <script src="assets/js/plugin/jquery-2.2.4.min.js"></script>
-    <script src="assets/js/plugin/bootstrap.min.js"></script>
-    <script src="assets/js/plugin/bootstrap-select.min.js"></script>
-    <script src="assets/js/plugin/owl.carousel.min.js"></script>
-    <script src="assets/js/plugin/jquery.plugin.min.js"></script>
-    <script src="assets/js/plugin/jquery.countdown.js"></script>
-    <script src="assets/js/plugin/jquery.subscribe-better.min.js"></script>
+    <script src="{{asset('assets/js/plugin/jquery-2.2.4.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugin/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugin/bootstrap-select.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugin/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugin/jquery.plugin.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugin/jquery.countdown.js')}}"></script>
+    <script src="{{asset('assets/js/plugin/jquery.subscribe-better.min.js')}}"></script>
 
     <!-- Custom JS -->
-    <script src="assets/js/theme.js"></script>
+    <script src="{{asset('assets/js/theme.js')}}"></script>
     <script>
     // Function to save selected category to local storage
     function saveSelectedCategory() {

@@ -145,15 +145,15 @@ $(function ($) {
         autoplay: true,
         autoplayHoverPause: true,
         smartSpeed: 1000,
-        autoplayTimeout: 1000, 
+        autoplayTimeout: 3000, 
         nav: false,
         margin: 0,
         responsive: {
             0: {items: 1},
-            1500: {items: 6},
-            1200: {items: 5},
+            600: {items: 2},
             992: {items: 3},
-            600: {items: 2}
+            1200: {items: 5},
+            1500: {items: 6}
         }
     });
     $(".naturix-slider-1").owlCarousel({

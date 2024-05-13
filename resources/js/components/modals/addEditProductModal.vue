@@ -264,19 +264,38 @@
                 <label>Color Code</label>
                 <v-color-picker v-model="form.color_code"></v-color-picker>
               </div>
-              <!-- Disable Checkbox -->
-              <div class="form-group">
-                <label>{{ $t("message.IS_DISABLED") }}</label>
-                <input
-                  type="checkbox"
-                  true-value="1"
-                  false-value="0"
-                  v-model="form.is_disabled"
-                  name="is_disabled"
-                  class="form-control"
-                />
+              <div class="row">
+                <div class="col-md-6">
+                  <!-- Disable Checkbox -->
+                  <div class="form-group">
+                    <label>{{ $t("message.IS_DISABLED") }}</label>
+                    <input
+                      type="checkbox"
+                      true-value="1"
+                      false-value="0"
+                      v-model="form.is_disabled"
+                      name="is_disabled"
+                      class="form-control"
+                    />
+                  </div>
+                  <!-- End -->
+                </div>
+                <div class="col-md-6">
+                  <!-- Disable Checkbox -->
+                  <div class="form-group">
+                    <label>Stock</label>
+                    <input
+                      type="checkbox"
+                      true-value="1"
+                      false-value="0"
+                      v-model="form.stock"
+                      name="stock"
+                      class="form-control"
+                    />
+                  </div>
+                  <!-- End -->
+                </div>
               </div>
-              <!-- End -->
               <!-- Description -->
               <div class="form-group">
                   <label>{{ $t("message.DESCRIPTION") }}<span class="required-star"></span></label>
@@ -374,7 +393,7 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
                           <label>Meta Description</label>
                           <textarea
@@ -389,6 +408,44 @@
                             class="error-message"
                             v-if="form.errors.has('meta_description')"
                             v-html="form.errors.get('meta_description')"
+                          />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <label>More Information</label>
+                          <textarea
+                            v-model="form.more_info"
+                            v-bind:placeholder="'More Information'"
+                            type="text"
+                            name="more_info"
+                            class="form-control"
+                            :class="{ 'is-invalid': form.errors.has('more_info') }"
+                          ></textarea>
+                          <div
+                            class="error-message"
+                            v-if="form.errors.has('more_info')"
+                            v-html="form.errors.get('more_info')"
+                          />
+                        </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                          <label>One Line Description</label>
+                          <textarea
+                            v-model="form.one_line_description"
+                            v-bind:placeholder="'One Line Description'"
+                            type="text"
+                            name="one_line_description"
+                            class="form-control"
+                            :class="{ 'is-invalid': form.errors.has('one_line_description') }"
+                          ></textarea>
+                          <div
+                            class="error-message"
+                            v-if="form.errors.has('one_line_description')"
+                            v-html="form.errors.get('one_line_description')"
                           />
                         </div>
                     </div>
@@ -457,6 +514,7 @@ export default {
         image: [],
         image_copy: [],
         is_disabled: 0,
+        stock: 0,
         description:"",
         product_variants:[{id:"",bar_code:"",quantity:"",sale_price:"",weight:""}],
       }),

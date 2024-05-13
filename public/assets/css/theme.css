@@ -8189,3 +8189,8 @@ select.bs-select-hidden, select.selectpicker{
    .tabset {
      max-width: 300px;
    }
+
+.col-md-4.col-sm-4.footer-widget i.fa.fa-whatsapp {
+    color: #f8bc15;
+    font-size: 52px;
+}

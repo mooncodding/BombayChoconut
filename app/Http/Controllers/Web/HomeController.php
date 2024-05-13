@@ -95,7 +95,8 @@ class HomeController extends Controller
             foreach ($data[0]['locationWiseProductInventoryDetail'] as $key => $value) {
                 ProductVariant::where('bar_code',$value['ProductBarcode'])->update([
                     'quantity' => $value['LocationStock'],
-                    'sale_price' => $value['ProductSalePrice']
+                    'sale_price' => $value['ProductSalePrice'],
+                    'stock' => ($value['locationStock'] > 0) ? 1 : 0
                 ]);
             }
 

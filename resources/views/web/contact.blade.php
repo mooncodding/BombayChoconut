@@ -33,7 +33,8 @@
                                 <p>Showroom # 2, 34 F, Muhammad Ali Cooperative Housing Society, Karachi</p>
 
                                 <ul>
-                                    <li> <strong>Call:  </strong> <i><a href='tel: 0335 2335552'>0335 2335552</a></i> </li>
+                                    <li> <strong>Whatsapp:  </strong> <i><a href="https://api.whatsapp.com/send?phone=03300266229" 
+                                        target="_blank" data-target="html">0330 0266229</a></i> </li>
                                     <li> <strong>Email: </strong> <i> <a href='mailto: info@bombaychoconnuts.com'>info@bombaychoconnuts.com</a> </i> </li>
                                     {{-- <li> <strong>Skype: </strong> <i> <a href='#'> Montero.Property </a> </i> </li> --}}
                                     <li> <strong>Facebook: </strong> <i>  <a href='https://web.facebook.com/bombaychocnnuts/?_rdc=1&_rdr'> Explore Bombay choco n nuts Facebook </a> </i> </li>

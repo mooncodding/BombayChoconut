@@ -25,7 +25,9 @@ class ShopController extends Controller
     public function productDetails($categorySlug,$productSlug)
     {
         $category = ProductCategory::where('slug', $categorySlug)->firstOrFail();
-        $data = Product::where('is_disabled',0)->where('slug', $productSlug)->where('product_category_id', $category->id)->firstOrFail();
+        $data = Product::where('is_disabled',0)->where('slug', $productSlug)->where('product_category_id', $category->id)
+        ->with('productImages')
+        ->firstOrFail();
         
         SEOMeta::setTitle($data->meta_title);
         SEOMeta::setDescription($data->meta_description);

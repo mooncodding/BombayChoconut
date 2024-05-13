@@ -113,6 +113,9 @@ class ProductController extends Controller
                 'product_variants.*.weight'=>'required',    
                 'image'=>'nullable',
                 'is_disabled'=>'nullable',
+                'stock'=>'nullable',
+                'more_info'=>'nullable',
+                'one_line_description'=>'nullable',
             ]);
             // Featured Image Work
             if($request['photo']){
@@ -134,6 +137,9 @@ class ProductController extends Controller
             $product->photo = $name;
             $product->is_disabled = $request->is_disabled;
             $product->description = $request->description;
+            $product->stock = $request->stock;
+            $product->more_info = $request->more_info;
+            $product->one_line_description = $request->one_line_description;
             $product->created_by = Auth::user()->id;
             $product->created_at = Carbon::now();
             $product->save();
@@ -216,6 +222,9 @@ class ProductController extends Controller
                     'product_variants.*.weight'=>'required',    
                     'image'=>'nullable',
                     'is_disabled'=>'nullable',
+                    'stock'=>'nullable',
+                    'more_info'=>'nullable',
+                    'one_line_description'=>'nullable',
                 ]);
             // Update the featured image
             if($request['photo']!=$product->photo){
@@ -243,6 +252,9 @@ class ProductController extends Controller
                 "photo" => $name,
                 "is_disabled" => $request->is_disabled,
                 "description" => $request->description,
+                "stock" => $request->stock,
+                "more_info" => $request->more_info,
+                "one_line_description" => $request->one_line_description,
                 'updated_by' => Auth::user()->id,
                 'updated_at' => Carbon::now(),
             ]);

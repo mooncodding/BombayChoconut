@@ -53,6 +53,11 @@
                     <td v-else>{{$t('message.NO')}}</td>
                   </tr>
                   <tr>
+                    <th>Stock</th>
+                    <td v-if="productData.stock == 1">{{$t('message.YES')}}</td>
+                    <td v-else>{{$t('message.NO')}}</td>
+                  </tr>
+                  <tr>
                     <th>{{ $t("message.PRODUCT_CATEGORY") }}</th>
                     <td v-if="productData.product_category">
                       {{ productData.product_category.name }}
@@ -208,7 +213,14 @@
                   <th>Meta Description</th>
                   <td>{{ productData.meta_description }}</td>
                 </tr>
-                
+                <tr>
+                  <th>More Information</th>
+                  <td>{{ productData.more_info }}</td>
+                </tr>
+                <tr>
+                  <th>One Line Description</th>
+                  <td>{{ productData.one_line_description }}</td>
+                </tr>
                 <tr>
                   <th>Slug</th>
                   <td v-if="productData.product_category">

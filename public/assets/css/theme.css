@@ -2057,7 +2057,7 @@ img.prod-img.drift-demo-trigger {
  }
  .rel-div.feature-img img {
      object-fit: cover;
-     width: 100%;
+     /* width: 100%; */
      height: 600px;
      object-position: initial;
  }

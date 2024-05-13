@@ -2903,9 +2903,7 @@ i.fa.fa-angle-down.arrow-d {
          right: auto;
          left: 0;
      }
-     section.category-all .owl-item {
-         width: 210px !important;
-     }
+     
      ul#categories {text-align: -webkit-center !important;}
      .row.productShopCards {
          display: grid;

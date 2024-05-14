@@ -130,6 +130,13 @@
                     <td v-else>-</td>
                   </tr>
                   <tr>
+                    <th>{{ $t("message.EMAIL") }}</th>
+                    <td v-if="orderData.customer">
+                      {{ orderData.customer.email }}
+                    </td>
+                    <td v-else>-</td>
+                  </tr>
+                  <tr>
                     <th>{{ $t("message.PHONE") }}</th>
                     <td v-if="orderData.customer">
                       {{ orderData.customer.phone }}

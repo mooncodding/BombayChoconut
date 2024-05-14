@@ -45,7 +45,7 @@
                             </div>
                             <div class="form-group col-md-12 ">
                                 <label class="" for="instructions">Special Instructions</label>
-                                <textarea name="instructions" class="form-control " row="2" id="instructions" placeholder="Instructions"></textarea>
+                                <textarea name="notes" class="form-control " row="2" id="instructions" placeholder="Instructions"></textarea>
                             </div>
 
                         </div>

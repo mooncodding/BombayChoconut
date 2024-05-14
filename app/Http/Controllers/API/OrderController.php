@@ -73,6 +73,10 @@ class OrderController extends Controller
             $user->photo='profile.png';
             $user->assignRole(4);
             $user->save();
+        }else{
+            $user->name=$request->name;
+            $user->address=$request->address;
+            $user->save();
         }
         
         $order =  new Order();
@@ -83,7 +87,7 @@ class OrderController extends Controller
         $order->payment_method_id = $request->payment_method_id;
         $order->payment_status = "unpaid";
         $order->order_date = Carbon::now();
-        $order->notes = "testing";
+        $order->notes = $request->notes;
         $order->sub_total = \Cart::getTotal();
         $order->created_by = $user->id;
         $order->created_at = Carbon::now();
@@ -114,7 +118,7 @@ class OrderController extends Controller
                 Mail::send('email.orderPlaced', ['order' => $order, 'order_details' => $order->orderDetails,'customer' => $order->customer->name,'user'=>$order->customer,'order_status_id'=>1,'order_status',$order->orderStatus,'role'=>'Admin'],  function ($message) use ($order,$data) {
                     $message->to($data,'')
                     ->subject('You have received an Order No.'. $order->reference);
-                    $message->from('bombaychocnnuts1976@gmail.com', 'Bombay Choconuts');
+                    $message->from('bombaychocnnuts1976@gmail.com', 'Bombay Choc n nuts');
                 }); 
             }
 
@@ -124,7 +128,7 @@ class OrderController extends Controller
                     Mail::send('email.orderPlaced', ['order' => $order, 'order_details' => $order->orderDetails,'customer' => $order->customer->name,'user'=>$order->customer,'order_status_id'=>1,'order_status',$order->orderStatus,'role'=>'user'],  function ($message) use ($order) {
                         $message->to($order->customer->email,'')
                         ->subject('Order No. ' . $order->reference.' confirmation');
-                        $message->from('bombaychocnnuts1976@gmail.com', 'Bombay Choconuts');
+                        $message->from('bombaychocnnuts1976@gmail.com', 'Bombay Choc n nuts');
                     });
                 }
             }
@@ -207,7 +211,7 @@ class OrderController extends Controller
                 Mail::send('email.orderPlaced', ['order' => $order, 'order_details' => $order->orderDetails,'customer' => $order->customer->name,'user'=> $user,'order_status_id'=>$request->order_status_id,'order_status'=>$currentStatus,'role'=>'user'],  function ($message) use ($order,$user,$currentStatus) {
                     $message->to($user->email,'')
                     ->subject('Update regarding Order No. ' . $order->reference.' '. $currentStatus->name);
-                    $message->from('bombaychocnnuts1976@gmail.com', 'Bombay Choconuts');
+                    $message->from('bombaychocnnuts1976@gmail.com', 'Bombay Choc n nuts');
                 });
             }
         }

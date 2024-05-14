@@ -96,7 +96,7 @@ class HomeController extends Controller
                 ProductVariant::where('bar_code',$value['ProductBarcode'])->update([
                     'quantity' => $value['LocationStock'],
                     'sale_price' => $value['ProductSalePrice'],
-                    'stock' => ($value['locationStock'] > 0) ? 1 : 0
+                    // 'stock' => ($value['LocationStock'] > 0) ? 1 : 0
                 ]);
             }
 

@@ -3516,7 +3516,7 @@ i.fa.fa-angle-down.arrow-d {
     border-radius: 10px;
 }
  .product-title{
-    white-space: nowrap;
+   
     text-overflow: ellipsis !important;
     overflow: hidden;
  }
@@ -7913,13 +7913,12 @@ li.form-group.content {
         font-size: 22px;
     }
 }
-.wrapper{
-    label{
-        width: 105px !important;
-        font-size: 17px !important;
-        padding-top:15px !important;
-        padding-bottom: 15px !important;
-    }
+.wrapper.main-int label {
+    width: 105px !important;
+    font-size: 18px !important;
+    padding: unset !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
 }
 	article {
 		width: 100%;

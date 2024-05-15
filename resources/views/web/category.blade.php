@@ -4,7 +4,7 @@
     <div class="container flex-iin">
     <div class="home-banner-content">
 <h1>The Perfect <br>Dry Fruits Store</h1>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci dolorum natus eaque pariatur maiores quas illum ex temporibus est perspiciatis. Quos nobis doloremque harum voluptate dignissimos quaerat excepturi accusamus ducimus!</p>
+
 
 <a href="/shop" class="slide-btn"> Shop Now</a>  
 </div>

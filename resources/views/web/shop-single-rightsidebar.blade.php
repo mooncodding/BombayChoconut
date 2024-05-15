@@ -197,13 +197,13 @@
                     </div>
                     <div class="wrapper main-int">
                         <input type="radio" name="tab" id="tab-1" checked>
-                        <label for="tab-1">Description</label>
+                        <label class="tabs" for="tab-1">Description</label>
                         {{-- <input type="radio" name="tab" id="tab-2">
                         <label for="tab-2">Item Size</label> --}}
                         <input type="radio" name="tab" id="tab-3">
-                        <label for="tab-3">More Info</label>
+                        <label class="tabs"  for="tab-3">More Info</label>
                         <input type="radio" name="tab" id="tab-4">
-                        <label for="tab-4">Faq</label>
+                        <label class="tabs"  for="tab-4">Faq</label>
 
 
                         <div class="content">

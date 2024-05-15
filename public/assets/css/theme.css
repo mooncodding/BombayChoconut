@@ -2901,8 +2901,29 @@ i.fa.fa-angle-down.arrow-d {
      .cart-popup {
          width: 280px;
          right: auto;
-         left: 0;
+         left: -145px;
      }
+     .msg-7044554406809888046 .m_-7044554406809888046box{
+        width: unset !important;
+     }
+     button.text-right.font16.mbl_btn_checkout.btn.bg-primary.rounded.font-weight-bold.float-right.btn-checkout.text-uppercase.py-md-3.hvr-float-shadow {
+        width: 100% !important;
+    }
+    form#checkout_form .col-12.col-xl-12.col-lg-12.col-md-12.col-sm-12.col-xs-6.px-0 {
+        width: 100% !important;
+    }
+    
+    p.bg-primary.text-uppercase.p-2.get_nav.font-weight-semi-bold {
+        text-align: center;
+    }
+    a.slide-btn {
+        width: 100% !important;
+        margin-bottom: 10px !important;
+    }
+     .accordion-item label {
+        width: 370px !important;
+    }
+     
      .product-content.block-inline h3 {
         font-size: 25px;
     }
@@ -7275,7 +7296,9 @@ body {
   transform: translate(-25px, 25px);
   opacity: 0.5;
 }
-
+label.tabs {
+    width: 105px !important;
+}
 .tab-group--5 .extra-4 {
   width: 10vh;
   height: 40vh;
@@ -7912,14 +7935,23 @@ li.form-group.content {
     .accordion h1 {
         font-size: 22px;
     }
-}
-.wrapper.main-int label {
-    width: 105px !important;
-    font-size: 18px !important;
+    
+    label {
+        font-size: 18px !important;
+        padding: unset !important;
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+    }
+    .accordion {
     padding: unset !important;
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
 }
+
+article.tab-4 {
+    padding-left: 5px !important;
+    padding-right: 10px !important;
+}
+}
+
 	article {
 		width: 100%;
 		padding: 70px 50px;

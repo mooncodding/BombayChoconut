@@ -5,7 +5,6 @@ use App\Http\Controllers\API\CityController;
 use App\Http\Controllers\API\DashboardController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\UserAuthController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\RoleController;
 use App\Http\Controllers\API\PermissionController;
@@ -20,7 +19,6 @@ use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\OrderStatusController;
 use App\Http\Controllers\API\ProductFlavourController;
 use App\Http\Controllers\API\ReportController;
-use App\Models\OrderStatus;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,19 +30,7 @@ use App\Models\OrderStatus;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-//***********************************************************************************
-//****************************Forgot Password Routes*********************************
-//***********************************************************************************
-Route::post('/verify/code', [UserAuthController::class, 'verifyCode']);
-Route::post('/forgot/password', [UserAuthController::class, 'sendPasswordResetToken']);
-Route::post('/reset/password', [UserAuthController::class, 'resetPassword']);
-//***********************************************************************************
-//**********************Application login and register routes************************
-//***********************************************************************************
-// Public Auth Routes
-Route::post('/customerRegister', [UserAuthController::class, 'customerRegister']);
-Route::post('/updateProfile', [UserAuthController::class, 'updateProfile']);
-Route::post('/login', [UserAuthController::class, 'login']);
+
 //***********************************************************************************
 //***************************General Controller Routes*******************************
 //***********************************************************************************
@@ -77,7 +63,6 @@ Route::get('/getAllOrderStatus', [GeneralController::class, 'getAllOrderStatus']
 // Get Product By Id
 Route::get('/getProductById/{id}', [GeneralController::class, 'getProductById']);
 
-// Route::get('/orders', [OrderController::class, 'index']);
 
 // All Sanctum Routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
@@ -105,11 +90,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     
     //Delete Order Detail
     Route::delete('/removeOrderDetail/{id}', [OrderController::class, 'removeOrderDetail']);
-    Route::post('/storeOrder', [OrderController::class, 'storeOrder']);
-    //Delete product discount
-    // Route::delete('/deleteProductDiscount/{id}', [CampaignController::class, 'deleteProductDiscount']);
-    // Import Excel File
-    Route::post('/import',[ProductController::class,'import']);
     //***********************************************************************************
     //***************************** Dashboard Screen Routes *****************************
     //***********************************************************************************

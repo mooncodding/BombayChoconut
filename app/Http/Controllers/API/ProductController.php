@@ -343,16 +343,4 @@ class ProductController extends Controller
         $data->delete();
         return response()->json("Record deleted successfully", 200);
     }
-    // Product views
-    public function import(Request $request)
-    {
-        $this->validate($request,[
-            "excel_file"=>"required|mimes:xls,xlsx",
-        ]);
-        
-        Excel::import(new ImportProduct,
-        $request->file('excel_file')->store('files'));
-
-        return response()->json('Record Updated Successfully'); 
-    }
 }

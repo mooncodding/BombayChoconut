@@ -38,10 +38,6 @@
                         <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 "><b>Dashboard</b></b></a>
                     @else
                         <a href="{{ route('login') }}" class="text-large text-gray-700 "><b>Login</b></a>
-
-                         {{-- @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="text-large text-gray-700 ">| <b>S'inscrire</b></a>
-                        @endif --}}
                     @endauth
                 </div>
             @endif

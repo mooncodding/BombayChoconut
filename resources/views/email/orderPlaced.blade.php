@@ -135,7 +135,7 @@
                 <hr>
                 <p>You will receive an email at the next status update.</p>
                 <p><b>Greetings,<br>
-                Bombay Choconuts Team</b></p>
+                Bombay Choc n nuts Team</b></p>
            </div>
         </div>
     </div>       
